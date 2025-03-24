@@ -1,0 +1,13 @@
+{
+  "recipe_request": [
+    {
+      "module": {
+        "blockId": 0,
+        "index": 2,
+        "category": "MC"
+      },
+      "request_node_path": "/Equipment/0_2_MC/Control/Recipe",
+      "recipe_node_path": "/Equipment/0_2_MC/Control/Recipe"
+    }
+  ]
+}

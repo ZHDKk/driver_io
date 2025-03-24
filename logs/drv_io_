@@ -1,0 +1,89 @@
+2025-03-24 10:06:02,851 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-24 10:06:02,852 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-24 10:06:02,852 - drv_io - INFO - Configuration setting is no load.
+2025-03-24 10:06:02,853 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-24 10:06:02,973 - drv_io - INFO - Load EFEM variable list, True.
+2025-03-24 10:06:02,973 - drv_io - INFO - --Module is 3, Variable is 2650,Reading Block is 17.
+2025-03-24 10:06:02,974 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-24 10:06:03,103 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-24 10:06:03,103 - drv_io - INFO - --Module is 2, Variable is 2898,Reading Block is 13.
+2025-03-24 10:06:03,104 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-03-24 10:06:03,359 - drv_io - INFO - Load Robot variable list, True.
+2025-03-24 10:06:03,359 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-03-24 10:06:03,360 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-24 10:06:03,638 - drv_io - INFO - Load COT_DEV variable list, True.
+2025-03-24 10:06:03,638 - drv_io - INFO - --Module is 6, Variable is 3604,Reading Block is 37.
+2025-03-24 10:06:03,639 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-24 10:06:03,685 - drv_io - INFO - Load Chemical variable list, True.
+2025-03-24 10:06:03,685 - drv_io - INFO - --Module is 4, Variable is 1166,Reading Block is 20.
+2025-03-24 10:06:03,685 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-24 10:06:04,054 - drv_io - INFO - Load OVEN variable list, True.
+2025-03-24 10:06:04,054 - drv_io - INFO - --Module is 9, Variable is 6824,Reading Block is 63.
+2025-03-24 10:06:04,054 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-24 10:06:04,169 - drv_io - INFO - Load Utility variable list, True.
+2025-03-24 10:06:04,170 - drv_io - INFO - --Module is 5, Variable is 1051,Reading Block is 23.
+2025-03-24 10:06:12,545 - drv_io - INFO - Connect Robot, True.
+2025-03-24 10:06:12,546 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:06:12,587 - drv_io - INFO - Connect Utility, True.
+2025-03-24 10:06:12,587 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:06:12,659 - drv_io - INFO - Connect Equipment, True.
+2025-03-24 10:06:12,659 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:06:12,740 - drv_io - INFO - Connect EFEM, True.
+2025-03-24 10:06:12,740 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:06:20,765 - drv_io - INFO - Connect Chemical, True.
+2025-03-24 10:06:20,765 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:06:20,827 - drv_io - INFO - Connect COT_DEV, True.
+2025-03-24 10:06:20,827 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:06:20,876 - drv_io - INFO - Connect OVEN, True.
+2025-03-24 10:06:20,876 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:06:24,971 - drv_io - ERROR - Connection error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-03-24 10:06:24,971 - drv_io - INFO - MQTT id:python-mqtt-sub-995, url:localhost:1883.
+2025-03-24 10:06:24,971 - drv_io - INFO - MQTT subscription is False
+2025-03-24 10:06:25,005 - drv_io - INFO - Request Config file loaded - done.
+2025-03-24 10:06:44,727 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-03-24 10:06:44,753 - drv_io - INFO - Unlink to opc.tcp://192.168.20.50:4840:False
+2025-03-24 10:06:44,760 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-03-24 10:06:44,768 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-03-24 10:06:44,806 - drv_io - INFO - Unlink to opc.tcp://192.168.20.50:4840:False
+2025-03-24 10:45:36,255 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-24 10:45:36,256 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-24 10:45:36,256 - drv_io - INFO - Configuration setting is no load.
+2025-03-24 10:45:36,256 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-24 10:45:36,377 - drv_io - INFO - Load EFEM variable list, True.
+2025-03-24 10:45:36,377 - drv_io - INFO - --Module is 3, Variable is 2650,Reading Block is 17.
+2025-03-24 10:45:36,377 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-24 10:45:36,464 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-24 10:45:36,464 - drv_io - INFO - --Module is 2, Variable is 2898,Reading Block is 13.
+2025-03-24 10:45:36,465 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-03-24 10:45:36,694 - drv_io - INFO - Load Robot variable list, True.
+2025-03-24 10:45:36,695 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-03-24 10:45:36,695 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-24 10:45:36,804 - drv_io - INFO - Load COT_DEV variable list, True.
+2025-03-24 10:45:36,804 - drv_io - INFO - --Module is 6, Variable is 3604,Reading Block is 37.
+2025-03-24 10:45:36,805 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-24 10:45:36,850 - drv_io - INFO - Load Chemical variable list, True.
+2025-03-24 10:45:36,850 - drv_io - INFO - --Module is 4, Variable is 1166,Reading Block is 20.
+2025-03-24 10:45:36,850 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-24 10:45:37,074 - drv_io - INFO - Load OVEN variable list, True.
+2025-03-24 10:45:37,074 - drv_io - INFO - --Module is 9, Variable is 6824,Reading Block is 63.
+2025-03-24 10:45:37,074 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-24 10:45:37,125 - drv_io - INFO - Load Utility variable list, True.
+2025-03-24 10:45:37,125 - drv_io - INFO - --Module is 5, Variable is 1051,Reading Block is 23.
+2025-03-24 10:45:44,831 - drv_io - INFO - Connect Utility, True.
+2025-03-24 10:45:44,831 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:45:45,364 - drv_io - INFO - Connect EFEM, True.
+2025-03-24 10:45:45,365 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:45:45,442 - drv_io - INFO - Connect Robot, True.
+2025-03-24 10:45:45,442 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:45:45,538 - drv_io - INFO - Connect Equipment, True.
+2025-03-24 10:45:45,538 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:45:53,707 - drv_io - INFO - Connect COT_DEV, True.
+2025-03-24 10:45:53,707 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:45:53,755 - drv_io - INFO - Connect OVEN, True.
+2025-03-24 10:45:53,755 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:45:53,799 - drv_io - INFO - Connect Chemical, True.
+2025-03-24 10:45:53,800 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-24 10:45:57,933 - drv_io - ERROR - Connection error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-03-24 10:45:57,933 - drv_io - INFO - MQTT id:python-mqtt-sub-613, url:localhost:1883.
+2025-03-24 10:45:57,933 - drv_io - INFO - MQTT subscription is False
+2025-03-24 10:45:57,949 - drv_io - INFO - Request Config file loaded - done.

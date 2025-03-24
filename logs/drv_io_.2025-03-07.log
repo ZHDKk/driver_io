@@ -1,0 +1,319 @@
+2025-03-07 12:08:41,682 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-07 12:08:41,684 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:08:41,684 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:08:41,684 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-07 12:08:41,684 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:08:41,684 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-07 12:08:41,860 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-07 12:08:41,860 - drv_io - INFO - --Module is 1, Variable is 2017,Reading Block is 7.
+2025-03-07 12:08:41,862 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-03-07 12:08:41,862 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:08:41,862 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:08:41,862 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:08:41,862 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-07 12:08:41,862 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:08:41,862 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-07 12:08:41,862 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:08:41,863 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-07 12:08:41,863 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:08:44,315 - drv_io - INFO - Connect Equipment, True.
+2025-03-07 12:08:44,315 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:08:46,382 - drv_io - INFO - MQTT id:python-mqtt-sub-583, url:localhost:1883.
+2025-03-07 12:08:46,382 - drv_io - INFO - MQTT subscription is False
+2025-03-07 12:08:46,382 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-03-07 12:08:46,383 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-03-07 12:08:46,383 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-03-07 12:08:46,383 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-03-07 12:08:46,383 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-03-07 12:08:46,384 - drv_io - INFO - Request Config file loaded - done.
+2025-03-07 12:08:52,767 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:08:52,767 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1501ms.
+2025-03-07 12:08:54,304 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:08:54,304 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1522ms.
+2025-03-07 12:08:55,809 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:08:55,809 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1490ms.
+2025-03-07 12:08:57,319 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:08:57,319 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1495ms.
+2025-03-07 12:08:57,336 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:08:57,336 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 2ms.
+2025-03-07 12:08:58,136 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:08:58,136 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 0ms.
+2025-03-07 12:08:58,940 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-03-07 12:08:58,941 - drv_io - WARNING - unlink opcua opc.tcp://192.168.20.1:4840 False
+2025-03-07 12:09:01,553 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:01,553 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:01,553 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:03,641 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:03,641 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:03,641 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:05,743 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:05,743 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:05,743 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:07,808 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:07,808 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:07,808 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:09,867 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:09,867 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:09,867 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:12,010 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:12,010 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:12,010 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:14,163 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:14,163 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:14,163 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:16,258 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:16,258 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:16,258 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:18,334 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:09:18,334 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:09:18,334 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:09:20,793 - drv_io - INFO - Connect Equipment, True.
+2025-03-07 12:09:20,793 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:10:41,446 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-03-07 12:16:49,468 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-07 12:16:49,468 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:16:49,468 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:16:49,469 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-07 12:16:49,469 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:16:49,469 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-07 12:16:49,643 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-07 12:16:49,643 - drv_io - INFO - --Module is 1, Variable is 2017,Reading Block is 7.
+2025-03-07 12:16:49,644 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-03-07 12:16:49,644 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:16:49,644 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:16:49,644 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:16:49,644 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-07 12:16:49,644 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:16:49,644 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-07 12:16:49,644 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:16:49,645 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-07 12:16:49,645 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:16:49,645 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:49,645 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:49,645 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:51,710 - drv_io - INFO - MQTT id:python-mqtt-sub-610, url:localhost:1883.
+2025-03-07 12:16:51,710 - drv_io - INFO - MQTT subscription is False
+2025-03-07 12:16:51,711 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-03-07 12:16:51,711 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-03-07 12:16:51,712 - drv_io - INFO - Request Config file loaded - done.
+2025-03-07 12:16:51,715 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-03-07 12:16:51,715 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-03-07 12:16:51,715 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-03-07 12:16:51,716 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:51,716 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:51,716 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:52,736 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:52,736 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:52,736 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:53,735 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:53,735 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:53,735 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:54,757 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:54,757 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:54,757 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:55,755 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:55,755 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:55,755 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:56,754 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:56,754 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:56,754 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:57,750 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:57,750 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:57,750 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:58,773 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:58,773 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:58,773 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:16:59,772 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:16:59,772 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:16:59,772 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:00,764 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:00,764 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:00,764 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:01,764 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:01,765 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:01,765 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:02,790 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:02,790 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:02,790 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:06,232 - drv_io - INFO - Connect Equipment, True.
+2025-03-07 12:17:06,232 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:22,410 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:17:22,410 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1496ms.
+2025-03-07 12:17:23,930 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:17:23,930 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1504ms.
+2025-03-07 12:17:25,453 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:17:25,453 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1507ms.
+2025-03-07 12:17:26,969 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:17:26,969 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1500ms.
+2025-03-07 12:17:28,487 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:17:28,487 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1502ms.
+2025-03-07 12:17:29,983 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Control"'], timeout is 1.5.
+2025-03-07 12:17:29,983 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1480ms.
+2025-03-07 12:17:34,998 - drv_io - WARNING - Failure to unlink to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:34,998 - drv_io - WARNING - unlink opcua opc.tcp://192.168.20.1:4840 False
+2025-03-07 12:17:35,380 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:35,381 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:35,381 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:36,389 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:36,390 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:36,390 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:37,400 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:37,400 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:37,400 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:38,387 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:38,388 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:38,388 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:39,399 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:39,400 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:39,400 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:40,409 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:40,410 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:40,410 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:41,407 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:41,407 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:41,408 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:42,420 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:42,421 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:42,421 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:43,434 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:43,434 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:43,434 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:44,439 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:44,439 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:44,439 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:45,452 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:45,452 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:45,452 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:46,456 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:46,456 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:46,456 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:47,456 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:47,457 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:47,457 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:48,461 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:48,462 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:48,462 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:49,457 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:49,457 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:49,457 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:50,475 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:50,475 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:50,475 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:51,489 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:51,489 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:51,489 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:52,506 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:52,506 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:52,506 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:53,503 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:53,504 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:53,504 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:54,510 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:54,510 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:54,510 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:55,511 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:55,511 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:55,511 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:56,541 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:56,542 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:56,542 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:57,558 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:57,558 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:57,558 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:58,570 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:58,570 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:58,570 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:17:59,574 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:17:59,575 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:17:59,575 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:18:00,583 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:18:00,584 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:18:00,584 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:18:01,593 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:18:01,593 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:18:01,593 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:26:31,385 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-07 12:26:31,385 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:26:31,385 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:31,386 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-07 12:26:31,386 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:31,386 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-07 12:26:31,572 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-07 12:26:31,572 - drv_io - INFO - --Module is 1, Variable is 2017,Reading Block is 7.
+2025-03-07 12:26:31,573 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-03-07 12:26:31,573 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:31,573 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:26:31,573 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:31,573 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-07 12:26:31,573 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:31,573 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-07 12:26:31,573 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:31,573 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-07 12:26:31,573 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:33,650 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:26:33,650 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:26:33,650 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:26:41,193 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-07 12:26:41,194 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:26:41,195 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:41,195 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-07 12:26:41,195 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:41,196 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-07 12:26:42,187 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-07 12:26:42,188 - drv_io - INFO - --Module is 1, Variable is 2017,Reading Block is 7.
+2025-03-07 12:26:42,188 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-03-07 12:26:42,188 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:42,189 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:26:42,189 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:42,190 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-07 12:26:42,190 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:42,190 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-07 12:26:42,190 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:42,190 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-07 12:26:42,191 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:26:44,358 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:26:44,358 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:26:44,358 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:27:54,569 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-07 12:27:54,570 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:27:54,570 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:27:54,571 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-07 12:27:54,571 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:27:54,571 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-07 12:27:55,543 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-07 12:27:55,543 - drv_io - INFO - --Module is 1, Variable is 2017,Reading Block is 7.
+2025-03-07 12:27:55,544 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-03-07 12:27:55,544 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:27:55,545 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:27:55,545 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:27:55,545 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-07 12:27:55,545 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:27:55,545 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-07 12:27:55,546 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:27:55,546 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-07 12:27:55,546 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:27:56,518 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:27:56,519 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:27:56,519 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:29:01,786 - drv_io - INFO - Driver Config file loaded - done.
+2025-03-07 12:29:01,787 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:29:01,787 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:29:01,787 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-03-07 12:29:01,787 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:29:01,788 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-03-07 12:29:02,745 - drv_io - INFO - Load Equipment variable list, True.
+2025-03-07 12:29:02,745 - drv_io - INFO - --Module is 1, Variable is 2017,Reading Block is 7.
+2025-03-07 12:29:02,745 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-03-07 12:29:02,746 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:29:02,746 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-03-07 12:29:02,746 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:29:02,747 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-03-07 12:29:02,747 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:29:02,747 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-03-07 12:29:02,747 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:29:02,748 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-03-07 12:29:02,748 - drv_io - INFO - Configuration setting is no load.
+2025-03-07 12:29:04,222 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-03-07 12:29:04,222 - drv_io - INFO - Connect Equipment, False.
+2025-03-07 12:29:04,222 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-03-07 12:29:04,224 - drv_io - INFO - 程序被用户中断，正在清理资源并退出...

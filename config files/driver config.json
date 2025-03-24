@@ -1,0 +1,302 @@
+{
+    "Alarm": {},
+    "Basic": {
+        "name": "Driver",
+        "version": 0
+    },
+    "Control": {},
+    "Status": {},
+    "Parameter": {},
+    "Other": {},
+    "Opcua": {
+        "PRA": {
+            "Alarm": {},
+            "Basic": {
+                "name": "PRA",
+                "uri": "opc.tcp://192.168.20.1:4840",
+                "main_node": "ns=3;s=DataBlocksGlobal",
+                "link": "opcua",
+                "timeout": 5,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": false,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        },
+        "EFEM": {
+            "Alarm": {},
+            "Basic": {
+                "name": "EFEM",
+                "uri": "opc.tcp://192.168.20.1:4840",
+                "main_node": "ns=3;s=\"EFEM\"",
+                "link": "opcua",
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": true,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        },
+        "Equipment": {
+            "Alarm": {},
+            "Basic": {
+                "name": "Equipment",
+                "uri": "opc.tcp://192.168.20.1:4840",
+                "main_node": "ns=3;s=\"Equipment\"",
+                "link": "opcua",
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": true,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        },
+        "Robot": {
+            "Alarm": {},
+            "Basic": {
+                "name": "Robot",
+                "uri": "opc.tcp://192.168.20.1:4840",
+                "main_node": "ns=3;s=\"PRA\"",
+                "link": "opcua",
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": true,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        },
+        "COT_DEV": {
+            "Alarm": {},
+            "Basic": {
+                "name": "COT_DEV",
+                "uri": "opc.tcp://192.168.20.50:4840",
+                "main_node": "ns=3;s=DataBlocksGlobal",
+                "link": "opcua",
+                "timeout": 5,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": true,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        },
+        "Chemical": {
+            "Alarm": {},
+            "Basic": {
+                "name": "Chemical",
+                "uri": "opc.tcp://192.168.20.50:4840",
+                "main_node": "ns=3;s=\"Chemical\"",
+                "link": "opcua",
+                "timeout": 5,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": true,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        },
+        "OVEN": {
+            "Alarm": {},
+            "Basic": {
+                "name": "OVEN",
+                "uri": "opc.tcp://192.168.20.50:4840",
+                "main_node": "ns=3;s=\"OVEN\"",
+                "link": "opcua",
+                "timeout": 5,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": true,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        },
+        "Utility": {
+            "Alarm": {},
+            "Basic": {
+                "name": "Utility",
+                "uri": "opc.tcp://192.168.20.50:4840",
+                "main_node": "ns=3;s=\"Utility\"",
+                "link": "opcua",
+                "timeout": 5,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": true,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {},
+            "Other": {}
+        }
+    },
+    "Mqtt": {
+        "Alarm": {},
+        "Basic": {
+            "name": "mqtt0",
+            "url": "localhost",
+            "port": 1883,
+            "keepalive": 60
+        },
+        "Control": {},
+        "Status": {},
+        "Parameter": {
+            "sub_gui_msg": "/mqtt/gui/msg/+",
+            "sub_gui_cmd": "/mqtt/gui/cmd/+",
+            "sub_server_cmd": "/mqtt/server/cmd/+",
+            "sub_server_msg": "/mqtt/server/msg/+",
+            "sub_general_cmd": "/mqtt/general/cmd/+",
+            "pub_drv_data": "/mqtt/drv/data",
+            "pub_modules_status": "/mqtt/modules/status",
+            "pub_drv_msg": "/mqtt/drv/msg"
+        },
+        "Other": {}
+    },
+    "Server": {
+        "Alarm": {},
+        "Basic": {
+            "name": "server",
+            "recipe_req_url": "http://localhost:13871/api/upper/recipe/info/drive/format"
+        },
+        "Control": {},
+        "Status": {},
+        "Parameter": {},
+        "Other": {}
+    }
+}
