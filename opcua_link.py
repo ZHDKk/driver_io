@@ -413,12 +413,12 @@ class opcua_linker(object):
                 message_prefix = f"{get_current_time()} 第{batch_num}/{total_batches}批次，总数量：{self.write_variable_count}"
 
             if not write_state_fail_docs:
-                success_message = f"{message_prefix} 通过OPCUA写入成功，耗时 {write_time}ms"
+                success_message = f"{message_prefix} 通过OPCUA写入成功，耗时 {write_time}ms, {self.uri}"
                 print(success_message)
                 log.info(success_message)
                 return True
             else:
-                fail_message = f"{message_prefix} ，结果：{write_state_fail_docs}无法通过OPCUA写入"
+                fail_message = f"{message_prefix} ，结果：{write_state_fail_docs}无法通过OPCUA写入, {self.uri}"
                 log.warning(fail_message)
                 return False
 
