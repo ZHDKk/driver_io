@@ -451,7 +451,7 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
                               'datatype': recipe_valid_info["DataType"],
                               'value': True}], 1.5):  # 先把模组的Recipe_Valid’为True
                         # rv_m2o_list.append(recipe_valid_info)  # 如果写入成功则把当前模组recipe_valid放入list中进行临时保存
-                        rv_m2o_list.append({f'{re_module["blockId"]}_{re_module["index"]}_{re_module["category"]}': recipe_valid_info})  # 如果写入成功则把当前模组recipe_valid放入list中进行临时保存
+                        rv_m2o_list.append({current_dev: recipe_valid_info})  # 如果写入成功则把当前模组recipe_valid放入list中进行临时保存
                     else:
                         # 检测如果一个模组的recipe_valid写入失败，则直接终止所有操作
                         msg = (
@@ -487,8 +487,8 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
             if re['Device'].connecting:
                 tasks.append(re['Device'].linker.write_multi_variables(re['M2O_list'], 8))
 
-        results = await asyncio.gather(*tasks)
-        all_success = all(results)
+        recipe_write_states = await asyncio.gather(*tasks)
+        all_success = all(recipe_write_states)
         # check all recipe write success or not
         if all_success:
             # 开始给所有模组的Recipe_Valid 写False 操作
@@ -513,14 +513,14 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
 
 async def write_all_rv_false(rv_m2o_list, dev, req):
     for rv_m2o in rv_m2o_list:
-        for key, value in rv_m2o.items():
-            if not await dev['Device'].linker.write_multi_variables(
+        for current_dev, value in rv_m2o.items():
+            if not await current_dev.linker.write_multi_variables(
                     [{'node_id': value["NodeID"],
                       'datatype': value["DataType"],
                       'value': False}], 1.5):  # 先把模组的Recipe_Valid’为False
                 # 检测如果一个模组的recipe_valid写入失败，则直接终止所有操作
                 msg = (
-                    f'{key}模组recipe_valid置为False写入失败，终止操作')
+                    f'{current_dev} recipe_valid置为False写入失败，终止操作')
                 print(f'{get_current_time()}: {msg}')
                 log.warning(msg)
                 await return_request_state(dev, req, 1005)

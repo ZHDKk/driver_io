@@ -444,9 +444,9 @@ class opcua_linker(object):
             return await self.write_variables(variables, timeout, batch_num, total_batches)
         else:
             if self.write_variable_count < 5:
-                log.warning(f"最终失败：无法通过 OPC UA 写入 {variables},{self.uri}")
+                log.warning(f"最终失败：无法通过 OPC UA 写入 {variables},{self.uri},请把批次数量减少再次尝试")
             else:
-                log.warning(f"最终失败：无法通过 OPC UA 写入 {len(variables)},{self.uri}")
+                log.warning(f"最终失败：无法通过 OPC UA 写入 {len(variables)},{self.uri},请把批次数量减少再次尝试")
             return False
 
     # async def write_variables(self, variables, timeout, batch_num, total_batches):
