@@ -91,7 +91,7 @@ Opcua_COT_DEV_Basic_main_node,ns=3;s=DataBlocksGlobal,string,0,0
 Opcua_COT_DEV_Basic_link,opcua,string,0,0
 Opcua_COT_DEV_Basic_timeout,5,int,0,0
 Opcua_COT_DEV_Basic_watchdog_interval,5,int,0,0
-Opcua_COT_DEV_Control_Load,True,bool,0,0
+Opcua_COT_DEV_Control_Load,False,bool,0,0
 Opcua_COT_DEV_Control_Link,True,bool,0,0
 Opcua_COT_DEV_Control_Read,True,bool,0,0
 Opcua_COT_DEV_Control_Write,True,bool,0,0
@@ -112,7 +112,7 @@ Opcua_Chemical_Basic_main_node,"ns=3;s=""Chemical""",string,0,0
 Opcua_Chemical_Basic_link,opcua,string,0,0
 Opcua_Chemical_Basic_timeout,5,int,0,0
 Opcua_Chemical_Basic_watchdog_interval,5,int,0,0
-Opcua_Chemical_Control_Load,True,bool,0,0
+Opcua_Chemical_Control_Load,False,bool,0,0
 Opcua_Chemical_Control_Link,True,bool,0,0
 Opcua_Chemical_Control_Read,True,bool,0,0
 Opcua_Chemical_Control_Write,True,bool,0,0
@@ -133,7 +133,7 @@ Opcua_OVEN_Basic_main_node,"ns=3;s=""OVEN""",string,0,0
 Opcua_OVEN_Basic_link,opcua,string,0,0
 Opcua_OVEN_Basic_timeout,5,int,0,0
 Opcua_OVEN_Basic_watchdog_interval,5,int,0,0
-Opcua_OVEN_Control_Load,True,bool,0,0
+Opcua_OVEN_Control_Load,False,bool,0,0
 Opcua_OVEN_Control_Link,True,bool,0,0
 Opcua_OVEN_Control_Read,True,bool,0,0
 Opcua_OVEN_Control_Write,True,bool,0,0
@@ -154,7 +154,7 @@ Opcua_Utility_Basic_main_node,"ns=3;s=""Utility""",string,0,0
 Opcua_Utility_Basic_link,opcua,string,0,0
 Opcua_Utility_Basic_timeout,5,int,0,0
 Opcua_Utility_Basic_watchdog_interval,5,int,0,0
-Opcua_Utility_Control_Load,True,bool,0,0
+Opcua_Utility_Control_Load,False,bool,0,0
 Opcua_Utility_Control_Link,True,bool,0,0
 Opcua_Utility_Control_Read,True,bool,0,0
 Opcua_Utility_Control_Write,True,bool,0,0

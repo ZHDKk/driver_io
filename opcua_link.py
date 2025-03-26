@@ -427,26 +427,26 @@ class opcua_linker(object):
                 message_prefix = f"第{batch_num}/{total_batches}批次，变量：{variables}"
             else:
                 message_prefix = f"第{batch_num}/{total_batches}批次，总数量：{self.write_variable_count}"
-            log.warning(f"{message_prefix}，写入{timeout}s超时")
+            log.warning(f"{message_prefix}，写入{timeout}s超时,{self.uri}")
         except Exception as e:
             if self.write_variable_count < 5:
                 message_prefix = f"第{batch_num}/{total_batches}批次，变量：{variables}"
             else:
                 message_prefix = f"第{batch_num}/{total_batches}批次，总数量：{self.write_variable_count}"
-            log.warning(f"{message_prefix}，写入失败：{variables}，错误信息：{e}")
+            log.warning(f"{message_prefix}，写入失败：{variables}，错误信息：{e},{self.uri}")
 
         # 失败重试逻辑
         if self.retry_write < self.retry_write_max:
             self.retry_write += 1
-            retry_message = f"{get_current_time()} 第{batch_num}/{total_batches}批次，尝试第{self.retry_write}次重写"
+            retry_message = f"{get_current_time()} 第{batch_num}/{total_batches}批次，尝试第{self.retry_write}次重写,{self.uri}"
             print(retry_message)
             log.info(retry_message)
             return await self.write_variables(variables, timeout, batch_num, total_batches)
         else:
             if self.write_variable_count < 5:
-                log.warning(f"最终失败：无法通过 OPC UA 写入 {variables}")
+                log.warning(f"最终失败：无法通过 OPC UA 写入 {variables},{self.uri}")
             else:
-                log.warning(f"最终失败：无法通过 OPC UA 写入 {len(variables)}")
+                log.warning(f"最终失败：无法通过 OPC UA 写入 {len(variables)},{self.uri}")
             return False
 
     # async def write_variables(self, variables, timeout, batch_num, total_batches):

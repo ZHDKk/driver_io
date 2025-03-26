@@ -63,7 +63,7 @@
           "index": 8,
           "category": "CADH"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -73,7 +73,7 @@
           "index": 9,
           "category": "CADH"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -83,7 +83,7 @@
           "index": 10,
           "category": "CHCH"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -93,7 +93,7 @@
           "index": 11,
           "category": "CLHP"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -103,7 +103,7 @@
           "index": 12,
           "category": "CHHP"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -113,7 +113,7 @@
           "index": 13,
           "category": "CHHP"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -123,7 +123,7 @@
           "index": 14,
           "category": "CLHP"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -133,7 +133,7 @@
           "index": 15,
           "category": "CLHP"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       },
@@ -143,7 +143,17 @@
           "index": 16,
           "category": "CLHP"
         },
-        "recipe_writable_path": "Others_Recipe_Writable",
+        "recipe_writable_path": "Other_Reicpe_Writable",
+        "recipe_valid_code": "Other_Reicpe_Valid",
+        "uri": "192.168.20.80"
+      },
+      {
+        "module": {
+          "blockId": 2,
+          "index": 6,
+          "category": "MCA"
+        },
+        "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
       }

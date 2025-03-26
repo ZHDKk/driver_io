@@ -23,6 +23,18 @@ async def return_request_state(dev, req, state):
     await dev.linker.write_multi_variables(M2O_list, 0.1)
 
 
+def find_dev_with_module(module, ua_device):
+    """
+        find device(PLC) with module, module{0_1_MC}-->device{MC}
+    """
+    # find opcua device with module information
+    for dev in ua_device:
+        for m in dev.module:
+            if m == module:  # match module blockID,index,category
+                return dev
+    return None
+
+
 # recipe 改为并发向模组下载数据
 async def request_recipe_handle_gather(dis, url, req, dev, module, write_recipe_id):
     """
@@ -361,7 +373,7 @@ async def request_recipe_handle(dis, url, req, dev, module, write_recipe_id):
             await return_request_state(dev, req, 1009)
 
 
-async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id):
+async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id, ua_device):
     """
     request recipe handle
     :param url: server url
@@ -417,15 +429,16 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
         rv_m2o_list = []
         for re_check in results:
             re_module = re_check['Module']
+            current_dev = find_dev_with_module(re_module, ua_device)
             key = (re_module["blockId"], re_module["index"], re_module["category"])
             # 检查模组当前是否支持写配方
             if match := dis.single_module_map.get(key):
                 writable_path = match['recipe_writable_path']
                 recipe_valid_code = match['recipe_valid_code']
-                recipe_valid_info = dev.code_to_node.get(code2format_str(re_module['blockId'], re_module['index'],
+                recipe_valid_info = current_dev.code_to_node.get(code2format_str(re_module['blockId'], re_module['index'],
                                                                          re_module['category'], recipe_valid_code))
-                if not dev.code_to_node.get(code2format_str(re_module['blockId'], re_module['index'],
-                                                                re_module['category'], writable_path))["value"]:  # 检查当前模组是否支持下载配方
+                if not current_dev.code_to_node.get(code2format_str(re_module['blockId'], re_module['index'],
+                                                            re_module['category'], writable_path))["value"]:   # 检查当前模组是否支持下载配方
                     msg = f'{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组当前不支持下载配方，终止操作'
                     print(f'{get_current_time()}: {msg}')
                     log.warning(msg)
