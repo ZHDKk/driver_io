@@ -94,18 +94,22 @@ def data_to_list(node, t2l, rtime, dev):
     value_dict = node.get('value')
     if value_dict:
         leaf_keys = extract_leaf_keys_with_path(value_dict)
-        for key in leaf_keys:
-            if key.startswith('_'):
-                child = dev.code_to_node.get(
-                    code2format_str(node['blockId'], node['index'], node['category'],
-                                    node['code']) + '_' + key[1:])
-                t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
-                            "arrLen": child["ArrayDimensions"], "time": rtime})
-            else:
-                child = dev.code_to_node.get(
-                    code2format_str(node['blockId'], node['index'], node['category'], node['code']) + '_' + key)
-                t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
-                            "arrLen": child["ArrayDimensions"], "time": rtime})
+        if len(leaf_keys) == 0:
+            t2l.append({"code": node["code"], "value": value_dict, "dataType": node["DataTypeString"],
+                        "arrLen": node["ArrayDimensions"], "time": rtime})
+        else:
+            for key in leaf_keys:
+                if key.startswith('_'):
+                    child = dev.code_to_node.get(
+                        code2format_str(node['blockId'], node['index'], node['category'],
+                                        node['code']) + '_' + key[1:])
+                    t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
+                                "arrLen": child["ArrayDimensions"], "time": rtime})
+                else:
+                    child = dev.code_to_node.get(
+                        code2format_str(node['blockId'], node['index'], node['category'], node['code']) + '_' + key)
+                    t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
+                                "arrLen": child["ArrayDimensions"], "time": rtime})
 
 
 def extract_leaf_keys_with_path(dictionary, current_path=""):
