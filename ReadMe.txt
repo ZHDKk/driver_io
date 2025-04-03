@@ -79,5 +79,10 @@ sudo journalctl -u mrg_IOService.service -f  # 实时查看日志（等同于控
  --no-index：禁止从 PyPI 下载。
  --find-links=./packages：从本地目录查找依赖。
 
+ 六、远程桌面Raspbian（VNC）
+1、首先 ssh 连接登录树莓派，启动自带的配置程序：sudo raspi-config
+2、在弹出的配置窗口选择：Interface Options 回车  >>  选择VNC 回车 >> 选择 是 回车
+3、raspbian的账户密码默认都是：mrg、mrg123456
+
 
 
