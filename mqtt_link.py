@@ -106,11 +106,11 @@ class mqtt_linker(object):
         except:
             self.subscription_state = False
 
-    def publish(self, topic, msg):
+    def publish(self, topic, msg, qos = 0):
         """publish topic"""
         try:
             if topic != self.pub_drv_data and topic != self.pub_modules_status:
-                re = self.client.publish(topic, msg, 0)
+                re = self.client.publish(topic, msg, qos)
                 if re.rc == 0:
                     print(f"{get_current_time()} {topic}:{msg} 通过Mqtt发布:成功")
                     log.info(f"{topic}:{msg} 通过Mqtt发布:成功")

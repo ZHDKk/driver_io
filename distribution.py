@@ -281,7 +281,7 @@ class distribution_server(object):
         # if self.mqtt.connecting is True and result['list']:
         result.update({'success': True, 'message': 'OK'})
         mqtt_frame = json_from_list(result)
-        self.mqtt.publish(topic + '/reply', mqtt_frame)
+        self.mqtt.publish(topic + '/reply', mqtt_frame, 2)
         log.info(f'MQTT Read {len(code_list)} nodes {code_list}, return {len(result["list"])} variables.')
 
     async def mqtt_cmd_write(self, frame_id, data, topic):

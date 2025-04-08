@@ -3,16 +3,21 @@
 2、安装和更新Python：sudo apt-get update   或者  sudo apt-get install python3.11.2
 3、查看python路径：which python
 
-二、程序传输：U盘
+二、程序传输：U盘/WinSCP
 1、放到：/home/mrg/Documents
-2、配置程序运行库，打开终端输入依次指令:
+2、配置解释器
+    使用ThonnyIDE，点击Run/运行，选中Select interpreter/配置解释器
+3、配置程序运行库，打开终端输入依次指令:
 	修改可以安装库的环境：
 	sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.bk
 	
 	配置镜像
+	Unix:
 	export PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 	source ~/.bashrc
-	
+	Windows:
+    pip install --upgrade pip
+    pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 	程序运行需要用到的库
 	sudo pip install pandas==2.2.3
 	sudo pip install ua==0.1.5
@@ -83,6 +88,15 @@ sudo journalctl -u mrg_IOService.service -f  # 实时查看日志（等同于控
 1、首先 ssh 连接登录树莓派，启动自带的配置程序：sudo raspi-config
 2、在弹出的配置窗口选择：Interface Options 回车  >>  选择VNC 回车 >> 选择 是 回车
 3、raspbian的账户密码默认都是：mrg、mrg123456
+
+七、Windows和Linux之间互传文件，使用WinSCP
+1、首先在windows上安装WinSCP软件：https://winscp.net/download/WinSCP-6.5-Setup.exe/download
+2、在Linux系统中安装ssh服务：sudo apt install openssh-server
+3、将两台电脑链接到同一局域网
+4、打开WinSCP，新建会话
+
+八、忘记EMQX Dashboard密码：
+C:\emqx\bin\emqx ctl admins passwd admin mrg123456
 
 
 

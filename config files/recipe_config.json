@@ -146,16 +146,6 @@
         "recipe_writable_path": "Other_Reicpe_Writable",
         "recipe_valid_code": "Other_Reicpe_Valid",
         "uri": "192.168.20.80"
-      },
-      {
-        "module": {
-          "blockId": 2,
-          "index": 6,
-          "category": "MCA"
-        },
-        "recipe_writable_path": "Other_Reicpe_Writable",
-        "recipe_valid_code": "Other_Reicpe_Valid",
-        "uri": "192.168.20.80"
       }
     ]
   }
