@@ -666,20 +666,21 @@ class distribution_server(object):
 
     async def mqtt_handler(self):
         """
-        mqtt data handler
+        MQTT 数据处理器
         """
-        # start mqtt task
         try:
-            if not self.mqtt.mq.empty():
-                item = await self.mqtt.mq.get()
-                # print(f'MQTT receive {item}')
-                # self.mqtt.mq.task_done()
+            item = await self.mqtt.mq.get()
+            try:
                 await self.mqtt_parse(item['topic'], item['data'])
-        except Exception as e:
-            log.warning(f"mqtt_handler处理消息时发生错误：{e}")
-        finally:
-            if not self.mqtt.mq.empty():  # 确保队列中仍有任务时才调用 task_done
+            except Exception as e:
+                log.warning(f"处理MQTT消息时发生错误：{e}", exc_info=True)
+            finally:
                 self.mqtt.mq.task_done()
+        except asyncio.CancelledError:
+            log.warning("MQTT处理任务被取消")
+            raise
+        except Exception as e:
+            log.warning(f"MQTT处理过程中发生意外错误：{e}", exc_info=True)
 
 
     async def opcua_device_manage_task(self):
