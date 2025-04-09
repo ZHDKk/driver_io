@@ -1,3 +1,4 @@
+import asyncio
 import queue
 import random
 from datetime import datetime
@@ -33,7 +34,9 @@ class mqtt_linker(object):
         self.pub_drv_msg = topics['pub_drv_msg']
 
         # message queue for mqtt
-        self.mq = queue.Queue()  # message queue for mqtt
+        # self.mq = queue.Queue()  # message queue for mqtt
+        self.loop = asyncio.get_event_loop()  # 获取事件循环
+        self.mq = asyncio.Queue(maxsize=1000)  # 使用异步队列
 
         # mqtt state
         self.subscription_state = False
@@ -81,13 +84,27 @@ class mqtt_linker(object):
         except Exception as e:
             print(f"MQTT client disconnected and loop stopped error:{e}")
 
+    async def handle_cmd_msg(self, msg):
+        """
+            message_queue 生产者
+        """
+        if self.mq.full():
+            try:
+                self.mq.get_nowait()  # 丢弃旧消息
+            except asyncio.QueueEmpty:
+                pass
+        await self.mq.put({'topic': msg.topic, 'data': msg.payload.decode()})
+
     def subscribe(self, topic):
         """subscription topic"""
 
         def on_message(client, userdata, msg):
-            self.collection_handler(msg.topic, msg.payload.decode())
+            # self.collection_handler(msg.topic, msg.payload.decode())
             # print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
-
+            asyncio.run_coroutine_threadsafe(
+                self.handle_cmd_msg(msg),
+                self.loop
+            )
         # subscription topic
         self.client.subscribe(topic)
         self.client.on_message = on_message

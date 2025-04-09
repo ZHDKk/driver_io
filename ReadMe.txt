@@ -95,8 +95,10 @@ sudo journalctl -u mrg_IOService.service -f  # 实时查看日志（等同于控
 3、将两台电脑链接到同一局域网
 4、打开WinSCP，新建会话
 
-八、忘记EMQX Dashboard密码：
-C:\emqx\bin\emqx ctl admins passwd admin mrg123456
+八、Mqtt broker配置
+1、mqtt最大报文配置：2mb
+2、mqtt最大qos：2
+3、忘记EMQX Dashboard密码：C:\emqx\bin\emqx ctl admins passwd admin mrg123456
 
 
 

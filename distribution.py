@@ -256,6 +256,7 @@ class distribution_server(object):
                 log.warning(f'Failure to find {n} in the list, when mqtt read.')
                 self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
                                                                 'message': f'Failure to find {n} in the list.'}))
+                return
         if is_from_plc and len(read_vars_info) > 0:
             try:
                 await dev.read_variable_block(self.mqtt, read_vars_info)
@@ -668,11 +669,18 @@ class distribution_server(object):
         mqtt data handler
         """
         # start mqtt task
-        if not self.mqtt.mq.empty():
-            item = self.mqtt.mq.get()
-            # print(f'MQTT receive {item}')
-            self.mqtt.mq.task_done()
-            await self.mqtt_parse(item['topic'], item['data'])
+        try:
+            if not self.mqtt.mq.empty():
+                item = await self.mqtt.mq.get()
+                # print(f'MQTT receive {item}')
+                # self.mqtt.mq.task_done()
+                await self.mqtt_parse(item['topic'], item['data'])
+        except Exception as e:
+            log.warning(f"mqtt_handler处理消息时发生错误：{e}")
+        finally:
+            if not self.mqtt.mq.empty():  # 确保队列中仍有任务时才调用 task_done
+                self.mqtt.mq.task_done()
+
 
     async def opcua_device_manage_task(self):
         """
