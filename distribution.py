@@ -3,20 +3,12 @@ import json
 import time
 from datetime import datetime
 import pandas as pd
-import requests
-from asyncua import ua
-from bigtree import print_tree, find_attr, find_path, tree_to_nested_dict, tree_to_dict, nested_dict_to_tree, \
-    dict_to_tree, find_child, find_child_by_name, find_children
-
-from api.api_manager import request_get
 from mqtt_link import mqtt_linker
 from device import device
 from logger import log
-from parse import nested_dict_2list, json_from_list, datas_parse, tree_to_list, datas_parse_m2o, data_to_list, \
-    extract_leaf_keys_with_path
-from recipe import request_recipe_handle, request_recipe_handle_gather_plc, request_recipe_handle_gather, \
-    request_recipe_handle_gather_link
-from utils.helpers import data_type_from_string, code2format_str
+from parse import nested_dict_2list, json_from_list, datas_parse_m2o, data_to_list, datas_parse_o2m
+from recipe import request_recipe_handle_gather_link
+from utils.helpers import code2format_str
 from utils.time_util import get_current_time
 
 
@@ -554,7 +546,7 @@ class distribution_server(object):
             return
         # print(dev.opcua.client)
         try:
-            sub = list(filter(lambda x: x['TreeNode'].NodeID == node_id, dev.VarSubscription))[0]
+            sub = list(filter(lambda x: x['ListNode']['NodeID'] == node_id, dev.VarSubscription))[0]
         except:
             print(current_time, f'Failure to match {node_id} in subscription list.')
             log.warning(f'Failure to match {node_id} in subscription list.')
@@ -564,13 +556,14 @@ class distribution_server(object):
         # parse datas
         O2M_list = []
         msg = []
-        node = sub['TreeNode']
-        O2M_list.append({'module': {'blockId': node.blockId, 'index': node.index, 'category': node.category},
+        node = sub['ListNode']
+        O2M_list.append({'module': {'blockId': node["blockId"], 'index': node["index"], 'category': node["category"]},
                          'list': []})
 
         try:
-            datas_parse(dev, sub['TreeNode'], sub['ListNode'], value,
-                        False, None, self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg)
+            # datas_parse(dev, sub['TreeNode'], sub['ListNode'], value,
+            #             False, None, self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg)
+            datas_parse_o2m(dev, sub['ListNode'], value,self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg)
             # print parse error message
             for s in msg:
                 print(s)

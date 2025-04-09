@@ -8,7 +8,7 @@ from asyncua import Client, Node, ua
 from asyncua.ua.ua_binary import struct_from_binary
 
 from logger import log
-from utils.helpers import count_decimal_places, generate_paths
+from utils.helpers import count_decimal_places, generate_paths, is_target_format
 from utils.time_util import get_current_time
 
 
@@ -599,3 +599,113 @@ class opcua_linker(object):
             log.warning(f'Failure to write check wrote {node_id} to {self.uri}, {datas}!={value}.')
             return False
 
+    async def read_node_info(self, node: Node, path: str):
+        """
+            读取节点信息
+        """
+        # current node information
+        value = 0
+        decimal_point = 0
+        node_name = (await node.read_browse_name()).Name
+        node_name = str.replace(node_name, '[' or ']', '')
+        if is_target_format(node_name):
+            node_class = ua.NodeClass.Object
+        else:
+            node_class = ua.NodeClass.Variable
+        # node_class = await node.read_node_class()
+        if node_class in [ua.NodeClass.Object]:
+            path = name_2path(path, node_name)
+        info = path_2info(path)
+        current_block_id = info["blockId"]
+        current_index = info["index"]
+        current_category = info["category"]
+        current_code = info["name"]
+        code_format = f"{current_block_id}_{current_index}_{current_category}_{current_code}"
+        # print(path, info)
+        print(f"{path}:{info}")
+        var_type = ua.VariantType.Null.value
+        var_type_str = 'Null'
+        var_type_size = 0
+        opcua_sub = False
+        read_enable = False
+        read_period = 20
+        if node_class != ua.NodeClass.Variable:
+            array_dimensions = 0
+            description = None
+            reference = None
+        else:
+            # read data type
+            try:
+                var_type = (await node.read_data_type_as_variant_type()).value
+                var_type_str = ua_data_type_to_string(ua.VariantType(var_type))
+                var_type_size = ua_data_type_size(ua.VariantType(var_type))
+            except ua.UaError:
+                print(f'无法确定节点变量类型:{path}')
+                # self.emit_msgs(f"无法确定节点变量类型:{path}")
+
+            # read array dimensions
+            try:
+                array_dimensions = int((await node.read_array_dimensions())[0])
+            except ua.UaError:
+                array_dimensions = int(0)
+
+            # read description
+            try:
+                description = (await node.read_description()).Text
+                if description == 'nan':
+                    description = None
+            except ua.UaError:
+                description = None
+
+            # read reference
+            try:
+                reference = (await node.get_references())
+            except ua.UaError:
+                reference = None
+            # read value
+            if var_type_str == 'structure' or array_dimensions > 0:
+                value = 0
+            else:
+                try:
+                    value = (await node.read_value())
+                    if value == '':
+                        value = ' '
+                except ua.UaError:
+                    value = 0
+
+            # checking
+            if var_type_str == 'unknown':
+                print(f'{node_name} is unknown type!')
+
+            if var_type_str == "float" or var_type_str == "double":
+                decimal_point = count_decimal_places(value)
+                if decimal_point == 0:
+                    decimal_point = 3
+        return {
+            'path':path,
+            'name': node_name,
+            'ArrayDimensions': array_dimensions,
+            'DataType': int(var_type),
+            'DataTypeString': var_type_str,
+            'DecimalPoint': decimal_point,
+            'NodeClass': node_class.value,
+            'NodeID': node.nodeid.to_string(),
+            'NodePath': path,
+            "blockId": current_block_id,
+            "category": current_category,
+            "code": current_code,
+            "index": current_index,
+            "mqtt_publish": False,
+            "opcua_subscribe": opcua_sub,
+            "read_enable": read_enable,
+            "read_period": read_period,
+            "read_time": 0,
+            "return_time": 0,
+            "s7_bit": 0,
+            "s7_db": 0,
+            "s7_size": var_type_size,
+            "s7_start": 0,
+            "timed_clear": False,
+            "timed_clear_time": 1000,
+            'value': value,
+        }

@@ -1,16 +1,17 @@
+import asyncio
 import json
 import pprint
 import uuid
 
+import pandas as pd
 import snap7.util
-from bigtree import print_tree, find_attr, find_path, tree_to_nested_dict, tree_to_dict, find_children
+from bigtree import tree_to_dict
 from logger import log
 from asyncua import ua
-from snap7.types import *
 from snap7.util import *
-from bigtree import Node as BTNode
 
-from utils.helpers import data_type_from_string, round_half_up, code2format_str
+from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id, node_path2id2, \
+    node_path2id3, node_path2id4
 
 
 def bytes_2_ua_data(datas: bytearray, byte_index: int, bit_index: int, var_type: ua.VariantType):
@@ -92,24 +93,23 @@ def data_to_list(node, t2l, rtime, dev):
     convert data to list
     """
     value_dict = node.get('value')
-    if value_dict:
-        leaf_keys = extract_leaf_keys_with_path(value_dict)
-        if len(leaf_keys) == 0:
-            t2l.append({"code": node["code"], "value": value_dict, "dataType": node["DataTypeString"],
-                        "arrLen": node["ArrayDimensions"], "time": rtime})
-        else:
-            for key in leaf_keys:
-                if key.startswith('_'):
-                    child = dev.code_to_node.get(
-                        code2format_str(node['blockId'], node['index'], node['category'],
-                                        node['code']) + '_' + key[1:])
-                    t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
-                                "arrLen": child["ArrayDimensions"], "time": rtime})
-                else:
-                    child = dev.code_to_node.get(
-                        code2format_str(node['blockId'], node['index'], node['category'], node['code']) + '_' + key)
-                    t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
-                                "arrLen": child["ArrayDimensions"], "time": rtime})
+    leaf_keys = extract_leaf_keys_with_path(value_dict)
+    if len(leaf_keys) == 0:
+        t2l.append({"code": node["code"], "value": value_dict, "dataType": node["DataTypeString"],
+                    "arrLen": node["ArrayDimensions"], "time": rtime})
+    else:
+        for key in leaf_keys:
+            if key.startswith('_'):
+                child = dev.code_to_node.get(
+                    code2format_str(node['blockId'], node['index'], node['category'],
+                                    node['code']) + '_' + key[1:])
+                t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
+                            "arrLen": child["ArrayDimensions"], "time": rtime})
+            else:
+                child = dev.code_to_node.get(
+                    code2format_str(node['blockId'], node['index'], node['category'], node['code']) + '_' + key)
+                t2l.append({"code": child["code"], "value": child["value"], "dataType": child["DataTypeString"],
+                            "arrLen": child["ArrayDimensions"], "time": rtime})
 
 
 def extract_leaf_keys_with_path(dictionary, current_path=""):
@@ -204,225 +204,13 @@ def json_from_nested_dict(dict_datas: dict):
         print('Failure to pack json frame.')
         return None
 
-
-def array_parse(dev, node, list_node, value, M2O, M2O_list, O2M, O2M_list, rtime, msg: list):
-    """
-    parse array structure of tree, update node[n].value with value[n], add to sending buffer M2O_list or O2M_list.
-    """
-    # print("array source:", node.ArrayDimensions, type(value), value)
-    if type(value) is not list:
-        msg.append(f'Failure to {dev.name}{node.NodePath}[{node.ArrayDimensions}] is array, '
-                   f'but value type is {type(value)}.')
-        return value
-
-    if len(value) != node.ArrayDimensions:
-        msg.append(f'Failure to match array length, {node.ArrayDimensions}!={len(value)}.')
-        return value
-
-    for n in range(node.ArrayDimensions):
-        # find array[n] node
-        try:
-            child = find_attr(node, "NodePath", node.NodePath + '/' + str(n))  # array element
-        except:
-            msg.append(f'Failure to find {dev.name}{node.NodePath}/{n} in variable list.')
-            continue
-
-        # verification node, value and datatype
-        if child is None:
-            msg.append(f'Failure to find {dev.name}{node.NodePath}/{n} in variable list.')
-            continue
-
-        if value[n] is None:
-            msg.append(f'Failure to find {dev.name}{node.NodePath}/{n} = {value[n]}, Null value.')
-            continue
-
-        value_type = type(value[n])
-        if type(child.DataType) is str:
-            child.DataType = int(child.DataType)
-        child_type = ua.VariantType(child.DataType)
-
-        # value_type_name = value_type.name
-        # if value_type_name == 'str':
-        #     value_type_name = 'string'
-        # if value_type_name != child.DataTypeString:
-        #     msg.append(f'Failure to match {dev.name}{node.NodePath}/{n} data type,'
-        #                f'{value_type_name},{child.DataTypeString}')
-        #     continue
-
-        if child.ArrayDimensions > 0:  # and value_type is list, child's data type is array, recursion
-            value[n] = array_parse(dev, child, list_node, value[n],
-                                   M2O, M2O_list, O2M, O2M_list, rtime, msg)
-        elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
-            value[n] = struct_parse(dev, child, list_node,
-                                    value[n] if type(value[n]) is dict else value[n].__dict__,
-                                    M2O, M2O_list, O2M, O2M_list, rtime, msg)
-        elif O2M_list is not None and (O2M is True or child.value != value[n]):  # opcua2mqtt
-            #  2024/11/22  增加高精度浮点运算
-            if child.DataTypeString == "float" or child.DataTypeString == "double":
-                precision = child.DecimalPoint
-                # print(precision)
-                value[n] = round_half_up(value[n], precision)
-                # if o2m_value != 0.0:
-                #     print(f"{child.NodePath}:{o2m_value}")
-            O2M_list.append({"code": child.code, "value": value[n], "dataType": child.DataTypeString,
-                             "arrLen": child.ArrayDimensions, "time": rtime})  # child's data type is single variable
-        elif M2O_list is not None and (M2O is True or child.value != value[n]):  # mqtt2opcua
-            if dev.link_type == 'opcua':
-                value_type = type(value[n])
-                original_type = data_type_from_string(child.DataTypeString)
-                if (isinstance(value[n], int) and isinstance(original_type, type) and original_type is float) or \
-                        (isinstance(value[n], int) and hasattr(original_type,
-                                                                 '__name__') and original_type.__name__ == 'float'):
-                    pass
-                elif original_type != value_type:
-                    msg.append(
-                        f'Write Data Type Error, Please check: ({child.NodeID}, datetype:{child.DataTypeString}, value:{value[n]}), '
-                        f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
-                    return
-                M2O_list.append({'node_id': child.NodeID, 'datatype': child.DataType, 'value': value[n]})
-            elif dev.link_type == 's7':
-                M2O_list.append({'s7_db': child.s7_db, 's7_start': child.s7_start, 's7_bit': child.s7_bit,
-                                 's7_size': child.s7_size, 'value': value[n]})
-        child.value = value[n]  # update to node
-    return value
-
-
-def struct_parse(dev, node, list_node, value: dict, M2O, M2O_list, O2M, O2M_list, rtime, msg: list):
-    """
-    parse structure of tree, update node[key].value with value[key], add to sending buffer M2O_list or O2M_list.
-    """
-    # print("structure source:", type(value), value, M2O, O2M)
-    if type(value) is not dict:
-        msg.append(f'Failure to {dev.name}{node.NodePath} is structure, but value type is {type(value)}.')
-        return value
-
-    for key in value:
-        try:
-            if key.startswith('_'):
-                child = find_attr(node, "NodePath", node.NodePath + '/' + key[1:])  # structure element
-            else:
-                child = find_attr(node, "NodePath", node.NodePath + '/' + key)  # structure element
-        except:
-            msg.append(f'Failure to find {dev.name}.{node.NodePath}/{key} in variable list.')
-            continue
-
-        # verification node, value and datatype
-        if child is None:
-            msg.append(f'Failure to find {dev.name}{node.NodePath}/{key} in variable list.')
-            continue
-
-        if value[key] is None:
-            msg.append(f'{dev.name}{node.NodePath}/{key} Structure is not readable = {value[key]}, Null value.')
-            continue
-
-        value_type = type(value[key])
-        if type(child.DataType) is str:
-            child.DataType = int(child.DataType)
-        child_type = ua.VariantType(child.DataType)
-
-        # value_type_name = value_type.name
-        # if value_type_name == 'str':
-        #     value_type.name = 'string'
-        # if value_type_name != child.DataTypeString:
-        #     print(f'Failure to match {dev.name}{node.NodePath}/{str(int(0) + n)} data type,'
-        #           f'{value_type_name},{child.DataTypeString}')
-        #     continue
-
-        if child.ArrayDimensions > 0:  # and value_type is list, child's data type is array, recursion
-            value[key] = array_parse(dev, child, list_node, value[key],
-                                     M2O, M2O_list, O2M, O2M_list, rtime, msg)
-        elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
-            value[key] = struct_parse(dev, child, list_node,
-                                      value[key] if type(value[key]) is dict else value[key].__dict__,
-                                      M2O, M2O_list, O2M, O2M_list, rtime, msg)
-        elif O2M_list is not None and (O2M is True or child.value != value[key]):  # opcua2mqtt
-            #  2024/11/22  增加高精度浮点运算
-            if child.DataTypeString == "float" or child.DataTypeString == "double":
-                precision = child.DecimalPoint
-                value[key] = round_half_up( value[key], precision)
-                # if o2m_value != 0.0:
-                #     print(f"{child.NodePath}:{o2m_value}")
-            O2M_list.append({"code": child.code, "value":  value[key], "dataType": child.DataTypeString,
-                             "arrLen": child.ArrayDimensions, "time": rtime})
-        elif M2O_list is not None and (M2O is True or child.value != value[key]):  # mqtt2opcua
-            if dev.link_type == 'opcua':
-                value_type = type(value[key])
-                original_type = data_type_from_string(child.DataTypeString)
-                if (isinstance(value[key], int) and isinstance(original_type, type) and original_type is float) or \
-                        (isinstance(value[key], int) and hasattr(original_type,
-                                                            '__name__') and original_type.__name__ == 'float'):
-                    pass
-                elif original_type != value_type:
-                    msg.append(f'Write Data Type Error, Please check: ({child.NodeID}, datetype:{child.DataTypeString}, value:{value[key]}), '
-                               f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
-                    return
-                M2O_list.append({'node_id': child.NodeID, 'datatype': child.DataType, 'value': value[key]})
-            elif dev.link_type == 's7':
-                M2O_list.append({'s7_db': child.s7_db, 's7_start': child.s7_start, 's7_bit': child.s7_bit,
-                                 's7_size': child.s7_size, 'value': value[key]})
-        child.value = value[key]
-    return value
-
-
-def datas_parse(dev, node, list_node, value, M2O, M2O_list, O2M, O2M_list, rtime, msg):
-    """
-    recursive parse structure data
-    """
-    if value is None:
-        return
-        # msg.append(f'{dev.name}{node.NodePath} Structure is not readable = {value}, Null value.')
-    else:
-        # node datatype and value type, recursive parse structure data
-        value_type = type(value)
-        if value_type == 'str':
-            value_type = 'string'
-        if type(node.DataType) is str:
-            node.DataType = int(node.DataType)
-        node_type = ua.VariantType(node.DataType)
-
-        if node.ArrayDimensions > 0:  # and value_type is list, data type is array
-            value = array_parse(dev, node, list_node, value,
-                                M2O, M2O_list, O2M, O2M_list, rtime, msg)
-        elif node_type in [ua.VariantType.ExtensionObject]:  # data type of node is structure
-            value = struct_parse(dev, node, list_node, value if value_type is dict else value.__dict__,
-                                 M2O, M2O_list, O2M, O2M_list, rtime, msg)
-        elif O2M_list is not None and (O2M is True or node.value != value):  # opcua2mqtt
-            if node.DataTypeString == "float" or node.DataTypeString == "double":
-                precision = node.DecimalPoint
-                # print(precision)
-                value = round_half_up(value, precision)
-            O2M_list.append({"code": node.code, "value": value, "dataType": node.DataTypeString,
-                             "arrLen": node.ArrayDimensions, "time": rtime})
-        elif M2O_list is not None and (M2O is True or node.value != value):  # mqtt2opcua
-            if dev.link_type == 'opcua':
-                value_type = type(value)
-                original_type = data_type_from_string(node.DataTypeString)
-                if (isinstance(value, int) and isinstance(original_type, type) and original_type is float) or \
-                        (isinstance(value, int) and hasattr(original_type,
-                                                                 '__name__') and original_type.__name__ == 'float'):
-                    pass
-                elif original_type != value_type:
-                    msg.append(
-                        f'Write Data Type Error, Please check: ({node.NodeID}, datetype:{node.DataTypeString}, value:{value}), '
-                        f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
-                    return
-                M2O_list.append({'node_id': node.NodeID, 'datatype': node.DataType, 'value': value})
-            elif dev.link_type == 's7':
-                M2O_list.append({'s7_db': node.s7_db, 's7_start': node.s7_start, 's7_bit': node.s7_bit,
-                                 's7_size': node.s7_size, 'datatype': node.DataTypeString, 'value': value})
-
-        # update variable value to node and list
-        node.value = value
-        list_node['value'] = value
-
-
 def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list):
     """
     parse array structure of tree, update node[n].value with value[n], add to sending buffer M2O_list or O2M_list.
     """
     # print("array source:", node.ArrayDimensions, type(value), value)
     if type(value) is not list:
-        msg.append(f'Failure to {dev.name}{list_node["NodePath"]}[{list_node["ArrayDimensions"]}] is array, '
+        msg.append(f'Failure to {list_node["NodePath"]}[{list_node["ArrayDimensions"]}] is array, '
                    f'but value type is {type(value)}.')
         return value
 
@@ -435,16 +223,18 @@ def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list):
         try:
             list_child = dev.code_to_node.get(code2format_str(list_node['blockId'], list_node['index'], list_node['category'], list_node['code']) + '_' + str(n))
         except:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
+            asyncio.create_task(add_node_info(list_node, str(n), dev))
             continue
 
         # verification node, value and datatype
         if list_child is None:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
+            asyncio.create_task(add_node_info(list_node, str(n), dev))
             continue
 
         if value[n] is None:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} = {value[n]}, Null value.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} = {value[n]}, Null value.')
             continue
 
         value_type = type(value[n])
@@ -469,6 +259,49 @@ def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list):
         list_child["value"] = value[n]  # update to node
     return value
 
+async def add_node_info(list_node, name, dev):
+    """
+        自动追加变量到map和表中去
+    :param list_node:
+    :param name:
+    :param dev:
+    :return:
+    """
+    node_path = None
+    try:
+        node_path = f'{list_node["NodePath"]}/{name}'
+        try:
+            node_id = node_path2id(node_path)
+            node = dev.linker.client.get_node(node_id)
+            result = await dev.linker.read_node_info(node, node_path)  # 第一种不行尝试第二种
+        except:
+            try:
+                node_id = node_path2id2(node_path)
+                node = dev.linker.client.get_node(node_id)
+                result = await dev.linker.read_node_info(node, node_path)  # 第二种不行尝试第三种
+            except:
+                try:
+                    node_id = node_path2id3(node_path)
+                    node = dev.linker.client.get_node(node_id)
+                    result = await dev.linker.read_node_info(node, node_path)  # 第三种不行尝试第四种
+                except:
+                    node_id = node_path2id4(node_path)
+                    node = dev.linker.client.get_node(node_id)
+                    result = await dev.linker.read_node_info(node, node_path)
+        new_key = code2format_str(result['blockId'], result['index'], result['category'], result['code'])
+        dev.code_to_node[new_key] = result  #  添加到map映射中
+
+        # 添加到表中
+        csv_file = f'./config files/{dev.name}.csv'
+        df = pd.DataFrame([result])
+        # 检查文件是否存在
+        try:
+            existing_df = pd.read_csv(csv_file)
+            df.to_csv(csv_file, mode='a', header=False, index=False)
+        except FileNotFoundError:
+            df.to_csv(csv_file, mode='w', header=True, index=False)
+    except Exception as e:
+        log.warning(f"自动添加变量信息失败:{node_path}，请使用工具手动刷新")
 
 def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: list):
     """
@@ -476,7 +309,7 @@ def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: lis
     """
     # print("structure source:", type(value), value, M2O, O2M)
     if type(value) is not dict:
-        msg.append(f'Failure to {dev.name}{list_node["NodePath"]} is structure, but value type is {type(value)}.')
+        msg.append(f'Failure to {list_node["NodePath"]} is structure, but value type is {type(value)}.')
         return value
 
     for key in value:
@@ -488,15 +321,17 @@ def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: lis
             else:
                 list_child = dev.code_to_node.get(code2format_str(list_node['blockId'], list_node['index'], list_node['category'], list_node['code']) + '_' + key)
         except:
-            msg.append(f'Failure to find {dev.name}.{list_node["NodePath"]}/{key} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{key} in variable list.')
+            asyncio.create_task(add_node_info(list_node, key, dev))
             continue
         # verification node, value and datatype
         if list_child is None:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{key} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{key} in variable list.')
+            asyncio.create_task(add_node_info(list_node, key, dev))
             continue
 
         if value[key] is None:
-            msg.append(f'{dev.name}{list_node["NodePath"]}/{key} Structure is not readable = {value[key]}, Null value.')
+            msg.append(f'{list_node["NodePath"]}/{key} Structure is not readable = {value[key]}, Null value.')
             continue
 
         try:
@@ -524,7 +359,7 @@ def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: lis
             list_child["value"] = value[key]
             # print(list_child)
         except Exception as e:
-            msg.append(f'{dev.name}{list_node["NodePath"]}/{key} 可能有重复Code，请排查')
+            msg.append(f'{list_node["NodePath"]}/{key} 可能有重复Code，请排查')
     return value
 
 def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg):
@@ -566,7 +401,7 @@ def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
     """
     # print("array source:", node.ArrayDimensions, type(value), value)
     if type(value) is not list:
-        msg.append(f'Failure to {dev.name}{list_node["NodePath"]}[{list_node["ArrayDimensions"]}] is array, '
+        msg.append(f'Failure to {list_node["NodePath"]}[{list_node["ArrayDimensions"]}] is array, '
                    f'but value type is {type(value)}.')
         return value
 
@@ -579,16 +414,16 @@ def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
         try:
             list_child = dev.code_to_node.get(code2format_str(list_node['blockId'], list_node['index'], list_node['category'], list_node['code']) + '_' + str(n))
         except:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
             continue
 
         # verification node, value and datatype
         if list_child is None:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
             continue
 
         if value[n] is None:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} = {value[n]}, Null value.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} = {value[n]}, Null value.')
             continue
 
         value_type = type(value[n])
@@ -638,7 +473,7 @@ def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: lis
     """
     # print("structure source:", type(value), value, M2O, O2M)
     if type(value) is not dict:
-        msg.append(f'Failure to {dev.name}{list_node["NodePath"]} is structure, but value type is {type(value)}.')
+        msg.append(f'Failure to {list_node["NodePath"]} is structure, but value type is {type(value)}.')
         return value
 
     for key in value:
@@ -648,16 +483,16 @@ def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: lis
             else:
                 list_child = dev.code_to_node.get(code2format_str(list_node['blockId'], list_node['index'], list_node['category'], list_node['code']) + '_' + key)
         except:
-            msg.append(f'Failure to find {dev.name}.{list_node["NodePath"]}/{key} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{key} in variable list.')
             continue
 
         # verification node, value and datatype
         if list_child is None:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{key} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{key} in variable list.')
             continue
 
         if value[key] is None:
-            msg.append(f'{dev.name}{list_node["NodePath"]}/{key} Structure is not readable = {value[key]}, Null value.')
+            msg.append(f'{list_node["NodePath"]}/{key} Structure is not readable = {value[key]}, Null value.')
             continue
 
         value_type = type(value[key])
@@ -747,7 +582,7 @@ def s7_array_parse(dev, list_node, datas, offset, M2O, M2O_list, O2M, O2M_list, 
     # print("array source:", node.ArrayDimensions, type(value), value)
     value = []
     if type(datas) is not bytearray:
-        msg.append(f'Failure to {dev.name}{list_node["NodePath"]} is bytearray, but datas type is {type(datas)}.')
+        msg.append(f'Failure to {list_node["NodePath"]} is bytearray, but datas type is {type(datas)}.')
         return value
 
     for n in range(list_node["ArrayDimensions"]):
@@ -757,17 +592,17 @@ def s7_array_parse(dev, list_node, datas, offset, M2O, M2O_list, O2M, O2M_list, 
                 code2format_str(list_node['blockId'], list_node['index'], list_node['category'],
                                 list_node['code']) + '_' + str(n))
         except:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
             continue
 
         # verification node, value and datatype
         if list_child is None:
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} in variable list.')
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
             continue
 
         # datas length verification
         if list_child["s7_start"] + list_child["s7_size"] > len(datas):
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]}/{n} address '
+            msg.append(f'Failure to find {list_node["NodePath"]}/{n} address '
                        f'{list_child["s7_start"]}+{list_child["s7_size"]}>{len(datas)}(datas)')
             continue
 
@@ -789,7 +624,7 @@ def s7_array_parse(dev, list_node, datas, offset, M2O, M2O_list, O2M, O2M_list, 
                                      "arrLen": list_child["ArrayDimensions"], "time": rtime})
             except:
                 value_t = None
-                msg.append(f'Failure to get {dev.name}{list_child["NodePath"]} value from s7 data, address/size:'
+                msg.append(f'Failure to get {list_child["NodePath"]} value from s7 data, address/size:'
                            f'{list_child["s7_start"]}/{list_child["s7_size"]}, datas:{datas}.')
             list_child["value"] = value_t  # update to node
         value.append(list_child["value"])  # update to node
@@ -803,7 +638,7 @@ def s7_struct_parse(dev, list_node, datas, offset, M2O, M2O_list, O2M, O2M_list,
     # print("structure source:", type(value), value, M2O, O2M)
     value = {}
     if type(datas) is not bytearray:
-        msg.append(f'Failure to {dev.name}{list_node["NodePath"]} is bytearray, but datas type is {type(datas)}.')
+        msg.append(f'Failure to {list_node["NodePath"]} is bytearray, but datas type is {type(datas)}.')
         return value
     # print_tree(node)
     value_dict = list_node.get('value')
@@ -833,7 +668,7 @@ def s7_struct_parse(dev, list_node, datas, offset, M2O, M2O_list, O2M, O2M_list,
                                              "arrLen": child["ArrayDimensions"], "time": rtime})
                     except:
                         value_t = None
-                        msg.append(f'Failure to get {dev.name}{child["NodePath"]} value from s7 data, offset/address/size:'
+                        msg.append(f'Failure to get {child["NodePath"]} value from s7 data, offset/address/size:'
                                    f'{offset},{child["s7_start"]}/{child["s7_size"]}, datas:{datas}.')
                     child["value"] = value_t  # update to node
                 value[child["name"]] = child["value"]  # update to node
@@ -846,7 +681,7 @@ def s7_datas_parse(dev, list_node, datas, M2O, M2O_list, O2M, O2M_list, rtime, m
     """
     # print("s7_datas_parse:", node.name, node.s7_start, node.s7_size, len(datas), node.DataTypeString)
     if datas is None:
-        msg.append(f'Failure to find {dev.name}{list_node["NodePath"]} = {datas}, Null value.')
+        msg.append(f'Failure to find {list_node["NodePath"]} = {datas}, Null value.')
     else:
         # node datatype, recursive parse structure data
         if type(list_node["DataType"]) is str:
@@ -869,11 +704,11 @@ def s7_datas_parse(dev, list_node, datas, M2O, M2O_list, O2M, O2M_list, rtime, m
                     M2O_list.append({'node_id': list_node['NodeID'], 'datatype': list_node['DataType'], 'value': value})
             except:
                 value = None
-                msg.append(f'Failure to get {dev.name}{list_node["NodePath"]} value from s7 data, address/size:'
+                msg.append(f'Failure to get {list_node["NodePath"]} value from s7 data, address/size:'
                            f'{list_node["s7_start"]}/{list_node["s7_size"]}, datas:{datas}.')
         else:
             value = None
-            msg.append(f'Failure to find {dev.name}{list_node["NodePath"]} address '
+            msg.append(f'Failure to find {list_node["NodePath"]} address '
                        f'{list_node["s7_start"]}+{list_node["s7_size"]}>{len(datas)}(datas)')
 
         # update variable value to node and list
