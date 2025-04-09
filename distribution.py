@@ -677,7 +677,7 @@ class distribution_server(object):
             finally:
                 self.mqtt.mq.task_done()
         except asyncio.CancelledError:
-            log.warning("MQTT处理任务被取消")
+            log.info("MQTT处理任务被取消")
             raise
         except Exception as e:
             log.warning(f"MQTT处理过程中发生意外错误：{e}", exc_info=True)
