@@ -622,7 +622,7 @@ class opcua_linker(object):
         current_code = info["name"]
         code_format = f"{current_block_id}_{current_index}_{current_category}_{current_code}"
         # print(path, info)
-        print(f"{path}:{info}")
+        # print(f"{path}:{info}")
         var_type = ua.VariantType.Null.value
         var_type_str = 'Null'
         var_type_size = 0

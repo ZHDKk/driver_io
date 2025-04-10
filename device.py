@@ -302,7 +302,7 @@ class device(object):
                     # datas_parse(self, self.ReadBlock[index]['TreeNode'], self.ReadBlock[index]['ListNode'],
                     #             datas[index],
                     #             False, None, self.O2M_All, m['list'], int(time.time() * 1000), msg)
-                    datas_parse_o2m(self, self.ReadBlock[index]['ListNode'], datas[index], self.O2M_All, m['list'],
+                    await datas_parse_o2m(self, self.ReadBlock[index]['ListNode'], datas[index], self.O2M_All, m['list'],
                                     int(time.time() * 1000), msg)
 
                     # print parse error message
@@ -343,7 +343,7 @@ class device(object):
             for index, _ in enumerate(self.TempReadBlock):
                 try:
                     m = list(filter(lambda x: x['module'] == self.TempReadBlock[index]['module'], O2M_list))[0]
-                    datas_parse_o2m(self, self.TempReadBlock[index]['ListNode'], datas[index], self.O2M_All, m['list'],
+                    await datas_parse_o2m(self, self.TempReadBlock[index]['ListNode'], datas[index], self.O2M_All, m['list'],
                                     int(time.time() * 1000), msg)
                     # datas_parse(self, self.TempReadBlock[index]['TreeNode'], self.TempReadBlock[index]['ListNode'],
                     #             datas[index],

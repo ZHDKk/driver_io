@@ -563,7 +563,7 @@ class distribution_server(object):
         try:
             # datas_parse(dev, sub['TreeNode'], sub['ListNode'], value,
             #             False, None, self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg)
-            datas_parse_o2m(dev, sub['ListNode'], value,self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg)
+            asyncio.create_task(datas_parse_o2m(dev, sub['ListNode'], value,self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg))
             # print parse error message
             for s in msg:
                 print(s)
