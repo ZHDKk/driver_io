@@ -1,8 +1,11 @@
 {
     "Alarm": {},
     "Basic": {
-        "name": "Driver",
-        "version": 0
+        "name": "MRG_RP1",
+        "version": 0,
+        "blockId": 100,
+        "index": 100,
+        "category": "Driver1"
     },
     "Control": {},
     "Status": {},
@@ -38,7 +41,9 @@
                 "Variable_Number": 0,
                 "Read_Block_Number": 0
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": []
+            },
             "Other": {}
         },
         "EFEM": {
@@ -52,7 +57,7 @@
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": true,
+                "Load": false,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -61,16 +66,34 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": false,
-                "Linking": false,
+                "Load": true,
+                "Linking": true,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
+                "Module_Number": 3,
+                "Variable_Number": 2638,
+                "Read_Block_Number": 17
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": [
+                    {
+                        "blockId": 1,
+                        "index": 1,
+                        "category": "LoadPort"
+                    },
+                    {
+                        "blockId": 1,
+                        "index": 2,
+                        "category": "LoadPort"
+                    },
+                    {
+                        "blockId": 1,
+                        "index": 3,
+                        "category": "LoadPort"
+                    }
+                ]
+            },
             "Other": {}
         },
         "Equipment": {
@@ -84,7 +107,7 @@
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": true,
+                "Load": false,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -93,16 +116,29 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": false,
-                "Linking": false,
+                "Load": true,
+                "Linking": true,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
+                "Module_Number": 2,
+                "Variable_Number": 2899,
+                "Read_Block_Number": 12
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": [
+                    {
+                        "blockId": 0,
+                        "index": 2,
+                        "category": "MC"
+                    },
+                    {
+                        "blockId": 0,
+                        "index": 200,
+                        "category": "IO"
+                    }
+                ]
+            },
             "Other": {}
         },
         "Robot": {
@@ -116,7 +152,7 @@
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": true,
+                "Load": false,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -125,16 +161,24 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": false,
-                "Linking": false,
+                "Load": true,
+                "Linking": true,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
+                "Module_Number": 1,
+                "Variable_Number": 7711,
+                "Read_Block_Number": 7
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": [
+                    {
+                        "blockId": 2,
+                        "index": 0,
+                        "category": "Robot"
+                    }
+                ]
+            },
             "Other": {}
         },
         "COT_DEV": {
@@ -166,7 +210,9 @@
                 "Variable_Number": 0,
                 "Read_Block_Number": 0
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": []
+            },
             "Other": {}
         },
         "Chemical": {
@@ -198,7 +244,9 @@
                 "Variable_Number": 0,
                 "Read_Block_Number": 0
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": []
+            },
             "Other": {}
         },
         "OVEN": {
@@ -230,7 +278,9 @@
                 "Variable_Number": 0,
                 "Read_Block_Number": 0
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": []
+            },
             "Other": {}
         },
         "Utility": {
@@ -262,7 +312,9 @@
                 "Variable_Number": 0,
                 "Read_Block_Number": 0
             },
-            "Parameter": {},
+            "Parameter": {
+                "modules": []
+            },
             "Other": {}
         }
     },

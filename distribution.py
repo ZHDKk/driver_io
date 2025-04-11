@@ -8,7 +8,7 @@ from device import device
 from logger import log
 from parse import nested_dict_2list, json_from_list, datas_parse_m2o, data_to_list, datas_parse_o2m
 from recipe import request_recipe_handle_gather_link
-from utils.helpers import code2format_str
+from utils.helpers import code2format_str, save_config_file
 from utils.time_util import get_current_time
 
 
@@ -95,7 +95,7 @@ class distribution_server(object):
             log.warning('Failure to parse ./config files/driver config.json.')
             return
         except Exception as e:
-            log.warning('Failure to read ./config files/driver config.json.')
+            log.warning(f'Failure to read ./config files/driver config.json.{e}')
             return
 
     def load_request_file(self):
@@ -474,8 +474,16 @@ class distribution_server(object):
                                       json.dumps({'success': True, 'message': f'{dev_name}模组连接成功'}))
                 else:
                     self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': False, 'message': f'{dev_name}模组连接成功，请重试'}))
-
+                                      json.dumps({'success': False, 'message': f'{dev_name}模组连接失败，请重试'}))
+            elif data.get("commandType") == "MODIFY_CONFIG":  # 修改配置内容
+                config_content = data.get("commandContent")
+                state = save_config_file(f'./config files/driver config.json', config_content)
+                if state:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True, 'message': '配置内容修改成功'}))
+                else:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': False, 'message': '配置内容修改失败，请重试'}))
         except Exception as e:
             log.warning(f"mqtt 一般指令处理:{e}")
 
@@ -692,12 +700,14 @@ class distribution_server(object):
             dev_cfg['Status']['Module_Number'] = dev.module_number
             dev_cfg['Status']['Variable_Number'] = dev.VarNumber
             dev_cfg['Status']['Read_Block_Number'] = dev.ReadBlock_Number
+            dev_cfg['Parameter']['modules'] = dev.module
 
         # publish driver status (include opcua device) to mqtt
-        list_data = []
-        nested_dict_2list(self.config, list_data, int(time.time() * 1000))
+        # list_data = []
+        # nested_dict_2list(self.config, list_data, int(time.time() * 1000))
         # pprint.pprint(list_data)
-        mframe = json_from_list({'module': {"blockId": 100, "index": 100, "category": "Driver"}, 'list': list_data})
+        # mframe = json_from_list({'module': {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}, 'list': list_data})
+        mframe = json_from_list({'module': {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}, 'list': self.config})
         if mframe:
             self.mqtt.publish(self.mqtt.pub_drv_data, mframe)
 
@@ -714,7 +724,8 @@ class distribution_server(object):
                     devs_connection_state.append({"moduleName": dev.name, "connectionState": dev.connecting})
                 self.mqtt.publish(self.mqtt.pub_modules_status,
                                   json.dumps({"data": {"commandType": "moduleConnectionState",
-                                                       "commandContent": {"list": devs_connection_state}}}))
+                                                       "commandContent": {"list": devs_connection_state}},
+                                              "currentDriver":{"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}}))
         except Exception as e:
             log.warning(f"定时检查模组的连接状态:{e}")
 

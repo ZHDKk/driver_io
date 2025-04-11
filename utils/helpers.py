@@ -242,3 +242,12 @@ def is_target_format(name):
     except Exception as e:
         log.warning(f"目标节点格式不符合1_1_xxx：{e}")
         return None
+
+def save_config_file(file_path, data):
+    try:
+        # 打开文件并保存数据，使用 'w' 模式覆盖原文件
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+        return True
+    except Exception as e:
+        return False
