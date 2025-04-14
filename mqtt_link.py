@@ -30,6 +30,7 @@ class mqtt_linker(object):
         self.sub_general_cmd = topics['sub_general_cmd']  # 通常驱动内部使用该topic,用于单设备重连等操作
 
         self.pub_drv_data = topics['pub_drv_data']
+        self.pub_drv_data_struct = topics['pub_drv_data_struct']
         self.pub_modules_status = topics['pub_modules_status']  # 发布模组的当前连接状态
         self.pub_drv_msg = topics['pub_drv_msg']
 
@@ -126,7 +127,7 @@ class mqtt_linker(object):
     def publish(self, topic, msg, qos = 0):
         """publish topic"""
         try:
-            if topic != self.pub_drv_data and topic != self.pub_modules_status:
+            if topic != self.pub_drv_data and topic != self.pub_modules_status and topic != self.pub_drv_data_struct:
                 re = self.client.publish(topic, msg, qos)
                 if re.rc == 0:
                     print(f"{get_current_time()} {topic}:{msg} 通过Mqtt发布:成功")

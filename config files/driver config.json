@@ -4,7 +4,7 @@
         "name": "MRG_RP1",
         "version": 0,
         "blockId": 100,
-        "index": 100,
+        "index": 101,
         "category": "Driver1"
     },
     "Control": {},
@@ -57,7 +57,7 @@
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": false,
+                "Load": true,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -107,7 +107,7 @@
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": false,
+                "Load": true,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -152,7 +152,7 @@
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": false,
+                "Load": true,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -211,7 +211,28 @@
                 "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": []
+                "modules": [
+                    {
+                        "blockId": 2,
+                        "index": 1,
+                        "category": "COT"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 2,
+                        "category": "COT"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 3,
+                        "category": "DEV"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 4,
+                        "category": "DEV"
+                    }
+                ]
             },
             "Other": {}
         },
@@ -279,7 +300,53 @@
                 "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": []
+                "modules": [
+                    {
+                        "blockId": 2,
+                        "index": 8,
+                        "category": "CADH"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 9,
+                        "category": "CADH"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 10,
+                        "category": "CHCH"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 11,
+                        "category": "CLHP"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 12,
+                        "category": "CHHP"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 13,
+                        "category": "CHHP"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 14,
+                        "category": "CLHP"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 15,
+                        "category": "CLHP"
+                    },
+                    {
+                        "blockId": 2,
+                        "index": 16,
+                        "category": "CLHP"
+                    }
+                ]
             },
             "Other": {}
         },
@@ -313,7 +380,11 @@
                 "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": []
+                "modules": [{
+                        "blockId": 2,
+                        "index": 6,
+                        "category": "MCA"
+                    }]
             },
             "Other": {}
         }
@@ -335,6 +406,7 @@
             "sub_server_msg": "/mqtt/server/msg/+",
             "sub_general_cmd": "/mqtt/general/cmd/+",
             "pub_drv_data": "/mqtt/drv/data",
+            "pub_drv_data_struct": "/mqtt/drv/data_struct",
             "pub_modules_status": "/mqtt/modules/status",
             "pub_drv_msg": "/mqtt/drv/msg"
         },

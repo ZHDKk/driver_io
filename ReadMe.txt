@@ -87,7 +87,7 @@ sudo journalctl -u mrg_IOService.service -f  # 实时查看日志（等同于控
  六、远程桌面Raspbian（VNC）
 1、首先 ssh 连接登录树莓派，启动自带的配置程序：sudo raspi-config
 2、在弹出的配置窗口选择：Interface Options 回车  >>  选择VNC 回车 >> 选择 是 回车
-3、raspbian的账户密码默认都是：mrg、mrg123456
+3、raspbian的账户密码默认都是：mrg、mrg123456，ip从192.168.20.91开始
 
 七、Windows和Linux之间互传文件，使用WinSCP
 1、首先在windows上安装WinSCP软件：https://winscp.net/download/WinSCP-6.5-Setup.exe/download
@@ -99,6 +99,9 @@ sudo journalctl -u mrg_IOService.service -f  # 实时查看日志（等同于控
 1、mqtt最大报文配置：2mb
 2、mqtt最大qos：2
 3、忘记EMQX Dashboard密码：C:\emqx\bin\emqx ctl admins passwd admin mrg123456
+
+九、驱动黑盒driver config.json配置
+1、驱动层的Basic中的blockId为100、index从101开始、category从Driver1开始、name从MRG_RP1开始
 
 
 

@@ -1,4 +1,5 @@
 import asyncio
+import os
 import sys
 import time
 import pandas as pd
@@ -6,6 +7,7 @@ from PyQt5.QtCore import QThreadPool
 
 from distribution import distribution_server
 from logger import log
+from utils.time_util import get_current_time
 
 
 async def opcua_reading_coroutine(dis: distribution_server):
@@ -26,8 +28,24 @@ async def opcua_manager_coroutine(dis: distribution_server):
         # if time_using > 0.1:
         #     log.info(f'Task opcua manager timing: {time_using:.4f}s')
         time_using = 0.01 if time_using > 1.0 else 1.01 - time_using
+        restart_process(dis)
         await asyncio.sleep(time_using)
 
+def restart_process(dis):
+    """
+        重启当前进程
+    :param dis:
+    :return:
+    """
+    if dis.RESTART_FLAG:
+        try:
+            # 重启程序
+            print(f"{get_current_time()} 程序即将重启...")
+            log.info("程序即将重启...")
+            python = sys.executable
+            os.execv(python, [python] + sys.argv)
+        except Exception as e:
+            print(f"程序重启失败:{e}")
 
 # 定时发布模组的连接状态
 async def modules_connection_state_coroutine(dis: distribution_server):
@@ -39,7 +57,6 @@ async def modules_connection_state_coroutine(dis: distribution_server):
         #     log.info(f'Task opcua manager timing: {time_using:.4f}s')
         time_using = 0.01 if time_using > 2.0 else 2.01 - time_using
         await asyncio.sleep(time_using)
-
 
 async def request_coroutine(dis: distribution_server):
     while True:
@@ -74,7 +91,7 @@ async def main():
         # multi coroutine
         reading_task = asyncio.create_task(opcua_reading_coroutine(distribution))
         manager_task = asyncio.create_task(opcua_manager_coroutine(distribution))
-        request_task = asyncio.create_task(request_coroutine(distribution))
+        # request_task = asyncio.create_task(request_coroutine(distribution))
         timed_clear_task = asyncio.create_task(timed_clear_coroutine(distribution))
         asyncio.create_task(modules_connection_state_coroutine(distribution))
 
@@ -90,3 +107,8 @@ if __name__ == "__main__":
         print("程序被用户中断，正在清理资源并退出...")
         log.info("程序被用户中断，正在清理资源并退出...")
         sys.exit(0)
+    finally:
+        # 重启程序
+        print("程序即将重启...")
+        python = sys.executable
+        os.execv(python, [python] + sys.argv)
