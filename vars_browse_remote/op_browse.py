@@ -43,7 +43,7 @@ class opcuaBrowse:
                 try:
                     df_old = pd.read_csv(f'{self.base_file_path}/{name}.csv', encoding='gbk')
                 except:
-                    self.emit_msgs(f'无旧{name}.csv文件')
+                    self.emit_error(f'无旧{name}.csv文件')
                     return False
 
         # 输出变更信息
@@ -126,7 +126,7 @@ class opcuaBrowse:
         if await opcua.link() is True:
             self.emit_msgs(f' {name}: {uri} 连接成功!')
         else:
-            self.emit_msgs(f'  {name}: {uri} 连接失败!')
+            self.emit_error(f'  {name}: {uri} 连接失败!')
             return False
 
         # browse nodes of opcua server and create node tree
@@ -147,13 +147,13 @@ class opcuaBrowse:
                 node_tree = await opcua.browse(node, node_path, 0,
                                                updated_config_data.get('read_enable_paths'))
             if not GlobalVar.get_browse_var_state():
-                self.emit_msgs(f"停止遍历!!")
+                self.emit_error(f"停止遍历!!")
                 await opcua.unlink()
-                return
+                return False
             self.emit_msgs(f' {name} : {main_node} 遍历成功!')
             await opcua.unlink()
         except:
-            self.emit_msgs(f' {name} : {main_node} 遍历失败，请重试!')
+            self.emit_error(f' {name} : {main_node} 遍历失败，请重试!')
             await opcua.unlink()
             return False
         # pprint.pprint(node_tree)
@@ -164,7 +164,8 @@ class opcuaBrowse:
         df = tree_to_dataframe(big_tree, all_attrs=True)
 
         # fill config information with old csv
-        await self.update_dataframe_from_csv(df, name)
+        if not await self.update_dataframe_from_csv(df, name):
+            return False
 
         # save to csv file
         try:
@@ -175,6 +176,7 @@ class opcuaBrowse:
                 if self.browse_num == 0:
                     # 如果操作成功，发射结束信号
                     self.emit_finished()
+                    return True
         except Exception as e:
             now = datetime.now()
             current_time = str(now.year) + str(now.month) + str(now.day) + str(now.hour) + str(now.minute) + str(
@@ -189,13 +191,15 @@ class opcuaBrowse:
                     if self.browse_num == 0:
                         # 如果操作成功，发射结束信号
                         self.emit_finished()
+                        return True
             except Exception as e:
-                self.emit_msgs(f'{csv_name}.csv 保存失败!')
+                self.emit_error(f'{csv_name}.csv 保存失败!')
                 if self.browse_num != 0:
                     self.browse_num = self.browse_num - 1
                     if self.browse_num == 0:
                         # 如果操作成功，发射失败信号
                         self.emit_error(f'{csv_name}.csv 保存失败: {e}')
+                        return False
 
     async def create_opcua_nodes_file_gather(self, config: dict, all_config_datas: dict):
         """
@@ -211,7 +215,7 @@ class opcuaBrowse:
         if await opcua.link() is True:
             self.emit_msgs(f' {name}: {uri} 连接成功!')
         else:
-            self.emit_msgs(f'  {name}: {uri} 连接失败!')
+            self.emit_error(f'  {name}: {uri} 连接失败!')
             return False
 
         # browse nodes of opcua server and create node tree
@@ -235,17 +239,18 @@ class opcuaBrowse:
                 # print_tree(big_tree, all_attrs=True)  # 打印出树结构数据
                 df = tree_to_dataframe(big_tree, all_attrs=True)
             if not GlobalVar.get_browse_var_state():
-                self.emit_msgs(f"停止遍历!!")
+                self.emit_error(f"停止遍历!!")
                 await opcua.unlink()
-                return
+                return False
             self.emit_msgs(f' {name} : {main_node} 遍历成功!')
             await opcua.unlink()
         except Exception as e:
-            self.emit_msgs(f' {name} : {main_node} 遍历失败:{e}，请重试!')
+            self.emit_error(f' {name} : {main_node} 遍历失败:{e}，请重试!')
             await opcua.unlink()
             return False
         # fill config information with old csv
-        await self.update_dataframe_from_csv(df, name)
+        if not await self.update_dataframe_from_csv(df, name):
+            return False
 
         # save to csv file
         try:
@@ -256,6 +261,7 @@ class opcuaBrowse:
                 if self.browse_num == 0:
                     # 如果操作成功，发射结束信号
                     self.emit_finished()
+                    return True
         except Exception as e:
             now = datetime.now()
             current_time = str(now.year) + str(now.month) + str(now.day) + str(now.hour) + str(now.minute) + str(
@@ -270,13 +276,15 @@ class opcuaBrowse:
                     if self.browse_num == 0:
                         # 如果操作成功，发射结束信号
                         self.emit_finished()
+                        return True
             except Exception as e:
-                self.emit_msgs(f'{csv_name}.csv 保存失败!')
+                self.emit_error(f'{csv_name}.csv 保存失败!')
                 if self.browse_num != 0:
                     self.browse_num = self.browse_num - 1
                     if self.browse_num == 0:
                         # 如果操作成功，发射结束信号
                         self.emit_error(f'{csv_name}.csv 保存失败: {e}')
+                        return False
 
     async def create_opcua_nodes_file_with_config(self):
         """
@@ -308,10 +316,11 @@ class opcuaBrowse:
                         tasks.append(self.create_opcua_nodes_file(opcua_server, config_data))
 
             # Run all tasks concurrently
-            await asyncio.gather(*tasks)
+            states = await asyncio.gather(*tasks)
+            return True
         except Exception as e:
             print(e)
-        return True
+            return False
 
     async def start(self):
         """
