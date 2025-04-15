@@ -1,11 +1,11 @@
 {
     "Alarm": {},
     "Basic": {
-        "name": "MRG_RP1",
+        "name": "MRG_RP",
         "version": 0,
         "blockId": 100,
         "index": 101,
-        "category": "Driver1"
+        "category": "Driver"
     },
     "Control": {},
     "Status": {},

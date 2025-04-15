@@ -107,8 +107,3 @@ if __name__ == "__main__":
         print("程序被用户中断，正在清理资源并退出...")
         log.info("程序被用户中断，正在清理资源并退出...")
         sys.exit(0)
-    finally:
-        # 重启程序
-        print("程序即将重启...")
-        python = sys.executable
-        os.execv(python, [python] + sys.argv)
