@@ -1,7 +1,5 @@
 from datetime import datetime
 
-from logger import log
-
 
 def get_milliseconds():
     """
@@ -37,7 +35,7 @@ def uint32_time_parse(timestamp, format):
         # print("处理后的时间:", formatted_time)
         return formatted_time
     except Exception as e:
-        log.warning(f"时间处理出错{e}，原始时间UInt32:{timestamp}")
+        print(f"时间处理出错{e}，原始时间UInt32:{timestamp}")
         return None
 
 

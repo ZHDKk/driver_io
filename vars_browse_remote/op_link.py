@@ -4,9 +4,9 @@ from collections import deque, defaultdict
 import time
 
 from asyncua import Client, Node, ua
-from logger import log
 from utils.global_var import GlobalVar
 from utils.helpers import count_decimal_places, is_target_format
+from logger import log
 
 
 def name_2path(path, name):

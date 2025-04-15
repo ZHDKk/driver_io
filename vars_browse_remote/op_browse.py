@@ -6,7 +6,7 @@ from bigtree import nested_dict_to_tree, tree_to_dataframe
 
 from utils.global_var import GlobalVar
 from utils.helpers import upsert_config_file, load_config_file, name_2path
-from vars_browse_remote.op_link import op_linker
+from op_link import op_linker
 
 
 class opcuaBrowse:

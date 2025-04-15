@@ -8,8 +8,6 @@ from decimal import Decimal, ROUND_HALF_UP
 
 from asyncua import ua
 
-from logger import log
-
 # 定义颜色映射
 LOG_COLOR_MAP = {
     "INFO": "lightgreen",
@@ -35,13 +33,13 @@ def load_config_file(config_file_path):
             config = json.load(file)
 
     except FileNotFoundError:
-        log.warning(f'Failure to find {config_file_path}')
+        print(f'Failure to find {config_file_path}')
         return
     except json.JSONDecodeError:
-        log.warning(f'Failure to parse {config_file_path}')
+        print(f'Failure to parse {config_file_path}')
         return
     except Exception as e:
-        log.warning(f'Failure to read {config_file_path}:{e}')
+        print(f'Failure to read {config_file_path}:{e}')
         return
     return config
 
@@ -57,13 +55,13 @@ def upsert_config_file(config_file_path, data):
             json.dump(data, f, indent=4)
 
     except FileNotFoundError:
-        log.warning(f'Failure to find {config_file_path}')
+        print(f'Failure to find {config_file_path}')
         return
     except json.JSONDecodeError:
-        log.warning(f'Failure to parse {config_file_path}')
+        print(f'Failure to parse {config_file_path}')
         return
     except Exception as e:
-        log.warning(f'Failure to read {config_file_path}:{e}')
+        print(f'Failure to read {config_file_path}:{e}')
         return
     return config
 
@@ -169,7 +167,7 @@ def is_target_format(name):
         pattern = r"^\d+_\d+_[A-Za-z0-9_-]+$"
         return re.match(pattern, name)
     except Exception as e:
-        log.warning(f"目标节点格式不符合1_1_xxx：{e}")
+        print(f"目标节点格式不符合1_1_xxx：{e}")
         return None
 
 
@@ -236,7 +234,7 @@ def json_from_list(datas: dict):
         # pprint.pprint(res_json)
         return result
     except:
-        log.warning(f'Failure to pack json frame {datas}.')
+        print(f'Failure to pack json frame {datas}.')
         return {}
 
 def save_config_file(file_path, data):

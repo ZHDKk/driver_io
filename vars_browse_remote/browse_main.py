@@ -2,11 +2,11 @@ import asyncio
 import json
 import sys
 
-from vars_browse_remote.logg import log
-from vars_browse_remote.mqtt_client import MQTTClient
-from vars_browse_remote.op_browse import opcuaBrowse
-from vars_browse_remote.utils.global_var import GlobalVar
-from vars_browse_remote.utils.helpers import load_config_file, json_from_list, save_config_file
+from logger import log
+from mqtt_client import MQTTClient
+from op_browse import opcuaBrowse
+from utils.global_var import GlobalVar
+from utils.helpers import load_config_file, json_from_list, save_config_file
 
 
 async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, config_json_data, mqtt_client, opcua_browse):

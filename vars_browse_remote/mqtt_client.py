@@ -2,7 +2,7 @@ import asyncio
 import paho.mqtt.client as mqtt
 
 from utils.time_util import get_current_time
-from vars_browse_remote.logg import log
+from logger import log
 
 
 class MQTTClient:
@@ -128,7 +128,9 @@ class MQTTClient:
         if self.is_connected:
             try:
                 self.client.publish(topic, message)
-                log.info(f"Published message '{message}' to topic '{topic}'")
+                if topic != self.pub_drv_data_struct_bro:
+                    log.info(f"Published message '{message}' to topic '{topic}'")
+                    print(f"Published message '{message}' to topic '{topic}'")
             except Exception as e:
                 log.error(f"Failed to publish message to topic {topic}: {e}")
         else:
