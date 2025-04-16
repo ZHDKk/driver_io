@@ -487,6 +487,10 @@ class distribution_server(object):
                     else:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False, 'message': f'{dev_name}模组断开连接失败，请重试'}))
+                else:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True,
+                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "DEV_CONNECT":  # 设备连接指令
                 command_content = data.get("commandContent")
                 dev_name = command_content.get("devName")
@@ -500,6 +504,10 @@ class distribution_server(object):
                     else:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False, 'message': f'{dev_name}模组连接失败，请重试'}))
+                else:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True,
+                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "MODIFY_CONFIG":  # 修改配置内容
                 command_content = data.get("commandContent")
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
@@ -512,6 +520,10 @@ class distribution_server(object):
                     else:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False, 'message': '配置内容修改失败，请重试'}))
+                else:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True,
+                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "RESTART_PROCESS":  # 重启当前整个程序
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
@@ -520,6 +532,10 @@ class distribution_server(object):
                     self.restart_io_process()
                     self.mqtt.publish(topic + '/reply',
                                       json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 重启中...'}))
+                else:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True,
+                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "START_BROWSE_PROCESS":  # 启动遍历变量进程
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
@@ -527,6 +543,10 @@ class distribution_server(object):
                     self.browse_proc = self.start_browse_process()
                     self.mqtt.publish(topic + '/reply',
                                       json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序启动中...'}))
+                else:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True,
+                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "STOP_BROWSE_PROCESS":  # 停止遍历变量进程
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
@@ -539,6 +559,10 @@ class distribution_server(object):
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False,
                                                       'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序未开启'}))
+                else:
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True,
+                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
         except Exception as e:
             log.warning(f"mqtt 一般指令处理:{e}")
 

@@ -52,6 +52,10 @@ async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, co
                         else:
                             mqtt_client.publish(topic + '/reply',
                                                 json.dumps({'success': False, 'message': 'OBCData配置内容修改失败，请重试'}))
+                    else:
+                        mqtt_client.publish(topic + '/reply',
+                                          json.dumps({'success': True,
+                                                      'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
                 elif data.get("commandType") == "START_OPCUA_BROWSE":
                     module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                               "category": data.get("category", "")}
@@ -64,6 +68,10 @@ async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, co
                             mqtt_client.publish(topic + '/reply',
                                                 json.dumps({'success': False,
                                                             'message': f'{module["blockId"]}_{module["index"]}_{module["category"]}遍历变量失败，请重新尝试'}))
+                    else:
+                        mqtt_client.publish(topic + '/reply',
+                                          json.dumps({'success': True,
+                                                      'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             except json.JSONDecodeError as e:
                 log.error(f"JSON解析错误：{e}")
             except Exception as e:
@@ -102,8 +110,8 @@ async def opcua_manager_coroutine(config_json_data, opcua_browse_json_data, mqtt
         
 
 async def main():
-    opcua_browse_file_path = './vars_browse_remote/config_files/basic_config.json'
-    config_file_path = './vars_browse_remote/config_files/config.json'
+    opcua_browse_file_path = '../vars_browse_remote/config_files/basic_config.json'
+    config_file_path = '../vars_browse_remote/config_files/config.json'
     mqtt_client = None
     opcua_browse = None
     opcua_browse_json_data = {}
@@ -117,8 +125,8 @@ async def main():
         sys.exit(1)
 
     if not opcua_browse_json_data or not config_json_data:
-        opcua_browse_file_path = '../vars_browse_remote/config_files/basic_config.json'
-        config_file_path = '../vars_browse_remote/config_files/config.json'
+        opcua_browse_file_path = './vars_browse_remote/config_files/basic_config.json'
+        config_file_path = './vars_browse_remote/config_files/config.json'
         opcua_browse_json_data = load_config_file(opcua_browse_file_path)
         config_json_data = load_config_file(config_file_path)
 

@@ -565,3 +565,37 @@
 2025-04-16 11:10:26,506 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
 2025-04-16 11:10:26,539 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
 2025-04-16 11:10:26,568 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 13:07:34,480 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-16 13:07:34,481 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-16 13:07:34,481 - drv_io - INFO - Configuration setting is no load.
+2025-04-16 13:07:34,482 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-16 13:07:34,484 - drv_io - ERROR - Failure to load EFEM.csv file.
+2025-04-16 13:07:34,484 - drv_io - INFO - Load EFEM variable list, False.
+2025-04-16 13:07:34,484 - drv_io - INFO - --Module is 0, Variable is 0,Reading Block is 0.
+2025-04-16 13:07:34,484 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-16 13:07:34,486 - drv_io - ERROR - Failure to load Equipment.csv file.
+2025-04-16 13:07:34,487 - drv_io - INFO - Load Equipment variable list, False.
+2025-04-16 13:07:34,487 - drv_io - INFO - --Module is 0, Variable is 0,Reading Block is 0.
+2025-04-16 13:07:34,487 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-16 13:07:34,710 - drv_io - INFO - Load Robot variable list, True.
+2025-04-16 13:07:34,710 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-04-16 13:07:34,711 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-16 13:07:34,711 - drv_io - INFO - Configuration setting is no load.
+2025-04-16 13:07:34,711 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-16 13:07:34,711 - drv_io - INFO - Configuration setting is no load.
+2025-04-16 13:07:34,712 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.50:4840,ns=3;s="OVEN")] to system.
+2025-04-16 13:07:34,712 - drv_io - INFO - Configuration setting is no load.
+2025-04-16 13:07:34,712 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Utility")] to system.
+2025-04-16 13:07:34,712 - drv_io - INFO - Configuration setting is no load.
+2025-04-16 13:07:36,404 - drv_io - INFO - Connect Robot, True.
+2025-04-16 13:07:36,404 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-16 13:07:38,478 - drv_io - INFO - MQTT id:python-mqtt-sub-192, url:localhost:1883.
+2025-04-16 13:07:38,479 - drv_io - INFO - MQTT subscription is False
+2025-04-16 13:07:38,479 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-16 13:07:38,480 - drv_io - INFO - Request Config file loaded - done.
+2025-04-16 13:07:38,482 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-16 13:07:38,483 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-16 13:07:38,483 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-16 13:07:38,484 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-16 13:07:41,910 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/1111:{'commandType': 'START_BROWSE_PROCESS', 'commandContent': '', 'blockId': 100, 'index': 101, 'category': 'Driver'}
+2025-04-16 13:07:41,918 - drv_io - INFO - /mqtt/general/cmd/1111/reply:{"success": true, "message": "100_101_Driver \u904d\u5386\u53d8\u91cf\u7a0b\u5e8f\u542f\u52a8\u4e2d..."} 通过Mqtt发布:成功
