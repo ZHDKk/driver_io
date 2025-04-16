@@ -24,3 +24,20 @@
 2025-04-16 10:54:42,109 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
 2025-04-16 10:54:42,110 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
 2025-04-16 10:54:44,115 - drv_tool - INFO - 2025-04-16 10:54:44.115: 遍历变量程序已启动
+2025-04-16 11:07:16,553 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 11:07:16,553 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 11:07:18,564 - drv_tool - INFO - 2025-04-16 11:07:18.564: 遍历变量程序已启动
+2025-04-16 11:08:21,511 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 11:08:21,511 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 11:08:23,521 - drv_tool - INFO - 2025-04-16 11:08:23.521: 遍历变量程序已启动
+2025-04-16 11:09:24,736 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 11:09:24,737 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 11:09:26,739 - drv_tool - INFO - 2025-04-16 11:09:26.739: 遍历变量程序已启动
+2025-04-16 11:10:26,510 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,535 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,536 - drv_tool - INFO - MQTT处理任务被取消
+2025-04-16 11:10:26,537 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-16 11:10:26,565 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,580 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,580 - drv_tool - INFO - MQTT处理任务被取消
+2025-04-16 11:10:26,581 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...

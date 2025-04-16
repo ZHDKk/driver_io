@@ -7,7 +7,7 @@ from asyncua.common.subscription import Subscription
 from asyncua import Client
 
 from logger import log
-from parse import json_from_list, s7_datas_parse, datas_parse_o2m
+from data_parse import json_from_list, s7_datas_parse, datas_parse_o2m
 from opcua_link import opcua_linker, SubHandler
 from s7_link import s7_linker
 from utils.helpers import code2format_str
