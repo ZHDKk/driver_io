@@ -60,6 +60,7 @@ class distribution_server(object):
         # distribution config
         self.config = {}
 
+        self.is_local = True  # 记录是否是本地模式
         # request recipe interface
         self.recipe_request_data = []
         self.recipe_single_module = []
@@ -84,6 +85,7 @@ class distribution_server(object):
         try:
             with open(r'./config files/driver config.json', 'r', encoding='utf-8') as file:
                 self.config = json.load(file)
+                self.is_local = self.config["Control"]["isLocal"]
             # pprint.pprint(self.config)
 
             # save to drv_config.csv file
