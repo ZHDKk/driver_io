@@ -1,0 +1,45 @@
+2025-04-15 19:52:59,425 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 19:52:59,425 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 19:53:12,266 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 19:53:12,267 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 19:53:55,206 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 19:53:55,206 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 20:00:33,779 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 20:00:33,781 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 20:00:48,319 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:00:48,322 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:00:48,323 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:02:22,946 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:02:25,787 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:02:25,948 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:03:09,044 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 20:03:09,044 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 20:04:23,032 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:04:27,876 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:07:24,129 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 20:07:24,129 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 20:08:38,735 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:08:42,642 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:08:42,812 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:11:02,301 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 20:11:02,302 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 20:12:19,242 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:12:24,108 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:13:44,166 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:18:29,059 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-15 20:18:29,059 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-15 20:19:40,607 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:19:44,802 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-15 20:19:44,972 - drv_tool - INFO - Published message '{"success": true, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u6210\u529f\uff0c\u8bf7\u91cd\u65b0\u542f\u52a8\u4e3b\u7a0b\u5e8f"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:20:17,188 - drv_tool - WARNING - Failure to unlink to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:17,188 - drv_tool - WARNING - Failure to unlink to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:17,189 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:20:28,355 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:28,355 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:28,355 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:20:34,991 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:34,992 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:34,993 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'
+2025-04-15 20:20:45,940 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:45,941 - drv_tool - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-15 20:20:45,942 - drv_tool - INFO - Published message '{"success": false, "message": "100_101_Driver\u904d\u5386\u53d8\u91cf\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u5c1d\u8bd5"}' to topic '/mqtt/general/cmd/1111/reply'

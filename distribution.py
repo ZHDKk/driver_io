@@ -1,5 +1,8 @@
 import asyncio
 import json
+import os
+import subprocess
+import sys
 import time
 from datetime import datetime
 import pandas as pd
@@ -62,7 +65,8 @@ class distribution_server(object):
         self.recipe_single_module = []
         self.recipe_request_map = {}
         self.single_module_map = {}
-        self.RESTART_FLAG = False
+        self.RESTART_FLAG = False  #  当前主程序是否重启Flag
+        self.browse_proc = None  # 记录遍历变量进程
 
     async def __aenter__(self):
 
@@ -512,11 +516,83 @@ class distribution_server(object):
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
                 if module == current_driver:
-                    self.RESTART_FLAG = True
+                    # self.RESTART_FLAG = True
+                    self.restart_io_process()
                     self.mqtt.publish(topic + '/reply',
                                       json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 重启中...'}))
+            elif data.get("commandType") == "START_BROWSE_PROCESS":  # 启动遍历变量进程
+                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
+                          "category": data.get("category", "")}
+                if module == current_driver:
+                    self.browse_proc = self.start_browse_process()
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序启动中...'}))
+            elif data.get("commandType") == "STOP_BROWSE_PROCESS":  # 停止遍历变量进程
+                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
+                          "category": data.get("category", "")}
+                if module == current_driver:
+                    if self.stop_process(self.browse_proc, timeout=5):
+                        self.browse_proc = None
+                        self.mqtt.publish(topic + '/reply',
+                                          json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序关闭'}))
+                    else:
+                        self.mqtt.publish(topic + '/reply',
+                                          json.dumps({'success': False,
+                                                      'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序未开启'}))
         except Exception as e:
             log.warning(f"mqtt 一般指令处理:{e}")
+
+    def restart_io_process(self):
+        """
+            重启当前进程
+        :param dis:
+        :return:
+        """
+        try:
+            # 重启程序
+            print(f"{get_current_time()} 程序即将重启...")
+            log.info("程序即将重启...")
+            python = sys.executable
+            os.execv(python, [python] + sys.argv)
+        except Exception as e:
+            print(f"程序重启失败:{e}")
+
+    def start_browse_process(self):
+        try:
+            other_script_path = "./vars_browse_remote/browse_main.py"
+
+            if not os.path.isfile(other_script_path):
+                raise FileNotFoundError(f"无法找到browse_main.py，路径：{other_script_path}")
+            # 使用subprocess.Popen启动脚本，注意这里不阻塞父进程
+            process = subprocess.Popen(["python", other_script_path])
+            return process
+        except Exception as e:
+            print("启动子进程失败:", e)
+            return None
+
+    def stop_process(self, process, timeout=10):
+        """
+        停止通过start_other_script启动的子进程
+        :param process: subprocess.Popen 返回的进程对象
+        :param timeout: 等待进程退出的超时秒数
+        """
+        # 检查子进程是否还在运行
+        if self.browse_proc:
+            if process.poll() is None:
+                try:
+                    process.terminate()  # 发送 SIGTERM 信号
+                    process.wait(timeout=timeout)  # 等待进程优雅退出
+                    return True
+                except subprocess.TimeoutExpired:
+                    print("子进程未能在超时时间内退出，使用 kill() 强制结束。")
+                    process.kill()  # 强制杀死
+                    process.wait()
+                    return True
+            else:
+                print("子进程已经退出。")
+                return False
+        else:
+            return False
 
     async def mqtt_parse(self, topic: str, data):
         """
@@ -551,6 +627,8 @@ class distribution_server(object):
             elif topic[:len(self.mqtt.sub_general_cmd) - 1] == self.mqtt.sub_general_cmd[
                                                                :len(self.mqtt.sub_general_cmd) - 1]:
                 # TODO: 去做控制单设备重连等操作
+                print(f"接收到general_command指令：{topic}:{frame['data']}")
+                log.info(f"接收到general_command指令：{topic}:{frame['data']}")
                 await self.mqtt_general_command(frame['data'], topic)
 
         except:

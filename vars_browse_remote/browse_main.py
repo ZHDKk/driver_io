@@ -7,6 +7,7 @@ from mqtt_client import MQTTClient
 from op_browse import opcuaBrowse
 from utils.global_var import GlobalVar
 from utils.helpers import load_config_file, json_from_list, save_config_file
+from utils.time_util import get_current_time
 
 
 async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, config_json_data, mqtt_client, opcua_browse):
@@ -39,7 +40,7 @@ async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, co
                         state = save_config_file(opcua_browse_file_path, command_content)
                         if state:
                             mqtt_client.publish(topic + '/reply',
-                                                json.dumps({'success': True, 'message': 'OBBCData配置内容修改成功'}))
+                                                json.dumps({'success': True, 'message': 'OBBCData配置内容修改成功'}))  # 修改basic_config.json
                         else:
                             mqtt_client.publish(topic + '/reply',
                                                 json.dumps({'success': False, 'message': 'OBBCData配置内容修改失败，请重试'}))
@@ -47,7 +48,7 @@ async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, co
                         state = save_config_file(config_file_path, command_content)
                         if state:
                             mqtt_client.publish(topic + '/reply',
-                                                json.dumps({'success': True, 'message': 'OBCData配置内容修改成功'}))
+                                                json.dumps({'success': True, 'message': 'OBCData配置内容修改成功'}))  # 修改config.json
                         else:
                             mqtt_client.publish(topic + '/reply',
                                                 json.dumps({'success': False, 'message': 'OBCData配置内容修改失败，请重试'}))
@@ -63,14 +64,6 @@ async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, co
                             mqtt_client.publish(topic + '/reply',
                                                 json.dumps({'success': False,
                                                             'message': f'{module["blockId"]}_{module["index"]}_{module["category"]}遍历变量失败，请重新尝试'}))
-                elif data.get("commandType") == "STOP_OPCUA_BROWSE":
-                    module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                              "category": data.get("category", "")}
-                    if module == {"blockId": ios_block_id, "index": ios_block_index, "category": ios_category}:
-                        GlobalVar.set_browse_var_state(False)
-                        mqtt_client.publish(topic + '/reply',
-                                            json.dumps({'success': True,
-                                                        'message': f'{module["blockId"]}_{module["index"]}_{module["category"]}已停止遍历'}))
             except json.JSONDecodeError as e:
                 log.error(f"JSON解析错误：{e}")
             except Exception as e:
@@ -109,8 +102,8 @@ async def opcua_manager_coroutine(config_json_data, opcua_browse_json_data, mqtt
         
 
 async def main():
-    opcua_browse_file_path = '../vars_browse_remote/config_files/basic_config.json'
-    config_file_path = '../vars_browse_remote/config_files/config.json'
+    opcua_browse_file_path = './vars_browse_remote/config_files/basic_config.json'
+    config_file_path = './vars_browse_remote/config_files/config.json'
     mqtt_client = None
     opcua_browse = None
     opcua_browse_json_data = {}
@@ -122,6 +115,12 @@ async def main():
     except Exception as e:
         log.warning(f"加载配置文件失败: {str(e)}")
         sys.exit(1)
+
+    if not opcua_browse_json_data or not config_json_data:
+        opcua_browse_file_path = '../vars_browse_remote/config_files/basic_config.json'
+        config_file_path = '../vars_browse_remote/config_files/config.json'
+        opcua_browse_json_data = load_config_file(opcua_browse_file_path)
+        config_json_data = load_config_file(config_file_path)
 
     try:
         mqtt_client = MQTTClient(config_json_data)
@@ -137,6 +136,8 @@ async def main():
     asyncio.create_task(opcua_manager_coroutine(config_json_data, opcua_browse_json_data, mqtt_client))
     asyncio.create_task(process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, config_json_data,
                                                   mqtt_client, opcua_browse))  # 处理cmd指令
+    print(f"{get_current_time()}: 遍历变量程序已启动")
+    log.info(f"{get_current_time()}: 遍历变量程序已启动")
     await asyncio.Event().wait()
 
 

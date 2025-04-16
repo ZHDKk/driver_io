@@ -91,7 +91,6 @@ class MQTTClient:
             asyncio.set_event_loop(loop)
             self.client.connect(self.broker_address, self.port, self.keep_alive)
             self.client.loop_start()
-            print("Mqtt 连接成功")
             # # 直接启动mqtt连接监控
             # loop.run_until_complete(self.start_connection_monitor(1))
         except Exception as e:

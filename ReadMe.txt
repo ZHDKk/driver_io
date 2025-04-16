@@ -53,22 +53,6 @@ RestartSec=5
 [Install]
 WantedBy=multi-user.target
 
-1、创建文件：sudo nano /etc/systemd/system/mrg_DrvTool.service
-2、配置文件内容：
-[Unit]
-Description=MRG DrvTool
-After=network.target
-
-[Service]
-User=mrg
-WorkingDirectory=/home/mrg/Documents/driver_io/vars_browse_remote
-ExecStart=/usr/bin/python browse_main.py
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-
 3、ctrl+O：写入   ctrl+X：离开
 
 4、相关指令：

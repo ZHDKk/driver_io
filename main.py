@@ -28,7 +28,7 @@ async def opcua_manager_coroutine(dis: distribution_server):
         # if time_using > 0.1:
         #     log.info(f'Task opcua manager timing: {time_using:.4f}s')
         time_using = 0.01 if time_using > 1.0 else 1.01 - time_using
-        restart_process(dis)
+        # restart_process(dis)
         await asyncio.sleep(time_using)
 
 def restart_process(dis):
