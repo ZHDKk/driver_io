@@ -489,10 +489,10 @@ class distribution_server(object):
                     else:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False, 'message': f'{dev_name}模组断开连接失败，请重试'}))
-                else:
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True,
-                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
+                # else:
+                #     self.mqtt.publish(topic + '/reply',
+                #                       json.dumps({'success': False,
+                #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "DEV_CONNECT":  # 设备连接指令
                 command_content = data.get("commandContent")
                 dev_name = command_content.get("devName")
@@ -506,10 +506,10 @@ class distribution_server(object):
                     else:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False, 'message': f'{dev_name}模组连接失败，请重试'}))
-                else:
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True,
-                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
+                # else:
+                #     self.mqtt.publish(topic + '/reply',
+                #                       json.dumps({'success': False,
+                #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "MODIFY_CONFIG":  # 修改配置内容
                 command_content = data.get("commandContent")
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
@@ -522,22 +522,24 @@ class distribution_server(object):
                     else:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False, 'message': '配置内容修改失败，请重试'}))
-                else:
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True,
-                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
+                # else:
+                #     self.mqtt.publish(topic + '/reply',
+                #                       json.dumps({'success': False,
+                #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "RESTART_PROCESS":  # 重启当前整个程序
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
                 if module == current_driver:
-                    # self.RESTART_FLAG = True
+                    self.RESTART_FLAG = True
+                    await asyncio.sleep(2)
+                    self.before_restarting()  # 把所有link置为False再发一次
                     self.restart_io_process()
                     self.mqtt.publish(topic + '/reply',
                                       json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 重启中...'}))
-                else:
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True,
-                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
+                # else:
+                #     self.mqtt.publish(topic + '/reply',
+                #                       json.dumps({'success': False,
+                #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "START_BROWSE_PROCESS":  # 启动遍历变量进程
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
@@ -545,10 +547,10 @@ class distribution_server(object):
                     self.browse_proc = self.start_browse_process()
                     self.mqtt.publish(topic + '/reply',
                                       json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序启动中...'}))
-                else:
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True,
-                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
+                # else:
+                #     self.mqtt.publish(topic + '/reply',
+                #                       json.dumps({'success': False,
+                #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
             elif data.get("commandType") == "STOP_BROWSE_PROCESS":  # 停止遍历变量进程
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
@@ -561,10 +563,10 @@ class distribution_server(object):
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False,
                                                       'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序未开启'}))
-                else:
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True,
-                                                  'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
+                # else:
+                #     self.mqtt.publish(topic + '/reply',
+                #                       json.dumps({'success': False,
+                #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
         except Exception as e:
             log.warning(f"mqtt 一般指令处理:{e}")
 
@@ -818,38 +820,46 @@ class distribution_server(object):
         except Exception as e:
             log.warning(f"MQTT处理过程中发生意外错误：{e}", exc_info=True)
 
+    def before_restarting(self):
+        for dev in self.ua_device:  # scan device
+            dev_cfg = self.config['Opcua'][dev.name]
+            dev_cfg['Status']['Linking'] = False
+        mframe = json_from_list({'module': {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}, 'list': self.config})
+        if mframe:
+            self.mqtt.publish(self.mqtt.pub_drv_data_struct, mframe)
 
     async def opcua_device_manage_task(self):
         """
         device manage task
         """
         # start opcua device task
-        tasks = []
-        for dev in self.ua_device:  # scan device
-            dev_cfg = self.config['Opcua'][dev.name]
-            if dev.loading is True:
-                tasks.append(asyncio.create_task(dev.device_manager(dev_cfg['Control']['Link'])))
-            # loading status to config
-            dev_cfg['Status']['Load'] = dev.loading
-            dev_cfg['Status']['Linking'] = dev.connecting
-            dev_cfg['Status']['Module_Number'] = dev.module_number
-            dev_cfg['Status']['Variable_Number'] = dev.VarNumber
-            dev_cfg['Status']['Read_Block_Number'] = dev.ReadBlock_Number
-            dev_cfg['Parameter']['modules'] = dev.module
+        if not self.RESTART_FLAG:
+            tasks = []
+            for dev in self.ua_device:  # scan device
+                dev_cfg = self.config['Opcua'][dev.name]
+                if dev.loading is True:
+                    tasks.append(asyncio.create_task(dev.device_manager(dev_cfg['Control']['Link'])))
+                # loading status to config
+                dev_cfg['Status']['Load'] = dev.loading
+                dev_cfg['Status']['Linking'] = dev.connecting
+                dev_cfg['Status']['Module_Number'] = dev.module_number
+                dev_cfg['Status']['Variable_Number'] = dev.VarNumber
+                dev_cfg['Status']['Read_Block_Number'] = dev.ReadBlock_Number
+                dev_cfg['Parameter']['modules'] = dev.module
 
-        # publish driver status (include opcua device) to mqtt
-        # list_data = []
-        # nested_dict_2list(self.config, list_data, int(time.time() * 1000))
-        # pprint.pprint(list_data)
-        # mframe = json_from_list({'module': {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}, 'list': list_data})
-        mframe = json_from_list({'module': {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}, 'list': self.config})
-        if mframe:
-            # self.mqtt.publish(self.mqtt.pub_drv_data, mframe)
-            self.mqtt.publish(self.mqtt.pub_drv_data_struct, mframe)
+            # publish driver status (include opcua device) to mqtt
+            # list_data = []
+            # nested_dict_2list(self.config, list_data, int(time.time() * 1000))
+            # pprint.pprint(list_data)
+            # mframe = json_from_list({'module': {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}, 'list': list_data})
+            mframe = json_from_list({'module': {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}, 'list': self.config})
+            if mframe:
+                # self.mqtt.publish(self.mqtt.pub_drv_data, mframe)
+                self.mqtt.publish(self.mqtt.pub_drv_data_struct, mframe)
 
-        # wait all task finish
-        if tasks:
-            await asyncio.gather(*tasks)
+            # wait all task finish
+            if tasks:
+                await asyncio.gather(*tasks)
 
     # 定时检查模组的连接状态，并发布
     async def modules_connection_state_task(self):
@@ -860,8 +870,8 @@ class distribution_server(object):
                     devs_connection_state.append({"moduleName": dev.name, "connectionState": dev.connecting})
                 self.mqtt.publish(self.mqtt.pub_modules_status,
                                   json.dumps({"data": {"commandType": "moduleConnectionState",
-                                                       "commandContent": {"list": devs_connection_state}},
-                                              "module":{"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}}))
+                                                       "commandContent": {"list": devs_connection_state},
+                                                       "blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"], "category": self.config["Basic"]["category"]}}))
         except Exception as e:
             log.warning(f"定时检查模组的连接状态:{e}")
 
