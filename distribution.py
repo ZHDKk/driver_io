@@ -531,11 +531,11 @@ class distribution_server(object):
                           "category": data.get("category", "")}
                 if module == current_driver:
                     self.RESTART_FLAG = True
+                    self.mqtt.publish(topic + '/reply',
+                                      json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 重启中...'}))
                     await asyncio.sleep(2)
                     self.before_restarting()  # 把所有link置为False再发一次
                     self.restart_io_process()
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 重启中...'}))
                 # else:
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
@@ -958,7 +958,7 @@ class distribution_server(object):
             else:
                 print(f'Configuration setting is no load.')
                 log.info(f'Configuration setting is no load.')
-            dev_cfg['Control']['Load'] = False
+            # dev_cfg['Control']['Load'] = False
 
             # Connect to OPC UA device if configured
             if dev_cfg['Control']['Link'] is True:
