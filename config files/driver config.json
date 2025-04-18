@@ -8,7 +8,7 @@
         "category": "Driver"
     },
     "Control": {
-        "isLocal": true
+        "isLocal": false
     },
     "Status": {},
     "Parameter": {},
@@ -68,33 +68,17 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": true,
-                "Linking": true,
+                "Load": false,
+                "Linking": false,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 3,
-                "Variable_Number": 2638,
-                "Read_Block_Number": 17
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": [
-                    {
-                        "blockId": 1,
-                        "index": 1,
-                        "category": "LoadPort"
-                    },
-                    {
-                        "blockId": 1,
-                        "index": 2,
-                        "category": "LoadPort"
-                    },
-                    {
-                        "blockId": 1,
-                        "index": 3,
-                        "category": "LoadPort"
-                    }
-                ]
+                "modules": []
             },
             "Other": {}
         },
@@ -118,28 +102,17 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": true,
-                "Linking": true,
+                "Load": false,
+                "Linking": false,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 2,
-                "Variable_Number": 2899,
-                "Read_Block_Number": 12
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": [
-                    {
-                        "blockId": 0,
-                        "index": 2,
-                        "category": "MC"
-                    },
-                    {
-                        "blockId": 0,
-                        "index": 200,
-                        "category": "IO"
-                    }
-                ]
+                "modules": []
             },
             "Other": {}
         },
@@ -213,28 +186,7 @@
                 "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": [
-                    {
-                        "blockId": 2,
-                        "index": 1,
-                        "category": "COT"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 2,
-                        "category": "COT"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 3,
-                        "category": "DEV"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 4,
-                        "category": "DEV"
-                    }
-                ]
+                "modules": []
             },
             "Other": {}
         },
@@ -269,124 +221,6 @@
             },
             "Parameter": {
                 "modules": []
-            },
-            "Other": {}
-        },
-        "OVEN": {
-            "Alarm": {},
-            "Basic": {
-                "name": "OVEN",
-                "uri": "opc.tcp://192.168.20.50:4840",
-                "main_node": "ns=3;s=\"OVEN\"",
-                "link": "opcua",
-                "timeout": 5,
-                "watchdog_interval": 5
-            },
-            "Control": {
-                "Load": false,
-                "Link": true,
-                "Read": true,
-                "Write": true,
-                "Sub": false,
-                "O2M_All": false,
-                "M2O_All": false
-            },
-            "Status": {
-                "Load": false,
-                "Linking": false,
-                "Read_Time": 0,
-                "Write_Time": 0,
-                "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
-            },
-            "Parameter": {
-                "modules": [
-                    {
-                        "blockId": 2,
-                        "index": 8,
-                        "category": "CADH"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 9,
-                        "category": "CADH"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 10,
-                        "category": "CHCH"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 11,
-                        "category": "CLHP"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 12,
-                        "category": "CHHP"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 13,
-                        "category": "CHHP"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 14,
-                        "category": "CLHP"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 15,
-                        "category": "CLHP"
-                    },
-                    {
-                        "blockId": 2,
-                        "index": 16,
-                        "category": "CLHP"
-                    }
-                ]
-            },
-            "Other": {}
-        },
-        "Utility": {
-            "Alarm": {},
-            "Basic": {
-                "name": "Utility",
-                "uri": "opc.tcp://192.168.20.50:4840",
-                "main_node": "ns=3;s=\"Utility\"",
-                "link": "opcua",
-                "timeout": 5,
-                "watchdog_interval": 5
-            },
-            "Control": {
-                "Load": false,
-                "Link": true,
-                "Read": true,
-                "Write": true,
-                "Sub": false,
-                "O2M_All": false,
-                "M2O_All": false
-            },
-            "Status": {
-                "Load": false,
-                "Linking": false,
-                "Read_Time": 0,
-                "Write_Time": 0,
-                "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
-            },
-            "Parameter": {
-                "modules": [{
-                        "blockId": 2,
-                        "index": 6,
-                        "category": "MCA"
-                    }]
             },
             "Other": {}
         }

@@ -1,0 +1,46 @@
+2025-04-16 10:00:43,976 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-16 10:02:06,174 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-16 10:05:57,202 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-16 10:07:45,093 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-16 10:09:03,793 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-16 10:09:10,981 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-16 10:09:10,982 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-16 10:11:33,437 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 10:11:33,438 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 10:12:03,565 - drv_tool - INFO - MQTT处理任务被取消
+2025-04-16 10:12:03,567 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-16 10:14:51,439 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 10:14:51,439 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 10:20:28,547 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 10:20:28,547 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 10:46:14,402 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 10:46:14,402 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 10:48:48,655 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 10:48:48,655 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 10:48:50,661 - drv_tool - INFO - 2025-04-16 10:48:50.661: 遍历变量程序已启动
+2025-04-16 10:51:38,854 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 10:51:38,854 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 10:51:40,859 - drv_tool - INFO - 2025-04-16 10:51:40.859: 遍历变量程序已启动
+2025-04-16 10:54:42,109 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 10:54:42,110 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 10:54:44,115 - drv_tool - INFO - 2025-04-16 10:54:44.115: 遍历变量程序已启动
+2025-04-16 11:07:16,553 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 11:07:16,553 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 11:07:18,564 - drv_tool - INFO - 2025-04-16 11:07:18.564: 遍历变量程序已启动
+2025-04-16 11:08:21,511 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 11:08:21,511 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 11:08:23,521 - drv_tool - INFO - 2025-04-16 11:08:23.521: 遍历变量程序已启动
+2025-04-16 11:09:24,736 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 11:09:24,737 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 11:09:26,739 - drv_tool - INFO - 2025-04-16 11:09:26.739: 遍历变量程序已启动
+2025-04-16 11:10:26,510 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,535 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,536 - drv_tool - INFO - MQTT处理任务被取消
+2025-04-16 11:10:26,537 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-16 11:10:26,565 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,580 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-16 11:10:26,580 - drv_tool - INFO - MQTT处理任务被取消
+2025-04-16 11:10:26,581 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-16 13:07:44,776 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-16 13:07:44,776 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-16 13:07:46,780 - drv_tool - INFO - 2025-04-16 13:07:46.780: 遍历变量程序已启动

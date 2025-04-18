@@ -87,12 +87,24 @@ async def process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, co
         if mqtt_client.message_queue.empty():
             await asyncio.sleep(0.02)
 
-async def opcua_manager_coroutine(config_json_data, opcua_browse_json_data, mqtt_client):
+async def opcua_manager_coroutine(config_json_data, mqtt_client):
     ios_config_data = load_config_file(f"{config_json_data['base_file_path']}/{config_json_data['Drv']['config_file_name']}")
     basic_data = ios_config_data.get("Basic")
     ios_block_id = basic_data.get("blockId")
     ios_block_index = basic_data.get("index")
+    opcua_browse_file_path = '../vars_browse_remote/config_files/basic_config.json'
     while True:
+        # 加载配置
+        try:
+            opcua_browse_json_data = load_config_file(opcua_browse_file_path)
+        except:
+            opcua_browse_file_path = './vars_browse_remote/config_files/basic_config.json'
+            opcua_browse_json_data = load_config_file(opcua_browse_file_path)
+
+        if not opcua_browse_json_data:
+            opcua_browse_file_path = './vars_browse_remote/config_files/basic_config.json'
+            opcua_browse_json_data = load_config_file(opcua_browse_file_path)
+
         obbc_frame = json_from_list({'module': {"blockId": ios_block_id,
                                                         "index": ios_block_index,
                                                         "category": "OBBCData"},  #  OpcuaBrowseBasicConfigData
@@ -114,20 +126,17 @@ async def main():
     config_file_path = '../vars_browse_remote/config_files/config.json'
     mqtt_client = None
     opcua_browse = None
-    opcua_browse_json_data = {}
-    config_json_data = {}
     # 加载配置
     try:
-        opcua_browse_json_data = load_config_file(opcua_browse_file_path)
         config_json_data = load_config_file(config_file_path)
-    except Exception as e:
-        log.warning(f"加载配置文件失败: {str(e)}")
-        sys.exit(1)
-
-    if not opcua_browse_json_data or not config_json_data:
+    except:
         opcua_browse_file_path = './vars_browse_remote/config_files/basic_config.json'
         config_file_path = './vars_browse_remote/config_files/config.json'
-        opcua_browse_json_data = load_config_file(opcua_browse_file_path)
+        config_json_data = load_config_file(config_file_path)
+
+    if not config_json_data:
+        opcua_browse_file_path = './vars_browse_remote/config_files/basic_config.json'
+        config_file_path = './vars_browse_remote/config_files/config.json'
         config_json_data = load_config_file(config_file_path)
 
     try:
@@ -141,7 +150,7 @@ async def main():
         # asyncio.create_task(opcua_browse.start())  # 开始执行遍历
     except Exception as e:
         log.warning( f"opcuaBrowse 初始化失败：{e}")
-    asyncio.create_task(opcua_manager_coroutine(config_json_data, opcua_browse_json_data, mqtt_client))
+    asyncio.create_task(opcua_manager_coroutine(config_json_data, mqtt_client))
     asyncio.create_task(process_cmd_msg_coroutine(opcua_browse_file_path, config_file_path, config_json_data,
                                                   mqtt_client, opcua_browse))  # 处理cmd指令
     print(f"{get_current_time()}: 遍历变量程序已启动")

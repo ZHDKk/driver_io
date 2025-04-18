@@ -33,13 +33,10 @@ def load_config_file(config_file_path):
             config = json.load(file)
 
     except FileNotFoundError:
-        print(f'Failure to find {config_file_path}')
         return
     except json.JSONDecodeError:
-        print(f'Failure to parse {config_file_path}')
         return
     except Exception as e:
-        print(f'Failure to read {config_file_path}:{e}')
         return
     return config
 

@@ -12,7 +12,7 @@
                 "/2_0_PRA/Other1": true,
                 "/2_0_PRA/Control_Out": true,
                 "/2_0_PRA/Other2": true,
-                "/2_0_PRA/Inner": true,
+                "/2_0_PRA/Inner": false,
                 "/2_0_PRA/Control": true,
                 "/2_0_PRA/Inner_1": true
             }
