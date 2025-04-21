@@ -1,0 +1,26 @@
+2025-04-18 17:08:10,048 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-18 17:08:10,051 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-18 17:08:12,051 - drv_tool - INFO - 2025-04-18 17:08:12.051: 遍历变量程序已启动
+2025-04-18 17:19:56,693 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-18 17:19:56,693 - drv_tool - INFO - 2025-04-18 17:19:56.693: 遍历变量程序已启动
+2025-04-18 17:20:35,253 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-18 17:20:35,253 - drv_tool - INFO - 2025-04-18 17:20:35.253: 遍历变量程序已启动
+2025-04-18 17:21:26,833 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
+2025-04-18 17:21:26,835 - drv_tool - INFO - 2025-04-18 17:21:26.835: 遍历变量程序已启动
+2025-04-18 17:21:51,549 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-18 17:21:51,549 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
+2025-04-18 17:24:41,306 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-18 17:24:41,306 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-18 17:24:43,318 - drv_tool - INFO - 2025-04-18 17:24:43.318: 遍历变量程序已启动
+2025-04-18 17:27:51,477 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-18 17:27:51,478 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-18 17:27:53,484 - drv_tool - INFO - 2025-04-18 17:27:53.484: 遍历变量程序已启动
+2025-04-18 17:36:00,207 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-18 17:36:00,207 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-18 17:36:02,214 - drv_tool - INFO - 2025-04-18 17:36:02.214: 遍历变量程序已启动
+2025-04-18 17:46:10,698 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-18 17:46:10,698 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-18 17:46:12,701 - drv_tool - INFO - 2025-04-18 17:46:12.701: 遍历变量程序已启动
+2025-04-18 17:51:47,310 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-18 17:51:47,310 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-18 17:51:49,312 - drv_tool - INFO - 2025-04-18 17:51:49.312: 遍历变量程序已启动

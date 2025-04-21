@@ -544,9 +544,14 @@ class distribution_server(object):
                 module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
                           "category": data.get("category", "")}
                 if module == current_driver:
-                    self.browse_proc = self.start_browse_process()
-                    self.mqtt.publish(topic + '/reply',
-                                      json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序启动中...'}))
+                    if self.browse_proc:
+                        self.mqtt.publish(topic + '/reply',
+                                          json.dumps({'success': False,
+                                                      'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序已启动'}))
+                    else:
+                        self.browse_proc = self.start_browse_process()
+                        self.mqtt.publish(topic + '/reply',
+                                          json.dumps({'success': True, 'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序启动中...'}))
                 # else:
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
@@ -562,7 +567,7 @@ class distribution_server(object):
                     else:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False,
-                                                      'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序未开启'}))
+                                                      'message': f'{current_driver["blockId"]}_{current_driver["index"]}_{current_driver["category"]} 遍历变量程序未启动'}))
                 # else:
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
