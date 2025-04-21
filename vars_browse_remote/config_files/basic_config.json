@@ -2,23 +2,6 @@
     "opcua_servers": [
         {
             "uri": "opc.tcp://192.168.20.1:4840",
-            "main_node": "ns=3;s=DataBlocksGlobal",
-            "table_name": "PRA",
-            "is_read": false,
-            "timeout": 10.0,
-            "watchdog_interval": 10.0,
-            "read_enable_paths": {
-                "/2_0_PRA/Status": true,
-                "/2_0_PRA/Other1": true,
-                "/2_0_PRA/Control_Out": true,
-                "/2_0_PRA/Other2": true,
-                "/2_0_PRA/Inner": false,
-                "/2_0_PRA/Control": true,
-                "/2_0_PRA/Inner_1": true
-            }
-        },
-        {
-            "uri": "opc.tcp://192.168.20.1:4840",
             "main_node": "ns=3;s=\"EFEM\"",
             "table_name": "EFEM",
             "is_read": true,
@@ -49,7 +32,7 @@
             "uri": "opc.tcp://192.168.20.1:4840",
             "main_node": "ns=3;s=\"Equipment\"",
             "table_name": "Equipment",
-            "is_read": true,
+            "is_read": false,
             "timeout": 10.0,
             "watchdog_interval": 10.0,
             "read_enable_paths": {

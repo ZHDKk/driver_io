@@ -43,7 +43,7 @@ class opcuaBrowse:
                 try:
                     df_old = pd.read_csv(f'{self.base_file_path}/{name}.csv', encoding='gbk')
                 except:
-                    self.emit_error(f'无旧{name}.csv文件')
+                    self.emit_msgs(f'无旧{name}.csv文件')
                     return False
 
         # 输出变更信息
@@ -164,9 +164,7 @@ class opcuaBrowse:
         df = tree_to_dataframe(big_tree, all_attrs=True)
 
         # fill config information with old csv
-        if not await self.update_dataframe_from_csv(df, name):
-            return False
-
+        await self.update_dataframe_from_csv(df, name)
         # save to csv file
         try:
             df.to_csv(f'{self.base_file_path}/{name}.csv', encoding='utf_8', index=False)
@@ -249,8 +247,7 @@ class opcuaBrowse:
             await opcua.unlink()
             return False
         # fill config information with old csv
-        if not await self.update_dataframe_from_csv(df, name):
-            return False
+        await self.update_dataframe_from_csv(df, name)
 
         # save to csv file
         try:
