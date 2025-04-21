@@ -451,13 +451,23 @@ class distribution_server(object):
 
     async def mqtt_general_command(self, data, topic):
         try:
-            current_driver = {"blockId": self.config["Basic"]["blockId"], "index": self.config["Basic"]["index"],
-                              "category": self.config["Basic"]["category"]}
-            if data.get("commandType") == "DEV_RECONNECT":  # 设备重连指令
+            current_driver = {
+                "blockId": self.config["Basic"]["blockId"],
+                "index": self.config["Basic"]["index"],
+                "category": self.config["Basic"]["category"]
+            }
+            command_type = data.get("commandType")
+            module = {
+                "blockId": data.get("blockId", ""),
+                "index": data.get("index", ""),
+                "category": data.get("category", "")
+            }
+            if module == current_driver:
+                print(f"接收到general_command指令：{topic}:{data}")
+                log.info(f"接收到general_command指令：{topic}:{data}")
+            if command_type == "DEV_RECONNECT":  # 设备重连指令
                 command_content = data.get("commandContent")
                 dev_name = command_content.get("devName")
-                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                          "category": data.get("category", "")}
                 if module == current_driver:
                     state = await self.dev_reconnect(dev_name)
                     if state:
@@ -476,11 +486,9 @@ class distribution_server(object):
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': False,
                                                       'message': f'{dev_name}模组重连失败，请重试'}))
-            elif data.get("commandType") == "DEV_DISCONNECT":  # 设备断连指令
+            elif command_type == "DEV_DISCONNECT":  # 设备断连指令
                 command_content = data.get("commandContent")
                 dev_name = command_content.get("devName")
-                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                          "category": data.get("category", "")}
                 if module == current_driver:
                     state = await self.disconnect_dev(dev_name)
                     if state:
@@ -493,11 +501,9 @@ class distribution_server(object):
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
                 #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
-            elif data.get("commandType") == "DEV_CONNECT":  # 设备连接指令
+            elif command_type == "DEV_CONNECT":  # 设备连接指令
                 command_content = data.get("commandContent")
                 dev_name = command_content.get("devName")
-                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                          "category": data.get("category", "")}
                 if module == current_driver:
                     state = await self.connect_dev(dev_name)
                     if state:
@@ -510,10 +516,8 @@ class distribution_server(object):
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
                 #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
-            elif data.get("commandType") == "MODIFY_CONFIG":  # 修改配置内容
+            elif command_type == "MODIFY_CONFIG":  # 修改配置内容
                 command_content = data.get("commandContent")
-                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                          "category": data.get("category", "")}
                 if module == current_driver:
                     state = save_config_file(f'./config files/driver config.json', command_content)
                     if state:
@@ -526,9 +530,7 @@ class distribution_server(object):
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
                 #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
-            elif data.get("commandType") == "RESTART_PROCESS":  # 重启当前整个程序
-                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                          "category": data.get("category", "")}
+            elif command_type == "RESTART_PROCESS":  # 重启当前整个程序
                 if module == current_driver:
                     self.RESTART_FLAG = True
                     self.mqtt.publish(topic + '/reply',
@@ -540,9 +542,7 @@ class distribution_server(object):
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
                 #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
-            elif data.get("commandType") == "START_BROWSE_PROCESS":  # 启动遍历变量进程
-                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                          "category": data.get("category", "")}
+            elif command_type == "START_BROWSE_PROCESS":  # 启动遍历变量进程
                 if module == current_driver:
                     if self.browse_proc:
                         self.mqtt.publish(topic + '/reply',
@@ -556,9 +556,7 @@ class distribution_server(object):
                 #     self.mqtt.publish(topic + '/reply',
                 #                       json.dumps({'success': False,
                 #                                   'message': f'未匹配到模组：{module["blockId"]}_{module["index"]}_{module["category"]}'}))
-            elif data.get("commandType") == "STOP_BROWSE_PROCESS":  # 停止遍历变量进程
-                module = {"blockId": data.get("blockId", ""), "index": data.get("index", ""),
-                          "category": data.get("category", "")}
+            elif command_type == "STOP_BROWSE_PROCESS":  # 停止遍历变量进程
                 if module == current_driver:
                     if self.stop_process(self.browse_proc, timeout=5):
                         self.browse_proc = None
@@ -660,8 +658,6 @@ class distribution_server(object):
             elif topic[:len(self.mqtt.sub_general_cmd) - 1] == self.mqtt.sub_general_cmd[
                                                                :len(self.mqtt.sub_general_cmd) - 1]:
                 # TODO: 去做控制单设备重连等操作
-                print(f"接收到general_command指令：{topic}:{frame['data']}")
-                log.info(f"接收到general_command指令：{topic}:{frame['data']}")
                 await self.mqtt_general_command(frame['data'], topic)
 
         except:

@@ -156,3 +156,25 @@
 2025-04-21 17:13:23,888 - drv_tool - INFO - Published message '{"success": true, "message": "OBBCData\u914d\u7f6e\u5185\u5bb9\u4fee\u6539\u6210\u529f"}' to topic '/mqtt/general/cmd/BmFPxaob/reply'
 2025-04-21 17:14:26,669 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
 2025-04-21 17:14:26,810 - drv_tool - INFO - Published message '{"success": true, "message": "100_102_Driver\u904d\u5386\u53d8\u91cf\u6210\u529f\uff0c\u8bf7\u91cd\u65b0\u542f\u52a8\u4e3b\u7a0b\u5e8f"}' to topic '/mqtt/general/cmd/wyejPs0c/reply'
+2025-04-21 17:22:20,334 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-21 17:22:20,335 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-21 17:22:22,336 - drv_tool - INFO - 2025-04-21 17:22:22.336: 遍历变量程序已启动
+2025-04-21 17:23:17,265 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-21 17:23:17,265 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-21 17:23:19,270 - drv_tool - INFO - 2025-04-21 17:23:19.270: 遍历变量程序已启动
+2025-04-21 17:24:30,828 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-21 17:24:31,392 - drv_tool - INFO - Published message '{"success": true, "message": "100_102_Driver\u904d\u5386\u53d8\u91cf\u6210\u529f\uff0c\u8bf7\u91cd\u65b0\u542f\u52a8\u4e3b\u7a0b\u5e8f"}' to topic '/mqtt/general/cmd/0CuHV6yV/reply'
+2025-04-21 17:28:36,685 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-21 17:28:36,685 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-21 17:28:38,695 - drv_tool - INFO - 2025-04-21 17:28:38.695: 遍历变量程序已启动
+2025-04-21 17:28:50,243 - drv_tool - INFO - Published message '{"success": true, "message": "OBBCData\u914d\u7f6e\u5185\u5bb9\u4fee\u6539\u6210\u529f"}' to topic '/mqtt/general/cmd/WpuInBLF/reply'
+2025-04-21 17:30:42,802 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-21 17:31:07,139 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-21 17:31:07,639 - drv_tool - INFO - Published message '{"success": true, "message": "100_102_Driver\u904d\u5386\u53d8\u91cf\u6210\u529f\uff0c\u8bf7\u91cd\u65b0\u542f\u52a8\u4e3b\u7a0b\u5e8f"}' to topic '/mqtt/general/cmd/RKn22ehv/reply'
+2025-04-21 17:59:16,668 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-21 17:59:16,668 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-21 17:59:18,678 - drv_tool - INFO - 2025-04-21 17:59:18.678: 遍历变量程序已启动
+2025-04-21 17:59:43,400 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-21 17:59:43,400 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-21 17:59:45,407 - drv_tool - INFO - 2025-04-21 17:59:45.407: 遍历变量程序已启动
+2025-04-21 17:59:59,935 - drv_tool - INFO - Published message '{"success": true, "message": "OBBCData\u914d\u7f6e\u5185\u5bb9\u4fee\u6539\u6210\u529f"}' to topic '/mqtt/general/cmd/7dYrD4vo/reply'
