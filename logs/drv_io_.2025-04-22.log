@@ -1,0 +1,131 @@
+2025-04-22 13:51:25,780 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/pI3ZS5rC:{'blockId': 100, 'category': 'Driver', 'index': 102, 'commandType': 'START_BROWSE_PROCESS'}
+2025-04-22 13:51:25,785 - drv_io - INFO - /mqtt/general/cmd/pI3ZS5rC/reply:{"success": true, "message": "100_102_Driver \u904d\u5386\u53d8\u91cf\u7a0b\u5e8f\u542f\u52a8\u4e2d..."} 通过Mqtt发布:成功
+2025-04-22 13:51:39,625 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/IKIFjsnI:{'blockId': 100, 'category': 'Driver', 'index': 102, 'commandType': 'STOP_BROWSE_PROCESS'}
+2025-04-22 13:51:39,657 - drv_io - INFO - /mqtt/general/cmd/IKIFjsnI/reply:{"success": true, "message": "100_102_Driver \u904d\u5386\u53d8\u91cf\u7a0b\u5e8f\u5173\u95ed"} 通过Mqtt发布:成功
+2025-04-22 14:49:10,312 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-22 14:49:10,316 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-22 14:49:10,316 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 14:49:10,318 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-22 14:49:10,824 - drv_io - INFO - Load EFEM variable list, True.
+2025-04-22 14:49:10,824 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-04-22 14:49:10,826 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-22 14:49:11,232 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-22 14:49:11,233 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-22 14:49:11,234 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-22 14:49:12,686 - drv_io - INFO - Load Robot variable list, True.
+2025-04-22 14:49:12,686 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-04-22 14:49:12,688 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-22 14:49:12,688 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 14:49:12,689 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-22 14:49:12,690 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 14:49:15,890 - drv_io - INFO - Connect EFEM, True.
+2025-04-22 14:49:15,890 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 14:49:16,265 - drv_io - INFO - Connect Robot, True.
+2025-04-22 14:49:16,266 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 14:49:16,574 - drv_io - INFO - Connect Equipment, True.
+2025-04-22 14:49:16,574 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 14:49:18,654 - drv_io - INFO - MQTT id:python-mqtt-sub-528, url:localhost:1883.
+2025-04-22 14:49:18,655 - drv_io - INFO - MQTT subscription is False
+2025-04-22 14:49:18,655 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-22 14:49:18,656 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-22 14:49:18,656 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-22 14:49:18,657 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-22 14:49:18,657 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-22 14:49:18,664 - drv_io - INFO - Request Config file loaded - done.
+2025-04-22 15:08:33,529 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/1YbhcTUf:{'blockId': 100, 'category': 'Driver', 'index': 102, 'commandType': 'RESTART_PROCESS'}
+2025-04-22 15:08:33,529 - drv_io - INFO - /mqtt/general/cmd/1YbhcTUf/reply:{"success": true, "message": "100_102_Driver \u91cd\u542f\u4e2d..."} 通过Mqtt发布:成功
+2025-04-22 15:08:35,550 - drv_io - INFO - 程序即将重启...
+2025-04-22 15:08:36,630 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-22 15:08:36,631 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-22 15:08:36,631 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 15:08:36,633 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-22 15:08:36,710 - drv_io - INFO - Load EFEM variable list, True.
+2025-04-22 15:08:36,710 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-04-22 15:08:36,711 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-22 15:08:36,773 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-22 15:08:36,773 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-22 15:08:36,773 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-22 15:08:36,994 - drv_io - INFO - Load Robot variable list, True.
+2025-04-22 15:08:36,994 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-04-22 15:08:36,994 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-22 15:08:36,996 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 15:08:36,996 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-22 15:08:36,996 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 15:08:40,208 - drv_io - INFO - Connect EFEM, True.
+2025-04-22 15:08:40,208 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 15:08:40,538 - drv_io - INFO - Connect Robot, True.
+2025-04-22 15:08:40,538 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 15:08:40,860 - drv_io - INFO - Connect Equipment, True.
+2025-04-22 15:08:40,860 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 15:08:42,944 - drv_io - INFO - MQTT id:python-mqtt-sub-341, url:localhost:1883.
+2025-04-22 15:08:42,945 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-22 15:08:42,945 - drv_io - INFO - MQTT subscription is False
+2025-04-22 15:08:42,946 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-22 15:08:42,947 - drv_io - INFO - Request Config file loaded - done.
+2025-04-22 15:08:42,950 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-22 15:08:42,951 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-22 15:08:42,953 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-22 15:22:57,580 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/UwZnIG0P:{'commandType': 'MODIFY_CONFIG', 'commandContent': {'Alarm': {}, 'Basic': {'name': 'MRG_RP', 'version': 0, 'blockId': 100, 'index': 102, 'category': 'Driver'}, 'Control': {'isLocal': False}, 'Status': {}, 'Parameter': {}, 'Other': {}, 'Opcua': {'EFEM': {'Alarm': {}, 'Basic': {'name': 'EFEM', 'uri': 'opc.tcp://192.168.20.1:4840', 'main_node': 'ns=3;s="EFEM"', 'link': 'opcua', 'timeout': 10, 'watchdog_interval': 5}, 'Control': {'Load': True, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': True, 'Linking': True, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 3, 'Variable_Number': 2653, 'Read_Block_Number': 18}, 'Parameter': {'modules': [{'blockId': 1, 'index': 1, 'category': 'LoadPort'}, {'blockId': 1, 'index': 2, 'category': 'LoadPort'}, {'blockId': 1, 'index': 3, 'category': 'LoadPort'}]}, 'Other': {}}, 'Equipment': {'Alarm': {}, 'Basic': {'name': 'Equipment', 'uri': 'opc.tcp://192.168.20.1:4840', 'main_node': 'ns=3;s="Equipment"', 'link': 'opcua', 'timeout': 10, 'watchdog_interval': 5}, 'Control': {'Load': True, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': True, 'Linking': True, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 2, 'Variable_Number': 2078, 'Read_Block_Number': 12}, 'Parameter': {'modules': [{'blockId': 0, 'index': 2, 'category': 'MC'}, {'blockId': 0, 'index': 200, 'category': 'IO'}]}, 'Other': {}}, 'Robot': {'Alarm': {}, 'Basic': {'name': 'Robot', 'uri': 'opc.tcp://192.168.20.1:4840', 'main_node': 'ns=3;s="PRA"', 'link': 'opcua', 'timeout': 10, 'watchdog_interval': 5}, 'Control': {'Load': True, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': True, 'Linking': True, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 1, 'Variable_Number': 7711, 'Read_Block_Number': 7}, 'Parameter': {'modules': [{'blockId': 2, 'index': 0, 'category': 'Robot'}]}, 'Other': {}}, 'COT_DEV': {'Alarm': {}, 'Basic': {'name': 'COT_DEV', 'uri': 'opc.tcp://192.168.20.50:4840', 'main_node': 'ns=3;s=DataBlocksGlobal', 'link': 'opcua', 'timeout': 5, 'watchdog_interval': 5}, 'Control': {'Load': False, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': False, 'Linking': False, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 0, 'Variable_Number': 0, 'Read_Block_Number': 0}, 'Parameter': {'modules': []}, 'Other': {}}, 'Chemical': {'Alarm': {}, 'Basic': {'name': 'Chemical', 'uri': 'opc.tcp://192.168.20.50:4840', 'main_node': 'ns=3;s="Chemical"', 'link': 'opcua', 'timeout': 5, 'watchdog_interval': 5}, 'Control': {'Load': False, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': False, 'Linking': False, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 0, 'Variable_Number': 0, 'Read_Block_Number': 0}, 'Parameter': {'modules': []}, 'Other': {}}}, 'Mqtt': {'Alarm': {}, 'Basic': {'name': 'mqtt0', 'url': 'localhost', 'port': 1883, 'keepalive': 60}, 'Control': {}, 'Status': {}, 'Parameter': {'sub_gui_msg': '/mqtt/gui/msg/+', 'sub_gui_cmd': '/mqtt/gui/cmd/+', 'sub_server_cmd': '/mqtt/server/cmd/+', 'sub_server_msg': '/mqtt/server/msg/+', 'sub_general_cmd': '/mqtt/general/cmd/+', 'pub_drv_data': '/mqtt/drv/data', 'pub_drv_data_struct': '/mqtt/drv/data_struct', 'pub_modules_status': '/mqtt/modules/status', 'pub_drv_msg': '/mqtt/drv/msg'}, 'Other': {}}, 'Server': {'Alarm': {}, 'Basic': {'name': 'server', 'recipe_req_url': 'http://localhost:13871/api/upper/recipe/info/drive/format'}, 'Control': {}, 'Status': {}, 'Parameter': {}, 'Other': {}}}, 'blockId': 100, 'category': 'Driver', 'index': 102}
+2025-04-22 15:22:57,582 - drv_io - INFO - /mqtt/general/cmd/UwZnIG0P/reply:{"success": true, "message": "\u914d\u7f6e\u5185\u5bb9\u4fee\u6539\u6210\u529f"} 通过Mqtt发布:成功
+2025-04-22 15:22:58,828 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/Yw6vverQ:{'blockId': 100, 'category': 'Driver', 'index': 102, 'commandType': 'RESTART_PROCESS'}
+2025-04-22 15:22:58,828 - drv_io - INFO - /mqtt/general/cmd/Yw6vverQ/reply:{"success": true, "message": "100_102_Driver \u91cd\u542f\u4e2d..."} 通过Mqtt发布:成功
+2025-04-22 15:23:00,808 - drv_io - INFO - 程序即将重启...
+2025-04-22 15:23:01,879 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-22 15:23:01,880 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-22 15:23:01,891 - drv_io - ERROR - Failure to load EFEM.csv file.
+2025-04-22 15:23:01,892 - drv_io - INFO - Load EFEM variable list, False.
+2025-04-22 15:23:01,892 - drv_io - INFO - --Module is 0, Variable is 0,Reading Block is 0.
+2025-04-22 15:23:01,893 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-22 15:23:01,956 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-22 15:23:01,956 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-22 15:23:01,956 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-22 15:23:02,179 - drv_io - INFO - Load Robot variable list, True.
+2025-04-22 15:23:02,179 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-04-22 15:23:02,179 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-22 15:23:02,179 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 15:23:02,180 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-22 15:23:02,180 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 15:23:04,552 - drv_io - INFO - Connect Equipment, True.
+2025-04-22 15:23:04,552 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 15:23:04,646 - drv_io - INFO - Connect Robot, True.
+2025-04-22 15:23:04,646 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 15:23:06,734 - drv_io - INFO - MQTT id:python-mqtt-sub-509, url:localhost:1883.
+2025-04-22 15:23:06,734 - drv_io - INFO - MQTT subscription is False
+2025-04-22 15:23:06,734 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-22 15:23:06,735 - drv_io - INFO - Request Config file loaded - done.
+2025-04-22 15:23:06,736 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-22 15:23:06,736 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-22 15:23:06,737 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-22 15:23:06,737 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-22 18:08:51,549 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-22 18:08:51,550 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-22 18:08:51,552 - drv_io - ERROR - Failure to load EFEM.csv file.
+2025-04-22 18:08:51,552 - drv_io - INFO - Load EFEM variable list, False.
+2025-04-22 18:08:51,552 - drv_io - INFO - --Module is 0, Variable is 0,Reading Block is 0.
+2025-04-22 18:08:51,553 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-22 18:08:51,616 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-22 18:08:51,616 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-22 18:08:51,616 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-22 18:08:51,840 - drv_io - INFO - Load Robot variable list, True.
+2025-04-22 18:08:51,840 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-04-22 18:08:51,840 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-22 18:08:51,840 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 18:08:51,840 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-22 18:08:51,840 - drv_io - INFO - Configuration setting is no load.
+2025-04-22 18:08:54,168 - drv_io - INFO - Connect Equipment, True.
+2025-04-22 18:08:54,168 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 18:08:54,248 - drv_io - INFO - Connect Robot, True.
+2025-04-22 18:08:54,248 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-22 18:08:56,334 - drv_io - INFO - MQTT id:python-mqtt-sub-67, url:localhost:1883.
+2025-04-22 18:08:56,335 - drv_io - INFO - MQTT subscription is False
+2025-04-22 18:08:56,335 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-22 18:08:56,336 - drv_io - INFO - Request Config file loaded - done.
+2025-04-22 18:08:56,337 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-22 18:08:56,339 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-22 18:08:56,340 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-22 18:08:56,340 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-22 18:10:43,033 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/2WqVXfAs:{'blockId': 100, 'category': 'Driver', 'index': 102, 'commandType': 'START_BROWSE_PROCESS'}
+2025-04-22 18:10:43,037 - drv_io - INFO - /mqtt/general/cmd/2WqVXfAs/reply:{"success": true, "message": "100_102_Driver \u904d\u5386\u53d8\u91cf\u7a0b\u5e8f\u542f\u52a8\u4e2d..."} 通过Mqtt发布:成功
+2025-04-22 18:10:55,713 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/efCF6dUt:{'commandType': 'START_OPCUA_BROWSE', 'blockId': 100, 'category': 'Driver', 'index': 102}
+2025-04-22 18:13:09,706 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/xd7l8qga:{'blockId': 100, 'category': 'Driver', 'index': 102, 'commandType': 'STOP_BROWSE_PROCESS'}
+2025-04-22 18:13:09,772 - drv_io - INFO - /mqtt/general/cmd/xd7l8qga/reply:{"success": true, "message": "100_102_Driver \u904d\u5386\u53d8\u91cf\u7a0b\u5e8f\u5173\u95ed"} 通过Mqtt发布:成功

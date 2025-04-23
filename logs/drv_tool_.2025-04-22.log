@@ -1,0 +1,7 @@
+2025-04-22 18:10:45,932 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-04-22 18:10:45,934 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-04-22 18:10:47,919 - drv_tool - INFO - 2025-04-22 18:10:47.918: 遍历变量程序已启动
+2025-04-22 18:10:52,725 - drv_tool - INFO - Published message '{"success": true, "message": "OBBCData\u914d\u7f6e\u5185\u5bb9\u4fee\u6539\u6210\u529f"}' to topic '/mqtt/general/cmd/fL6KDdfz/reply'
+2025-04-22 18:11:57,722 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-22 18:12:13,457 - drv_tool - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-22 18:12:14,008 - drv_tool - INFO - Published message '{"success": true, "message": "100_102_Driver\u904d\u5386\u53d8\u91cf\u6210\u529f\uff0c\u8bf7\u91cd\u65b0\u542f\u52a8\u4e3b\u7a0b\u5e8f"}' to topic '/mqtt/general/cmd/efCF6dUt/reply'

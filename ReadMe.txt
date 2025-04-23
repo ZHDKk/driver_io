@@ -88,13 +88,17 @@ sudo journalctl -u mrg_IOService.service -f  # 实时查看日志（等同于控
 1、首先 ssh 连接登录树莓派，启动自带的配置程序：sudo raspi-config
 2、在弹出的配置窗口选择：Interface Options 回车  >>  选择VNC 回车 >> 选择 是 回车
 3、raspbian的账户密码默认都是：mrg、mrg123456，ip从192.168.20.91开始
-4、系统时间同步：输入sudo dpkg-reconfigure tzdata 回车，进入下面截图，选择亚洲Asia，回车；选择需要设置的时区，我这里选择上海，回车确定；
+4、系统时间同步：输入sudo dpkg-reconfigure tzdata 回车，进入下面截图，选择亚洲Asia，回车；选择需要设置的时区，选择上海，回车确定；
 
-七、Windows和Linux之间互传文件，使用WinSCP
+七、Windows和Linux之间互传文件，使用WinSCP/Drv_tool(远程模式)
 1、首先在windows上安装WinSCP软件：https://winscp.net/download/WinSCP-6.5-Setup.exe/download
 2、在Linux系统中安装ssh服务：sudo apt install openssh-server
 3、将两台电脑链接到同一局域网
-4、打开WinSCP，新建会话
+4、打开WinSCP，新建会话 / Drv_tool(远程模式) 使用SFTP添加配置
+5、Drv_tool(远程模式) 使用SMB/CIFS访问Windows文件夹，首先把该文件夹设置高级共享，比如：
+      a、打开 文件资源管理器，右键点击 D:\pro\pro\py_pro\company_pro\driver_io 文件夹，选择 “属性” → “共享” → “高级共享”。
+      b、勾选 “共享此文件夹”，在 “共享名” 一栏填入 driver_io，点击 “确定”。
+
 
 八、Mqtt broker配置
 1、mqtt最大报文配置：2mb
@@ -104,5 +108,29 @@ sudo journalctl -u mrg_IOService.service -f  # 实时查看日志（等同于控
 九、驱动黑盒driver config.json配置
 1、驱动层的Basic中的blockId为100、index从101开始、category是Driver、name是MRG_RP
 
+十、时间同步问题：
+1、Windows系统搭建NTP服务器：
+    a、按下 Win + R，输入 regedit 打开注册表编辑器，导航到以下路径：
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Parameters
+    b、双击右侧的 Type 项，将值改为 NTP（默认是 NT5DS，表示域时间同步）
+    c、导航到路径：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Config
+    d、双击 AnnounceFlags，将值改为 5（表示声明为可靠时间源）
+    e、导航到路径：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer
+    f、双击 Enabled，将值设为 1（启用 NTP 服务器）
+    g、然后输入services.msc命令，确定。拖动滚动条，找到Windows Time。右键 Windows Time 服务，选择 重新启动。验证服务状态是否为 正在运行。（若重启失败，可直接重启电脑）
+
+配置防火墙允许 NTP 端口（可选）：
+打开 控制面板 → Windows Defender 防火墙 → 高级设置。
+右键 入站规则，选择 新建规则。
+选择 端口 → UDP → 输入 123 → 允许连接 → 完成。
+
+2、在Raspbian 配置，依次执行以下指令：
+sudo nano /etc/systemd/timesyncd.conf
+# 添加或修改以下行
+[Time]
+NTP=192.168.x.x  # Window系统服务器 IP
+FallbackNTP=0.pool.ntp.org  # 备用（可选）
+
+sudo systemctl restart systemd-timesyncd  # 重启服务
 
 

@@ -8,46 +8,12 @@
         "category": "Driver"
     },
     "Control": {
-        "isLocal": false
+        "isLocal": true
     },
     "Status": {},
     "Parameter": {},
     "Other": {},
     "Opcua": {
-        "PRA": {
-            "Alarm": {},
-            "Basic": {
-                "name": "PRA",
-                "uri": "opc.tcp://192.168.20.1:4840",
-                "main_node": "ns=3;s=DataBlocksGlobal",
-                "link": "opcua",
-                "timeout": 5,
-                "watchdog_interval": 5
-            },
-            "Control": {
-                "Load": false,
-                "Link": true,
-                "Read": true,
-                "Write": true,
-                "Sub": false,
-                "O2M_All": false,
-                "M2O_All": false
-            },
-            "Status": {
-                "Load": false,
-                "Linking": false,
-                "Read_Time": 0,
-                "Write_Time": 0,
-                "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
-            },
-            "Parameter": {
-                "modules": []
-            },
-            "Other": {}
-        },
         "EFEM": {
             "Alarm": {},
             "Basic": {
@@ -68,17 +34,33 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": false,
-                "Linking": false,
+                "Load": true,
+                "Linking": true,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
+                "Module_Number": 3,
+                "Variable_Number": 2653,
+                "Read_Block_Number": 18
             },
             "Parameter": {
-                "modules": []
+                "modules": [
+                    {
+                        "blockId": 1,
+                        "index": 1,
+                        "category": "LoadPort"
+                    },
+                    {
+                        "blockId": 1,
+                        "index": 2,
+                        "category": "LoadPort"
+                    },
+                    {
+                        "blockId": 1,
+                        "index": 3,
+                        "category": "LoadPort"
+                    }
+                ]
             },
             "Other": {}
         },
@@ -102,17 +84,28 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": false,
-                "Linking": false,
+                "Load": true,
+                "Linking": true,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 0,
-                "Variable_Number": 0,
-                "Read_Block_Number": 0
+                "Module_Number": 2,
+                "Variable_Number": 2078,
+                "Read_Block_Number": 12
             },
             "Parameter": {
-                "modules": []
+                "modules": [
+                    {
+                        "blockId": 0,
+                        "index": 2,
+                        "category": "MC"
+                    },
+                    {
+                        "blockId": 0,
+                        "index": 200,
+                        "category": "IO"
+                    }
+                ]
             },
             "Other": {}
         },

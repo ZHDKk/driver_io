@@ -32,7 +32,7 @@
             "uri": "opc.tcp://192.168.20.1:4840",
             "main_node": "ns=3;s=\"Equipment\"",
             "table_name": "Equipment",
-            "is_read": false,
+            "is_read": true,
             "timeout": 10.0,
             "watchdog_interval": 10.0,
             "read_enable_paths": {
