@@ -404,15 +404,19 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
     """
     start_total_time = time.time()  # 记录开始时间
     recipe_id = req['id']["value"]
+    if req['flow_index']:
+        recipe_flow_index = req['flow_index']["value"]
+    else:
+        recipe_flow_index = None
     # request datas from server
     print(f'{get_current_time()}: Request recipeId {recipe_id} from {url}')
     log.info(f'Request recipeId {recipe_id} from {url}')
     # datas = server_datas_testing  # testing
     await return_request_state(dev, req, 1)
-    params = {'recipeId': recipe_id}
+    params = {'recipeId': recipe_id, 'flowIndex':recipe_flow_index}
     # params = {'recipeId': 47}
     datas = request_get(url, "", params)
-    # datas = request_get('http://192.168.55.17:13871/api/upper/recipe/info/drive/format?recipeId=47', "", params)
+    # datas = request_get('http://192.168.55.17:13871/api/upper/recipe/info/drive/format?recipeId=47&flowIndex=', "", params)
     print(f'{get_current_time()}: 配方请求结果：{datas}')
     log.info(f'配方请求结果：{datas}')
     # data parse and write recipe to opcua
@@ -449,58 +453,64 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
         rv_m2o_list = []
         for re_check in results:
             re_module = re_check['Module']
-            current_dev = find_dev_with_module(re_module, ua_device)
-            try:
-                recipe_valid_info = current_dev.code_to_node.get(
-                    code2format_str(re_module['blockId'], re_module['index'],
-                                    re_module['category'], "Others_Recipe_valid"))
-                if not recipe_valid_info:
-                    recipe_valid_info = current_dev.code_to_node.get(
-                        code2format_str(re_module['blockId'], re_module['index'],
-                                        re_module['category'], "Other_Reicpe_Valid"))
-            except:
-                recipe_valid_info = current_dev.code_to_node.get(
-                    code2format_str(re_module['blockId'], re_module['index'],
-                                    re_module['category'], "Other_Reicpe_Valid"))
+            if re_module:
+                current_dev = find_dev_with_module(re_module, ua_device)
+                key = (re_module["blockId"], re_module["index"], re_module["category"])
+                if not dis.recipe_request_map.get(key):
+                    try:
+                        recipe_valid_info = current_dev.code_to_node.get(
+                            code2format_str(re_module['blockId'], re_module['index'],
+                                            re_module['category'], "Others_Recipe_valid"))
+                        if not recipe_valid_info:
+                            recipe_valid_info = current_dev.code_to_node.get(
+                                code2format_str(re_module['blockId'], re_module['index'],
+                                                re_module['category'], "Other_Reicpe_Valid"))
+                    except:
+                        recipe_valid_info = current_dev.code_to_node.get(
+                            code2format_str(re_module['blockId'], re_module['index'],
+                                            re_module['category'], "Other_Reicpe_Valid"))
 
-            try:
-                writable_path_info = current_dev.code_to_node.get(
-                    code2format_str(re_module['blockId'], re_module['index'],
-                                    re_module['category'], "Others_Recipe_Writable"))
-                if not writable_path_info:
-                    writable_path_info = current_dev.code_to_node.get(
-                        code2format_str(re_module['blockId'], re_module['index'],
-                                        re_module['category'], "Other_Reicpe_Writable"))
-            except:
-                writable_path_info = current_dev.code_to_node.get(
-                    code2format_str(re_module['blockId'], re_module['index'],
-                                    re_module['category'], "Other_Reicpe_Writable"))
+                    try:
+                        writable_path_info = current_dev.code_to_node.get(
+                            code2format_str(re_module['blockId'], re_module['index'],
+                                            re_module['category'], "Others_Recipe_Writable"))
+                        if not writable_path_info:
+                            writable_path_info = current_dev.code_to_node.get(
+                                code2format_str(re_module['blockId'], re_module['index'],
+                                                re_module['category'], "Other_Reicpe_Writable"))
+                    except:
+                        writable_path_info = current_dev.code_to_node.get(
+                            code2format_str(re_module['blockId'], re_module['index'],
+                                            re_module['category'], "Other_Reicpe_Writable"))
 
-            if not writable_path_info:
-                if not writable_path_info["value"]:  # 检查当前模组是否支持下载配方
-                    msg = f'{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组当前不支持下载配方，终止操作'
-                    print(f'{get_current_time()}: {msg}')
-                    log.warning(msg)
-                    all_success = False
-                    await return_request_state(dev, req, 1005)
-                    return
-                else:
-                    if await re_check['Device'].linker.write_multi_variables(
-                            [{'node_id': recipe_valid_info["NodeID"],
-                              'datatype': recipe_valid_info["DataType"],
-                              'value': True}], 1.5):  # 先把模组的Recipe_Valid’为True
-                        # rv_m2o_list.append(recipe_valid_info)  # 如果写入成功则把当前模组recipe_valid放入list中进行临时保存
-                        rv_m2o_list.append({current_dev: recipe_valid_info})  # 如果写入成功则把当前模组recipe_valid放入list中进行临时保存
-                    else:
-                        # 检测如果一个模组的recipe_valid写入失败，则直接终止所有操作
-                        msg = (
-                            f'{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组recipe_valid置为'
-                            f'True写入失败，终止操作')
-                        print(f'{get_current_time()}: {msg}')
+                    if not writable_path_info["value"]:  # 检查当前模组是否支持下载配方
+                        msg = f'{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组当前不支持下载配方，终止操作'
                         log.warning(msg)
                         all_success = False
                         await return_request_state(dev, req, 1005)
                         return
+                    else:
+                        if await re_check['Device'].linker.write_multi_variables(
+                                [{'node_id': recipe_valid_info["NodeID"],
+                                  'datatype': recipe_valid_info["DataType"],
+                                  'value': True}], 1.5):  # 先把模组的Recipe_Valid’为True
+                            # rv_m2o_list.append(recipe_valid_info)  # 如果写入成功则把当前模组recipe_valid放入list中进行临时保存
+                            rv_m2o_list.append({current_dev: recipe_valid_info})  # 如果写入成功则把当前模组recipe_valid放入list中进行临时保存
+                        else:
+                            # 检测如果一个模组的recipe_valid写入失败，则直接终止所有操作
+                            msg = (
+                                f'{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组recipe_valid置为'
+                                f'True写入失败，终止操作')
+                            log.warning(msg)
+                            all_success = False
+                            await return_request_state(dev, req, 1005)
+                            return
+            else:
+                msg = f"{re_check['ErrMSG']}, 终止操作"
+                log.warning(msg)
+                all_success = False
+                await return_request_state(dev, req, 1005)
+                return
 
         # Merge  with the same device
         for result in results:

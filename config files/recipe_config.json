@@ -12,6 +12,7 @@
         "recipe_request_update": "Request_Updata",
         "recipe_request_id": "Request_Updata_ID",
         "recipe_request_result": "Request_Updata_Result",
+        "recipe_flow_index": "Request_Flow_Index",
         "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow\".\"Basic\".\"Id\""
       }
     ]

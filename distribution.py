@@ -15,18 +15,26 @@ from utils.helpers import code2format_str, save_config_file
 from utils.time_util import get_current_time
 
 
-def get_request_nodes(dev, node, request_update, request_update_id, request_update_result):
+def get_request_nodes(dev, node, request_update, request_update_id, request_update_result, recipe_flow_index):
     """
     get request information with variable name in node tree
     :param node: node
     :return: request information dictionary
     """
+    try:
+        flow_index = dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
+                                                                node['code']+"_"+recipe_flow_index))
+    except:
+        flow_index = None
+
     req_dict = {'request': dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
                                                                 node['code']+"_"+request_update)),
                 'id': dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
                                                            node['code']+"_"+request_update_id)),
                 'result': dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
-                                                               node['code']+"_"+request_update_result))}
+                                                               node['code']+"_"+request_update_result)),
+                'flow_index': flow_index,
+                }
     return req_dict
 
 
@@ -387,46 +395,46 @@ class distribution_server(object):
                     key = (module["blockId"], module["index"], module["category"])
                     if mc_match := self.recipe_request_map.get(key):  # 如果是MC则直接写配方
                         await self.mqtt_cmd_write(frame_id, data, topic)  # 开始写配方
-
-                    try:
-                        recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                 module['category'], "Others_Recipe_valid"))
-                        if not recipe_valid_info:
-                            recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                     module['category'],
-                                                                                     "Other_Reicpe_Valid"))
-                    except:
-                        recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                 module['category'], "Other_Reicpe_Valid"))
-
-                    try:
-                        writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                  module['category'], "Others_Recipe_Writable"))
-                        if not writable_path_info:
-                            writable_path_info = dev.code_to_node.get(
-                                code2format_str(module['blockId'], module['index'],
-                                                module['category'], "Other_Reicpe_Writable"))
-                    except:
-                        writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                  module['category'], "Other_Reicpe_Writable"))
-
-                    if not writable_path_info["value"]:  # 检查当前模组是否支持下载配方
-                        msg = f'{module["blockId"]}-{module["index"]}-{module["category"]}模组当前不支持下载配方'
-                        print(f'{get_current_time()}: {msg}')
-                        log.info(msg)
-                        self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
-                                                                        'message': msg}))
-                        return
                     else:
-                        if await dev.linker.write_multi_variables([{'node_id': recipe_valid_info["NodeID"],
-                                                                    'datatype': recipe_valid_info["DataType"],
-                                                                    'value': True}],
-                                                                  1.5):  # 先把模组的Recipe_Valid’为True
-                            await self.mqtt_cmd_write(frame_id, data, topic)  # 开始写配方
-                            await dev.linker.write_multi_variables([{'node_id': recipe_valid_info["NodeID"],
-                                                                     'datatype': recipe_valid_info["DataType"],
-                                                                     'value': False}],
-                                                                   1.5)  # 再把模组的Recipe_Valid’为False
+                        try:
+                            recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                                                                                     module['category'], "Others_Recipe_valid"))
+                            if not recipe_valid_info:
+                                recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                                                                                         module['category'],
+                                                                                         "Other_Reicpe_Valid"))
+                        except:
+                            recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                                                                                     module['category'], "Other_Reicpe_Valid"))
+
+                        try:
+                            writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                                                                                      module['category'], "Others_Recipe_Writable"))
+                            if not writable_path_info:
+                                writable_path_info = dev.code_to_node.get(
+                                    code2format_str(module['blockId'], module['index'],
+                                                    module['category'], "Other_Reicpe_Writable"))
+                        except:
+                            writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                                                                                      module['category'], "Other_Reicpe_Writable"))
+
+                        if not writable_path_info["value"]:  # 检查当前模组是否支持下载配方
+                            msg = f'{module["blockId"]}-{module["index"]}-{module["category"]}模组当前不支持下载配方'
+                            print(f'{get_current_time()}: {msg}')
+                            log.info(msg)
+                            self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
+                                                                            'message': msg}))
+                            return
+                        else:
+                            if await dev.linker.write_multi_variables([{'node_id': recipe_valid_info["NodeID"],
+                                                                        'datatype': recipe_valid_info["DataType"],
+                                                                        'value': True}],
+                                                                      1.5):  # 先把模组的Recipe_Valid’为True
+                                await self.mqtt_cmd_write(frame_id, data, topic)  # 开始写配方
+                                await dev.linker.write_multi_variables([{'node_id': recipe_valid_info["NodeID"],
+                                                                         'datatype': recipe_valid_info["DataType"],
+                                                                         'value': False}],
+                                                                       1.5)  # 再把模组的Recipe_Valid’为False
                 except Exception as e:
                     log.warning(f'向模组{module}手动写配方异常：{e}')
                     self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
@@ -751,7 +759,7 @@ class distribution_server(object):
                         node = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
                                                                     module['category'], rr['request_node_path']))
                         req = get_request_nodes(dev, node, rr['recipe_request_update'],
-                                                rr['recipe_request_id'], rr['recipe_request_result'])
+                                                rr['recipe_request_id'], rr['recipe_request_result'], rr['recipe_flow_index'])
                         if req['request']["value"] is True and req['result']["value"] == 0:  #
                             # trigger to request recipe
                             # await request_recipe_handle(self, self.config['Server']['Basic']['recipe_req_url'], req, dev,
