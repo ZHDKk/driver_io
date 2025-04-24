@@ -1,8 +1,8 @@
 {
-    "log_file_path": "D:/pro/pro/py_pro/company_pro/driver_io/logs",
+    "log_file_path": "./logs",
     "event_log_file_path": "D:/pro/pro/py_pro/company_pro/driver_event/logs",
     "alarm_file_path": "D:/pro/pro/py_pro/company_pro/driver_event/config_files/dev_alarms.xlsx",
-    "base_file_path": "D:/pro/pro/py_pro/company_pro/driver_io/config files",
+    "base_file_path": "./config files",
     "show_config_prompt": false,
     "concurrent_recursion": false,
     "Drv": {
