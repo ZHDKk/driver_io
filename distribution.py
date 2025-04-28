@@ -177,7 +177,8 @@ class distribution_server(object):
             module = module_tmp
             dev = self.find_dev_with_module(module)
             if dev is None:  # don't find device with module information
-                result['ErrMSG'].append(f'Failure to matched device with module {module}.')
+                if self.is_local:
+                    result['ErrMSG'].append(f'Failure to matched device with module {module}.')
                 return result
 
         result['Device'] = dev
@@ -353,8 +354,9 @@ class distribution_server(object):
             dev = self.find_dev_with_module(module)
             if dev is None:  # don't find device with module information
                 log.warning(f'Failure to match {module} to device.')
-                self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
-                                                                'message': f'Failure to match {module} to device.'}))
+                if self.is_local:
+                    self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
+                                                                    'message': f'Failure to match {module} to device.'}))
                 return
         except:
             log.warning(f'Failure to get device and module information from {data} of mqtt frame.')
@@ -453,8 +455,9 @@ class distribution_server(object):
             dev = self.find_dev_with_module(module)
             if dev is None:  # don't find device with module information
                 log.warning(f'Failure to match {module} to device.')
-                self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
-                                                                'message': f'Failure to match {module} to device.'}))
+                if self.is_local:
+                    self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
+                                                                    'message': f'Failure to match {module} to device.'}))
                 return
         except:
             log.warning(f'Failure to get device and module information from {data} of mqtt frame.')
