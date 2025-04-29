@@ -273,17 +273,17 @@ async def add_node_info(list_node, name, dev):
         try:
             node_id = node_path2id(node_path)
             node = dev.linker.client.get_node(node_id)
-            result = await dev.linker.read_node_info(node, node_path)  # 第一种不行尝试第二种
+            result = await dev.linker.read_node_info(node, node_path)
         except:
             try:
                 node_id = node_path2id2(node_path)
                 node = dev.linker.client.get_node(node_id)
-                result = await dev.linker.read_node_info(node, node_path)  # 第二种不行尝试第三种
+                result = await dev.linker.read_node_info(node, node_path)
             except:
                 try:
                     node_id = node_path2id3(node_path)
                     node = dev.linker.client.get_node(node_id)
-                    result = await dev.linker.read_node_info(node, node_path)  # 第三种不行尝试第四种
+                    result = await dev.linker.read_node_info(node, node_path)
                 except:
                     node_id = node_path2id4(node_path)
                     node = dev.linker.client.get_node(node_id)
@@ -301,6 +301,7 @@ async def add_node_info(list_node, name, dev):
         except FileNotFoundError:
             df.to_csv(csv_file, mode='w', header=True, index=False)
         print(f"自动新增变量 {node_path} 成功")
+        log.info(f"自动新增变量 {node_path} 成功")
     except Exception as e:
         log.warning(f"自动添加变量信息失败:{node_path}，请使用工具手动刷新")
 

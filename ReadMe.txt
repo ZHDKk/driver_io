@@ -2,6 +2,7 @@
 1、检查预装的Python版本：python3 --version
 2、安装和更新Python：sudo apt-get update   或者  sudo apt-get install python3.11.2
 3、查看python路径：which python
+4、点击右上角有线连接状态 > 编辑链接 > 有线连接 > 设置按钮 > IPv4设置 > Method 选择Manual/手动 > Add > 输入Ip地址 从 192.168.20.90开始 > 保存
 
 二、程序传输：U盘/WinSCP
 1、放到：/home/mrg/Documents
@@ -139,6 +140,8 @@ b、将快捷方式拖入启动文件夹中即可
     g、然后输入services.msc命令，确定。拖动滚动条，找到Windows Time。右键 Windows Time 服务，选择 重新启动。验证服务状态是否为 正在运行。（若重启失败，可直接重启电脑）
     h、右键 Windows Time选择属性、把启动类型修改为“自动”
 
+    测试：在cmd窗口中输入w32tm /stripchart /computer:127.0.0.1 ，如果有回显则服务正常
+
 配置防火墙允许 NTP 端口（可选）：
 打开 控制面板 → Windows Defender 防火墙 → 高级设置。
 右键 入站规则，选择 新建规则。
@@ -148,6 +151,31 @@ b、将快捷方式拖入启动文件夹中即可
 设置正确时区：
     sudo timedatectl set-timezone Asia/Shanghai  # 示例设为上海时区
 
+方案一：使用默认的 systemd-timesyncd
+sudo apt update
+sudo apt install systemd-timesyncd
+编辑配置文件：sudo nano /etc/systemd/timesyncd.conf
+修改以下内容：
+[Time]
+NTP=192.168.20.89
+#FallbackNTP=0.pool.ntp.org
+RootDistanceMaxSec=30
+#PollIntervalMinSec=32
+#PollIntervalMaxSec=2048
+
+安装完成后，启用并启动服务：
+sudo systemctl enable systemd-timesyncd
+sudo systemctl start systemd-timesyncd
+
+检查服务状态：systemctl status systemd-timesyncd
+检查当前的时间同步状态：timedatectl status
+
+重启并手动同步：sudo systemctl restart systemd-timesyncd
+
+重启服务并生效：sudo systemctl enable --now systemd-timesyncd
+sudo systemctl disable systemd-timesyncd  禁用
+
+方案二：
 安装并配置 chrony（精准同步）：
 依次执行：
 a、安装 chrony：sudo apt update && sudo apt install chrony -y
@@ -164,12 +192,20 @@ d、重启服务并设置开机自启：
 手动触发时间同步：sudo chronyc makestep
 将系统时间写入硬件时钟：sudo hwclock --systohc
 确认树莓派能访问 NTP 服务器的 UDP 123 端口：nc -uzv 192.168.20.99 123
+停止 Chrony 服务：sudo systemctl stop chrony
+禁用开机自启：sudo systemctl disable chrony
+卸载 Chrony 软件包：
+sudo apt-get remove --purge chrony
+sudo apt-get autoremove
+
 
 手动设置时间指令：
 date #查看当前时间
 date -s "2016-03-31 10:18:00" #设置当前时间为2016年3月31日10:18:00
 date -s 2016-03-31 #设置当前日期为2016年3月31日0:00:00
 date -s 10:18:00　#设置当前时间为10:18:00
+
+
 
 
 
