@@ -664,8 +664,9 @@ class distribution_server(object):
             # frame_ack = frame['ask']
         except:
             log.warning(f'Failure to match the format. mqtt datas: {data}')
-            self.mqtt.publish(topic + '/reply',
-                              json.dumps({'success': False, 'message': 'Failure to match the format.'}))
+            if self.is_local:
+                self.mqtt.publish(topic + '/reply',
+                                  json.dumps({'success': False, 'message': 'Failure to match the format.'}))
             return
 
         # check topic and frame type
@@ -684,8 +685,9 @@ class distribution_server(object):
 
         except:
             log.warning(f'Failure to match the format. mqtt datas: {data}')
-            self.mqtt.publish(topic + '/reply',
-                              json.dumps({'success': False, 'message': 'Failure to match the format.'}))
+            if self.is_local:
+                self.mqtt.publish(topic + '/reply',
+                                  json.dumps({'success': False, 'message': 'Failure to match the format.'}))
 
     def collection_from_opcua_subscription(self, opcua_name, node_id, value):
         """

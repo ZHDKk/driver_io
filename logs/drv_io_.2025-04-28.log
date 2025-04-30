@@ -1,0 +1,1227 @@
+2025-04-28 09:15:52,139 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 09:15:52,140 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 09:15:52,368 - drv_io - INFO - Load EFEM variable list, True.
+2025-04-28 09:15:52,368 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-04-28 09:15:52,368 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 09:15:52,467 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 09:15:52,467 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 09:15:52,467 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 09:15:52,707 - drv_io - INFO - Load Robot variable list, True.
+2025-04-28 09:15:52,707 - drv_io - INFO - --Module is 1, Variable is 7711,Reading Block is 7.
+2025-04-28 09:15:52,707 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 09:15:52,707 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:15:52,708 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 09:15:52,708 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:15:55,661 - drv_io - INFO - Connect EFEM, True.
+2025-04-28 09:15:55,661 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:15:55,725 - drv_io - INFO - Connect Robot, True.
+2025-04-28 09:15:55,725 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:15:55,802 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 09:15:55,803 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:15:57,872 - drv_io - INFO - MQTT id:python-mqtt-sub-405, url:localhost:1883.
+2025-04-28 09:15:57,873 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 09:15:57,873 - drv_io - INFO - MQTT subscription is False
+2025-04-28 09:15:57,873 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 09:15:57,874 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 09:15:57,874 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 09:15:57,874 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 09:15:57,900 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 09:16:54,770 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/tzC7HqLD:{'commandType': 'MODIFY_CONFIG', 'commandContent': {'Alarm': {}, 'Basic': {'name': 'MRG_RP', 'version': 0, 'blockId': 100, 'index': 102, 'category': 'Driver'}, 'Control': {'isLocal': True}, 'Status': {}, 'Parameter': {}, 'Other': {}, 'Opcua': {'EFEM': {'Alarm': {}, 'Basic': {'name': 'EFEM', 'uri': 'opc.tcp://192.168.20.1:4840', 'main_node': 'ns=3;s="EFEM"', 'link': 'opcua', 'timeout': 10, 'watchdog_interval': 5}, 'Control': {'Load': False, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': True, 'Linking': True, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 3, 'Variable_Number': 2653, 'Read_Block_Number': 18}, 'Parameter': {'modules': [{'blockId': 1, 'index': 1, 'category': 'LoadPort'}, {'blockId': 1, 'index': 2, 'category': 'LoadPort'}, {'blockId': 1, 'index': 3, 'category': 'LoadPort'}]}, 'Other': {}}, 'Equipment': {'Alarm': {}, 'Basic': {'name': 'Equipment', 'uri': 'opc.tcp://192.168.20.1:4840', 'main_node': 'ns=3;s="Equipment"', 'link': 'opcua', 'timeout': 10, 'watchdog_interval': 5}, 'Control': {'Load': True, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': True, 'Linking': True, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 2, 'Variable_Number': 2078, 'Read_Block_Number': 12}, 'Parameter': {'modules': [{'blockId': 0, 'index': 2, 'category': 'MC'}, {'blockId': 0, 'index': 200, 'category': 'IO'}]}, 'Other': {}}, 'Robot': {'Alarm': {}, 'Basic': {'name': 'Robot', 'uri': 'opc.tcp://192.168.20.1:4840', 'main_node': 'ns=3;s="PRA"', 'link': 'opcua', 'timeout': 10, 'watchdog_interval': 5}, 'Control': {'Load': False, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': True, 'Linking': True, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 1, 'Variable_Number': 7711, 'Read_Block_Number': 7}, 'Parameter': {'modules': [{'blockId': 2, 'index': 0, 'category': 'Robot'}]}, 'Other': {}}, 'COT_DEV': {'Alarm': {}, 'Basic': {'name': 'COT_DEV', 'uri': 'opc.tcp://192.168.20.50:4840', 'main_node': 'ns=3;s=DataBlocksGlobal', 'link': 'opcua', 'timeout': 5, 'watchdog_interval': 5}, 'Control': {'Load': False, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': False, 'Linking': False, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 0, 'Variable_Number': 0, 'Read_Block_Number': 0}, 'Parameter': {'modules': []}, 'Other': {}}, 'Chemical': {'Alarm': {}, 'Basic': {'name': 'Chemical', 'uri': 'opc.tcp://192.168.20.50:4840', 'main_node': 'ns=3;s="Chemical"', 'link': 'opcua', 'timeout': 5, 'watchdog_interval': 5}, 'Control': {'Load': False, 'Link': True, 'Read': True, 'Write': True, 'Sub': False, 'O2M_All': False, 'M2O_All': False}, 'Status': {'Load': False, 'Linking': False, 'Read_Time': 0, 'Write_Time': 0, 'Sub_Time': 0, 'Module_Number': 0, 'Variable_Number': 0, 'Read_Block_Number': 0}, 'Parameter': {'modules': []}, 'Other': {}}}, 'Mqtt': {'Alarm': {}, 'Basic': {'name': 'mqtt0', 'url': 'localhost', 'port': 1883, 'keepalive': 60}, 'Control': {}, 'Status': {}, 'Parameter': {'sub_gui_msg': '/mqtt/gui/msg/+', 'sub_gui_cmd': '/mqtt/gui/cmd/+', 'sub_server_cmd': '/mqtt/server/cmd/+', 'sub_server_msg': '/mqtt/server/msg/+', 'sub_general_cmd': '/mqtt/general/cmd/+', 'pub_drv_data': '/mqtt/drv/data', 'pub_drv_data_struct': '/mqtt/drv/data_struct', 'pub_modules_status': '/mqtt/modules/status', 'pub_drv_msg': '/mqtt/drv/msg'}, 'Other': {}}, 'Server': {'Alarm': {}, 'Basic': {'name': 'server', 'recipe_req_url': 'http://localhost:13871/api/upper/recipe/info/drive/format'}, 'Control': {}, 'Status': {}, 'Parameter': {}, 'Other': {}}}, 'blockId': 100, 'category': 'Driver', 'index': 102}
+2025-04-28 09:16:54,771 - drv_io - INFO - /mqtt/general/cmd/tzC7HqLD/reply:{"success": true, "message": "\u914d\u7f6e\u5185\u5bb9\u4fee\u6539\u6210\u529f"} 通过Mqtt发布:成功
+2025-04-28 09:16:55,941 - drv_io - INFO - 接收到general_command指令：/mqtt/general/cmd/dWFJzXtM:{'blockId': 100, 'category': 'Driver', 'index': 102, 'commandType': 'RESTART_PROCESS'}
+2025-04-28 09:16:55,941 - drv_io - INFO - /mqtt/general/cmd/dWFJzXtM/reply:{"success": true, "message": "100_102_Driver \u91cd\u542f\u4e2d..."} 通过Mqtt发布:成功
+2025-04-28 09:16:57,931 - drv_io - INFO - 程序即将重启...
+2025-04-28 09:16:59,212 - drv_io - WARNING - Failure to read ./config files/driver config.json.[Errno 22] Invalid argument
+2025-04-28 09:17:03,707 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 09:17:03,708 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 09:17:03,708 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:17:03,708 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 09:17:03,776 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 09:17:03,776 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 09:17:03,776 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 09:17:03,776 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:17:03,777 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 09:17:03,777 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:17:03,777 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 09:17:03,777 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:17:05,551 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 09:17:05,551 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:17:07,610 - drv_io - INFO - MQTT id:python-mqtt-sub-209, url:localhost:1883.
+2025-04-28 09:17:07,610 - drv_io - INFO - MQTT subscription is False
+2025-04-28 09:17:07,611 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 09:17:07,611 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 09:17:07,612 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 09:17:07,613 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 09:17:07,614 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 09:17:07,614 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 09:19:56,380 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:19:56,380 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 09:19:56,381 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:19:56,383 - drv_io - INFO - 2025-04-28 09:19:56.383 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:19:56,384 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 4, Total is 4, OK
+2025-04-28 09:19:56,384 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:20:40,413 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:20:40,413 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 09:20:40,413 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:20:40,416 - drv_io - INFO - 2025-04-28 09:20:40.416 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:20:40,416 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 3, Total is 3, OK
+2025-04-28 09:20:40,416 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:20:45,034 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:20:45,034 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 09:20:45,034 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:20:45,038 - drv_io - INFO - 2025-04-28 09:20:45.038 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 4ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:20:45,038 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 4, Total is 4, OK
+2025-04-28 09:20:45,038 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:20:47,276 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:20:47,277 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 09:20:47,277 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:20:47,280 - drv_io - INFO - 2025-04-28 09:20:47.280 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:20:47,280 - drv_io - INFO - M2O Equipment Timing: parsing 1,writing 3, Total is 4, OK
+2025-04-28 09:20:47,280 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:20:59,701 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:20:59,702 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 09:20:59,702 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:20:59,704 - drv_io - INFO - 2025-04-28 09:20:59.704 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:20:59,704 - drv_io - INFO - M2O Equipment Timing: parsing 1,writing 2, Total is 3, OK
+2025-04-28 09:20:59,704 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:21:21,182 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:21:21,182 - drv_io - WARNING - Failure to match the format. mqtt datas: {
+  "id": "db63c97d-0b16-4e86-8101-6688137fc957",
+  "code": null,
+  "message": null,
+  "ask": true,
+  "data": {
+    "_key": "MC_0_2",
+    "success": false,
+    "message": "",
+    "cmd": "write",
+    "index": 2,
+    "category": "MC",
+    "blockId": 0,
+    "list": [
+      {
+        "code": "Control_Buzzer_OF",
+        "value": false,
+        "dataType": "",
+        "arrLen": 0,
+        "time": 0
+      }
+    ]
+  }
+}
+2025-04-28 09:21:21,182 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "Failure to match the format."} 通过Mqtt发布:成功
+2025-04-28 09:22:06,406 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:22:06,406 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 09:22:06,406 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:22:06,409 - drv_io - INFO - 2025-04-28 09:22:06.409 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:22:06,409 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 3, Total is 3, OK
+2025-04-28 09:22:06,409 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:23:47,583 - drv_io - WARNING - Failure to match {'blockId': 1, 'index': 1, 'category': 'LoadPort'} to device.
+2025-04-28 09:23:47,584 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "Failure to match {'blockId': 1, 'index': 1, 'category': 'LoadPort'} to device."} 通过Mqtt发布:成功
+2025-04-28 09:24:18,559 - drv_io - WARNING - Failure to match {'blockId': 1, 'index': 1, 'category': 'LoadPort'} to device.
+2025-04-28 09:24:18,560 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "Failure to match {'blockId': 1, 'index': 1, 'category': 'LoadPort'} to device."} 通过Mqtt发布:成功
+2025-04-28 09:25:12,903 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:25:12,904 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 09:25:12,904 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:25:12,906 - drv_io - INFO - 2025-04-28 09:25:12.906 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:25:12,906 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 2, Total is 2, OK
+2025-04-28 09:25:12,906 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:26:12,498 - drv_io - WARNING - Failure to match {'blockId': 1, 'index': 1, 'category': 'LoadPort'} to device.
+2025-04-28 09:26:12,498 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "Failure to match {'blockId': 1, 'index': 1, 'category': 'LoadPort'} to device."} 通过Mqtt发布:成功
+2025-04-28 09:27:14,082 - drv_io - INFO - MQTT处理任务被取消
+2025-04-28 09:27:14,086 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-28 09:41:15,855 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 09:41:15,857 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 09:41:15,857 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:41:15,857 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 09:41:16,126 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 09:41:16,126 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 09:41:16,128 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 09:41:16,128 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:41:16,128 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 09:41:16,129 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:41:16,129 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 09:41:16,129 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:41:18,101 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 09:41:18,102 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:41:20,171 - drv_io - INFO - MQTT id:python-mqtt-sub-141, url:localhost:1883.
+2025-04-28 09:41:20,172 - drv_io - INFO - MQTT subscription is False
+2025-04-28 09:41:20,172 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 09:41:20,172 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 09:41:20,173 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 09:41:20,177 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 09:41:20,177 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 09:41:20,177 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 09:52:53,596 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 09:52:53,597 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 09:52:53,598 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:52:53,598 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 09:52:53,876 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 09:52:53,876 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 09:52:53,876 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 09:52:53,877 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:52:53,877 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 09:52:53,877 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:52:53,877 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 09:52:53,878 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:52:55,845 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 09:52:55,845 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:52:57,904 - drv_io - INFO - MQTT id:python-mqtt-sub-855, url:localhost:1883.
+2025-04-28 09:52:57,905 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 09:52:57,905 - drv_io - INFO - MQTT subscription is False
+2025-04-28 09:52:57,905 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 09:52:57,906 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 09:52:57,906 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 09:52:57,907 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 09:52:57,907 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 09:55:05,747 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 09:55:05,747 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 09:55:05,747 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:05,748 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 09:55:05,810 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 09:55:05,811 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 09:55:05,811 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 09:55:05,811 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:05,811 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 09:55:05,811 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:05,811 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 09:55:05,811 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:07,609 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 09:55:07,611 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:55:11,837 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 09:55:11,840 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 09:55:11,840 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:11,840 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 09:55:12,117 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 09:55:12,119 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 09:55:12,119 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 09:55:12,119 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:12,120 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 09:55:12,120 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:12,120 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 09:55:12,120 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:55:14,038 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 09:55:14,038 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:55:16,092 - drv_io - INFO - MQTT id:python-mqtt-sub-103, url:localhost:1883.
+2025-04-28 09:55:16,092 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 09:55:16,092 - drv_io - INFO - MQTT subscription is False
+2025-04-28 09:55:16,093 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 09:55:16,093 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 09:55:16,094 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 09:55:16,095 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 09:55:16,095 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 09:55:18,600 - drv_io - INFO - 接收到Mqtt read指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:55:18,600 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "d16f1997-a664-4c47-9e92-c633dd09bb79", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805318600}], "success": true, "message": "OK", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 09:55:18,601 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}], return 1 variables.
+2025-04-28 09:55:18,638 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:55:18,638 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:55:18,639 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:55:18,642 - drv_io - INFO - 2025-04-28 09:55:18.642 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:55:18,642 - drv_io - INFO - M2O Equipment Timing: parsing 1,writing 3, Total is 4, OK
+2025-04-28 09:55:18,642 - drv_io - INFO - /mqtt/gui/cmd/G8hyOUVL/reply:{"success": true, "id": "8b101d19-0f64-45fc-b6f6-9187137aef5a", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:55:19,638 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:55:19,638 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:55:19,638 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:55:19,642 - drv_io - INFO - 2025-04-28 09:55:19.642 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:55:19,642 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 4, Total is 4, OK
+2025-04-28 09:55:19,643 - drv_io - INFO - /mqtt/gui/cmd/13H55ioj/reply:{"success": true, "id": "fa74f485-47c3-4d59-a2a2-e37bc9a435a8", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:55:20,647 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:55:20,647 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:55:20,647 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:55:20,651 - drv_io - INFO - 2025-04-28 09:55:20.651 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:55:20,652 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 4, Total is 4, OK
+2025-04-28 09:55:20,652 - drv_io - INFO - /mqtt/gui/cmd/pBC2p8DU/reply:{"success": true, "id": "91d76636-4078-4d26-882e-8df39b532d05", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:55:21,662 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:55:21,662 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:55:21,662 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:55:21,665 - drv_io - INFO - 2025-04-28 09:55:21.665 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:55:21,665 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 3, Total is 3, OK
+2025-04-28 09:55:21,665 - drv_io - INFO - /mqtt/gui/cmd/FvrIm76q/reply:{"success": true, "id": "384b9035-6fe0-45e4-81dd-64b8101b9573", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:55:49,823 - drv_io - INFO - 接收到Mqtt read指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}]}
+2025-04-28 09:55:49,823 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "36008b1d-a2bb-4eb4-a7a4-1bb24526259e", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805349823}], "success": true, "message": "OK", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 09:55:49,823 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF', 'value': False, 'dataType': '', 'arrLen': 0, 'time': 0}], return 1 variables.
+2025-04-28 09:56:20,956 - drv_io - INFO - 接收到Mqtt read指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 09:56:20,956 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "f9b3d7fd-802a-4b29-a283-aa0457931de8", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805380956}], "success": true, "message": "OK", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 09:56:20,956 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 09:56:50,355 - drv_io - INFO - 接收到Mqtt read_plc指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read_plc', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 09:56:50,361 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "28958e82-e207-4248-b6c4-4266be8c8773", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805410361}], "success": true, "message": "OK", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 09:56:50,361 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 09:56:58,203 - drv_io - INFO - 接收到Mqtt read_plc指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read_plc', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 09:57:14,773 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "36d0b18b-d3e1-4c0d-85a7-01297a4af00d", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805434773}], "success": true, "message": "OK", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 09:57:14,773 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 09:57:38,881 - drv_io - INFO - 接收到Mqtt read_plc指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read_plc', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 09:59:15,630 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 09:59:15,631 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 09:59:15,631 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:59:15,631 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 09:59:15,706 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 09:59:15,706 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 09:59:15,706 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 09:59:15,706 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:59:15,706 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 09:59:15,706 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:59:15,706 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 09:59:15,706 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 09:59:17,491 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 09:59:17,491 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 09:59:19,568 - drv_io - INFO - MQTT id:python-mqtt-sub-213, url:localhost:1883.
+2025-04-28 09:59:19,569 - drv_io - INFO - MQTT subscription is False
+2025-04-28 09:59:19,569 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 09:59:19,569 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 09:59:19,569 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 09:59:19,569 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 09:59:19,569 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 09:59:19,570 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 09:59:21,598 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:59:21,599 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:59:21,599 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:59:21,603 - drv_io - INFO - 2025-04-28 09:59:21.603 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 4ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:59:21,603 - drv_io - INFO - M2O Equipment Timing: parsing 1,writing 4, Total is 5, OK
+2025-04-28 09:59:21,604 - drv_io - INFO - /mqtt/gui/cmd/jmMR39jo/reply:{"success": true, "id": "3421a686-4745-4b33-b4b2-0c2fa1567a0d", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:59:22,607 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:59:22,608 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:59:22,608 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:59:22,612 - drv_io - INFO - 2025-04-28 09:59:22.612 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 4ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:59:22,612 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 4, Total is 4, OK
+2025-04-28 09:59:22,613 - drv_io - INFO - /mqtt/gui/cmd/10rX5LTV/reply:{"success": true, "id": "795d1c2d-d9e2-4e12-a978-ca213bc7bf71", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:59:23,621 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:59:23,621 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:59:23,621 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:59:23,624 - drv_io - INFO - 2025-04-28 09:59:23.624 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:59:23,624 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 3, Total is 3, OK
+2025-04-28 09:59:23,624 - drv_io - INFO - /mqtt/gui/cmd/I9Ppuwf8/reply:{"success": true, "id": "2493e8ae-2558-4b2a-9b4e-79be540bbfe6", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:59:24,635 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:59:24,635 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:59:24,635 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:59:24,638 - drv_io - INFO - 2025-04-28 09:59:24.638 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:59:24,638 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 3, Total is 3, OK
+2025-04-28 09:59:24,639 - drv_io - INFO - /mqtt/gui/cmd/cMeJewcX/reply:{"success": true, "id": "42827f23-fdfc-4d17-9e09-01be9cf913a5", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:59:25,654 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:59:25,654 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:59:25,655 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:59:25,658 - drv_io - INFO - 2025-04-28 09:59:25.658 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:59:25,658 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 4, Total is 4, OK
+2025-04-28 09:59:25,659 - drv_io - INFO - /mqtt/gui/cmd/vXQ0sBsp/reply:{"success": true, "id": "349d354b-26ff-43a2-a5cb-ead82d91e879", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:59:26,668 - drv_io - INFO - 接收到Mqtt write指令:{'cmd': 'write', 'blockId': 0, 'category': 'MC', 'index': 2, 'list': [{'code': 'Control_Recipe_Request_Updata_Result', 'value': 0}]}
+2025-04-28 09:59:26,669 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Recipe_Request_Updata_Result': 0}
+2025-04-28 09:59:26,669 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 09:59:26,672 - drv_io - INFO - 2025-04-28 09:59:26.672 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 0}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 09:59:26,672 - drv_io - INFO - M2O Equipment Timing: parsing 1,writing 3, Total is 4, OK
+2025-04-28 09:59:26,673 - drv_io - INFO - /mqtt/gui/cmd/Q3rXqRAc/reply:{"success": true, "id": "b2cfa839-c67f-4c66-8db3-4b92d0d31496", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 09:59:32,197 - drv_io - INFO - 接收到Mqtt read_plc指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read_plc', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 09:59:32,201 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "7a4ccce4-b2fc-4be9-aa11-4db9c0aeed20", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805572200}], "success": true, "message": "OK", "iosName": "MRG_RP2", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 09:59:32,201 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 10:00:39,495 - drv_io - INFO - 接收到Mqtt read指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 10:00:39,495 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "9029f5cc-34d5-40da-92b2-e76c5e4c7360", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805639495}], "success": true, "message": "OK", "iosName": "MRG_RP2", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 10:00:39,495 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 10:02:36,896 - drv_io - INFO - 接收到Mqtt read_struct指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read_struct', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 10:02:36,896 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "b9a68280-1de8-4464-bbb6-eb577f8b995a", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805756896}], "success": true, "message": "OK", "iosName": "MRG_RP2", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 10:02:36,896 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 10:03:06,289 - drv_io - INFO - 接收到Mqtt read_plc_struct指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read_plc_struct', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 10:03:06,292 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "6f5bafe5-8f7e-45a0-b052-72feb9d28d3f", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745805786292}], "success": true, "message": "OK", "iosName": "MRG_RP2", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 10:03:06,293 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 10:14:39,495 - drv_io - INFO - MQTT处理任务被取消
+2025-04-28 10:14:39,499 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-28 10:14:42,297 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 10:14:42,298 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 10:14:42,298 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:14:42,298 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 10:14:42,360 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 10:14:42,360 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 10:14:42,360 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 10:14:42,360 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:14:42,361 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 10:14:42,361 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:14:42,361 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 10:14:42,361 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:14:44,135 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 10:14:44,137 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 10:14:46,176 - drv_io - INFO - MQTT id:python-mqtt-sub-167, url:localhost:1883.
+2025-04-28 10:14:46,176 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 10:14:46,177 - drv_io - INFO - MQTT subscription is False
+2025-04-28 10:14:46,177 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 10:14:46,177 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 10:14:46,177 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 10:14:46,177 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 10:14:46,177 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 10:14:48,392 - drv_io - WARNING - Failure to match {'blockId': 0, 'index': 2, 'category': 'MC'} to device.
+2025-04-28 10:15:32,644 - drv_io - INFO - 接收到Mqtt read_plc_struct指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'read_plc_struct', 'iosName': 'MRG_RP2', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF'}]}
+2025-04-28 10:15:32,649 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "c97f27a2-102d-4c1a-bbdb-2e685b9b8fac", "ask": false, "data": {"list": [{"code": "Control_Buzzer_OFF", "value": false, "dataType": "bool", "arrLen": 0, "time": 1745806532648}], "success": true, "message": "OK", "iosName": "MRG_RP2", "blockId": 0, "index": 2, "category": "MC"}} 通过Mqtt发布:成功
+2025-04-28 10:15:32,649 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Control_Buzzer_OFF'}], return 1 variables.
+2025-04-28 10:15:56,157 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'iosName': 'MRG_RP2', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:15:56,157 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:15:56,157 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:15:56,160 - drv_io - INFO - 2025-04-28 10:15:56.160 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 10:15:56,160 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 3, Total is 3, OK
+2025-04-28 10:15:56,160 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 10:16:06,600 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'iosName': 'MRG_RP2', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OF', 'value': False}]}
+2025-04-28 10:16:06,600 - drv_io - WARNING - Failure to match the format. mqtt datas: {
+  "id": "db63c97d-0b16-4e86-8101-6688137fc957",
+  "code": null,
+  "message": null,
+  "ask": true,
+  "data": {
+    "_key": "MC_0_2",
+    "success": false,
+    "message": "",
+    "cmd": "write",
+    "iosName": "MRG_RP2",
+    "index": 2,
+    "category": "MC",
+    "blockId": 0,
+    "list": [
+      {
+        "code": "Control_Buzzer_OF",
+        "value":false
+      }
+    ]
+  }
+}
+2025-04-28 10:16:06,601 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "Failure to match the format."} 通过Mqtt发布:成功
+2025-04-28 10:17:07,175 - drv_io - INFO - MQTT处理任务被取消
+2025-04-28 10:17:07,179 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-28 10:17:10,804 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 10:17:10,805 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 10:17:10,805 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:17:10,806 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 10:17:11,080 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 10:17:11,080 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 10:17:11,081 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 10:17:11,081 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:17:11,082 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 10:17:11,082 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:17:11,082 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 10:17:11,082 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:17:13,036 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 10:17:13,036 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 10:17:15,119 - drv_io - INFO - MQTT id:python-mqtt-sub-209, url:localhost:1883.
+2025-04-28 10:17:15,120 - drv_io - INFO - MQTT subscription is False
+2025-04-28 10:17:15,121 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 10:17:15,121 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 10:17:15,121 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 10:17:15,121 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 10:17:15,122 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 10:17:15,122 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 10:17:16,849 - drv_io - WARNING - Failure to match {'blockId': 0, 'index': 2, 'category': 'MC'} to device.
+2025-04-28 10:20:14,386 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 10:20:14,387 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 10:20:14,387 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:20:14,387 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 10:20:14,451 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 10:20:14,451 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 10:20:14,452 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 10:20:14,452 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:20:14,452 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 10:20:14,452 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:20:14,452 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 10:20:14,452 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:20:16,230 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 10:20:16,231 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 10:20:18,303 - drv_io - INFO - MQTT id:python-mqtt-sub-865, url:localhost:1883.
+2025-04-28 10:20:18,303 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 10:20:18,303 - drv_io - INFO - MQTT subscription is False
+2025-04-28 10:20:18,305 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 10:20:18,305 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 10:20:18,306 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 10:20:18,306 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 10:20:18,307 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 10:20:48,861 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:20:48,862 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:20:48,862 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:20:48,864 - drv_io - INFO - 2025-04-28 10:20:48.864 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 10:20:48,864 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 2, Total is 2, OK
+2025-04-28 10:20:48,865 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 10:21:26,895 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:21:26,895 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1491ms.
+2025-04-28 10:21:28,416 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:21:28,416 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1506ms.
+2025-04-28 10:21:29,915 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:21:29,915 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:21:29,915 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:21:29,944 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:21:29,944 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1512ms.
+2025-04-28 10:21:31,485 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:21:31,485 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1525ms.
+2025-04-28 10:21:32,989 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:21:32,989 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1489ms.
+2025-04-28 10:21:34,531 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:21:34,532 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1528ms.
+2025-04-28 10:21:39,935 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入8s超时,opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:39,935 - drv_io - INFO - 2025-04-28 10:21:39.935 第1/1批次，尝试第1次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:44,575 - drv_io - WARNING - Failure to unlink to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:21:44,575 - drv_io - WARNING - unlink opcua opc.tcp://192.168.20.1:4840 False
+2025-04-28 10:21:47,555 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:21:47,555 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:21:49,631 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:21:49,631 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:21:49,923 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：Connection is closed,opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,923 - drv_io - INFO - 2025-04-28 10:21:49.923 第1/1批次，尝试第2次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,923 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,923 - drv_io - INFO - 2025-04-28 10:21:49.923 第1/1批次，尝试第3次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,923 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,925 - drv_io - INFO - 2025-04-28 10:21:49.925 第1/1批次，尝试第4次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,925 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,925 - drv_io - INFO - 2025-04-28 10:21:49.925 第1/1批次，尝试第5次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,925 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:21:49,925 - drv_io - WARNING - 最终失败：无法通过 OPC UA 写入 [{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}],opc.tcp://192.168.20.1:4840,请把批次数量减少再次尝试
+2025-04-28 10:21:49,925 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"'], timeout is 0.25.
+2025-04-28 10:21:49,925 - drv_io - WARNING - Failure to read opcua opc.tcp://192.168.20.1:4840, check wrote ['ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"'].
+2025-04-28 10:21:49,926 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write Equipment via opcua."} 通过Mqtt发布:成功
+2025-04-28 10:21:49,956 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:21:49,956 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:21:49,956 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:21:49,956 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:21:51,722 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:21:51,722 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:21:53,810 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:21:53,811 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:21:56,104 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:21:56,104 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:21:58,469 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:21:58,469 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:00,550 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:00,550 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:02,632 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:02,632 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:04,692 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:04,692 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:06,769 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:06,769 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:08,863 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:08,863 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:10,931 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:10,931 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:13,010 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:13,010 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:15,092 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:15,092 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:17,166 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:17,166 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:19,270 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:19,270 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:21,337 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:21,337 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:23,409 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:23,409 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:25,484 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:25,484 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:27,565 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:27,565 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:29,660 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:29,660 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:31,724 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:31,724 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:33,797 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:33,798 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:35,876 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:35,876 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:37,963 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:37,963 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:40,060 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:40,060 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:42,141 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:42,141 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:44,223 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:44,223 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:46,350 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:46,350 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:48,444 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:48,444 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:50,586 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:50,586 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:52,665 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:22:52,665 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:22:54,544 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 10:23:41,981 - drv_io - INFO - MQTT处理任务被取消
+2025-04-28 10:23:41,985 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-04-28 10:23:44,735 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 10:23:44,735 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 10:23:44,735 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:23:44,736 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 10:23:44,797 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 10:23:44,797 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 10:23:44,798 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 10:23:44,798 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:23:44,798 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 10:23:44,798 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:23:44,798 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 10:23:44,798 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:23:46,577 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 10:23:46,577 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 10:23:48,652 - drv_io - INFO - MQTT id:python-mqtt-sub-420, url:localhost:1883.
+2025-04-28 10:23:48,653 - drv_io - INFO - MQTT subscription is False
+2025-04-28 10:23:48,653 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 10:23:48,654 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 10:23:48,656 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 10:23:48,656 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 10:23:48,656 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 10:23:48,656 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 10:23:50,467 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:23:50,467 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:23:50,467 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:23:50,469 - drv_io - INFO - 2025-04-28 10:23:50.469 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 10:23:50,469 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 2, Total is 2, OK
+2025-04-28 10:23:50,469 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 10:23:55,848 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:23:55,848 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1513ms.
+2025-04-28 10:23:57,363 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:23:57,364 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1500ms.
+2025-04-28 10:23:58,661 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:23:58,661 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:23:58,661 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:23:58,886 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:23:58,886 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1507ms.
+2025-04-28 10:24:00,413 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:24:00,413 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1512ms.
+2025-04-28 10:24:01,943 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:24:01,944 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1516ms.
+2025-04-28 10:24:03,474 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:24:03,474 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1516ms.
+2025-04-28 10:24:08,682 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入8s超时,opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:08,684 - drv_io - INFO - 2025-04-28 10:24:08.682 第1/1批次，尝试第1次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:13,475 - drv_io - WARNING - Failure to unlink to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:13,475 - drv_io - WARNING - unlink opcua opc.tcp://192.168.20.1:4840 False
+2025-04-28 10:24:14,052 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:15,071 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:16,090 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:16,109 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:17,105 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:17,152 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:18,121 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:18,186 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:18,682 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：Connection is closed,opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,684 - drv_io - INFO - 2025-04-28 10:24:18.684 第1/1批次，尝试第2次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,684 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,685 - drv_io - INFO - 2025-04-28 10:24:18.685 第1/1批次，尝试第3次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,685 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,686 - drv_io - INFO - 2025-04-28 10:24:18.685 第1/1批次，尝试第4次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,687 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,687 - drv_io - INFO - 2025-04-28 10:24:18.687 第1/1批次，尝试第5次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,688 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:24:18,688 - drv_io - WARNING - 最终失败：无法通过 OPC UA 写入 [{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}],opc.tcp://192.168.20.1:4840,请把批次数量减少再次尝试
+2025-04-28 10:24:18,689 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"'], timeout is 0.25.
+2025-04-28 10:24:18,689 - drv_io - WARNING - Failure to read opcua opc.tcp://192.168.20.1:4840, check wrote ['ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"'].
+2025-04-28 10:24:18,690 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write Equipment via opcua."} 通过Mqtt发布:成功
+2025-04-28 10:24:19,121 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:19,187 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:20,137 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:20,185 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:21,148 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:21,183 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:22,147 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:22,196 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:23,161 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:23,211 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:24,180 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:24,214 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:25,196 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:25,230 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:26,218 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:26,252 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:27,240 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:27,260 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:28,241 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:28,289 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:29,260 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:29,309 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:30,272 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:30,304 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:31,285 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:31,318 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:32,300 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:32,351 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:33,312 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:33,344 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:34,325 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:34,359 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:35,339 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:35,373 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:36,349 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:36,381 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:37,359 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:37,392 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:38,386 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:38,402 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:39,399 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:39,418 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:40,274 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:24:40,274 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:24:40,275 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:24:40,275 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:24:40,412 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:40,445 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:41,431 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:41,447 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:42,450 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:42,482 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:43,465 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:43,498 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:44,474 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:44,507 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:45,498 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:45,503 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:46,499 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:46,531 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:47,528 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:47,567 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:48,556 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:48,576 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:49,574 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:49,621 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:50,589 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:50,655 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:51,601 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:51,650 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:52,615 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:52,653 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:53,628 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:53,661 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:54,642 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:54,691 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:55,656 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:55,692 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:56,674 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:56,714 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:57,696 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:57,714 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:58,710 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:58,750 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:24:59,732 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:24:59,782 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:00,757 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:00,760 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:01,775 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:01,793 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:02,790 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:02,823 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:03,806 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:03,824 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:04,827 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:04,859 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:05,838 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:05,886 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:06,855 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:06,888 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:07,869 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:07,886 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:08,885 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:08,917 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:09,895 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:09,950 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:10,907 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:10,940 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:11,936 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:11,953 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:12,951 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:12,969 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:13,962 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:13,998 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:14,983 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:15,002 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:15,998 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:16,016 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:17,028 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:17,045 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:18,043 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:18,064 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:19,054 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:19,087 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:20,070 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:20,128 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:21,083 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:21,121 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:22,091 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:22,124 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:23,116 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:23,134 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:24,134 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:24,154 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:25,129 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:25,178 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:26,140 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:26,189 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:27,158 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:27,198 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:28,171 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:28,205 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:29,200 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:25:29,224 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:25:29,528 - drv_io - INFO - MQTT处理任务被取消
+2025-04-28 10:31:38,032 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 10:31:38,034 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 10:31:38,034 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:31:38,034 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 10:31:38,095 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 10:31:38,095 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 10:31:38,095 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 10:31:38,096 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:31:38,096 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 10:31:38,096 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:31:38,096 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 10:31:38,096 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:31:40,187 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:40,187 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:40,187 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 10:31:42,241 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 10:31:42,241 - drv_io - INFO - MQTT id:python-mqtt-sub-104, url:localhost:1883.
+2025-04-28 10:31:42,242 - drv_io - INFO - MQTT subscription is False
+2025-04-28 10:31:42,242 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 10:31:42,244 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 10:31:42,244 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 10:31:42,245 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 10:31:42,245 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 10:31:44,295 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:44,296 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:46,363 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:46,363 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:48,456 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:48,456 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:48,986 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "\u5f53\u524d\u6a21\u7ec4\uff1a{'blockId': 0, 'index': 2, 'category': 'MC'} \u672a\u6b63\u786e\u5efa\u7acb\u8fde\u63a5"} 通过Mqtt发布:成功
+2025-04-28 10:31:48,986 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:31:48,986 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:31:48,986 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:31:48,986 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:31:50,566 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:50,566 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:52,640 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:52,640 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:53,804 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "\u5f53\u524d\u6a21\u7ec4\uff1a{'blockId': 0, 'index': 2, 'category': 'MC'} \u672a\u6b63\u786e\u5efa\u7acb\u8fde\u63a5"} 通过Mqtt发布:成功
+2025-04-28 10:31:53,804 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:31:53,804 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:31:53,804 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:31:53,804 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:31:54,712 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:54,712 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:56,808 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:56,808 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:31:58,882 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:31:58,882 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:00,955 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:00,955 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:03,045 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:03,045 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:05,146 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:05,147 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:07,259 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:07,259 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:09,341 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:09,342 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:11,414 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:11,414 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:13,483 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:13,483 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:15,560 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:15,560 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:17,657 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:17,657 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:19,742 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:19,742 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:21,836 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:21,836 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:23,912 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:23,913 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:25,991 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:25,991 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:28,075 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:28,075 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:30,177 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:30,177 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:32,247 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:32,247 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:34,333 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:34,333 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:36,414 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:36,414 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:38,482 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:38,482 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:40,578 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:40,579 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:42,693 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:42,694 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:44,801 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:44,801 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:46,883 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:46,883 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:48,968 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:48,968 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:51,039 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:51,040 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:53,151 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:53,151 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:55,225 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:55,225 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:57,314 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:57,314 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:32:59,381 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:32:59,381 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:01,482 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:01,482 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:03,557 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:03,557 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:05,669 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:05,669 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:07,789 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:07,791 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:09,884 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:09,884 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:12,001 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:12,001 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:14,067 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:14,067 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:16,150 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:16,150 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:18,313 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:18,313 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:20,702 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:20,702 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:23,000 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:23,000 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:25,091 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:25,091 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:27,182 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:27,182 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:29,272 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:29,272 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:31,365 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:31,365 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:33,437 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:33,437 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:35,509 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:35,509 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:37,610 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:37,610 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:39,651 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:39,651 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:41,728 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:41,728 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:43,809 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:43,809 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:45,883 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:45,883 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:47,943 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:47,943 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:50,016 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:50,016 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:52,088 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:52,088 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:54,172 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:54,172 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:56,265 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:56,265 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:33:58,340 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:33:58,340 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:00,429 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:00,429 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:02,498 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:02,498 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:04,582 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:04,583 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:06,675 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:06,676 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:08,898 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:08,898 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:09,224 - drv_io - INFO - MQTT处理任务被取消
+2025-04-28 10:34:11,787 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 10:34:11,788 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 10:34:11,788 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:34:11,788 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 10:34:11,852 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 10:34:11,852 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 10:34:11,852 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 10:34:11,852 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:34:11,852 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 10:34:11,852 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:34:11,852 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 10:34:11,852 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:34:14,083 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:14,084 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:14,084 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 10:34:16,158 - drv_io - INFO - MQTT id:python-mqtt-sub-138, url:localhost:1883.
+2025-04-28 10:34:16,158 - drv_io - INFO - MQTT subscription is False
+2025-04-28 10:34:16,158 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 10:34:16,158 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 10:34:16,158 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 10:34:16,159 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 10:34:16,159 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 10:34:16,159 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 10:34:18,225 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:18,226 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:20,321 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:20,322 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:22,393 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:22,393 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:24,483 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:24,483 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:26,560 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:26,560 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:28,656 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:28,657 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:30,758 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:30,758 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:32,845 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:32,845 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:34,922 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:34:34,923 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:34:36,741 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 10:34:46,314 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:34:46,314 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:34:46,314 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:34:46,317 - drv_io - INFO - 2025-04-28 10:34:46.317 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-04-28 10:34:46,317 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 3, Total is 3, OK
+2025-04-28 10:34:46,317 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 10:34:51,905 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:34:51,906 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1515ms.
+2025-04-28 10:34:52,977 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:34:52,978 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:34:52,978 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:34:53,434 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:34:53,435 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1515ms.
+2025-04-28 10:34:54,961 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:34:54,962 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1512ms.
+2025-04-28 10:34:56,461 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:34:56,461 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1484ms.
+2025-04-28 10:34:57,977 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:34:57,978 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1501ms.
+2025-04-28 10:34:59,503 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:34:59,503 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1511ms.
+2025-04-28 10:35:02,982 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入8s超时,opc.tcp://192.168.20.1:4840
+2025-04-28 10:35:02,982 - drv_io - INFO - 2025-04-28 10:35:02.982 第1/1批次，尝试第1次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:35:08,282 - drv_io - WARNING - Failure to match the format. mqtt datas: {
+  "id": "db63c97d-0b16-4e86-8101-6688137fc957",
+  "code": null,
+  "message": null,
+  "ask": true,
+  "data": {
+    "_key": "MC_0_2",
+    "success": false,
+    "message": "",
+    "cmd": "write",
+    "index": 2,
+    "category": "MC",
+    "blockId": 0,
+    "list": [
+      {
+        "code": "Control_Buzzer_OFF",
+        "value":false
+      }
+    ]
+  }
+}
+2025-04-28 10:35:08,283 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "message": "Failure to match the format."} 通过Mqtt发布:成功
+2025-04-28 10:35:08,305 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:35:08,305 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:35:08,305 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:35:08,305 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:35:37,425 - drv_io - INFO - Driver Config file loaded - done.
+2025-04-28 10:35:37,427 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-04-28 10:35:37,427 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:35:37,427 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-04-28 10:35:37,689 - drv_io - INFO - Load Equipment variable list, True.
+2025-04-28 10:35:37,689 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-04-28 10:35:37,690 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-04-28 10:35:37,690 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:35:37,690 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-04-28 10:35:37,690 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:35:37,691 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-04-28 10:35:37,691 - drv_io - INFO - Configuration setting is no load.
+2025-04-28 10:35:39,765 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:39,765 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:39,765 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-04-28 10:35:41,825 - drv_io - INFO - MQTT id:python-mqtt-sub-961, url:localhost:1883.
+2025-04-28 10:35:41,826 - drv_io - INFO - MQTT subscription is False
+2025-04-28 10:35:41,827 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-04-28 10:35:41,828 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-04-28 10:35:41,828 - drv_io - INFO - Request Config file loaded - done.
+2025-04-28 10:35:41,829 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-04-28 10:35:41,829 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-04-28 10:35:41,829 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-04-28 10:35:43,883 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:43,883 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:46,009 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:46,010 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:48,089 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:48,089 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:50,212 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:50,213 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:52,297 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:52,298 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:54,412 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:54,412 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:56,489 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:56,490 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:35:58,607 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:35:58,607 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:00,715 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:00,717 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:02,819 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:02,819 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:04,888 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:04,889 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:07,006 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:07,006 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:07,533 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:36:07,533 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:36:10,145 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:36:10,146 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:36:10,147 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:10,147 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:12,212 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:12,212 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:14,290 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:14,290 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:16,368 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:16,368 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:18,359 - drv_io - INFO - Connect Equipment, True.
+2025-04-28 10:36:26,562 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:36:26,562 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:36:26,562 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:36:26,565 - drv_io - INFO - 2025-04-28 10:36:26.565 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}] 通过OPCUA写入成功，耗时 2ms, opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:26,566 - drv_io - INFO - M2O Equipment Timing: parsing 0,writing 4, Total is 4, OK
+2025-04-28 10:36:26,566 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": true, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "OK"} 通过Mqtt发布:成功
+2025-04-28 10:36:33,615 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:36:33,616 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1517ms.
+2025-04-28 10:36:35,138 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:36:35,139 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1498ms.
+2025-04-28 10:36:35,920 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:36:35,920 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:36:35,921 - drv_io - INFO - 写入变量总数量：1
+2025-04-28 10:36:36,667 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:36:36,668 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1516ms.
+2025-04-28 10:36:38,192 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:36:38,193 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1510ms.
+2025-04-28 10:36:39,718 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:36:39,718 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1511ms.
+2025-04-28 10:36:41,246 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Basic"', 'ns=3;s="Equipment"."0_2_MC"."Control"', 'ns=3;s="Equipment"."0_2_MC"."Status"', 'ns=3;s="Equipment"."0_2_MC"."Recipe"', 'ns=3;s="Equipment"."0_2_MC"."Alarm"', 'ns=3;s="Equipment"."0_2_MC"."Parameter"', 'ns=3;s="Equipment"."0_2_MC"."Inner"', 'ns=3;s="Equipment"."0_2_MC"."TEST1"', 'ns=3;s="Equipment"."0_2_MC"."TEST2"', 'ns=3;s="Equipment"."0_200_IO"."MC"', 'ns=3;s="Equipment"."0_200_IO"."EFEM"', 'ns=3;s="Equipment"."0_200_IO"."Robot"'], timeout is 1.5.
+2025-04-28 10:36:41,247 - drv_io - WARNING - Failure to read opcua Equipment,opc.tcp://192.168.20.1:4840, using time 1505ms.
+2025-04-28 10:36:45,947 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入8s超时,opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:45,948 - drv_io - INFO - 2025-04-28 10:36:45.947 第1/1批次，尝试第1次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:51,285 - drv_io - WARNING - Failure to unlink to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:51,285 - drv_io - WARNING - unlink opcua opc.tcp://192.168.20.1:4840 False
+2025-04-28 10:36:53,909 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:36:53,909 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:36:55,974 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：Connection is closed,opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,975 - drv_io - INFO - 2025-04-28 10:36:55.975 第1/1批次，尝试第2次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,975 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,977 - drv_io - INFO - 2025-04-28 10:36:55.977 第1/1批次，尝试第3次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,977 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,978 - drv_io - INFO - 2025-04-28 10:36:55.978 第1/1批次，尝试第4次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,978 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,978 - drv_io - INFO - 2025-04-28 10:36:55.978 第1/1批次，尝试第5次重写,opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,979 - drv_io - WARNING - 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，写入失败：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}]，错误信息：'NoneType' object has no attribute 'send_request',opc.tcp://192.168.20.1:4840
+2025-04-28 10:36:55,979 - drv_io - WARNING - 最终失败：无法通过 OPC UA 写入 [{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"', 'datatype': 1, 'value': False}],opc.tcp://192.168.20.1:4840,请把批次数量减少再次尝试
+2025-04-28 10:36:55,980 - drv_io - WARNING - Failure to read opcua: ['ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"'], timeout is 0.25.
+2025-04-28 10:36:55,980 - drv_io - WARNING - Failure to read opcua opc.tcp://192.168.20.1:4840, check wrote ['ns=3;s="Equipment"."0_2_MC"."Control"."Buzzer_OFF"'].
+2025-04-28 10:36:55,980 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write Equipment via opcua."} 通过Mqtt发布:成功
+2025-04-28 10:36:55,994 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:36:55,994 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:37:02,210 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:37:02,211 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:37:02,211 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:02,211 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:04,292 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:04,292 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:06,396 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:06,397 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:08,486 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:08,486 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:09,864 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:37:09,864 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:37:16,413 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:37:16,413 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:37:16,415 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:16,416 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:18,494 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:18,494 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:20,563 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:20,564 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:22,642 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:22,643 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:24,104 - drv_io - INFO - 接收到Mqtt write指令:{'_key': 'MC_0_2', 'success': False, 'message': '', 'cmd': 'write', 'index': 2, 'category': 'MC', 'blockId': 0, 'list': [{'code': 'Control_Buzzer_OFF', 'value': False}]}
+2025-04-28 10:37:24,104 - drv_io - INFO - Collection Json Frame:1 codes in {'blockId': 0, 'index': 2, 'category': 'MC'}. Code:Value:{'Control_Buzzer_OFF': False}
+2025-04-28 10:37:27,612 - drv_io - WARNING - Failure to write opcua Equipment, not linked.
+2025-04-28 10:37:27,612 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"success": false, "id": "db63c97d-0b16-4e86-8101-6688137fc957", "message": "Failure to write opcua Equipment, not linked."} 通过Mqtt发布:成功
+2025-04-28 10:37:27,614 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:27,614 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:29,703 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:29,703 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:31,769 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:31,770 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:33,885 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:33,886 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:36,003 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:36,004 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:38,073 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:38,073 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:40,189 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:40,190 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:42,264 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:42,264 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:44,343 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:44,343 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:46,416 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:46,417 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:48,474 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:48,475 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:50,556 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:50,557 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:52,641 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:52,642 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:54,743 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:54,743 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:56,817 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:56,819 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:37:58,892 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:37:58,894 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:00,982 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:00,982 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:03,067 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:03,067 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:05,140 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:05,141 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:07,246 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:07,246 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:09,311 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:09,311 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:11,400 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:11,401 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:13,474 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:13,474 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:15,544 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:15,546 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:17,645 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:17,645 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:19,724 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:19,725 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:21,793 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:21,794 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:24,002 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:24,002 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:26,279 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:26,279 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:28,360 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:28,361 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:30,458 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:30,459 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:32,576 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:32,576 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:34,679 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:34,679 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:36,772 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:36,773 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:38,873 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:38,874 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:40,941 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:40,942 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:43,023 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:43,024 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:45,141 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:45,143 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:47,218 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:47,219 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:49,324 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:49,324 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:51,416 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:51,416 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:53,482 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.1:4840.
+2025-04-28 10:38:53,483 - drv_io - INFO - Connect Equipment, False.
+2025-04-28 10:38:54,542 - drv_io - INFO - MQTT处理任务被取消
