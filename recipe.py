@@ -558,6 +558,8 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
         else:
             log.warning(f'自动下载配方失败-1009，请查看上面写入失败原因')
             await return_request_state(dev, req, 1009)
+    else:
+        await return_request_state(dev, req, 1003)
 
 
 async def write_all_rv_false(rv_m2o_list, dev, req):
