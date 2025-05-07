@@ -200,6 +200,9 @@ class distribution_server(object):
                 # node = find_path(dev.VarTree, list_node['path'])
                 list_node = dev.code_to_node.get(code2format_str(module['blockId'], module['index'], module['category'],
                                                                  n['code']))
+                if list_node is None:
+                    result['ErrMSG'].append(f'Failure to find {n["code"]} in the variable list')
+                    return result
             except:
                 result['ErrMSG'].append(f'Failure to find code in the variable list, {n}.')
                 return result
@@ -252,6 +255,11 @@ class distribution_server(object):
                 list_node = dev.code_to_node.get(code2format_str(module['blockId'], module['index'], module['category'],
                                                                  n['code']))
                 # node = find_path(dev.VarTree, list_node['path'])
+                if list_node is None:
+                    log.warning(f'Failure to find {n} in the list, when mqtt read.')
+                    self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
+                                                                    'message': f'Failure to find {n["code"]} in the variable list.'}))
+                    return
                 nodes.append(list_node)
                 read_vars_info.append({'module': module, 'NodeID': list_node["NodeID"]})
             except Exception as e:
