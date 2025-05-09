@@ -766,14 +766,16 @@ class distribution_server(object):
                                                                     module['category'], rr['request_node_path']))
                         if node is None:
                             return
-                        req = get_request_nodes(dev, node, rr['recipe_request_update'],
-                                                rr['recipe_request_id'], rr['recipe_request_result'])
-                        if "1" in rr['recipe_request_update']:
+
+                        if "1" in rr['request_node_path']:
                             flow_index = 1
-                        elif "2" in rr['recipe_request_update']:
+                        elif "2" in rr['request_node_path']:
                             flow_index = 2
                         else:
                             flow_index = None
+
+                        req = get_request_nodes(dev, node, rr['recipe_request_update'],
+                                                rr['recipe_request_id'], rr['recipe_request_result'])
                         if req["id"] is None or req["request"] is None or req["result"] is None:
                             return
                         if req['request']["value"] is True and req['result']["value"] == 0:  #

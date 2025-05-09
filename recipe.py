@@ -409,10 +409,10 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
     log.info(f'Request recipeId {recipe_id} from {url}')
     # datas = server_datas_testing  # testing
     await return_request_state(dev, req, 1)
-    if flow_index:
-        params = {'recipeId': recipe_id, 'flowIndex':flow_index}
-    else:
+    if flow_index is None:
         params = {'recipeId': recipe_id}
+    else:
+        params = {'recipeId': recipe_id, 'flowIndex': flow_index}
     # params = {'recipeId': 47}
     datas = request_get(url, "", params)
     # datas = request_get('http://192.168.55.71:13871/api/upper/recipe/info/drive/format?recipeId=47&flowIndex=', "", params)
