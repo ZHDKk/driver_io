@@ -12,8 +12,33 @@
         "recipe_request_update": "Request_Updata",
         "recipe_request_id": "Request_Updata_ID",
         "recipe_request_result": "Request_Updata_Result",
-        "recipe_flow_index": "Request_Flow_Index",
         "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow\".\"Basic\".\"Id\""
+      },
+      {
+        "module": {
+          "blockId": 0,
+          "index": 2,
+          "category": "MC"
+        },
+        "request_node_path": "Control_Recipe1",
+        "recipe_node_path": "Control_Recipe1",
+        "recipe_request_update": "Request_Updata1",
+        "recipe_request_id": "Request_Updata_ID1",
+        "recipe_request_result": "Request_Updata_Result1",
+        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow1\".\"Basic\".\"Id\""
+      },
+      {
+        "module": {
+          "blockId": 0,
+          "index": 2,
+          "category": "MC"
+        },
+        "request_node_path": "Control_Recipe2",
+        "recipe_node_path": "Control_Recipe2",
+        "recipe_request_update": "Request_Updata2",
+        "recipe_request_id": "Request_Updata_ID2",
+        "recipe_request_result": "Request_Updata_Result2",
+        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow2\".\"Basic\".\"Id\""
       }
     ]
   }

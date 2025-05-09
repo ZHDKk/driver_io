@@ -393,7 +393,7 @@ async def request_recipe_handle(dis, url, req, dev, module, write_recipe_id):
             await return_request_state(dev, req, 1009)
 
 
-async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id, ua_device):
+async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id, ua_device, flow_index):
     """
     request recipe handle
     :param url: server url
@@ -404,19 +404,18 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
     """
     start_total_time = time.time()  # 记录开始时间
     recipe_id = req['id']["value"]
-    if req['flow_index']:
-        recipe_flow_index = req['flow_index']["value"]
-    else:
-        recipe_flow_index = None
     # request datas from server
     print(f'{get_current_time()}: Request recipeId {recipe_id} from {url}')
     log.info(f'Request recipeId {recipe_id} from {url}')
     # datas = server_datas_testing  # testing
     await return_request_state(dev, req, 1)
-    params = {'recipeId': recipe_id, 'flowIndex':recipe_flow_index}
+    if flow_index:
+        params = {'recipeId': recipe_id, 'flowIndex':flow_index}
+    else:
+        params = {'recipeId': recipe_id}
     # params = {'recipeId': 47}
     datas = request_get(url, "", params)
-    # datas = request_get('http://192.168.55.17:13871/api/upper/recipe/info/drive/format?recipeId=47&flowIndex=', "", params)
+    # datas = request_get('http://192.168.55.71:13871/api/upper/recipe/info/drive/format?recipeId=47&flowIndex=', "", params)
     print(f'{get_current_time()}: 配方请求结果：{datas}')
     log.info(f'配方请求结果：{datas}')
     # data parse and write recipe to opcua

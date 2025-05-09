@@ -15,25 +15,18 @@ from utils.helpers import code2format_str, save_config_file
 from utils.time_util import get_current_time
 
 
-def get_request_nodes(dev, node, request_update, request_update_id, request_update_result, recipe_flow_index):
+def get_request_nodes(dev, node, request_update, request_update_id, request_update_result):
     """
     get request information with variable name in node tree
     :param node: node
     :return: request information dictionary
     """
-    try:
-        flow_index = dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
-                                                                node['code']+"_"+recipe_flow_index))
-    except:
-        flow_index = None
-
     req_dict = {'request': dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
                                                                 node['code']+"_"+request_update)),
                 'id': dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
                                                            node['code']+"_"+request_update_id)),
                 'result': dev.code_to_node.get(code2format_str(node['blockId'], node['index'], node['category'],
-                                                               node['code']+"_"+request_update_result)),
-                'flow_index': flow_index,
+                                                               node['code']+"_"+request_update_result))
                 }
     return req_dict
 
@@ -771,8 +764,18 @@ class distribution_server(object):
                     try:
                         node = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
                                                                     module['category'], rr['request_node_path']))
+                        if not node:
+                            return
                         req = get_request_nodes(dev, node, rr['recipe_request_update'],
-                                                rr['recipe_request_id'], rr['recipe_request_result'], rr['recipe_flow_index'])
+                                                rr['recipe_request_id'], rr['recipe_request_result'])
+                        if "1" in rr['recipe_request_update']:
+                            flow_index = 1
+                        elif "2" in rr['recipe_request_update']:
+                            flow_index = 2
+                        else:
+                            flow_index = None
+                        if not req["id"] or not req["request"] or not req["result"]:
+                            return
                         if req['request']["value"] is True and req['result']["value"] == 0:  #
                             # trigger to request recipe
                             # await request_recipe_handle(self, self.config['Server']['Basic']['recipe_req_url'], req, dev,
@@ -782,7 +785,7 @@ class distribution_server(object):
                             # await request_recipe_handle_gather_plc(self, self.config['Server']['Basic']['recipe_req_url'],
                             #                                             req, dev, module, write_recipe_id)  # 并发下发Recipe - 单plc
                             await request_recipe_handle_gather_link(self, self.config['Server']['Basic']['recipe_req_url'],
-                                                                        req, dev, module, write_recipe_id, self.ua_device)  # 并发下发Recipe - 单link
+                                                                        req, dev, module, write_recipe_id, self.ua_device, flow_index)  # 并发下发Recipe - 单link
                         elif req['request']["value"] is False and (req['result']["value"] != 0):
                             await clear_request_result(dev, req)
                     except Exception as e:
