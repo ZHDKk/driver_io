@@ -767,12 +767,10 @@ class distribution_server(object):
                         if node is None:
                             return
 
-                        if "1" in rr['request_node_path']:
-                            flow_index = 1
-                        elif "2" in rr['request_node_path']:
-                            flow_index = 2
-                        else:
+                        if rr['recipe_flow_index'] == 0:
                             flow_index = None
+                        else:
+                            flow_index = rr['recipe_flow_index']
 
                         req = get_request_nodes(dev, node, rr['recipe_request_update'],
                                                 rr['recipe_request_id'], rr['recipe_request_result'])

@@ -962,3 +962,99 @@
 2025-05-09 14:06:58,638 - drv_io - INFO - 2025-05-09 14:06:58.638 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 1001}] 通过OPCUA写入成功，耗时 6ms, opc.tcp://192.168.20.1:4840
 2025-05-09 14:13:49,669 - drv_io - INFO - MQTT处理任务被取消
 2025-05-09 14:13:49,673 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-09 14:32:56,578 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-09 14:32:56,578 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-09 14:32:56,578 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:32:56,579 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-09 14:32:56,641 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-09 14:32:56,641 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-09 14:32:56,643 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-09 14:32:56,643 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:32:56,643 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-09 14:32:56,643 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:32:56,643 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-09 14:32:56,643 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:32:58,397 - drv_io - INFO - Connect Equipment, True.
+2025-05-09 14:32:58,397 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-09 14:33:00,464 - drv_io - INFO - MQTT id:python-mqtt-sub-661, url:localhost:1883.
+2025-05-09 14:33:00,464 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-09 14:33:00,464 - drv_io - INFO - MQTT subscription is False
+2025-05-09 14:33:00,464 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-09 14:33:00,465 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-09 14:33:00,465 - drv_io - INFO - Request Config file loaded - done.
+2025-05-09 14:33:00,465 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-09 14:33:00,465 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-09 14:33:05,035 - drv_io - INFO - Request recipeId 0 from http://localhost:13871/api/upper/recipe/info/drive/format
+2025-05-09 14:33:05,035 - drv_io - INFO - 写入变量总数量：1
+2025-05-09 14:33:05,039 - drv_io - INFO - 2025-05-09 14:33:05.039 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 1}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-05-09 14:33:09,083 - drv_io - WARNING - http请求失败，异常信息: HTTPConnectionPool(host='localhost', port=13871): Max retries exceeded with url: /api/upper/recipe/info/drive/format?recipeId=0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CD5F2FF3D0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-05-09 14:33:09,083 - drv_io - INFO - 配方请求结果：None
+2025-05-09 14:33:09,084 - drv_io - WARNING - Failure to request from server, No response.
+2025-05-09 14:33:09,084 - drv_io - INFO - 写入变量总数量：1
+2025-05-09 14:33:09,087 - drv_io - INFO - 2025-05-09 14:33:09.087 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 1001}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-05-09 14:33:09,089 - drv_io - INFO - Request recipeId 0 from http://localhost:13871/api/upper/recipe/info/drive/format
+2025-05-09 14:33:09,089 - drv_io - INFO - 写入变量总数量：1
+2025-05-09 14:33:09,096 - drv_io - INFO - 2025-05-09 14:33:09.096 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 1}] 通过OPCUA写入成功，耗时 7ms, opc.tcp://192.168.20.1:4840
+2025-05-09 14:33:13,144 - drv_io - WARNING - http请求失败，异常信息: HTTPConnectionPool(host='localhost', port=13871): Max retries exceeded with url: /api/upper/recipe/info/drive/format?recipeId=0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CD5F30D810>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-05-09 14:33:13,146 - drv_io - INFO - 配方请求结果：None
+2025-05-09 14:33:13,146 - drv_io - WARNING - Failure to request from server, No response.
+2025-05-09 14:33:13,146 - drv_io - INFO - 写入变量总数量：1
+2025-05-09 14:33:13,156 - drv_io - INFO - 2025-05-09 14:33:13.156 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 1001}] 通过OPCUA写入成功，耗时 10ms, opc.tcp://192.168.20.1:4840
+2025-05-09 14:33:16,560 - drv_io - INFO - MQTT处理任务被取消
+2025-05-09 14:33:16,564 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-09 14:33:20,057 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-09 14:33:20,059 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-09 14:33:20,059 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:33:20,059 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-09 14:33:20,323 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-09 14:33:20,323 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-09 14:33:20,324 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-09 14:33:20,324 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:33:20,324 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-09 14:33:20,324 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:33:20,325 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-09 14:33:20,325 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:33:22,242 - drv_io - INFO - Connect Equipment, True.
+2025-05-09 14:33:22,243 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-09 14:33:24,297 - drv_io - INFO - MQTT id:python-mqtt-sub-657, url:localhost:1883.
+2025-05-09 14:33:24,297 - drv_io - INFO - MQTT subscription is False
+2025-05-09 14:33:24,298 - drv_io - INFO - Request Config file loaded - done.
+2025-05-09 14:33:24,299 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-09 14:33:24,299 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-09 14:33:24,300 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-09 14:33:24,300 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-09 14:33:24,302 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-09 14:33:34,438 - drv_io - INFO - Request recipeId 0 from http://localhost:13871/api/upper/recipe/info/drive/format
+2025-05-09 14:33:34,438 - drv_io - INFO - 写入变量总数量：1
+2025-05-09 14:33:34,441 - drv_io - INFO - 2025-05-09 14:33:34.441 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 1}] 通过OPCUA写入成功，耗时 3ms, opc.tcp://192.168.20.1:4840
+2025-05-09 14:33:38,533 - drv_io - WARNING - http请求失败，异常信息: HTTPConnectionPool(host='localhost', port=13871): Max retries exceeded with url: /api/upper/recipe/info/drive/format?recipeId=0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002CC02D31310>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-05-09 14:33:38,534 - drv_io - INFO - 配方请求结果：None
+2025-05-09 14:33:38,534 - drv_io - WARNING - Failure to request from server, No response.
+2025-05-09 14:33:38,535 - drv_io - INFO - 写入变量总数量：1
+2025-05-09 14:33:38,552 - drv_io - INFO - 2025-05-09 14:33:38.552 第1/1批次，变量：[{'node_id': 'ns=3;s="Equipment"."0_2_MC"."Control"."Recipe"."Request_Updata_Result"', 'datatype': 6, 'value': 1001}] 通过OPCUA写入成功，耗时 17ms, opc.tcp://192.168.20.1:4840
+2025-05-09 14:34:49,796 - drv_io - INFO - MQTT处理任务被取消
+2025-05-09 14:34:49,801 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-09 14:35:56,895 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-09 14:35:56,896 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-09 14:35:56,896 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:35:56,896 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-09 14:35:56,959 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-09 14:35:56,959 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-09 14:35:56,959 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-09 14:35:56,959 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:35:56,959 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-09 14:35:56,959 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:35:56,960 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-09 14:35:56,960 - drv_io - INFO - Configuration setting is no load.
+2025-05-09 14:35:58,725 - drv_io - INFO - Connect Equipment, True.
+2025-05-09 14:35:58,726 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-09 14:36:00,789 - drv_io - INFO - MQTT id:python-mqtt-sub-233, url:localhost:1883.
+2025-05-09 14:36:00,789 - drv_io - INFO - MQTT subscription is False
+2025-05-09 14:36:00,790 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-09 14:36:00,790 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-09 14:36:00,791 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-09 14:36:00,791 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-09 14:36:00,791 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-09 14:36:00,792 - drv_io - INFO - Request Config file loaded - done.
+2025-05-09 14:37:00,297 - drv_io - INFO - MQTT处理任务被取消
+2025-05-09 14:37:00,300 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False

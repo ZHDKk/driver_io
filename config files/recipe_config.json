@@ -12,7 +12,8 @@
         "recipe_request_update": "Request_Updata",
         "recipe_request_id": "Request_Updata_ID",
         "recipe_request_result": "Request_Updata_Result",
-        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow\".\"Basic\".\"Id\""
+        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow\".\"Basic\".\"Id\"",
+        "recipe_flow_index": 0
       },
       {
         "module": {
@@ -25,7 +26,8 @@
         "recipe_request_update": "Request_Updata",
         "recipe_request_id": "Request_Updata_ID",
         "recipe_request_result": "Request_Updata_Result",
-        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow1\".\"Basic\".\"Id\""
+        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow1\".\"Basic\".\"Id\"",
+        "recipe_flow_index": 1
       },
       {
         "module": {
@@ -38,7 +40,8 @@
         "recipe_request_update": "Request_Updata",
         "recipe_request_id": "Request_Updata_ID",
         "recipe_request_result": "Request_Updata_Result",
-        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow2\".\"Basic\".\"Id\""
+        "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow2\".\"Basic\".\"Id\"",
+        "recipe_flow_index": 2
       }
     ]
   }
