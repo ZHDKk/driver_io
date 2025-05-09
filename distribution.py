@@ -764,7 +764,7 @@ class distribution_server(object):
                     try:
                         node = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
                                                                     module['category'], rr['request_node_path']))
-                        if not node:
+                        if node is None:
                             return
                         req = get_request_nodes(dev, node, rr['recipe_request_update'],
                                                 rr['recipe_request_id'], rr['recipe_request_result'])
@@ -774,7 +774,7 @@ class distribution_server(object):
                             flow_index = 2
                         else:
                             flow_index = None
-                        if not req["id"] or not req["request"] or not req["result"]:
+                        if req["id"] is None or req["request"] is None or req["result"] is None:
                             return
                         if req['request']["value"] is True and req['result']["value"] == 0:  #
                             # trigger to request recipe
