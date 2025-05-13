@@ -231,6 +231,39 @@ def node_path2id4(input_str):
 
     return f'ns=3;s={".".join(path)}'
 
+
+def node_path2id5(input_path: str) -> str:
+    """
+    把 OPC UA 的节点路径（支持下划线命名）转成 NodeId 字符串。
+    例如：
+      /EFEM/1_2_LoadPort/Status/Slot/17/Wafer_Date/FoupID
+    转成：
+      ns=3;s="EFEM"."1_2_LoadPort"."Status"."Slot"[17]."Wafer_Date"."FoupID"
+    """
+    # 1. 分割并过滤掉空字符串
+    parts = [p for p in input_path.split('/') if p]
+    processed = []
+
+    # 2. 遍历处理：纯数字作为上一个段的索引
+    for part in parts:
+        if part.isdigit() and processed and processed[-1][1] is None:
+            name, _ = processed.pop()
+            processed.append((name, part))
+        else:
+            processed.append((part, None))
+
+    # 3. 生成带索引的部分
+    segments = []
+    for name, idx in processed:
+        if idx is not None:
+            segments.append(f'"{name}"[{idx}]')
+        else:
+            segments.append(f'"{name}"')
+
+    # 4. 拼接返回
+    return f'ns=3;s={".".join(segments)}'
+
+
 def is_target_format(name):
     """
         判断节点名称是否符合目标格式，例如 "2_10_xx"、"1_1_xx"、"2_15_xx"，

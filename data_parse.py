@@ -1,6 +1,7 @@
 import asyncio
 import json
 import pprint
+import time
 import uuid
 
 import pandas as pd
@@ -8,10 +9,9 @@ import snap7.util
 from bigtree import tree_to_dict
 from logger import log
 from asyncua import ua
-from snap7.util import *
 
 from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id, node_path2id2, \
-    node_path2id3, node_path2id4
+    node_path2id3, node_path2id4, node_path2id5
 
 
 def bytes_2_ua_data(datas: bytearray, byte_index: int, bit_index: int, var_type: ua.VariantType):
@@ -285,9 +285,14 @@ async def add_node_info(list_node, name, dev):
                     node = dev.linker.client.get_node(node_id)
                     result = await dev.linker.read_node_info(node, node_path)
                 except:
-                    node_id = node_path2id4(node_path)
-                    node = dev.linker.client.get_node(node_id)
-                    result = await dev.linker.read_node_info(node, node_path)
+                    try:
+                        node_id = node_path2id4(node_path)
+                        node = dev.linker.client.get_node(node_id)
+                        result = await dev.linker.read_node_info(node, node_path)
+                    except:
+                        node_id = node_path2id5(node_path)
+                        node = dev.linker.client.get_node(node_id)
+                        result = await dev.linker.read_node_info(node, node_path)
         new_key = code2format_str(result['blockId'], result['index'], result['category'], result['code'])
         dev.code_to_node[new_key] = result  #  添加到map映射中
 

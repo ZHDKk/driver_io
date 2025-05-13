@@ -46,3 +46,35 @@
 2025-05-13 14:04:43,134 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
 2025-05-13 14:04:43,139 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
 2025-05-13 14:04:43,142 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-13 14:21:42,451 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-13 14:21:42,451 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-13 14:21:42,538 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-13 14:21:42,538 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-05-13 14:21:42,539 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-13 14:21:42,622 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-13 14:21:42,622 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-13 14:21:42,624 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-13 14:21:42,859 - drv_io - INFO - Load Robot variable list, True.
+2025-05-13 14:21:42,860 - drv_io - INFO - --Module is 1, Variable is 7433,Reading Block is 7.
+2025-05-13 14:21:42,860 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-13 14:21:42,860 - drv_io - INFO - Configuration setting is no load.
+2025-05-13 14:21:42,860 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-13 14:21:42,860 - drv_io - INFO - Configuration setting is no load.
+2025-05-13 14:21:45,813 - drv_io - INFO - Connect EFEM, True.
+2025-05-13 14:21:45,813 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-13 14:21:45,938 - drv_io - INFO - Connect Equipment, True.
+2025-05-13 14:21:45,938 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-13 14:21:46,034 - drv_io - INFO - Connect Robot, True.
+2025-05-13 14:21:46,034 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-13 14:21:48,089 - drv_io - INFO - MQTT id:python-mqtt-sub-671, url:localhost:1883.
+2025-05-13 14:21:48,089 - drv_io - INFO - MQTT subscription is False
+2025-05-13 14:21:48,089 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-13 14:21:48,089 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-13 14:21:48,089 - drv_io - INFO - Request Config file loaded - done.
+2025-05-13 14:21:48,089 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-13 14:21:48,090 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-13 14:21:48,090 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-13 14:24:04,064 - drv_io - INFO - MQTT处理任务被取消
+2025-05-13 14:24:04,068 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-13 14:24:04,073 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-13 14:24:04,077 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
