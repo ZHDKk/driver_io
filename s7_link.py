@@ -1,9 +1,8 @@
 import asyncio
 import struct
+import time
 
 import snap7
-from snap7.types import *
-from snap7.util import *
 from logger import log
 from snap7.client import Client as Snap7Client
 

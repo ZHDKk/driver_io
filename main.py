@@ -3,8 +3,6 @@ import os
 import sys
 import time
 import pandas as pd
-from PyQt5.QtCore import QThreadPool
-
 from distribution import distribution_server
 from logger import log
 from utils.time_util import get_current_time

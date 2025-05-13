@@ -27,8 +27,8 @@
 	sudo pip install bigtree==0.14.3
 	sudo pip install aiohttp==3.11.11
 	sudo pip install paho-mqtt==2.1.0
-	sudo pip install python-snap7==2.32.3
-	sudo pip install requests==1.4.1
+	sudo pip install python-snap7
+	sudo pip install requests
 
  注意：使用 sudo pip3 install packagename代表进行全局安装，安装后全局可用。pip3 install packagename代表仅该用户的安装，安装后仅该用户可用。所以如果你当时装库时使用后者，那么运行时就要指定用户，否则会报错找不到库。
 如果在运行中找不到库，解决方法有两种：
