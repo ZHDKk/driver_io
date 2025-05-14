@@ -10,8 +10,7 @@ from bigtree import tree_to_dict
 from logger import log
 from asyncua import ua
 
-from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id, node_path2id2, \
-    node_path2id3, node_path2id4, node_path2id5
+from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id
 
 
 def bytes_2_ua_data(datas: bytearray, byte_index: int, bit_index: int, var_type: ua.VariantType):
@@ -259,9 +258,11 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
         list_child["value"] = value[n]  # update to node
     return value
 
+failed_node_paths = set()
+
 async def add_node_info(list_node, name, dev):
     """
-        自动追加变量到map和表中去,使用asyncio.create_task 不要阻塞主线任务
+        自动追加变量到map和表中去,使用asyncio.create_task 不阻塞主线任务
     :param list_node:
     :param name:
     :param dev:
@@ -270,29 +271,9 @@ async def add_node_info(list_node, name, dev):
     node_path = None
     try:
         node_path = f'{list_node["NodePath"]}/{name}'
-        try:
-            node_id = node_path2id(node_path)
-            node = dev.linker.client.get_node(node_id)
-            result = await dev.linker.read_node_info(node, node_path)
-        except:
-            try:
-                node_id = node_path2id2(node_path)
-                node = dev.linker.client.get_node(node_id)
-                result = await dev.linker.read_node_info(node, node_path)
-            except:
-                try:
-                    node_id = node_path2id3(node_path)
-                    node = dev.linker.client.get_node(node_id)
-                    result = await dev.linker.read_node_info(node, node_path)
-                except:
-                    try:
-                        node_id = node_path2id4(node_path)
-                        node = dev.linker.client.get_node(node_id)
-                        result = await dev.linker.read_node_info(node, node_path)
-                    except:
-                        node_id = node_path2id5(node_path)
-                        node = dev.linker.client.get_node(node_id)
-                        result = await dev.linker.read_node_info(node, node_path)
+        node_id = node_path2id(node_path)
+        node = dev.linker.client.get_node(node_id)
+        result = await dev.linker.read_node_info(node, node_path)
         new_key = code2format_str(result['blockId'], result['index'], result['category'], result['code'])
         dev.code_to_node[new_key] = result  #  添加到map映射中
 
@@ -308,7 +289,10 @@ async def add_node_info(list_node, name, dev):
         print(f"自动新增变量 {node_path} 成功")
         log.info(f"自动新增变量 {node_path} 成功")
     except Exception as e:
-        log.warning(f"自动添加变量信息失败:{node_path}，请使用工具手动刷新")
+        # 仅记录一次该 node_path 添加异常
+        if node_path not in failed_node_paths:
+            failed_node_paths.add(node_path)
+            log.warning(f"自动添加变量信息失败: {node_path}，请使用工具手动刷新")
 
 async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: list):
     """

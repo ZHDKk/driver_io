@@ -146,123 +146,27 @@ def code2format_str(blockId, index, category, code):
     """
     return f'{blockId}_{index}_{category}_{code}'
 
-
-def node_path2id(input_path):
+def node_path2id(input_path: str) -> str:
     """
-         把NodePath转成解析NodeId
+    把 OPC UA 的节点路径转成 NodeId 字符串：
+      - 纯数字段作为上一个名称的索引：[数字]
+      - 其余任何包含字母、下划线或数字的段，整体当名称，不做索引
     """
-    # 去掉开头的斜杠并分割字符串
-    parts = input_path.lstrip('/').split('/')
-    # 为每个部分添加引号
-    quoted_parts = [f'"{part}"' for part in parts]
-    # 用点号连接各部分
-    joined_parts = '.'.join(quoted_parts)
-    # 组合成最终结果
-    return f'ns=3;s={joined_parts}'
-
-def node_path2id2(input_str):
-    parts = [p for p in input_str.split('/') if p]
-    processed = []
-
-    for part in parts:
-        # 如果是数字且前一个元素可追加索引
-        if part.isdigit() and processed and processed[-1][1] is None:
-            prev_name, _ = processed.pop()
-            processed.append((prev_name, part))
-        else:
-            processed.append((part, None))
-
-    # 构建带索引的路径字符串
-    path = []
-    for name, index in processed:
-        if index is not None:
-            path.append(f'"{name}"[{index}]')
-        else:
-            path.append(f'"{name}"')
-
-    return f'ns=3;s={".".join(path)}'
-
-def node_path2id3(input_str):
-    """
-         把NodePath转成解析NodeId
-    """
-    # 分割路径并过滤空字符串
-    parts = input_str.split('/')
-    parts = [p for p in parts if p]
-
-    if not parts:
-        return 'ns=3;s=""'  # 处理空路径的情况
-
-    # 检查最后一个元素是否为数字
-    index = None
-    if parts[-1].isdigit():
-        index = parts[-1]
-        path_parts = parts[:-1]
-    else:
-        path_parts = parts
-
-    # 用双引号包裹每个部分并用点连接
-    quoted_parts = [f'"{part}"' for part in path_parts]
-    result = '.'.join(quoted_parts)
-
-    # 添加索引（如果存在）
-    if index is not None:
-        result += f'[{index}]'
-
-    return f'ns=3;s={result}'
-
-def node_path2id4(input_str):
-    parts = [p for p in input_str.split('/') if p]
-    processed = []
-
-    for part in parts:
-        if part.isdigit() and processed and processed[-1][1] is None:
-            prev_name, _ = processed.pop()
-            processed.append((prev_name, part))
-        else:
-            processed.append((part, None))
-
-    path = []
-    for name, index in processed:
-        if index is not None:
-            path.append(f'"{name}"[{index}]')
-        else:
-            path.append(f'"{name}"')
-
-    return f'ns=3;s={".".join(path)}'
-
-
-def node_path2id5(input_path: str) -> str:
-    """
-    把 OPC UA 的节点路径（支持下划线命名）转成 NodeId 字符串。
-    例如：
-      /EFEM/1_2_LoadPort/Status/Slot/17/Wafer_Date/FoupID
-    转成：
-      ns=3;s="EFEM"."1_2_LoadPort"."Status"."Slot"[17]."Wafer_Date"."FoupID"
-    """
-    # 1. 分割并过滤掉空字符串
     parts = [p for p in input_path.split('/') if p]
     processed = []
-
-    # 2. 遍历处理：纯数字作为上一个段的索引
     for part in parts:
         if part.isdigit() and processed and processed[-1][1] is None:
             name, _ = processed.pop()
             processed.append((name, part))
         else:
             processed.append((part, None))
-
-    # 3. 生成带索引的部分
     segments = []
     for name, idx in processed:
         if idx is not None:
             segments.append(f'"{name}"[{idx}]')
         else:
             segments.append(f'"{name}"')
-
-    # 4. 拼接返回
     return f'ns=3;s={".".join(segments)}'
-
 
 def is_target_format(name):
     """
