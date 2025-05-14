@@ -143,7 +143,7 @@ class distribution_server(object):
                     return dev
         return None
 
-    def json_data_parse(self, data, dev: device, module):
+    async def json_data_parse(self, data, dev: device, module):
         """
         json datas parse
         :param data: json data
@@ -210,7 +210,7 @@ class distribution_server(object):
             # datas parse
             # datas_parse(dev, node, list_node, value, self.M2O_All, result['M2O_list'], False, None,
             #             str(datetime.now().time())[:-7], result['ErrMSG'])
-            datas_parse_m2o(dev, list_node, value, self.M2O_All, result['M2O_list'],
+            await datas_parse_m2o(dev, list_node, value, self.M2O_All, result['M2O_list'],
                             str(datetime.now().time())[:-7], result['ErrMSG'])
             code_value[n['code']] = n['value']
 
@@ -302,7 +302,7 @@ class distribution_server(object):
         message = ''
 
         # parse json datas
-        result = self.json_data_parse(data, None, None)
+        result = await self.json_data_parse(data, None, None)
         # pprint.pprint(result)
         parse_time = int(time.time() * 1000)
 

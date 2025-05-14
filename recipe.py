@@ -112,7 +112,7 @@ async def process_recipe_data(dis, mr, dev, module, all_success):
         mr["list"][0]["value"]["Basic"]["Id"] = 0
 
     # parse json datas
-    result = dis.json_data_parse(mr, dev, module)
+    result = await dis.json_data_parse(mr, dev, module)
     parse_time = int(time.time() * 1000)
 
     if result['ErrMSG']:  # error ,parse fail
@@ -255,7 +255,7 @@ async def write_recipe_handle(dis, arr, dev, module, req):
         # if mr['category'] == self.recipe_request_data[0]['module']['category']:  # 针对MC做特殊处理
         #     mr["list"][0]["value"]["Basic"]["Id"] = 0
         # parse json datas
-        result = dis.json_data_parse(mr, dev, module)
+        result = await dis.json_data_parse(mr, dev, module)
         parse_time = int(time.time() * 1000)
         if result['ErrMSG']:  # error ,parse fail
             all_success = False
@@ -444,7 +444,7 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
             if mc_match := dis.recipe_request_map.get(key):  # 针对MC做特殊处理
                 mr["list"][0]["value"]["Basic"]["Id"] = 0
             # parse json datas
-            result = dis.json_data_parse(mr, dev, module)
+            result = await dis.json_data_parse(mr, dev, module)
             # print(f"合并前：Name:{result['Device'].name} Nodes: {result['Nodes']}  list len:{len(result['M2O_list'])}")
             results.append(result)
 

@@ -1,5 +1,6 @@
 import asyncio
 import json
+import os
 import pprint
 import time
 import uuid
@@ -12,6 +13,7 @@ from logger import log
 from asyncua import ua
 
 from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id
+from utils.time_util import get_current_time
 
 
 def bytes_2_ua_data(datas: bytearray, byte_index: int, bit_index: int, var_type: ua.VariantType):
@@ -234,22 +236,7 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
             continue
 
         # 增加数据类型对比, 如果读到的数据类型与map中的数据类型不一致则修改
-        node_id = list_child["NodeID"]
-        node = dev.linker.client.get_node(node_id)
-        type_result = await dev.linker.read_node_type(node)
-        if type_result:
-            if type_result["DataType"] != list_child["DataType"] or type_result["DataTypeString"] != list_child[
-                "DataTypeString"]:
-                list_child["DataType"] = type_result["DataType"]
-                list_child["DataTypeString"] = type_result["DataTypeString"]
-                success = update_csv_by_nodeid(
-                    file_path=f'./config files/{dev.name}.csv',
-                    target_node_id=node_id,
-                    data_type=type_result["DataType"],
-                    data_type_string=type_result["DataTypeString"]
-                )
-                print(
-                    f"{list_node['NodePath']}/{n}数据类型更新成功" if success else f"{list_node['NodePath']}/{n}数据类型更新失败，请手动更新")
+        # await asyncio.create_task(check_data_type(list_child, dev))
 
         if value[n] is None:
             msg.append(f'Failure to find {list_node["NodePath"]}/{n} = {value[n]}, Null value.')
@@ -305,7 +292,7 @@ async def add_node_info(list_node, name, dev):
             df.to_csv(csv_file, mode='a', header=False, index=False)
         except FileNotFoundError:
             df.to_csv(csv_file, mode='w', header=True, index=False)
-        print(f"自动新增变量 {node_path} 成功")
+        print(f"{get_current_time()}自动新增变量 {node_path} 成功")
         log.info(f"自动新增变量 {node_path} 成功")
     except Exception as e:
         # 仅记录一次该 node_path 添加异常
@@ -314,41 +301,68 @@ async def add_node_info(list_node, name, dev):
             log.warning(f"自动添加变量信息失败: {node_path}，请使用工具手动刷新")
 
 
-def update_csv_by_nodeid(file_path, target_node_id, data_type, data_type_string):
+async def check_data_type(list_child, dev) -> bool:
     """
-    根据 NodeID 定位并修改 CSV 中的 DataType 和 DataTypeString
-
-    参数:
-    file_path (str): CSV 文件路径
-    target_node_id (str): 要查找的 NodeID
-    data_type (any): 要更新的 DataType 值
-    data_type_string (str): 要更新的 DataTypeString 值
-
-    返回:
-    bool: 是否成功找到并修改数据
+    检查并更新节点数据类型，返回是否发生变更
+    Returns:
+        bool: True表示数据类型发生变更，False表示无变更或出错
     """
     try:
-        # 读取 CSV 文件（使用默认分隔符逗号）
-        df = pd.read_csv(file_path)
+        node_id = list_child["NodeID"]
+        node = dev.linker.client.get_node(node_id)
 
-        # 检查是否存在匹配的 NodeID
-        if target_node_id in df['NodeID'].values:
-            # 定位并修改数据
-            df.loc[df['NodeID'] == target_node_id, 'DataType'] = data_type
-            df.loc[df['NodeID'] == target_node_id, 'DataTypeString'] = data_type_string
-
-            # 保存修改回 CSV（使用 UTF-8 编码，不保留索引）
-            df.to_csv(file_path, index=False, encoding='utf-8')
-            print(f"成功更新 NodeID: {target_node_id}")
-            log.info(f"成功更新 NodeID: {target_node_id}")
-            return True
-        else:
-            print(f"未找到 NodeID: {target_node_id}")
+        # 获取实际节点类型信息
+        type_result = await dev.linker.read_node_type(node)
+        if not type_result:
+            log.warning(f"无法获取节点类型信息 NodeID: {node_id}")
             return False
 
+        # 类型检查
+        needs_update = (
+                type_result["DataType"] != list_child["DataType"] or
+                type_result["DataTypeString"] != list_child["DataTypeString"]
+        )
+        if not needs_update:
+            return False
+
+        # 更新内存配置
+        print(f"{get_current_time()} 检测到NodeID: {node_id}变量类型不一致，开始更新变量类型")
+        log.info(f"检测到NodeID: {node_id}变量类型不一致，开始更新变量类型")
+        list_child["DataType"] = type_result["DataType"]
+        list_child["DataTypeString"] = type_result["DataTypeString"]
+        print(f"{get_current_time()} 内存已更新 NodeID: {node_id}")
+        log.info(f"内存已更新 NodeID: {node_id}")
+
+        # 持久化到CSV
+        try:
+            file_path = f'./config files/{dev.name}.csv'
+            df = pd.read_csv(file_path)
+
+            if node_id not in df['NodeID'].values:
+                log.warning(f"CSV中不存在NodeID: {node_id}")
+                return True  # 内存已更新，返回True
+
+            # 更新数据
+            df.loc[df['NodeID'] == node_id, 'DataType'] = type_result["DataType"]
+            df.loc[df['NodeID'] == node_id, 'DataTypeString'] = type_result["DataTypeString"]
+
+            # 原子化写入
+            temp_path = f"{file_path}.tmp"
+            df.to_csv(temp_path, index=False, encoding='utf-8')
+            os.replace(temp_path, file_path)
+
+            print(f"{get_current_time()} CSV成功更新 NodeID: {node_id}")
+            log.info(f"CSV已更新 NodeID: {node_id}")
+        except Exception as e:
+            log.warning(f"CSV更新失败 NodeID: {node_id}, 错误: {str(e)}")
+            return True  # 内存已更新，返回True
+
+        return True
+
     except Exception as e:
-        print(f"处理 CSV 文件时出错: {e}")
+        log.warning(f"类型检查异常 NodeID: {node_id}, 错误: {str(e)}", exc_info=True)
         return False
+
 
 async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: list):
     """
@@ -384,20 +398,7 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
             continue
 
         # 增加数据类型对比, 如果读到的数据类型与map中的数据类型不一致则修改
-        node_id = list_child["NodeID"]
-        node = dev.linker.client.get_node(node_id)
-        type_result = await dev.linker.read_node_type(node)
-        if type_result:
-            if type_result["DataType"] != list_child["DataType"] or type_result["DataTypeString"] != list_child["DataTypeString"]:
-                list_child["DataType"] = type_result["DataType"]
-                list_child["DataTypeString"] = type_result["DataTypeString"]
-                success = update_csv_by_nodeid(
-                    file_path=f'./config files/{dev.name}.csv',
-                    target_node_id=node_id,
-                    data_type=type_result["DataType"],
-                    data_type_string=type_result["DataTypeString"]
-                )
-                # print(f"{list_node['NodePath']}/{key}数据类型更新成功" if success else f"{list_node['NodePath']}/{key}数据类型更新失败，请手动更新")
+        # await asyncio.create_task(check_data_type(list_child, dev))
 
         if value[key] is None:
             msg.append(f'{list_node["NodePath"]}/{key} Structure is not readable = {value[key]}, Null value.')
@@ -464,7 +465,7 @@ async def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg):
         list_node['value'] = value
 
 
-def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
+async def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
     """
     parse array structure of tree, update node[n].value with value[n], add to sending buffer M2O_list or O2M_list.
     """
@@ -509,10 +510,10 @@ def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
         #     continue
 
         if list_child['ArrayDimensions'] > 0:  # and value_type is list, child's data type is array, recursion
-            value[n] = array_parse_m2o(dev, list_child, value[n],
+            value[n] = await array_parse_m2o(dev, list_child, value[n],
                                    M2O, M2O_list, rtime, msg)
         elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
-            value[n] = struct_parse_m2o(dev, list_child,
+            value[n] = await struct_parse_m2o(dev, list_child,
                                     value[n] if type(value[n]) is dict else value[n].__dict__,
                                     M2O, M2O_list, rtime, msg)
         elif M2O_list is not None and (M2O is True or list_child['value'] != value[n]):  # mqtt2opcua
@@ -524,10 +525,12 @@ def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
                                                                  '__name__') and original_type.__name__ == 'float'):
                     pass
                 elif original_type != value_type:
-                    msg.append(
-                        f'Write Data Type Error, Please check: ({list_child["NodeID"]}, datetype:{list_child["DataTypeString"]}, value:{value[n]}), '
-                        f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
-                    return
+                    changed = await check_data_type(list_child=list_child, dev=dev)
+                    if not changed:
+                        msg.append(
+                            f'Write Data Type Error, Please check: ({list_child["NodeID"]}, datetype:{list_child["DataTypeString"]}, value:{value[n]}), '
+                            f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
+                        return None
                 M2O_list.append({'node_id': list_child["NodeID"], 'datatype': list_child["DataType"], 'value': value[n]})
             elif dev.link_type == 's7':
                 M2O_list.append(
@@ -536,7 +539,7 @@ def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
     return value
 
 
-def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: list):
+async def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: list):
     """
     parse structure of tree, update node[key].value with value[key], add to sending buffer M2O_list or O2M_list.
     """
@@ -578,9 +581,9 @@ def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: lis
         #     continue
 
         if list_child["ArrayDimensions"] > 0:  # and value_type is list, child's data type is array, recursion
-            value[key] = array_parse_m2o(dev, list_child, value[key], M2O, M2O_list, rtime, msg)
+            value[key] = await array_parse_m2o(dev, list_child, value[key], M2O, M2O_list, rtime, msg)
         elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
-            value[key] = struct_parse_m2o(dev, list_child, value[key] if type(value[key]) is dict else value[key].__dict__, M2O, M2O_list, rtime, msg)
+            value[key] = await struct_parse_m2o(dev, list_child, value[key] if type(value[key]) is dict else value[key].__dict__, M2O, M2O_list, rtime, msg)
         elif M2O_list is not None and (M2O is True or list_child["value"] != value[key]):  # mqtt2opcua
             if dev.link_type == 'opcua':
                 value_type = type(value[key])
@@ -590,9 +593,11 @@ def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: lis
                                                             '__name__') and original_type.__name__ == 'float'):
                     pass
                 elif original_type != value_type:
-                    msg.append(f'Write Data Type Error, Please check: ({list_child["NodeID"]}, datetype:{list_child["DataTypeString"]}, value:{value[key]}), '
-                               f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
-                    return
+                    changed = await check_data_type(list_child=list_child, dev=dev)
+                    if not changed:
+                        msg.append(f'Write Data Type Error, Please check: ({list_child["NodeID"]}, datetype:{list_child["DataTypeString"]}, value:{value[key]}), '
+                                   f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
+                        return None
                 M2O_list.append({'node_id': list_child["NodeID"], 'datatype': list_child["DataType"], 'value': value[key]})
             elif dev.link_type == 's7':
                 M2O_list.append({'s7_db': list_child["s7_db"], 's7_start': list_child["s7_start"], 's7_bit': list_child["s7_bit"],
@@ -600,7 +605,7 @@ def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: lis
     return value
 
 
-def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg):
+async def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg):
     """
     recursive parse structure data
     """
@@ -617,10 +622,10 @@ def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg):
         node_type = ua.VariantType(list_node['DataType'])
 
         if list_node['ArrayDimensions'] > 0:  # and value_type is list, data type is array
-            value = array_parse_m2o(dev, list_node, value,
+            value = await array_parse_m2o(dev, list_node, value,
                                 M2O, M2O_list, rtime, msg)
         elif node_type in [ua.VariantType.ExtensionObject]:  # data type of node is structure
-            value = struct_parse_m2o(dev, list_node, value if value_type is dict else value.__dict__,
+            value = await struct_parse_m2o(dev, list_node, value if value_type is dict else value.__dict__,
                                  M2O, M2O_list, rtime, msg)
         elif M2O_list is not None and (M2O is True or list_node['value'] != value):  # mqtt2opcua
             if dev.link_type == 'opcua':
@@ -631,10 +636,12 @@ def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg):
                                                                  '__name__') and original_type.__name__ == 'float'):
                     pass
                 elif original_type != value_type:
-                    msg.append(
-                        f'Write Data Type Error, Please check: ({list_node["NodeID"]}, datetype:{list_node["DataTypeString"]}, value:{value}), '
-                        f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
-                    return
+                    changed = await check_data_type(list_child=list_node, dev=dev)
+                    if not changed:
+                        msg.append(
+                            f'Write Data Type Error, Please check: ({list_node["NodeID"]}, datetype:{list_node["DataTypeString"]}, value:{value}), '
+                            f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
+                        return
                 M2O_list.append({'node_id': list_node["NodeID"], 'datatype': list_node["DataType"], 'value': value})
             elif dev.link_type == 's7':
                 M2O_list.append({'s7_db': list_node["s7_db"], 's7_start': list_node["s7_start"], 's7_bit': list_node["s7_bit"],
