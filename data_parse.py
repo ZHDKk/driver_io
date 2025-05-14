@@ -3,6 +3,7 @@ import json
 import pprint
 import time
 import uuid
+from lib2to3.btm_matcher import type_repr
 
 import pandas as pd
 import snap7.util
@@ -232,6 +233,24 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
             await asyncio.create_task(add_node_info(list_node, str(n), dev))
             continue
 
+        # 增加数据类型对比, 如果读到的数据类型与map中的数据类型不一致则修改
+        node_id = list_child["NodeID"]
+        node = dev.linker.client.get_node(node_id)
+        type_result = await dev.linker.read_node_type(node)
+        if type_result:
+            if type_result["DataType"] != list_child["DataType"] or type_result["DataTypeString"] != list_child[
+                "DataTypeString"]:
+                list_child["DataType"] = type_result["DataType"]
+                list_child["DataTypeString"] = type_result["DataTypeString"]
+                success = update_csv_by_nodeid(
+                    file_path=f'./config files/{dev.name}.csv',
+                    target_node_id=node_id,
+                    data_type=type_result["DataType"],
+                    data_type_string=type_result["DataTypeString"]
+                )
+                print(
+                    f"{list_node['NodePath']}/{n}数据类型更新成功" if success else f"{list_node['NodePath']}/{n}数据类型更新失败，请手动更新")
+
         if value[n] is None:
             msg.append(f'Failure to find {list_node["NodePath"]}/{n} = {value[n]}, Null value.')
             continue
@@ -294,6 +313,42 @@ async def add_node_info(list_node, name, dev):
             failed_node_paths.add(node_path)
             log.warning(f"自动添加变量信息失败: {node_path}，请使用工具手动刷新")
 
+
+def update_csv_by_nodeid(file_path, target_node_id, data_type, data_type_string):
+    """
+    根据 NodeID 定位并修改 CSV 中的 DataType 和 DataTypeString
+
+    参数:
+    file_path (str): CSV 文件路径
+    target_node_id (str): 要查找的 NodeID
+    data_type (any): 要更新的 DataType 值
+    data_type_string (str): 要更新的 DataTypeString 值
+
+    返回:
+    bool: 是否成功找到并修改数据
+    """
+    try:
+        # 读取 CSV 文件（使用默认分隔符逗号）
+        df = pd.read_csv(file_path)
+
+        # 检查是否存在匹配的 NodeID
+        if target_node_id in df['NodeID'].values:
+            # 定位并修改数据
+            df.loc[df['NodeID'] == target_node_id, 'DataType'] = data_type
+            df.loc[df['NodeID'] == target_node_id, 'DataTypeString'] = data_type_string
+
+            # 保存修改回 CSV（使用 UTF-8 编码，不保留索引）
+            df.to_csv(file_path, index=False, encoding='utf-8')
+            print(f"成功更新 NodeID: {target_node_id}")
+            return True
+        else:
+            print(f"未找到 NodeID: {target_node_id}")
+            return False
+
+    except Exception as e:
+        print(f"处理 CSV 文件时出错: {e}")
+        return False
+
 async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: list):
     """
     parse structure of tree, update node[key].value with value[key], add to sending buffer M2O_list or O2M_list.
@@ -326,6 +381,22 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
             else:
                 await asyncio.create_task(add_node_info(list_node, key, dev))
             continue
+
+        # 增加数据类型对比, 如果读到的数据类型与map中的数据类型不一致则修改
+        node_id = list_child["NodeID"]
+        node = dev.linker.client.get_node(node_id)
+        type_result = await dev.linker.read_node_type(node)
+        if type_result:
+            if type_result["DataType"] != list_child["DataType"] or type_result["DataTypeString"] != list_child["DataTypeString"]:
+                list_child["DataType"] = type_result["DataType"]
+                list_child["DataTypeString"] = type_result["DataTypeString"]
+                success = update_csv_by_nodeid(
+                    file_path=f'./config files/{dev.name}.csv',
+                    target_node_id=node_id,
+                    data_type=type_result["DataType"],
+                    data_type_string=type_result["DataTypeString"]
+                )
+                print(f"{list_node['NodePath']}/{key}数据类型更新成功" if success else f"{list_node['NodePath']}/{key}数据类型更新失败，请手动更新")
 
         if value[key] is None:
             msg.append(f'{list_node["NodePath"]}/{key} Structure is not readable = {value[key]}, Null value.')

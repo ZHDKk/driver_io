@@ -566,6 +566,22 @@ class opcua_linker(object):
             log.warning(f'Failure to write check wrote {node_id} to {self.uri}, {datas}!={value}.')
             return False
 
+    async def read_node_type(self, node: Node):
+        """
+            读节点类型
+        :param node:
+        :return:
+        """
+        type_result = None
+        try:
+            var_type = (await node.read_data_type_as_variant_type()).value
+            var_type_str = ua_data_type_to_string(ua.VariantType(var_type))
+            type_result = {'DataType': int(var_type),'DataTypeString': var_type_str}
+        except:
+            print(f'无法确定节点变量类型:{node}')
+
+        return type_result
+
     async def read_node_info(self, node: Node, path: str):
         """
             读取节点信息
