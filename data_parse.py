@@ -340,6 +340,7 @@ def update_csv_by_nodeid(file_path, target_node_id, data_type, data_type_string)
             # 保存修改回 CSV（使用 UTF-8 编码，不保留索引）
             df.to_csv(file_path, index=False, encoding='utf-8')
             print(f"成功更新 NodeID: {target_node_id}")
+            log.info(f"成功更新 NodeID: {target_node_id}")
             return True
         else:
             print(f"未找到 NodeID: {target_node_id}")
@@ -396,7 +397,7 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
                     data_type=type_result["DataType"],
                     data_type_string=type_result["DataTypeString"]
                 )
-                print(f"{list_node['NodePath']}/{key}数据类型更新成功" if success else f"{list_node['NodePath']}/{key}数据类型更新失败，请手动更新")
+                # print(f"{list_node['NodePath']}/{key}数据类型更新成功" if success else f"{list_node['NodePath']}/{key}数据类型更新失败，请手动更新")
 
         if value[key] is None:
             msg.append(f'{list_node["NodePath"]}/{key} Structure is not readable = {value[key]}, Null value.')
