@@ -39,59 +39,26 @@ def name_2path(path, name):
 
 def path_2info(path: str):
     """
-    convert path to information, '/0_1_MC/Basic/ID'->{"blockId": 0, "index": 1, "category": 'MC', "name":Basic_ID}
+    改进路径解析，优先提取最深层符合格式的模块信息
     """
-    str_tmp = path
-    result = {"category": '', "blockId": 0, "index": 0, "name": str.replace(str_tmp[1:], '/', '_')}
-
-    str_tmp = path
-    for n in range(len(str_tmp)):
-        # '/'  '/' split
-        try:
-            index = str_tmp.index('/')  # header
-            str_tmp = str_tmp[index + 1:]
-        except ValueError:
-            return result  # none header
-
-        try:
-            index = str_tmp.index('/')  # section end
-            rest = str_tmp[:index]
-            name = str_tmp[index + 1:]
-        except ValueError:
-            rest = str_tmp[:]  # none header
-            name = rest
-
-        # print(str_tmp)
-        # print(rest)
-
-        # '_'  '_' split
-        try:
-            index = rest.index('_')
-            section_1 = rest[:index]
-            rest = rest[index + 1:]
-        except ValueError:
-            continue  # none split
-
-        try:
-            index = rest.index('_')
-            section_2 = rest[:index]
-            rest = rest[index + 1:]
-        except ValueError:
-            continue  # none split
-
-        # print(section_1, section_2, rest)
-
-        # identify string
-        if section_1.isdigit() and section_2.isdigit() and len(rest) > 0:
-            result["blockId"] = int(section_1)
-            result["index"] = int(section_2)
-            result["category"] = rest
-            result["name"] = name.replace('/', '_')
-            return result
-        else:
+    parts = path.split('/')
+    for part in reversed(parts):  # 从后向前查找第一个有效模块
+        if not part:
             continue
-
-    return result
+        clean_part = part.replace("B_", "") if part.startswith("B_") else part
+        segments = clean_part.split('_')
+        if len(segments) >= 3 and segments[0].isdigit() and segments[1].isdigit():
+            block_id = int(segments[0])
+            index = int(segments[1])
+            category = '_'.join(segments[2:])
+            return {
+                "blockId": block_id,
+                "index": index,
+                "category": category,
+                "name": '_'.join(parts[parts.index(part)+1:])  # 提取后续路径作为 name
+            }
+    # 默认返回（当路径中无有效模块时）
+    return {"blockId": 0, "index": 0, "category": "Unknown", "name": path[1:].replace('/', '_')}
 
 
 def ua_data_type_to_string(var_type: ua.VariantType):

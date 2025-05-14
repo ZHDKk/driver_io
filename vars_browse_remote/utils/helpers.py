@@ -157,15 +157,17 @@ def generate_paths(data):
 
 def is_target_format(name):
     """
-        判断节点名称是否符合目标格式，例如 "2_10_xx"、"1_1_xx"、"2_15_xx"，
-        最后只支持大小写字母和数字的组合
+    判断节点名称是否符合目标格式，例如 "2_10_xx"、"1_1_xx"、"B_2_10_xx"
+    - 示例有效格式："2_10_xx"、"B_2_10_xx"、"B_1_1-xYz"
     """
     try:
-        pattern = r"^\d+_\d+_[A-Za-z0-9_-]+$"
-        return re.match(pattern, name)
+        # 修改后的正则表达式：
+        pattern = r"^(B_)?\d+_\d+_[A-Za-z0-9_-]+$"
+        return re.match(pattern, name) is not None
     except Exception as e:
-        print(f"目标节点格式不符合1_1_xxx：{e}")
-        return None
+        # 如果需要记录警告可以取消注释下面这行
+        print(f"目标节点格式不符合规范：{e}")
+        return False
 
 
 def generate_random_string(length=8):
