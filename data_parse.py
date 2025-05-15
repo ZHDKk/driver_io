@@ -217,8 +217,9 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
         return value
 
     if len(value) != list_node["ArrayDimensions"]:
-        msg.append(f'Failure to match array length, {list_node["ArrayDimensions"]}!={len(value)}.')
-        return value
+        # msg.append(f'Failure to match array length, {list_node["ArrayDimensions"]}!={len(value)}.')
+        # return value
+        list_node["ArrayDimensions"] = len(value)
 
     for n in range(list_node["ArrayDimensions"]):
         # find array[n] node
