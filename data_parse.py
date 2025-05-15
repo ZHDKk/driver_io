@@ -4,7 +4,6 @@ import os
 import pprint
 import time
 import uuid
-from lib2to3.btm_matcher import type_repr
 
 import pandas as pd
 import snap7.util
@@ -277,7 +276,7 @@ async def add_node_info(list_node, name, dev):
     """
     node_path = None
     try:
-        node_path = f'{list_node["NodePath"]}/{name}'
+        node_path = f'{list_node["path"]}/{name}'
         node_id = node_path2id(node_path)
         node = dev.linker.client.get_node(node_id)
         result = await dev.linker.read_node_info(node, node_path)
@@ -297,9 +296,10 @@ async def add_node_info(list_node, name, dev):
         log.info(f"自动新增变量 {node_path} 成功")
     except Exception as e:
         # 仅记录一次该 node_path 添加异常
+        print(f"自动添加变量信息失败: {node_path}，请使用工具手动刷新，{e}")
         if node_path not in failed_node_paths:
             failed_node_paths.add(node_path)
-            log.warning(f"自动添加变量信息失败: {node_path}，请使用工具手动刷新")
+            log.warning(f"自动添加变量信息失败: {node_path}，请使用工具手动刷新，{e}")
 
 
 async def check_data_type(list_child, dev) -> bool:
