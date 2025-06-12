@@ -18,14 +18,14 @@
             "Alarm": {},
             "Basic": {
                 "name": "EFEM",
-                "uri": "opc.tcp://192.168.20.1:4840",
+                "uri": "opc.tcp://192.168.20.30:4840",
                 "main_node": "ns=3;s=\"EFEM\"",
                 "link": "opcua",
                 "timeout": 10,
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": true,
+                "Load": false,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -34,33 +34,17 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": true,
-                "Linking": true,
+                "Load": false,
+                "Linking": false,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 3,
-                "Variable_Number": 2653,
-                "Read_Block_Number": 18
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": [
-                    {
-                        "blockId": 1,
-                        "index": 1,
-                        "category": "LoadPort"
-                    },
-                    {
-                        "blockId": 1,
-                        "index": 2,
-                        "category": "LoadPort"
-                    },
-                    {
-                        "blockId": 1,
-                        "index": 3,
-                        "category": "LoadPort"
-                    }
-                ]
+                "modules": []
             },
             "Other": {}
         },
@@ -75,7 +59,7 @@
                 "watchdog_interval": 5
             },
             "Control": {
-                "Load": true,
+                "Load": false,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -84,83 +68,32 @@
                 "M2O_All": false
             },
             "Status": {
-                "Load": true,
-                "Linking": true,
+                "Load": false,
+                "Linking": false,
                 "Read_Time": 0,
                 "Write_Time": 0,
                 "Sub_Time": 0,
-                "Module_Number": 2,
-                "Variable_Number": 2078,
-                "Read_Block_Number": 12
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
             },
             "Parameter": {
-                "modules": [
-                    {
-                        "blockId": 0,
-                        "index": 2,
-                        "category": "MC"
-                    },
-                    {
-                        "blockId": 0,
-                        "index": 200,
-                        "category": "IO"
-                    }
-                ]
+                "modules": []
             },
             "Other": {}
         },
-        "Robot": {
+        "COT": {
             "Alarm": {},
             "Basic": {
-                "name": "Robot",
-                "uri": "opc.tcp://192.168.20.1:4840",
-                "main_node": "ns=3;s=\"PRA\"",
+                "name": "COT",
+                "uri": "opc.tcp://192.168.20.50:4840",
+                "main_node": "ns=3;s=\"PC_Base\"",
                 "link": "opcua",
                 "timeout": 10,
                 "watchdog_interval": 5
             },
             "Control": {
                 "Load": true,
-                "Link": true,
-                "Read": true,
-                "Write": true,
-                "Sub": false,
-                "O2M_All": false,
-                "M2O_All": false
-            },
-            "Status": {
-                "Load": true,
-                "Linking": true,
-                "Read_Time": 0,
-                "Write_Time": 0,
-                "Sub_Time": 0,
-                "Module_Number": 1,
-                "Variable_Number": 7711,
-                "Read_Block_Number": 7
-            },
-            "Parameter": {
-                "modules": [
-                    {
-                        "blockId": 2,
-                        "index": 0,
-                        "category": "Robot"
-                    }
-                ]
-            },
-            "Other": {}
-        },
-        "COT_DEV": {
-            "Alarm": {},
-            "Basic": {
-                "name": "COT_DEV",
-                "uri": "opc.tcp://192.168.20.50:4840",
-                "main_node": "ns=3;s=DataBlocksGlobal",
-                "link": "opcua",
-                "timeout": 5,
-                "watchdog_interval": 5
-            },
-            "Control": {
-                "Load": false,
                 "Link": true,
                 "Read": true,
                 "Write": true,
@@ -190,7 +123,177 @@
                 "uri": "opc.tcp://192.168.20.50:4840",
                 "main_node": "ns=3;s=\"Chemical\"",
                 "link": "opcua",
-                "timeout": 5,
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": false,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {
+                "modules": []
+            },
+            "Other": {}
+        },
+        "OVEN": {
+            "Alarm": {},
+            "Basic": {
+                "name": "OVEN",
+                "uri": "opc.tcp://192.168.20.30:4840",
+                "main_node": "ns=3;s=\"OVEN\"",
+                "link": "opcua",
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": false,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {
+                "modules": []
+            },
+            "Other": {}
+        },
+        "Utility": {
+            "Alarm": {},
+            "Basic": {
+                "name": "Utility",
+                "uri": "opc.tcp://192.168.20.30:4840",
+                "main_node": "ns=3;s=\"Utility\"",
+                "link": "opcua",
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": false,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {
+                "modules": []
+            },
+            "Other": {}
+        },
+        "PRA": {
+            "Alarm": {},
+            "Basic": {
+                "name": "PRA",
+                "uri": "opc.tcp://192.168.20.1:4840",
+                "main_node": "ns=3;s=\"PRA\"",
+                "link": "opcua",
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": false,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {
+                "modules": []
+            },
+            "Other": {}
+        },
+        "Robot": {
+            "Alarm": {},
+            "Basic": {
+                "name": "Robot",
+                "uri": "opc.tcp://192.168.20.1:4840",
+                "main_node": "ns=3;s=\"Robot\"",
+                "link": "opcua",
+                "timeout": 10,
+                "watchdog_interval": 5
+            },
+            "Control": {
+                "Load": false,
+                "Link": true,
+                "Read": true,
+                "Write": true,
+                "Sub": false,
+                "O2M_All": false,
+                "M2O_All": false
+            },
+            "Status": {
+                "Load": false,
+                "Linking": false,
+                "Read_Time": 0,
+                "Write_Time": 0,
+                "Sub_Time": 0,
+                "Module_Number": 0,
+                "Variable_Number": 0,
+                "Read_Block_Number": 0
+            },
+            "Parameter": {
+                "modules": []
+            },
+            "Other": {}
+        },
+        "MC": {
+            "Alarm": {},
+            "Basic": {
+                "name": "MC",
+                "uri": "opc.tcp://192.168.20.30:4840",
+                "main_node": "ns=3;s=\"MC\"",
+                "link": "opcua",
+                "timeout": 10,
                 "watchdog_interval": 5
             },
             "Control": {

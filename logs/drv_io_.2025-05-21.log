@@ -1,0 +1,84 @@
+2025-05-21 15:24:37,240 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-21 15:24:37,242 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-21 15:24:37,614 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-21 15:24:37,614 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-05-21 15:24:37,615 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-21 15:24:37,907 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-21 15:24:37,907 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-21 15:24:37,908 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-21 15:24:38,887 - drv_io - INFO - Load Robot variable list, True.
+2025-05-21 15:24:38,887 - drv_io - INFO - --Module is 1, Variable is 7626,Reading Block is 7.
+2025-05-21 15:24:38,889 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-21 15:24:38,889 - drv_io - INFO - Configuration setting is no load.
+2025-05-21 15:24:38,889 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-21 15:24:38,889 - drv_io - INFO - Configuration setting is no load.
+2025-05-21 15:24:41,780 - drv_io - INFO - Connect EFEM, True.
+2025-05-21 15:24:41,781 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-21 15:24:41,935 - drv_io - INFO - Connect Equipment, True.
+2025-05-21 15:24:41,935 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-21 15:24:42,061 - drv_io - INFO - Connect Robot, True.
+2025-05-21 15:24:42,061 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-21 15:24:46,170 - drv_io - ERROR - Connection error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-05-21 15:24:46,171 - drv_io - INFO - MQTT id:python-mqtt-sub-722, url:localhost:1883.
+2025-05-21 15:24:46,171 - drv_io - INFO - MQTT subscription is False
+2025-05-21 15:24:46,186 - drv_io - INFO - Request Config file loaded - done.
+2025-05-21 15:24:54,529 - drv_io - INFO - MQTT处理任务被取消
+2025-05-21 15:24:54,562 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-21 15:24:54,566 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-21 15:24:54,569 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-21 15:26:04,183 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-21 15:26:04,184 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-21 15:26:04,533 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-21 15:26:04,533 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-05-21 15:26:04,533 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-21 15:26:04,807 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-21 15:26:04,807 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-21 15:26:04,808 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-21 15:26:05,817 - drv_io - INFO - Load Robot variable list, True.
+2025-05-21 15:26:05,817 - drv_io - INFO - --Module is 1, Variable is 7626,Reading Block is 7.
+2025-05-21 15:26:05,818 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-21 15:26:05,818 - drv_io - INFO - Configuration setting is no load.
+2025-05-21 15:26:05,819 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-21 15:26:05,819 - drv_io - INFO - Configuration setting is no load.
+2025-05-21 15:26:08,725 - drv_io - INFO - Connect EFEM, True.
+2025-05-21 15:26:08,725 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-21 15:26:08,853 - drv_io - INFO - Connect Robot, True.
+2025-05-21 15:26:08,853 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-21 15:26:08,955 - drv_io - INFO - Connect Equipment, True.
+2025-05-21 15:26:08,955 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-21 15:26:11,027 - drv_io - INFO - MQTT id:python-mqtt-sub-894, url:localhost:1883.
+2025-05-21 15:26:11,027 - drv_io - INFO - MQTT subscription is False
+2025-05-21 15:26:11,029 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-21 15:26:11,029 - drv_io - INFO - Request Config file loaded - done.
+2025-05-21 15:26:11,030 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-21 15:26:11,031 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-21 15:26:11,032 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-21 15:26:11,034 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-21 15:27:52,981 - drv_io - INFO - 接收到Mqtt read指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read', 'index': 2, 'list': [{'code': 'Basic_ID'}]}
+2025-05-21 15:27:52,981 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "08ee6502-716c-4df7-b952-e0be1b58ef62", "ask": false, "data": {"list": [{"code": "Basic_ID", "value": 12, "dataType": "int16", "arrLen": 0, "time": 1747812472981}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:27:52,982 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Basic_ID'}], return 1 variables.
+2025-05-21 15:28:09,236 - drv_io - INFO - 接收到Mqtt read指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read', 'index': 2, 'list': [{'code': 'Basic_ID'}]}
+2025-05-21 15:28:09,237 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "5ff4412b-51d2-47bb-87a4-ef725486384f", "ask": false, "data": {"list": [{"code": "Basic_ID", "value": 12, "dataType": "int16", "arrLen": 0, "time": 1747812489236}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:28:09,237 - drv_io - INFO - MQTT Read 1 nodes [{'code': 'Basic_ID'}], return 1 variables.
+2025-05-21 15:28:45,749 - drv_io - INFO - 接收到Mqtt read指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read', 'index': 2, 'list': [{'code': 'Basic_ID'}, {'code': 'Status_Cassette_Allow_Get'}]}
+2025-05-21 15:28:45,749 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "ba00b354-fc97-4030-bcb5-8f6b9b4b570e", "ask": false, "data": {"list": [{"code": "Basic_ID", "value": 12, "dataType": "int16", "arrLen": 0, "time": 1747812525749}, {"code": "Status_Cassette_Allow_Get", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747812525749}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:28:45,749 - drv_io - INFO - MQTT Read 2 nodes [{'code': 'Basic_ID'}, {'code': 'Status_Cassette_Allow_Get'}], return 2 variables.
+2025-05-21 15:29:37,577 - drv_io - INFO - 接收到Mqtt read指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read', 'index': 2, 'list': [{'code': 'Basic_ID'}, {'code': 'Status_Cassette_Allow_Get'}]}
+2025-05-21 15:29:37,577 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "7d48c35b-8163-494c-9f02-fcd6f8aa7847", "ask": false, "data": {"list": [{"code": "Basic_ID", "value": 12, "dataType": "int16", "arrLen": 0, "time": 1747812577577}, {"code": "Status_Cassette_Allow_Get", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747812577577}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:29:37,577 - drv_io - INFO - MQTT Read 2 nodes [{'code': 'Basic_ID'}, {'code': 'Status_Cassette_Allow_Get'}], return 2 variables.
+2025-05-21 15:37:19,567 - drv_io - INFO - 接收到Mqtt read指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read', 'index': 2, 'list': [{'code': 'Basic'}, {'code': 'Status_Cassette'}]}
+2025-05-21 15:37:19,568 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "579dd800-e683-4d12-ae8c-599c9f5c416b", "ask": false, "data": {"list": [{"code": "Basic_ID", "value": 12, "dataType": "int16", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Enable", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Initializationing", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Initialization_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Mapping", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Mapping_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_On_Line", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Processing", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Recovery_Doing", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Get_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Process_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Recovery_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_State", "value": 0, "dataType": "int16", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Allow_Get_Slot", "value": 0, "dataType": "int32", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Allow_Get", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Allow_Put_Slot", "value": 0, "dataType": "int32", "arrLen": 0, "time": 1747813039568}, {"code": "Status_Cassette_Allow_Put", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813039568}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:37:19,568 - drv_io - INFO - MQTT Read 2 nodes [{'code': 'Basic'}, {'code': 'Status_Cassette'}], return 17 variables.
+2025-05-21 15:37:35,156 - drv_io - INFO - 接收到Mqtt read_struct指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read_struct', 'index': 2, 'list': [{'code': 'Basic'}, {'code': 'Status_Cassette'}]}
+2025-05-21 15:37:35,157 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "4747578b-1df1-4242-b684-3f2a99b7082b", "ask": false, "data": {"list": [{"code": "Basic", "value": {"ID": 12}, "dataType": "structure", "arrLen": 0, "time": 1747813055157}, {"code": "Status_Cassette", "value": {"Enable": false, "Initializationing": false, "Initialization_Finish": false, "Mapping": false, "Mapping_Finish": false, "On_Line": false, "Processing": false, "Recovery_Doing": false, "Get_Finish": false, "Process_Finish": false, "Recovery_Finish": false, "State": 0, "Allow_Get_Slot": 0, "Allow_Get": false, "Allow_Put_Slot": 0, "Allow_Put": false}, "dataType": "structure", "arrLen": 0, "time": 1747813055157}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:37:35,157 - drv_io - INFO - MQTT Read 2 nodes [{'code': 'Basic'}, {'code': 'Status_Cassette'}], return 2 variables.
+2025-05-21 15:37:50,978 - drv_io - INFO - 接收到Mqtt read_plc指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read_plc', 'index': 2, 'list': [{'code': 'Basic'}, {'code': 'Status_Cassette'}]}
+2025-05-21 15:37:50,987 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "a720af12-e1bf-4302-bd27-57788738f9db", "ask": false, "data": {"list": [{"code": "Basic_ID", "value": 12, "dataType": "int16", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Enable", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Initializationing", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Initialization_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Mapping", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Mapping_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_On_Line", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Processing", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Recovery_Doing", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Get_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Process_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Recovery_Finish", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_State", "value": 0, "dataType": "int16", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Allow_Get_Slot", "value": 0, "dataType": "int32", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Allow_Get", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Allow_Put_Slot", "value": 0, "dataType": "int32", "arrLen": 0, "time": 1747813070987}, {"code": "Status_Cassette_Allow_Put", "value": false, "dataType": "bool", "arrLen": 0, "time": 1747813070987}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:37:50,988 - drv_io - INFO - MQTT Read 2 nodes [{'code': 'Basic'}, {'code': 'Status_Cassette'}], return 17 variables.
+2025-05-21 15:38:03,223 - drv_io - INFO - 接收到Mqtt read_plc_struct指令:{'blockId': 1, 'category': 'LoadPort', 'cmd': 'read_plc_struct', 'index': 2, 'list': [{'code': 'Basic'}, {'code': 'Status_Cassette'}]}
+2025-05-21 15:38:03,232 - drv_io - INFO - /mqtt/gui/cmd/1111/reply:{"id": "652e3336-3461-4355-aa11-8e4b8f566355", "ask": false, "data": {"list": [{"code": "Basic", "value": {"ID": 12}, "dataType": "structure", "arrLen": 0, "time": 1747813083232}, {"code": "Status_Cassette", "value": {"Enable": false, "Initializationing": false, "Initialization_Finish": false, "Mapping": false, "Mapping_Finish": false, "On_Line": false, "Processing": false, "Recovery_Doing": false, "Get_Finish": false, "Process_Finish": false, "Recovery_Finish": false, "State": 0, "Allow_Get_Slot": 0, "Allow_Get": false, "Allow_Put_Slot": 0, "Allow_Put": false}, "dataType": "structure", "arrLen": 0, "time": 1747813083232}], "success": true, "message": "OK", "blockId": 1, "index": 2, "category": "LoadPort"}} 通过Mqtt发布:成功
+2025-05-21 15:38:03,232 - drv_io - INFO - MQTT Read 2 nodes [{'code': 'Basic'}, {'code': 'Status_Cassette'}], return 2 variables.
+2025-05-21 15:44:03,275 - drv_io - INFO - MQTT处理任务被取消
+2025-05-21 15:44:03,279 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-21 15:44:03,283 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-21 15:44:03,288 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False

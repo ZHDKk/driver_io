@@ -1,0 +1,1524 @@
+2025-05-15 09:39:15,576 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 09:39:15,580 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 09:39:16,109 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 09:39:16,110 - drv_io - INFO - --Module is 3, Variable is 2737,Reading Block is 18.
+2025-05-15 09:39:16,110 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 09:39:17,095 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 09:39:17,096 - drv_io - INFO - --Module is 2, Variable is 6434,Reading Block is 10.
+2025-05-15 09:39:17,096 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 09:39:18,321 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 09:39:18,321 - drv_io - INFO - --Module is 1, Variable is 7433,Reading Block is 7.
+2025-05-15 09:39:18,322 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 09:39:18,322 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:39:18,323 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 09:39:18,323 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:39:21,384 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 09:39:21,384 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:39:21,592 - drv_io - INFO - Connect Robot, True.
+2025-05-15 09:39:21,593 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:39:21,732 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 09:39:21,733 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:39:25,815 - drv_io - ERROR - Connection error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-05-15 09:39:25,816 - drv_io - INFO - MQTT id:python-mqtt-sub-600, url:localhost:1883.
+2025-05-15 09:39:25,816 - drv_io - INFO - MQTT subscription is False
+2025-05-15 09:39:25,832 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 09:39:35,147 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/MC_Control/Arm1_StationNO 成功
+2025-05-15 09:39:35,212 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/MC_Control/Arm2_StationNO 成功
+2025-05-15 09:39:35,275 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch 成功
+2025-05-15 09:39:35,335 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Status/Over/Local_Remote 成功
+2025-05-15 09:39:35,396 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Status/Show_Mode 成功
+2025-05-15 09:39:35,459 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S1/Test_StartPosition 成功
+2025-05-15 09:39:35,517 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S1/Test_FinishPosition 成功
+2025-05-15 09:39:35,591 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S2/Test_StartPosition 成功
+2025-05-15 09:39:35,654 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S2/Test_FinishPosition 成功
+2025-05-15 09:39:35,714 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/R/Test_StartPosition 成功
+2025-05-15 09:39:35,770 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/R/Test_FinishPosition 成功
+2025-05-15 09:39:35,830 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/Z/Test_StartPosition 成功
+2025-05-15 09:39:35,892 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/Z/Test_FinishPosition 成功
+2025-05-15 09:39:35,954 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/Public/Wafer_CheckClose 成功
+2025-05-15 09:39:36,016 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control 成功
+2025-05-15 09:39:36,210 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto 成功
+2025-05-15 09:39:36,274 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public 成功
+2025-05-15 09:39:36,338 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set 成功
+2025-05-15 09:39:36,407 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up 成功
+2025-05-15 09:39:36,477 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Recipe_Clean 成功
+2025-05-15 09:39:36,539 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_ShowGetSlotID 成功
+2025-05-15 09:39:36,598 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_ShowPutSlotID 成功
+2025-05-15 09:39:36,663 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S1 成功
+2025-05-15 09:39:36,723 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S2 成功
+2025-05-15 09:39:36,786 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/R 成功
+2025-05-15 09:39:36,846 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/Z 成功
+2025-05-15 09:39:37,027 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1 成功
+2025-05-15 09:39:37,093 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2 成功
+2025-05-15 09:39:37,163 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R 成功
+2025-05-15 09:39:37,262 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z 成功
+2025-05-15 09:39:37,324 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Public 成功
+2025-05-15 09:39:37,391 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Auto_Manual 成功
+2025-05-15 09:39:37,454 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Single_Step 成功
+2025-05-15 09:39:37,515 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Single_Start 成功
+2025-05-15 09:39:37,576 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Vacuum 成功
+2025-05-15 09:39:37,638 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Reset 成功
+2025-05-15 09:39:37,698 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Down_Load 成功
+2025-05-15 09:39:37,765 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Up_Load 成功
+2025-05-15 09:39:37,830 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Cassette_Upload 成功
+2025-05-15 09:39:37,901 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Cassette_Down 成功
+2025-05-15 09:39:37,968 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/SP1 成功
+2025-05-15 09:39:38,035 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/SP2 成功
+2025-05-15 09:39:38,102 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/SP3 成功
+2025-05-15 09:39:38,168 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/SP4 成功
+2025-05-15 09:39:38,227 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Auto_Stop 成功
+2025-05-15 09:39:38,284 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare 成功
+2025-05-15 09:39:38,343 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Startup 成功
+2025-05-15 09:39:38,402 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Initialization 成功
+2025-05-15 09:39:38,463 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Recipe_Index 成功
+2025-05-15 09:39:38,528 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos 成功
+2025-05-15 09:39:38,593 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get 成功
+2025-05-15 09:39:38,656 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put 成功
+2025-05-15 09:39:38,719 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S1/Locate 成功
+2025-05-15 09:39:38,783 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S1/Position 成功
+2025-05-15 09:39:38,873 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S1/Reduce_Speed 成功
+2025-05-15 09:39:38,937 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S1/Open_Vacuum_Valve 成功
+2025-05-15 09:39:38,995 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S1/Close_Vacuum_Valve 成功
+2025-05-15 09:39:39,056 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S2/Locate 成功
+2025-05-15 09:39:39,115 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S2/Position 成功
+2025-05-15 09:39:39,173 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S2/Reduce_Speed 成功
+2025-05-15 09:39:39,234 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S2/Open_Vacuum_Valve 成功
+2025-05-15 09:39:39,293 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/S2/Close_Vacuum_Valve 成功
+2025-05-15 09:39:39,358 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/R/Locate 成功
+2025-05-15 09:39:39,424 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/R/Position 成功
+2025-05-15 09:39:39,489 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/R/Reduce_Speed 成功
+2025-05-15 09:39:39,563 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/R/Open_Vacuum_Valve 成功
+2025-05-15 09:39:39,641 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/R/Close_Vacuum_Valve 成功
+2025-05-15 09:39:39,716 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/Z/Locate 成功
+2025-05-15 09:39:39,786 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/Z/Position 成功
+2025-05-15 09:39:39,853 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/Z/Reduce_Speed 成功
+2025-05-15 09:39:39,921 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/Z/Open_Vacuum_Valve 成功
+2025-05-15 09:39:39,989 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Test_Control/Z/Close_Vacuum_Valve 成功
+2025-05-15 09:39:40,214 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Enable 成功
+2025-05-15 09:39:40,309 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Stop 成功
+2025-05-15 09:39:40,367 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Reset 成功
+2025-05-15 09:39:40,451 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Set_Zero 成功
+2025-05-15 09:39:40,519 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Home 成功
+2025-05-15 09:39:40,578 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Jog_Foreward 成功
+2025-05-15 09:39:40,638 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Jog_Back 成功
+2025-05-15 09:39:40,698 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Test_LocateStart 成功
+2025-05-15 09:39:40,759 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/Test_LocateStop 成功
+2025-05-15 09:39:40,815 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/SP1 成功
+2025-05-15 09:39:40,875 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S1/SP2 成功
+2025-05-15 09:39:40,933 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Enable 成功
+2025-05-15 09:39:40,995 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Stop 成功
+2025-05-15 09:39:41,058 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Reset 成功
+2025-05-15 09:39:41,120 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Set_Zero 成功
+2025-05-15 09:39:41,176 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Home 成功
+2025-05-15 09:39:41,253 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Jog_Foreward 成功
+2025-05-15 09:39:41,319 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Jog_Back 成功
+2025-05-15 09:39:41,382 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Test_LocateStart 成功
+2025-05-15 09:39:41,442 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/Test_LocateStop 成功
+2025-05-15 09:39:41,499 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/SP1 成功
+2025-05-15 09:39:41,558 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/S2/SP2 成功
+2025-05-15 09:39:41,617 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Enable 成功
+2025-05-15 09:39:41,678 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Stop 成功
+2025-05-15 09:39:41,735 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Reset 成功
+2025-05-15 09:39:41,792 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Set_Zero 成功
+2025-05-15 09:39:41,850 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Home 成功
+2025-05-15 09:39:41,912 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Jog_Foreward 成功
+2025-05-15 09:39:41,974 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Jog_Back 成功
+2025-05-15 09:39:42,058 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Test_LocateStart 成功
+2025-05-15 09:39:42,130 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/Test_LocateStop 成功
+2025-05-15 09:39:42,192 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/SP1 成功
+2025-05-15 09:39:42,250 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/R/SP2 成功
+2025-05-15 09:39:42,313 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Enable 成功
+2025-05-15 09:39:42,374 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Stop 成功
+2025-05-15 09:39:42,433 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Reset 成功
+2025-05-15 09:39:42,494 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Set_Zero 成功
+2025-05-15 09:39:42,552 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Home 成功
+2025-05-15 09:39:42,611 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Jog_Foreward 成功
+2025-05-15 09:39:42,671 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Jog_Back 成功
+2025-05-15 09:39:42,730 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Test_LocateStart 成功
+2025-05-15 09:39:42,791 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/Test_LocateStop 成功
+2025-05-15 09:39:42,859 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/SP1 成功
+2025-05-15 09:39:42,940 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Z/SP2 成功
+2025-05-15 09:39:43,004 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Public/Reset 成功
+2025-05-15 09:39:43,064 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Moto/Public/Home 成功
+2025-05-15 09:39:43,127 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Vacuum/S1_Open 成功
+2025-05-15 09:39:43,198 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Vacuum/S1_Close 成功
+2025-05-15 09:39:43,255 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Vacuum/S2_Open 成功
+2025-05-15 09:39:43,314 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Vacuum/S2_Close 成功
+2025-05-15 09:39:43,378 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/0 成功
+2025-05-15 09:39:43,435 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/1 成功
+2025-05-15 09:39:43,492 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/2 成功
+2025-05-15 09:39:43,549 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/3 成功
+2025-05-15 09:39:43,608 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/4 成功
+2025-05-15 09:39:43,677 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/5 成功
+2025-05-15 09:39:43,746 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/6 成功
+2025-05-15 09:39:43,806 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/7 成功
+2025-05-15 09:39:43,869 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/8 成功
+2025-05-15 09:39:43,930 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/9 成功
+2025-05-15 09:39:43,990 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/10 成功
+2025-05-15 09:39:44,051 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/11 成功
+2025-05-15 09:39:44,113 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/12 成功
+2025-05-15 09:39:44,174 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/13 成功
+2025-05-15 09:39:44,235 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Spare/14 成功
+2025-05-15 09:39:44,295 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Startup/ModuleID 成功
+2025-05-15 09:39:44,531 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Startup/Get_Put_Mode 成功
+2025-05-15 09:39:44,594 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Startup/Module_With_Wafer 成功
+2025-05-15 09:39:44,656 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Startup/Start 成功
+2025-05-15 09:39:44,718 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Startup/S_Allow_GetPut 成功
+2025-05-15 09:39:44,779 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Startup/Size 成功
+2025-05-15 09:39:44,840 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Initialization/Start 成功
+2025-05-15 09:39:44,901 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Public/Initialization/Stop 成功
+2025-05-15 09:39:44,962 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Basic 成功
+2025-05-15 09:39:45,033 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position 成功
+2025-05-15 09:39:45,096 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Basic 成功
+2025-05-15 09:39:45,163 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position 成功
+2025-05-15 09:39:45,224 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Basic 成功
+2025-05-15 09:39:45,318 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position 成功
+2025-05-15 09:39:45,553 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Basic/ID 成功
+2025-05-15 09:39:45,613 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Basic/Mode 成功
+2025-05-15 09:39:45,674 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Basic/Size 成功
+2025-05-15 09:39:45,734 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position/S1 成功
+2025-05-15 09:39:45,798 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position/S2 成功
+2025-05-15 09:39:45,860 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position/R 成功
+2025-05-15 09:39:45,936 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position/Z1 成功
+2025-05-15 09:39:45,998 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position/Z2 成功
+2025-05-15 09:39:46,064 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position/Z3 成功
+2025-05-15 09:39:46,128 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Recipe_Set/Pos/Position/Spare 成功
+2025-05-15 09:39:46,187 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Basic/ID 成功
+2025-05-15 09:39:46,249 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Basic/Mode 成功
+2025-05-15 09:39:46,316 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Basic/Size 成功
+2025-05-15 09:39:46,380 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position/S1 成功
+2025-05-15 09:39:46,448 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position/S2 成功
+2025-05-15 09:39:46,516 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position/R 成功
+2025-05-15 09:39:46,590 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position/Z1 成功
+2025-05-15 09:39:46,657 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position/Z2 成功
+2025-05-15 09:39:46,730 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position/Z3 成功
+2025-05-15 09:39:46,793 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Get/Position/Spare 成功
+2025-05-15 09:39:46,861 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Basic/ID 成功
+2025-05-15 09:39:46,947 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Basic/Mode 成功
+2025-05-15 09:39:47,024 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Basic/Size 成功
+2025-05-15 09:39:47,101 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position/S1 成功
+2025-05-15 09:39:47,170 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position/S2 成功
+2025-05-15 09:39:47,243 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position/R 成功
+2025-05-15 09:39:47,311 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position/Z1 成功
+2025-05-15 09:39:47,380 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position/Z2 成功
+2025-05-15 09:39:47,446 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position/Z3 成功
+2025-05-15 09:39:47,509 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Control/Touch/Cassette_Up/Put/Position/Spare 成功
+2025-05-15 09:39:47,531 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 09:39:47,539 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:39:47,546 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:39:47,569 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:40:36,827 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 09:40:36,828 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 09:40:37,262 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 09:40:37,262 - drv_io - INFO - --Module is 3, Variable is 2737,Reading Block is 18.
+2025-05-15 09:40:37,263 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 09:40:38,294 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 09:40:38,294 - drv_io - INFO - --Module is 2, Variable is 6434,Reading Block is 10.
+2025-05-15 09:40:38,295 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 09:40:39,428 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 09:40:39,428 - drv_io - INFO - --Module is 1, Variable is 7254,Reading Block is 7.
+2025-05-15 09:40:39,429 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 09:40:39,429 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:40:39,430 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 09:40:39,430 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:40:42,464 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 09:40:42,464 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:40:42,641 - drv_io - INFO - Connect Robot, True.
+2025-05-15 09:40:42,641 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:40:42,777 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 09:40:42,778 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:40:46,892 - drv_io - ERROR - Connection error: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2025-05-15 09:40:46,893 - drv_io - INFO - MQTT id:python-mqtt-sub-185, url:localhost:1883.
+2025-05-15 09:40:46,893 - drv_io - INFO - MQTT subscription is False
+2025-05-15 09:40:46,898 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 09:41:13,780 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 09:41:13,784 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:41:13,789 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:41:13,795 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:41:17,947 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 09:41:17,948 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 09:41:18,372 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 09:41:18,372 - drv_io - INFO - --Module is 3, Variable is 2737,Reading Block is 18.
+2025-05-15 09:41:18,374 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 09:41:19,454 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 09:41:19,454 - drv_io - INFO - --Module is 2, Variable is 6434,Reading Block is 10.
+2025-05-15 09:41:19,455 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 09:41:20,747 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 09:41:20,748 - drv_io - INFO - --Module is 1, Variable is 7254,Reading Block is 7.
+2025-05-15 09:41:20,749 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 09:41:20,749 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:41:20,750 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 09:41:20,750 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:41:23,829 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 09:41:23,829 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:41:24,068 - drv_io - INFO - Connect Robot, True.
+2025-05-15 09:41:24,068 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:41:24,258 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 09:41:24,259 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:41:26,334 - drv_io - INFO - MQTT id:python-mqtt-sub-93, url:localhost:1883.
+2025-05-15 09:41:26,334 - drv_io - INFO - MQTT subscription is False
+2025-05-15 09:41:26,334 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-15 09:41:26,335 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-15 09:41:26,335 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-15 09:41:26,335 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-15 09:41:26,335 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-15 09:41:26,335 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 09:43:32,422 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 09:43:32,429 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:43:32,435 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:43:32,440 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:43:39,114 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 09:43:39,116 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 09:43:39,240 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 09:43:39,240 - drv_io - INFO - --Module is 3, Variable is 2737,Reading Block is 18.
+2025-05-15 09:43:39,241 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 09:43:39,523 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 09:43:39,523 - drv_io - INFO - --Module is 2, Variable is 6434,Reading Block is 10.
+2025-05-15 09:43:39,524 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 09:43:39,881 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 09:43:39,881 - drv_io - INFO - --Module is 1, Variable is 7254,Reading Block is 7.
+2025-05-15 09:43:39,882 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 09:43:39,882 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:43:39,882 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 09:43:39,882 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 09:43:42,897 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 09:43:42,897 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:43:43,008 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 09:43:43,008 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:43:43,101 - drv_io - INFO - Connect Robot, True.
+2025-05-15 09:43:43,101 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 09:43:45,140 - drv_io - INFO - MQTT id:python-mqtt-sub-957, url:localhost:1883.
+2025-05-15 09:43:45,140 - drv_io - INFO - MQTT subscription is False
+2025-05-15 09:43:45,140 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-15 09:43:45,140 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-15 09:43:45,141 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 09:43:45,141 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-15 09:43:45,142 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-15 09:43:45,143 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-15 09:46:03,520 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 09:46:03,526 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:46:03,531 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 09:46:03,535 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:24:39,705 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 10:24:39,706 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 10:24:39,783 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 10:24:39,783 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-05-15 10:24:39,783 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 10:24:39,847 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 10:24:39,847 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-15 10:24:39,847 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 10:24:40,056 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 10:24:40,056 - drv_io - INFO - --Module is 1, Variable is 7254,Reading Block is 7.
+2025-05-15 10:24:40,056 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 10:24:40,056 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 10:24:40,057 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 10:24:40,057 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 10:24:42,925 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 10:24:42,925 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:24:43,002 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 10:24:43,003 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:24:43,065 - drv_io - INFO - Connect Robot, True.
+2025-05-15 10:24:43,065 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:24:45,134 - drv_io - INFO - MQTT id:python-mqtt-sub-622, url:localhost:1883.
+2025-05-15 10:24:45,135 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-15 10:24:45,135 - drv_io - INFO - MQTT subscription is False
+2025-05-15 10:24:45,136 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-15 10:24:45,136 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-15 10:24:45,136 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-15 10:24:45,136 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-15 10:24:45,136 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 10:24:45,287 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S1/Manual_Position 成功
+2025-05-15 10:24:45,339 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S1/Speed_Rate 成功
+2025-05-15 10:24:45,385 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S2/Manual_Position 成功
+2025-05-15 10:24:45,435 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/S2/Speed_Rate 成功
+2025-05-15 10:24:45,491 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/R/Manual_Position 成功
+2025-05-15 10:24:45,541 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/R/Speed_Rate 成功
+2025-05-15 10:24:45,588 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/Z/Manual_Position 成功
+2025-05-15 10:24:45,631 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Parameter/Z/Speed_Rate 成功
+2025-05-15 10:24:45,677 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control 成功
+2025-05-15 10:24:46,080 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual 成功
+2025-05-15 10:24:46,910 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Data 成功
+2025-05-15 10:24:46,958 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Initialization 成功
+2025-05-15 10:24:47,005 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Reset 成功
+2025-05-15 10:24:47,047 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Halt 成功
+2025-05-15 10:24:47,093 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Stop 成功
+2025-05-15 10:24:47,140 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/S1_Vacuum_Open 成功
+2025-05-15 10:24:47,188 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/S1_Vacuum_Close 成功
+2025-05-15 10:24:47,235 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/S2_Vacuum_Open 成功
+2025-05-15 10:24:47,291 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/S2_Vacuum_Close 成功
+2025-05-15 10:24:47,340 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Local_Remote 成功
+2025-05-15 10:24:47,389 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Wafer_Judge 成功
+2025-05-15 10:24:47,734 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Data/ModuleID 成功
+2025-05-15 10:24:47,780 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Data/Get_Put_Mode 成功
+2025-05-15 10:24:47,828 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Data/Module_With_Wafer 成功
+2025-05-15 10:24:47,877 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Data/Start 成功
+2025-05-15 10:24:47,924 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Data/S_Allow_GetPut 成功
+2025-05-15 10:24:47,970 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Inner/Control/Manual/Data/Size 成功
+2025-05-15 10:25:09,643 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 10:25:09,648 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:25:09,653 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:25:09,659 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:27:03,784 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 10:27:03,785 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 10:27:03,865 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 10:27:03,866 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-05-15 10:27:03,866 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 10:27:03,927 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 10:27:03,927 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-15 10:27:03,929 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 10:27:04,142 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 10:27:04,142 - drv_io - INFO - --Module is 1, Variable is 7281,Reading Block is 7.
+2025-05-15 10:27:04,143 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 10:27:04,143 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 10:27:04,143 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 10:27:04,143 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 10:27:06,999 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 10:27:06,999 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:27:07,078 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 10:27:07,078 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:27:07,156 - drv_io - INFO - Connect Robot, True.
+2025-05-15 10:27:07,156 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:27:09,233 - drv_io - INFO - MQTT id:python-mqtt-sub-543, url:localhost:1883.
+2025-05-15 10:27:09,233 - drv_io - INFO - MQTT subscription is False
+2025-05-15 10:27:09,234 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 10:27:09,238 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-15 10:27:09,238 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-15 10:27:09,239 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-15 10:27:09,239 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-15 10:27:09,239 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-15 10:27:09,356 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Status/SP/96 成功
+2025-05-15 10:27:09,403 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Status/SP/97 成功
+2025-05-15 10:27:09,452 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Status/SP/98 成功
+2025-05-15 10:27:09,501 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Status/SP/99 成功
+2025-05-15 10:27:09,551 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Status/SP/100 成功
+2025-05-15 10:27:09,611 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380 成功
+2025-05-15 10:27:09,658 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381 成功
+2025-05-15 10:27:09,710 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382 成功
+2025-05-15 10:27:09,754 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383 成功
+2025-05-15 10:27:09,800 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384 成功
+2025-05-15 10:27:09,847 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385 成功
+2025-05-15 10:27:09,899 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386 成功
+2025-05-15 10:27:09,947 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387 成功
+2025-05-15 10:27:09,998 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388 成功
+2025-05-15 10:27:10,044 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389 成功
+2025-05-15 10:27:10,092 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390 成功
+2025-05-15 10:27:10,141 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391 成功
+2025-05-15 10:27:10,184 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392 成功
+2025-05-15 10:27:10,233 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393 成功
+2025-05-15 10:27:10,282 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394 成功
+2025-05-15 10:27:10,329 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395 成功
+2025-05-15 10:27:10,376 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396 成功
+2025-05-15 10:27:10,423 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397 成功
+2025-05-15 10:27:10,472 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398 成功
+2025-05-15 10:27:10,514 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399 成功
+2025-05-15 10:27:10,662 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Basic 成功
+2025-05-15 10:27:10,711 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position 成功
+2025-05-15 10:27:10,761 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Basic 成功
+2025-05-15 10:27:10,810 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position 成功
+2025-05-15 10:27:10,860 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Basic 成功
+2025-05-15 10:27:10,912 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position 成功
+2025-05-15 10:27:10,964 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Basic 成功
+2025-05-15 10:27:11,013 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position 成功
+2025-05-15 10:27:11,060 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Basic 成功
+2025-05-15 10:27:11,104 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position 成功
+2025-05-15 10:27:11,155 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Basic 成功
+2025-05-15 10:27:11,203 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position 成功
+2025-05-15 10:27:11,252 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Basic 成功
+2025-05-15 10:27:11,301 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position 成功
+2025-05-15 10:27:11,352 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Basic 成功
+2025-05-15 10:27:11,401 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position 成功
+2025-05-15 10:27:11,452 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Basic 成功
+2025-05-15 10:27:11,502 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position 成功
+2025-05-15 10:27:11,545 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Basic 成功
+2025-05-15 10:27:11,593 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position 成功
+2025-05-15 10:27:11,644 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Basic 成功
+2025-05-15 10:27:11,700 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position 成功
+2025-05-15 10:27:11,749 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Basic 成功
+2025-05-15 10:27:11,802 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position 成功
+2025-05-15 10:27:11,853 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Basic 成功
+2025-05-15 10:27:11,908 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position 成功
+2025-05-15 10:27:11,961 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Basic 成功
+2025-05-15 10:27:12,017 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position 成功
+2025-05-15 10:27:12,071 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Basic 成功
+2025-05-15 10:27:12,121 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position 成功
+2025-05-15 10:27:12,172 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Basic 成功
+2025-05-15 10:27:12,223 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position 成功
+2025-05-15 10:27:12,275 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Basic 成功
+2025-05-15 10:27:12,326 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position 成功
+2025-05-15 10:27:12,375 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Basic 成功
+2025-05-15 10:27:12,424 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position 成功
+2025-05-15 10:27:12,474 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Basic 成功
+2025-05-15 10:27:12,526 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position 成功
+2025-05-15 10:27:12,569 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Basic 成功
+2025-05-15 10:27:12,613 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position 成功
+2025-05-15 10:27:12,754 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Basic/ID 成功
+2025-05-15 10:27:12,800 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Basic/Mode 成功
+2025-05-15 10:27:12,848 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Basic/Size 成功
+2025-05-15 10:27:12,901 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/S1 成功
+2025-05-15 10:27:12,948 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/S2 成功
+2025-05-15 10:27:12,997 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/R 成功
+2025-05-15 10:27:13,046 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Z1 成功
+2025-05-15 10:27:13,091 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Z2 成功
+2025-05-15 10:27:13,136 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Z3 成功
+2025-05-15 10:27:13,183 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Spare 成功
+2025-05-15 10:27:13,232 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Basic/ID 成功
+2025-05-15 10:27:13,282 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Basic/Mode 成功
+2025-05-15 10:27:13,328 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Basic/Size 成功
+2025-05-15 10:27:13,376 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/S1 成功
+2025-05-15 10:27:13,422 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/S2 成功
+2025-05-15 10:27:13,472 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/R 成功
+2025-05-15 10:27:13,518 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Z1 成功
+2025-05-15 10:27:13,562 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Z2 成功
+2025-05-15 10:27:13,608 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Z3 成功
+2025-05-15 10:27:13,652 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Spare 成功
+2025-05-15 10:27:13,705 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Basic/ID 成功
+2025-05-15 10:27:13,755 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Basic/Mode 成功
+2025-05-15 10:27:13,804 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Basic/Size 成功
+2025-05-15 10:27:13,863 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/S1 成功
+2025-05-15 10:27:13,911 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/S2 成功
+2025-05-15 10:27:13,956 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/R 成功
+2025-05-15 10:27:14,000 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Z1 成功
+2025-05-15 10:27:14,046 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Z2 成功
+2025-05-15 10:27:14,094 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Z3 成功
+2025-05-15 10:27:14,139 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Spare 成功
+2025-05-15 10:27:14,187 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Basic/ID 成功
+2025-05-15 10:27:14,235 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Basic/Mode 成功
+2025-05-15 10:27:14,280 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Basic/Size 成功
+2025-05-15 10:27:14,323 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/S1 成功
+2025-05-15 10:27:14,373 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/S2 成功
+2025-05-15 10:27:14,420 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/R 成功
+2025-05-15 10:27:14,468 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Z1 成功
+2025-05-15 10:27:14,518 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Z2 成功
+2025-05-15 10:27:14,565 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Z3 成功
+2025-05-15 10:27:14,613 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Spare 成功
+2025-05-15 10:27:14,662 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Basic/ID 成功
+2025-05-15 10:27:14,707 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Basic/Mode 成功
+2025-05-15 10:27:14,756 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Basic/Size 成功
+2025-05-15 10:27:14,803 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/S1 成功
+2025-05-15 10:27:14,853 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/S2 成功
+2025-05-15 10:27:14,904 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/R 成功
+2025-05-15 10:27:14,952 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Z1 成功
+2025-05-15 10:27:15,000 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Z2 成功
+2025-05-15 10:27:15,050 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Z3 成功
+2025-05-15 10:27:15,098 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Spare 成功
+2025-05-15 10:27:15,143 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Basic/ID 成功
+2025-05-15 10:27:15,190 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Basic/Mode 成功
+2025-05-15 10:27:15,248 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Basic/Size 成功
+2025-05-15 10:27:15,298 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/S1 成功
+2025-05-15 10:27:15,347 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/S2 成功
+2025-05-15 10:27:15,396 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/R 成功
+2025-05-15 10:27:15,446 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Z1 成功
+2025-05-15 10:27:15,492 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Z2 成功
+2025-05-15 10:27:15,540 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Z3 成功
+2025-05-15 10:27:15,583 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Spare 成功
+2025-05-15 10:27:15,629 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Basic/ID 成功
+2025-05-15 10:27:15,675 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Basic/Mode 成功
+2025-05-15 10:27:15,725 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Basic/Size 成功
+2025-05-15 10:27:15,774 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/S1 成功
+2025-05-15 10:27:15,826 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/S2 成功
+2025-05-15 10:27:15,879 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/R 成功
+2025-05-15 10:27:15,927 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Z1 成功
+2025-05-15 10:27:15,974 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Z2 成功
+2025-05-15 10:27:16,030 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Z3 成功
+2025-05-15 10:27:16,078 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Spare 成功
+2025-05-15 10:27:16,127 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Basic/ID 成功
+2025-05-15 10:27:16,171 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Basic/Mode 成功
+2025-05-15 10:27:16,220 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Basic/Size 成功
+2025-05-15 10:27:16,271 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/S1 成功
+2025-05-15 10:27:16,322 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/S2 成功
+2025-05-15 10:27:16,368 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/R 成功
+2025-05-15 10:27:16,417 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Z1 成功
+2025-05-15 10:27:16,466 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Z2 成功
+2025-05-15 10:27:16,515 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Z3 成功
+2025-05-15 10:27:16,564 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Spare 成功
+2025-05-15 10:27:16,608 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Basic/ID 成功
+2025-05-15 10:27:16,658 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Basic/Mode 成功
+2025-05-15 10:27:16,739 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Basic/Size 成功
+2025-05-15 10:27:16,903 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/S1 成功
+2025-05-15 10:27:16,948 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/S2 成功
+2025-05-15 10:27:16,997 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/R 成功
+2025-05-15 10:27:17,048 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Z1 成功
+2025-05-15 10:27:17,096 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Z2 成功
+2025-05-15 10:27:17,146 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Z3 成功
+2025-05-15 10:27:17,196 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Spare 成功
+2025-05-15 10:27:17,243 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Basic/ID 成功
+2025-05-15 10:27:17,291 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Basic/Mode 成功
+2025-05-15 10:27:17,336 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Basic/Size 成功
+2025-05-15 10:27:17,386 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/S1 成功
+2025-05-15 10:27:17,436 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/S2 成功
+2025-05-15 10:27:17,482 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/R 成功
+2025-05-15 10:27:17,530 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Z1 成功
+2025-05-15 10:27:17,578 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Z2 成功
+2025-05-15 10:27:17,627 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Z3 成功
+2025-05-15 10:27:17,673 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Spare 成功
+2025-05-15 10:27:17,720 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Basic/ID 成功
+2025-05-15 10:27:17,767 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Basic/Mode 成功
+2025-05-15 10:27:17,812 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Basic/Size 成功
+2025-05-15 10:27:17,863 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/S1 成功
+2025-05-15 10:27:17,912 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/S2 成功
+2025-05-15 10:27:17,960 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/R 成功
+2025-05-15 10:27:18,010 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Z1 成功
+2025-05-15 10:27:18,058 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Z2 成功
+2025-05-15 10:27:18,180 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Z3 成功
+2025-05-15 10:27:18,225 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Spare 成功
+2025-05-15 10:27:18,273 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Basic/ID 成功
+2025-05-15 10:27:18,322 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Basic/Mode 成功
+2025-05-15 10:27:18,370 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Basic/Size 成功
+2025-05-15 10:27:18,416 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/S1 成功
+2025-05-15 10:27:18,460 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/S2 成功
+2025-05-15 10:27:18,503 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/R 成功
+2025-05-15 10:27:18,549 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Z1 成功
+2025-05-15 10:27:18,597 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Z2 成功
+2025-05-15 10:27:18,647 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Z3 成功
+2025-05-15 10:27:18,694 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Spare 成功
+2025-05-15 10:27:18,741 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Basic/ID 成功
+2025-05-15 10:27:18,790 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Basic/Mode 成功
+2025-05-15 10:27:18,834 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Basic/Size 成功
+2025-05-15 10:27:18,886 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/S1 成功
+2025-05-15 10:27:18,935 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/S2 成功
+2025-05-15 10:27:18,983 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/R 成功
+2025-05-15 10:27:19,032 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Z1 成功
+2025-05-15 10:27:19,085 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Z2 成功
+2025-05-15 10:27:19,135 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Z3 成功
+2025-05-15 10:27:19,182 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Spare 成功
+2025-05-15 10:27:19,231 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Basic/ID 成功
+2025-05-15 10:27:19,278 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Basic/Mode 成功
+2025-05-15 10:27:19,323 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Basic/Size 成功
+2025-05-15 10:27:19,371 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/S1 成功
+2025-05-15 10:27:19,421 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/S2 成功
+2025-05-15 10:27:19,468 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/R 成功
+2025-05-15 10:27:19,517 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Z1 成功
+2025-05-15 10:27:19,568 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Z2 成功
+2025-05-15 10:27:19,618 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Z3 成功
+2025-05-15 10:27:19,667 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Spare 成功
+2025-05-15 10:27:19,715 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Basic/ID 成功
+2025-05-15 10:27:19,759 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Basic/Mode 成功
+2025-05-15 10:27:19,811 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Basic/Size 成功
+2025-05-15 10:27:19,860 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/S1 成功
+2025-05-15 10:27:19,909 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/S2 成功
+2025-05-15 10:27:19,958 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/R 成功
+2025-05-15 10:27:20,006 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Z1 成功
+2025-05-15 10:27:20,054 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Z2 成功
+2025-05-15 10:27:20,106 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Z3 成功
+2025-05-15 10:27:20,146 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Spare 成功
+2025-05-15 10:27:20,189 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Basic/ID 成功
+2025-05-15 10:27:20,238 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Basic/Mode 成功
+2025-05-15 10:27:20,285 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Basic/Size 成功
+2025-05-15 10:27:20,334 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/S1 成功
+2025-05-15 10:27:20,384 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/S2 成功
+2025-05-15 10:27:20,434 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/R 成功
+2025-05-15 10:27:20,482 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Z1 成功
+2025-05-15 10:27:20,529 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Z2 成功
+2025-05-15 10:27:20,575 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Z3 成功
+2025-05-15 10:27:20,617 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Spare 成功
+2025-05-15 10:27:20,667 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Basic/ID 成功
+2025-05-15 10:27:20,720 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Basic/Mode 成功
+2025-05-15 10:27:20,768 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Basic/Size 成功
+2025-05-15 10:27:20,820 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/S1 成功
+2025-05-15 10:27:20,867 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/S2 成功
+2025-05-15 10:27:20,917 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/R 成功
+2025-05-15 10:27:20,966 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Z1 成功
+2025-05-15 10:27:21,011 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Z2 成功
+2025-05-15 10:27:21,057 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Z3 成功
+2025-05-15 10:27:21,103 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Spare 成功
+2025-05-15 10:27:21,151 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Basic/ID 成功
+2025-05-15 10:27:21,199 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Basic/Mode 成功
+2025-05-15 10:27:21,248 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Basic/Size 成功
+2025-05-15 10:27:21,300 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/S1 成功
+2025-05-15 10:27:21,348 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/S2 成功
+2025-05-15 10:27:21,394 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/R 成功
+2025-05-15 10:27:21,439 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Z1 成功
+2025-05-15 10:27:21,482 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Z2 成功
+2025-05-15 10:27:21,532 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Z3 成功
+2025-05-15 10:27:21,577 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Spare 成功
+2025-05-15 10:27:21,626 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Basic/ID 成功
+2025-05-15 10:27:21,673 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Basic/Mode 成功
+2025-05-15 10:27:21,721 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Basic/Size 成功
+2025-05-15 10:27:21,771 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/S1 成功
+2025-05-15 10:27:21,815 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/S2 成功
+2025-05-15 10:27:21,858 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/R 成功
+2025-05-15 10:27:21,907 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Z1 成功
+2025-05-15 10:27:21,955 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Z2 成功
+2025-05-15 10:27:22,005 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Z3 成功
+2025-05-15 10:27:22,050 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Spare 成功
+2025-05-15 10:27:22,101 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Basic/ID 成功
+2025-05-15 10:27:22,151 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Basic/Mode 成功
+2025-05-15 10:27:22,195 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Basic/Size 成功
+2025-05-15 10:27:22,241 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/S1 成功
+2025-05-15 10:27:22,289 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/S2 成功
+2025-05-15 10:27:22,337 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/R 成功
+2025-05-15 10:27:22,384 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Z1 成功
+2025-05-15 10:27:22,434 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Z2 成功
+2025-05-15 10:27:22,483 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Z3 成功
+2025-05-15 10:27:22,529 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Spare 成功
+2025-05-15 10:27:22,683 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Spare/0 成功
+2025-05-15 10:27:22,732 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Spare/1 成功
+2025-05-15 10:27:22,781 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Spare/2 成功
+2025-05-15 10:27:22,831 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/380/Position/Spare/3 成功
+2025-05-15 10:27:22,880 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Spare/0 成功
+2025-05-15 10:27:22,927 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Spare/1 成功
+2025-05-15 10:27:22,977 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Spare/2 成功
+2025-05-15 10:27:23,025 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/381/Position/Spare/3 成功
+2025-05-15 10:27:23,070 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Spare/0 成功
+2025-05-15 10:27:23,119 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Spare/1 成功
+2025-05-15 10:27:23,167 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Spare/2 成功
+2025-05-15 10:27:23,219 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/382/Position/Spare/3 成功
+2025-05-15 10:27:23,267 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Spare/0 成功
+2025-05-15 10:27:23,323 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Spare/1 成功
+2025-05-15 10:27:23,371 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Spare/2 成功
+2025-05-15 10:27:23,436 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/383/Position/Spare/3 成功
+2025-05-15 10:27:23,484 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Spare/0 成功
+2025-05-15 10:27:23,532 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Spare/1 成功
+2025-05-15 10:27:23,578 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Spare/2 成功
+2025-05-15 10:27:23,625 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/384/Position/Spare/3 成功
+2025-05-15 10:27:23,674 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Spare/0 成功
+2025-05-15 10:27:23,723 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Spare/1 成功
+2025-05-15 10:27:23,771 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Spare/2 成功
+2025-05-15 10:27:23,820 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/385/Position/Spare/3 成功
+2025-05-15 10:27:23,870 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Spare/0 成功
+2025-05-15 10:27:23,922 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Spare/1 成功
+2025-05-15 10:27:23,967 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Spare/2 成功
+2025-05-15 10:27:24,011 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/386/Position/Spare/3 成功
+2025-05-15 10:27:24,059 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Spare/0 成功
+2025-05-15 10:27:24,107 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Spare/1 成功
+2025-05-15 10:27:24,157 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Spare/2 成功
+2025-05-15 10:27:24,204 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/387/Position/Spare/3 成功
+2025-05-15 10:27:24,255 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Spare/0 成功
+2025-05-15 10:27:24,303 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Spare/1 成功
+2025-05-15 10:27:24,347 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Spare/2 成功
+2025-05-15 10:27:24,393 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/388/Position/Spare/3 成功
+2025-05-15 10:27:24,439 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Spare/0 成功
+2025-05-15 10:27:24,487 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Spare/1 成功
+2025-05-15 10:27:24,533 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Spare/2 成功
+2025-05-15 10:27:24,581 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/389/Position/Spare/3 成功
+2025-05-15 10:27:24,630 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Spare/0 成功
+2025-05-15 10:27:24,680 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Spare/1 成功
+2025-05-15 10:27:24,726 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Spare/2 成功
+2025-05-15 10:27:24,784 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/390/Position/Spare/3 成功
+2025-05-15 10:27:24,827 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Spare/0 成功
+2025-05-15 10:27:24,874 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Spare/1 成功
+2025-05-15 10:27:24,924 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Spare/2 成功
+2025-05-15 10:27:24,974 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/391/Position/Spare/3 成功
+2025-05-15 10:27:25,022 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Spare/0 成功
+2025-05-15 10:27:25,071 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Spare/1 成功
+2025-05-15 10:27:25,122 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Spare/2 成功
+2025-05-15 10:27:25,172 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/392/Position/Spare/3 成功
+2025-05-15 10:27:25,220 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Spare/0 成功
+2025-05-15 10:27:25,270 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Spare/1 成功
+2025-05-15 10:27:25,316 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Spare/2 成功
+2025-05-15 10:27:25,365 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/393/Position/Spare/3 成功
+2025-05-15 10:27:25,417 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Spare/0 成功
+2025-05-15 10:27:25,466 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Spare/1 成功
+2025-05-15 10:27:25,513 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Spare/2 成功
+2025-05-15 10:27:25,561 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/394/Position/Spare/3 成功
+2025-05-15 10:27:25,612 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Spare/0 成功
+2025-05-15 10:27:25,662 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Spare/1 成功
+2025-05-15 10:27:25,712 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Spare/2 成功
+2025-05-15 10:27:25,763 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/395/Position/Spare/3 成功
+2025-05-15 10:27:25,808 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Spare/0 成功
+2025-05-15 10:27:25,853 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Spare/1 成功
+2025-05-15 10:27:25,901 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Spare/2 成功
+2025-05-15 10:27:25,948 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/396/Position/Spare/3 成功
+2025-05-15 10:27:25,997 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Spare/0 成功
+2025-05-15 10:27:26,044 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Spare/1 成功
+2025-05-15 10:27:26,095 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Spare/2 成功
+2025-05-15 10:27:26,143 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/397/Position/Spare/3 成功
+2025-05-15 10:27:26,195 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Spare/0 成功
+2025-05-15 10:27:26,245 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Spare/1 成功
+2025-05-15 10:27:26,295 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Spare/2 成功
+2025-05-15 10:27:26,341 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/398/Position/Spare/3 成功
+2025-05-15 10:27:26,386 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Spare/0 成功
+2025-05-15 10:27:26,438 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Spare/1 成功
+2025-05-15 10:27:26,485 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Spare/2 成功
+2025-05-15 10:27:26,536 - drv_io - INFO - 自动新增变量 /Robot/2_0_Robot/Recipe/Position/399/Position/Spare/3 成功
+2025-05-15 10:27:30,941 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 10:27:30,944 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:27:30,948 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:27:30,952 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:27:33,505 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 10:27:33,506 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 10:27:33,582 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 10:27:33,582 - drv_io - INFO - --Module is 3, Variable is 2653,Reading Block is 18.
+2025-05-15 10:27:33,582 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 10:27:33,642 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 10:27:33,642 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-15 10:27:33,642 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 10:27:33,858 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 10:27:33,858 - drv_io - INFO - --Module is 1, Variable is 7626,Reading Block is 7.
+2025-05-15 10:27:33,858 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 10:27:33,858 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 10:27:33,858 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 10:27:33,858 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 10:27:36,735 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 10:27:36,735 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:27:36,812 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 10:27:36,812 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:27:36,861 - drv_io - INFO - Connect Robot, True.
+2025-05-15 10:27:36,861 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 10:27:38,920 - drv_io - INFO - MQTT id:python-mqtt-sub-401, url:localhost:1883.
+2025-05-15 10:27:38,920 - drv_io - INFO - MQTT subscription is False
+2025-05-15 10:27:38,920 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 10:27:38,921 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-15 10:27:38,922 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-15 10:27:38,922 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-15 10:27:38,922 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-15 10:27:38,922 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-15 10:31:42,386 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 10:31:42,408 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:31:42,422 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 10:31:42,425 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 11:28:28,537 - drv_io - INFO - Driver Config file loaded - done.
+2025-05-15 11:28:28,537 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.1:4840,ns=3;s="EFEM")] to system.
+2025-05-15 11:28:28,596 - drv_io - INFO - Load EFEM variable list, True.
+2025-05-15 11:28:28,596 - drv_io - INFO - --Module is 3, Variable is 1930,Reading Block is 18.
+2025-05-15 11:28:28,596 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-05-15 11:28:28,662 - drv_io - INFO - Load Equipment variable list, True.
+2025-05-15 11:28:28,662 - drv_io - INFO - --Module is 2, Variable is 2078,Reading Block is 12.
+2025-05-15 11:28:28,663 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-05-15 11:28:28,893 - drv_io - INFO - Load Robot variable list, True.
+2025-05-15 11:28:28,893 - drv_io - INFO - --Module is 1, Variable is 7626,Reading Block is 7.
+2025-05-15 11:28:28,894 - drv_io - INFO - Add opcua COT_DEVopcua [opc.tcp://192.168.20.50:4840,ns=3;s=DataBlocksGlobal)] to system.
+2025-05-15 11:28:28,894 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 11:28:28,894 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-05-15 11:28:28,894 - drv_io - INFO - Configuration setting is no load.
+2025-05-15 11:28:31,874 - drv_io - INFO - Connect EFEM, True.
+2025-05-15 11:28:31,874 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 11:28:31,968 - drv_io - INFO - Connect Robot, True.
+2025-05-15 11:28:31,968 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 11:28:32,015 - drv_io - INFO - Connect Equipment, True.
+2025-05-15 11:28:32,015 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-05-15 11:28:34,061 - drv_io - INFO - MQTT id:python-mqtt-sub-208, url:localhost:1883.
+2025-05-15 11:28:34,061 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-05-15 11:28:34,061 - drv_io - INFO - MQTT subscription is False
+2025-05-15 11:28:34,061 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-05-15 11:28:34,061 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-05-15 11:28:34,061 - drv_io - INFO - Request Config file loaded - done.
+2025-05-15 11:28:34,062 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-05-15 11:28:34,062 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-05-15 11:28:34,172 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Stop_Button 成功
+2025-05-15 11:28:34,198 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Reset_Button 成功
+2025-05-15 11:28:34,228 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Manual_Go_Home_Button 成功
+2025-05-15 11:28:34,256 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Manual_Jog_Foreward_Button 成功
+2025-05-15 11:28:34,284 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Manual_Jog_Back_Button 成功
+2025-05-15 11:28:34,322 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Manual_Absolute_Start_Button 成功
+2025-05-15 11:28:34,350 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Manual_Absolute_Stop_Button 成功
+2025-05-15 11:28:34,377 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Manual_Mapping_Start_Button 成功
+2025-05-15 11:28:34,405 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Manual/Manual_Mapping_Stop_Button 成功
+2025-05-15 11:28:34,434 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Auto 成功
+2025-05-15 11:28:34,466 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status 成功
+2025-05-15 11:28:34,497 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot 成功
+2025-05-15 11:28:34,528 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette 成功
+2025-05-15 11:28:34,561 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Sensor 成功
+2025-05-15 11:28:34,990 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Auto/Load 成功
+2025-05-15 11:28:35,018 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Auto/UnLoad 成功
+2025-05-15 11:28:35,044 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Control/Auto/DryRun_Load 成功
+2025-05-15 11:28:35,070 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Active 成功
+2025-05-15 11:28:35,097 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Error 成功
+2025-05-15 11:28:35,127 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Running 成功
+2025-05-15 11:28:35,154 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Go_Home_Finish 成功
+2025-05-15 11:28:35,180 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Positioning_Finish 成功
+2025-05-15 11:28:35,211 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Real_Position 成功
+2025-05-15 11:28:35,241 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Real_Speed 成功
+2025-05-15 11:28:35,269 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Real_Current 成功
+2025-05-15 11:28:35,300 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Home_Sign 成功
+2025-05-15 11:28:35,327 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Positive_Limit 成功
+2025-05-15 11:28:35,353 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Moto_Status/Negative_Limit 成功
+2025-05-15 11:28:35,385 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0 成功
+2025-05-15 11:28:35,413 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1 成功
+2025-05-15 11:28:35,450 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2 成功
+2025-05-15 11:28:35,481 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3 成功
+2025-05-15 11:28:35,511 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4 成功
+2025-05-15 11:28:35,543 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5 成功
+2025-05-15 11:28:35,573 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6 成功
+2025-05-15 11:28:35,603 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7 成功
+2025-05-15 11:28:35,634 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8 成功
+2025-05-15 11:28:35,664 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9 成功
+2025-05-15 11:28:35,694 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10 成功
+2025-05-15 11:28:35,724 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11 成功
+2025-05-15 11:28:35,753 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12 成功
+2025-05-15 11:28:35,786 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13 成功
+2025-05-15 11:28:35,814 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14 成功
+2025-05-15 11:28:35,842 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15 成功
+2025-05-15 11:28:35,877 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16 成功
+2025-05-15 11:28:35,908 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17 成功
+2025-05-15 11:28:35,943 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18 成功
+2025-05-15 11:28:35,978 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19 成功
+2025-05-15 11:28:36,006 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20 成功
+2025-05-15 11:28:36,039 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21 成功
+2025-05-15 11:28:36,069 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22 成功
+2025-05-15 11:28:36,100 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23 成功
+2025-05-15 11:28:36,130 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24 成功
+2025-05-15 11:28:36,157 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Enable 成功
+2025-05-15 11:28:36,187 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Initializationing 成功
+2025-05-15 11:28:36,214 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Initialization_Finish 成功
+2025-05-15 11:28:36,242 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Mapping 成功
+2025-05-15 11:28:36,271 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Mapping_Finish 成功
+2025-05-15 11:28:36,298 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/On_Line 成功
+2025-05-15 11:28:36,325 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Processing 成功
+2025-05-15 11:28:36,357 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Recovery_Doing 成功
+2025-05-15 11:28:36,384 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Get_Finish 成功
+2025-05-15 11:28:36,411 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Process_Finish 成功
+2025-05-15 11:28:36,438 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Recovery_Finish 成功
+2025-05-15 11:28:36,464 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/State 成功
+2025-05-15 11:28:36,490 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Allow_Get_Slot 成功
+2025-05-15 11:28:36,519 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Allow_Get 成功
+2025-05-15 11:28:36,548 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Allow_Put_Slot 成功
+2025-05-15 11:28:36,581 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Cassette/Allow_Put 成功
+2025-05-15 11:28:36,609 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Sensor/Scan 成功
+2025-05-15 11:28:36,636 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Sensor/Bulge 成功
+2025-05-15 11:28:36,665 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Sensor/In_Place 成功
+2025-05-15 11:28:36,692 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Sensor/Real_Position 成功
+2025-05-15 11:28:36,820 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/NO 成功
+2025-05-15 11:28:36,846 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/ID 成功
+2025-05-15 11:28:36,871 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Has_Wafer 成功
+2025-05-15 11:28:36,897 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/WithOut_Wafer 成功
+2025-05-15 11:28:36,924 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Mapping_Error 成功
+2025-05-15 11:28:36,949 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:36,985 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:37,015 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:37,047 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:37,074 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Waiting_Processing 成功
+2025-05-15 11:28:37,106 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Processing 成功
+2025-05-15 11:28:37,134 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Process_Finish 成功
+2025-05-15 11:28:37,161 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Process_Error 成功
+2025-05-15 11:28:37,192 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Get_Finish 成功
+2025-05-15 11:28:37,218 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/By_Pass 成功
+2025-05-15 11:28:37,245 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/State 成功
+2025-05-15 11:28:37,276 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Job 成功
+2025-05-15 11:28:37,306 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Wafer_Date 成功
+2025-05-15 11:28:37,333 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/NO 成功
+2025-05-15 11:28:37,366 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/ID 成功
+2025-05-15 11:28:37,391 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Has_Wafer 成功
+2025-05-15 11:28:37,417 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/WithOut_Wafer 成功
+2025-05-15 11:28:37,447 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Mapping_Error 成功
+2025-05-15 11:28:37,475 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:37,505 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:37,534 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:37,561 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:37,591 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Waiting_Processing 成功
+2025-05-15 11:28:37,617 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Processing 成功
+2025-05-15 11:28:37,644 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Process_Finish 成功
+2025-05-15 11:28:37,673 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Process_Error 成功
+2025-05-15 11:28:37,699 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Get_Finish 成功
+2025-05-15 11:28:37,728 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/By_Pass 成功
+2025-05-15 11:28:37,760 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/State 成功
+2025-05-15 11:28:37,788 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Job 成功
+2025-05-15 11:28:37,817 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Wafer_Date 成功
+2025-05-15 11:28:37,844 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/NO 成功
+2025-05-15 11:28:37,871 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/ID 成功
+2025-05-15 11:28:37,903 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Has_Wafer 成功
+2025-05-15 11:28:37,931 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/WithOut_Wafer 成功
+2025-05-15 11:28:37,959 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Mapping_Error 成功
+2025-05-15 11:28:37,992 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:38,020 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:38,048 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:38,078 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:38,104 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Waiting_Processing 成功
+2025-05-15 11:28:38,129 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Processing 成功
+2025-05-15 11:28:38,161 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Process_Finish 成功
+2025-05-15 11:28:38,190 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Process_Error 成功
+2025-05-15 11:28:38,216 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Get_Finish 成功
+2025-05-15 11:28:38,243 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/By_Pass 成功
+2025-05-15 11:28:38,270 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/State 成功
+2025-05-15 11:28:38,300 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Job 成功
+2025-05-15 11:28:38,329 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Wafer_Date 成功
+2025-05-15 11:28:38,357 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/NO 成功
+2025-05-15 11:28:38,392 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/ID 成功
+2025-05-15 11:28:38,419 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Has_Wafer 成功
+2025-05-15 11:28:38,446 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/WithOut_Wafer 成功
+2025-05-15 11:28:38,473 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Mapping_Error 成功
+2025-05-15 11:28:38,500 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:38,527 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:38,556 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:38,584 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:38,617 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Waiting_Processing 成功
+2025-05-15 11:28:38,646 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Processing 成功
+2025-05-15 11:28:38,675 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Process_Finish 成功
+2025-05-15 11:28:38,702 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Process_Error 成功
+2025-05-15 11:28:38,728 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Get_Finish 成功
+2025-05-15 11:28:38,756 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/By_Pass 成功
+2025-05-15 11:28:38,782 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/State 成功
+2025-05-15 11:28:38,812 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Job 成功
+2025-05-15 11:28:38,844 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Wafer_Date 成功
+2025-05-15 11:28:38,871 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/NO 成功
+2025-05-15 11:28:38,898 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/ID 成功
+2025-05-15 11:28:38,926 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Has_Wafer 成功
+2025-05-15 11:28:38,963 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/WithOut_Wafer 成功
+2025-05-15 11:28:38,997 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Mapping_Error 成功
+2025-05-15 11:28:39,038 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:39,079 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:39,116 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:39,146 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:39,176 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Waiting_Processing 成功
+2025-05-15 11:28:39,208 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Processing 成功
+2025-05-15 11:28:39,239 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Process_Finish 成功
+2025-05-15 11:28:39,266 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Process_Error 成功
+2025-05-15 11:28:39,297 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Get_Finish 成功
+2025-05-15 11:28:39,325 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/By_Pass 成功
+2025-05-15 11:28:39,353 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/State 成功
+2025-05-15 11:28:39,383 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Job 成功
+2025-05-15 11:28:39,421 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Wafer_Date 成功
+2025-05-15 11:28:39,452 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/NO 成功
+2025-05-15 11:28:39,478 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/ID 成功
+2025-05-15 11:28:39,507 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Has_Wafer 成功
+2025-05-15 11:28:39,577 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/WithOut_Wafer 成功
+2025-05-15 11:28:39,609 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Mapping_Error 成功
+2025-05-15 11:28:39,643 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:39,676 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:39,703 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:39,736 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:39,766 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Waiting_Processing 成功
+2025-05-15 11:28:39,793 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Processing 成功
+2025-05-15 11:28:39,822 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Process_Finish 成功
+2025-05-15 11:28:39,859 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Process_Error 成功
+2025-05-15 11:28:39,891 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Get_Finish 成功
+2025-05-15 11:28:39,917 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/By_Pass 成功
+2025-05-15 11:28:39,948 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/State 成功
+2025-05-15 11:28:39,986 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Job 成功
+2025-05-15 11:28:40,020 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Wafer_Date 成功
+2025-05-15 11:28:40,048 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/NO 成功
+2025-05-15 11:28:40,074 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/ID 成功
+2025-05-15 11:28:40,106 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Has_Wafer 成功
+2025-05-15 11:28:40,131 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/WithOut_Wafer 成功
+2025-05-15 11:28:40,157 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Mapping_Error 成功
+2025-05-15 11:28:40,187 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:40,215 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:40,248 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:40,277 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:40,309 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Waiting_Processing 成功
+2025-05-15 11:28:40,342 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Processing 成功
+2025-05-15 11:28:40,366 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Process_Finish 成功
+2025-05-15 11:28:40,397 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Process_Error 成功
+2025-05-15 11:28:40,432 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Get_Finish 成功
+2025-05-15 11:28:40,466 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/By_Pass 成功
+2025-05-15 11:28:40,496 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/State 成功
+2025-05-15 11:28:40,525 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Job 成功
+2025-05-15 11:28:40,559 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Wafer_Date 成功
+2025-05-15 11:28:40,589 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/NO 成功
+2025-05-15 11:28:40,615 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/ID 成功
+2025-05-15 11:28:40,653 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Has_Wafer 成功
+2025-05-15 11:28:40,685 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/WithOut_Wafer 成功
+2025-05-15 11:28:40,713 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Mapping_Error 成功
+2025-05-15 11:28:40,749 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:40,781 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:40,810 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:40,837 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:40,869 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Waiting_Processing 成功
+2025-05-15 11:28:40,901 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Processing 成功
+2025-05-15 11:28:40,930 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Process_Finish 成功
+2025-05-15 11:28:40,957 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Process_Error 成功
+2025-05-15 11:28:40,990 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Get_Finish 成功
+2025-05-15 11:28:41,020 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/By_Pass 成功
+2025-05-15 11:28:41,046 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/State 成功
+2025-05-15 11:28:41,074 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Job 成功
+2025-05-15 11:28:41,105 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Wafer_Date 成功
+2025-05-15 11:28:41,134 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/NO 成功
+2025-05-15 11:28:41,161 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/ID 成功
+2025-05-15 11:28:41,192 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Has_Wafer 成功
+2025-05-15 11:28:41,226 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/WithOut_Wafer 成功
+2025-05-15 11:28:41,253 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Mapping_Error 成功
+2025-05-15 11:28:41,279 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:41,312 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:41,346 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:41,374 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:41,405 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Waiting_Processing 成功
+2025-05-15 11:28:41,435 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Processing 成功
+2025-05-15 11:28:41,462 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Process_Finish 成功
+2025-05-15 11:28:41,487 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Process_Error 成功
+2025-05-15 11:28:41,519 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Get_Finish 成功
+2025-05-15 11:28:41,550 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/By_Pass 成功
+2025-05-15 11:28:41,581 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/State 成功
+2025-05-15 11:28:41,610 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Job 成功
+2025-05-15 11:28:41,642 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Wafer_Date 成功
+2025-05-15 11:28:41,673 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/NO 成功
+2025-05-15 11:28:41,699 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/ID 成功
+2025-05-15 11:28:41,730 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Has_Wafer 成功
+2025-05-15 11:28:41,764 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/WithOut_Wafer 成功
+2025-05-15 11:28:41,798 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Mapping_Error 成功
+2025-05-15 11:28:41,830 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:41,858 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:41,889 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:41,919 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:41,948 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Waiting_Processing 成功
+2025-05-15 11:28:41,981 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Processing 成功
+2025-05-15 11:28:42,009 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Process_Finish 成功
+2025-05-15 11:28:42,041 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Process_Error 成功
+2025-05-15 11:28:42,077 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Get_Finish 成功
+2025-05-15 11:28:42,104 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/By_Pass 成功
+2025-05-15 11:28:42,129 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/State 成功
+2025-05-15 11:28:42,165 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Job 成功
+2025-05-15 11:28:42,202 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Wafer_Date 成功
+2025-05-15 11:28:42,237 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/NO 成功
+2025-05-15 11:28:42,270 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/ID 成功
+2025-05-15 11:28:42,310 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Has_Wafer 成功
+2025-05-15 11:28:42,344 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/WithOut_Wafer 成功
+2025-05-15 11:28:42,379 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Mapping_Error 成功
+2025-05-15 11:28:42,412 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:42,446 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:42,474 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:42,505 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:42,536 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Waiting_Processing 成功
+2025-05-15 11:28:42,565 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Processing 成功
+2025-05-15 11:28:42,594 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Process_Finish 成功
+2025-05-15 11:28:42,626 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Process_Error 成功
+2025-05-15 11:28:42,661 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Get_Finish 成功
+2025-05-15 11:28:42,693 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/By_Pass 成功
+2025-05-15 11:28:42,719 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/State 成功
+2025-05-15 11:28:42,748 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Job 成功
+2025-05-15 11:28:42,781 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Wafer_Date 成功
+2025-05-15 11:28:42,813 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/NO 成功
+2025-05-15 11:28:42,846 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/ID 成功
+2025-05-15 11:28:42,884 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Has_Wafer 成功
+2025-05-15 11:28:42,910 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/WithOut_Wafer 成功
+2025-05-15 11:28:42,938 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Mapping_Error 成功
+2025-05-15 11:28:42,972 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:43,004 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:43,034 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:43,064 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:43,096 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Waiting_Processing 成功
+2025-05-15 11:28:43,129 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Processing 成功
+2025-05-15 11:28:43,161 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Process_Finish 成功
+2025-05-15 11:28:43,188 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Process_Error 成功
+2025-05-15 11:28:43,217 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Get_Finish 成功
+2025-05-15 11:28:43,248 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/By_Pass 成功
+2025-05-15 11:28:43,281 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/State 成功
+2025-05-15 11:28:43,312 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Job 成功
+2025-05-15 11:28:43,340 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Wafer_Date 成功
+2025-05-15 11:28:43,370 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/NO 成功
+2025-05-15 11:28:43,396 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/ID 成功
+2025-05-15 11:28:43,422 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Has_Wafer 成功
+2025-05-15 11:28:43,454 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/WithOut_Wafer 成功
+2025-05-15 11:28:43,488 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Mapping_Error 成功
+2025-05-15 11:28:43,523 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:43,553 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:43,580 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:43,611 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:43,644 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Waiting_Processing 成功
+2025-05-15 11:28:43,679 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Processing 成功
+2025-05-15 11:28:43,716 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Process_Finish 成功
+2025-05-15 11:28:43,760 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Process_Error 成功
+2025-05-15 11:28:43,797 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Get_Finish 成功
+2025-05-15 11:28:43,836 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/By_Pass 成功
+2025-05-15 11:28:43,867 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/State 成功
+2025-05-15 11:28:43,908 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Job 成功
+2025-05-15 11:28:43,948 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Wafer_Date 成功
+2025-05-15 11:28:43,987 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/NO 成功
+2025-05-15 11:28:44,028 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/ID 成功
+2025-05-15 11:28:44,071 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Has_Wafer 成功
+2025-05-15 11:28:44,118 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/WithOut_Wafer 成功
+2025-05-15 11:28:44,147 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Mapping_Error 成功
+2025-05-15 11:28:44,175 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:44,208 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:44,247 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:44,292 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:44,332 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Waiting_Processing 成功
+2025-05-15 11:28:44,370 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Processing 成功
+2025-05-15 11:28:44,409 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Process_Finish 成功
+2025-05-15 11:28:44,453 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Process_Error 成功
+2025-05-15 11:28:44,496 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Get_Finish 成功
+2025-05-15 11:28:44,538 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/By_Pass 成功
+2025-05-15 11:28:44,578 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/State 成功
+2025-05-15 11:28:44,619 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Job 成功
+2025-05-15 11:28:44,667 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Wafer_Date 成功
+2025-05-15 11:28:44,710 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/NO 成功
+2025-05-15 11:28:44,759 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/ID 成功
+2025-05-15 11:28:44,798 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Has_Wafer 成功
+2025-05-15 11:28:44,840 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/WithOut_Wafer 成功
+2025-05-15 11:28:44,882 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Mapping_Error 成功
+2025-05-15 11:28:44,921 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:44,957 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:44,995 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:45,032 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:45,058 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Waiting_Processing 成功
+2025-05-15 11:28:45,091 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Processing 成功
+2025-05-15 11:28:45,119 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Process_Finish 成功
+2025-05-15 11:28:45,152 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Process_Error 成功
+2025-05-15 11:28:45,185 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Get_Finish 成功
+2025-05-15 11:28:45,221 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/By_Pass 成功
+2025-05-15 11:28:45,259 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/State 成功
+2025-05-15 11:28:45,290 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Job 成功
+2025-05-15 11:28:45,317 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Wafer_Date 成功
+2025-05-15 11:28:45,347 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/NO 成功
+2025-05-15 11:28:45,374 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/ID 成功
+2025-05-15 11:28:45,401 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Has_Wafer 成功
+2025-05-15 11:28:45,431 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/WithOut_Wafer 成功
+2025-05-15 11:28:45,466 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Mapping_Error 成功
+2025-05-15 11:28:45,503 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:45,537 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:45,566 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:45,592 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:45,622 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Waiting_Processing 成功
+2025-05-15 11:28:45,654 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Processing 成功
+2025-05-15 11:28:45,683 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Process_Finish 成功
+2025-05-15 11:28:45,712 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Process_Error 成功
+2025-05-15 11:28:45,745 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Get_Finish 成功
+2025-05-15 11:28:45,784 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/By_Pass 成功
+2025-05-15 11:28:45,827 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/State 成功
+2025-05-15 11:28:45,876 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Job 成功
+2025-05-15 11:28:45,918 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Wafer_Date 成功
+2025-05-15 11:28:45,956 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/NO 成功
+2025-05-15 11:28:45,993 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/ID 成功
+2025-05-15 11:28:46,019 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Has_Wafer 成功
+2025-05-15 11:28:46,046 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/WithOut_Wafer 成功
+2025-05-15 11:28:46,079 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Mapping_Error 成功
+2025-05-15 11:28:46,114 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:46,149 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:46,178 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:46,205 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:46,238 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Waiting_Processing 成功
+2025-05-15 11:28:46,269 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Processing 成功
+2025-05-15 11:28:46,296 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Process_Finish 成功
+2025-05-15 11:28:46,327 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Process_Error 成功
+2025-05-15 11:28:46,361 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Get_Finish 成功
+2025-05-15 11:28:46,394 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/By_Pass 成功
+2025-05-15 11:28:46,437 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/State 成功
+2025-05-15 11:28:46,471 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Job 成功
+2025-05-15 11:28:46,503 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Wafer_Date 成功
+2025-05-15 11:28:46,534 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/NO 成功
+2025-05-15 11:28:46,569 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/ID 成功
+2025-05-15 11:28:46,598 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Has_Wafer 成功
+2025-05-15 11:28:46,632 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/WithOut_Wafer 成功
+2025-05-15 11:28:46,668 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Mapping_Error 成功
+2025-05-15 11:28:46,697 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:46,734 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:46,775 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:46,809 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:46,836 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Waiting_Processing 成功
+2025-05-15 11:28:46,868 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Processing 成功
+2025-05-15 11:28:46,903 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Process_Finish 成功
+2025-05-15 11:28:46,940 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Process_Error 成功
+2025-05-15 11:28:46,973 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Get_Finish 成功
+2025-05-15 11:28:47,004 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/By_Pass 成功
+2025-05-15 11:28:47,034 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/State 成功
+2025-05-15 11:28:47,065 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Job 成功
+2025-05-15 11:28:47,094 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Wafer_Date 成功
+2025-05-15 11:28:47,125 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/NO 成功
+2025-05-15 11:28:47,157 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/ID 成功
+2025-05-15 11:28:47,189 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Has_Wafer 成功
+2025-05-15 11:28:47,221 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/WithOut_Wafer 成功
+2025-05-15 11:28:47,250 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Mapping_Error 成功
+2025-05-15 11:28:47,286 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:47,329 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:47,373 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:47,414 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:47,454 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Waiting_Processing 成功
+2025-05-15 11:28:47,490 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Processing 成功
+2025-05-15 11:28:47,534 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Process_Finish 成功
+2025-05-15 11:28:47,580 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Process_Error 成功
+2025-05-15 11:28:47,619 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Get_Finish 成功
+2025-05-15 11:28:47,654 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/By_Pass 成功
+2025-05-15 11:28:47,688 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/State 成功
+2025-05-15 11:28:47,717 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Job 成功
+2025-05-15 11:28:47,747 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Wafer_Date 成功
+2025-05-15 11:28:47,783 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/NO 成功
+2025-05-15 11:28:47,823 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/ID 成功
+2025-05-15 11:28:47,865 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Has_Wafer 成功
+2025-05-15 11:28:47,905 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/WithOut_Wafer 成功
+2025-05-15 11:28:47,945 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Mapping_Error 成功
+2025-05-15 11:28:47,996 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:48,043 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:48,086 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:48,131 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:48,174 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Waiting_Processing 成功
+2025-05-15 11:28:48,219 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Processing 成功
+2025-05-15 11:28:48,271 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Process_Finish 成功
+2025-05-15 11:28:48,310 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Process_Error 成功
+2025-05-15 11:28:48,344 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Get_Finish 成功
+2025-05-15 11:28:48,375 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/By_Pass 成功
+2025-05-15 11:28:48,405 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/State 成功
+2025-05-15 11:28:48,434 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Job 成功
+2025-05-15 11:28:48,463 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Wafer_Date 成功
+2025-05-15 11:28:48,498 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/NO 成功
+2025-05-15 11:28:48,533 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/ID 成功
+2025-05-15 11:28:48,564 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Has_Wafer 成功
+2025-05-15 11:28:48,600 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/WithOut_Wafer 成功
+2025-05-15 11:28:48,628 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Mapping_Error 成功
+2025-05-15 11:28:48,654 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:48,687 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:48,728 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:48,764 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:48,799 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Waiting_Processing 成功
+2025-05-15 11:28:48,830 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Processing 成功
+2025-05-15 11:28:48,856 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Process_Finish 成功
+2025-05-15 11:28:48,882 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Process_Error 成功
+2025-05-15 11:28:48,918 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Get_Finish 成功
+2025-05-15 11:28:48,951 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/By_Pass 成功
+2025-05-15 11:28:48,990 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/State 成功
+2025-05-15 11:28:49,030 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Job 成功
+2025-05-15 11:28:49,071 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Wafer_Date 成功
+2025-05-15 11:28:49,112 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/NO 成功
+2025-05-15 11:28:49,145 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/ID 成功
+2025-05-15 11:28:49,183 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Has_Wafer 成功
+2025-05-15 11:28:49,213 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/WithOut_Wafer 成功
+2025-05-15 11:28:49,242 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Mapping_Error 成功
+2025-05-15 11:28:49,275 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:49,311 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:49,348 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:49,384 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:49,420 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Waiting_Processing 成功
+2025-05-15 11:28:49,452 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Processing 成功
+2025-05-15 11:28:49,494 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Process_Finish 成功
+2025-05-15 11:28:49,552 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Process_Error 成功
+2025-05-15 11:28:49,593 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Get_Finish 成功
+2025-05-15 11:28:49,657 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/By_Pass 成功
+2025-05-15 11:28:49,721 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/State 成功
+2025-05-15 11:28:49,779 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Job 成功
+2025-05-15 11:28:49,836 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Wafer_Date 成功
+2025-05-15 11:28:49,870 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/NO 成功
+2025-05-15 11:28:49,907 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/ID 成功
+2025-05-15 11:28:49,943 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Has_Wafer 成功
+2025-05-15 11:28:49,979 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/WithOut_Wafer 成功
+2025-05-15 11:28:50,011 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Mapping_Error 成功
+2025-05-15 11:28:50,044 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:50,078 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:50,116 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:50,143 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:50,171 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Waiting_Processing 成功
+2025-05-15 11:28:50,208 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Processing 成功
+2025-05-15 11:28:50,245 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Process_Finish 成功
+2025-05-15 11:28:50,277 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Process_Error 成功
+2025-05-15 11:28:50,316 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Get_Finish 成功
+2025-05-15 11:28:50,354 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/By_Pass 成功
+2025-05-15 11:28:50,392 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/State 成功
+2025-05-15 11:28:50,430 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Job 成功
+2025-05-15 11:28:50,477 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Wafer_Date 成功
+2025-05-15 11:28:50,515 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/NO 成功
+2025-05-15 11:28:50,556 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/ID 成功
+2025-05-15 11:28:50,596 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Has_Wafer 成功
+2025-05-15 11:28:50,638 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/WithOut_Wafer 成功
+2025-05-15 11:28:50,681 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Mapping_Error 成功
+2025-05-15 11:28:50,722 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:50,767 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:50,807 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:50,847 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:50,888 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Waiting_Processing 成功
+2025-05-15 11:28:50,917 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Processing 成功
+2025-05-15 11:28:50,953 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Process_Finish 成功
+2025-05-15 11:28:50,990 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Process_Error 成功
+2025-05-15 11:28:51,021 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Get_Finish 成功
+2025-05-15 11:28:51,048 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/By_Pass 成功
+2025-05-15 11:28:51,076 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/State 成功
+2025-05-15 11:28:51,108 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Job 成功
+2025-05-15 11:28:51,141 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Wafer_Date 成功
+2025-05-15 11:28:51,169 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/NO 成功
+2025-05-15 11:28:51,198 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/ID 成功
+2025-05-15 11:28:51,232 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Has_Wafer 成功
+2025-05-15 11:28:51,264 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/WithOut_Wafer 成功
+2025-05-15 11:28:51,297 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Mapping_Error 成功
+2025-05-15 11:28:51,323 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Mapping_Sensor_Off_Position 成功
+2025-05-15 11:28:51,351 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Mapping_Sensor_TimeStampRE 成功
+2025-05-15 11:28:51,388 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Mapping_Sensor_TimeStampFE 成功
+2025-05-15 11:28:51,422 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Mapping_Sensor_Off_Time 成功
+2025-05-15 11:28:51,454 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Waiting_Processing 成功
+2025-05-15 11:28:51,484 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Processing 成功
+2025-05-15 11:28:51,511 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Process_Finish 成功
+2025-05-15 11:28:51,542 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Process_Error 成功
+2025-05-15 11:28:51,574 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Get_Finish 成功
+2025-05-15 11:28:51,609 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/By_Pass 成功
+2025-05-15 11:28:51,639 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/State 成功
+2025-05-15 11:28:51,671 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Job 成功
+2025-05-15 11:28:51,703 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Wafer_Date 成功
+2025-05-15 11:28:51,854 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Job/Get_Time 成功
+2025-05-15 11:28:51,883 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Job/Put_Time 成功
+2025-05-15 11:28:51,914 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:51,944 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Wafer_Date/LotId 成功
+2025-05-15 11:28:51,972 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:52,001 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Wafer_Date/PortId 成功
+2025-05-15 11:28:52,032 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Wafer_Date/SlotId 成功
+2025-05-15 11:28:52,071 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/0/Wafer_Date/Size 成功
+2025-05-15 11:28:52,112 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Job/Get_Time 成功
+2025-05-15 11:28:52,149 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Job/Put_Time 成功
+2025-05-15 11:28:52,178 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:52,206 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Wafer_Date/LotId 成功
+2025-05-15 11:28:52,237 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:52,269 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Wafer_Date/PortId 成功
+2025-05-15 11:28:52,307 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Wafer_Date/SlotId 成功
+2025-05-15 11:28:52,350 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/1/Wafer_Date/Size 成功
+2025-05-15 11:28:52,389 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Job/Get_Time 成功
+2025-05-15 11:28:52,430 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Job/Put_Time 成功
+2025-05-15 11:28:52,477 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:52,525 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Wafer_Date/LotId 成功
+2025-05-15 11:28:52,566 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:52,606 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Wafer_Date/PortId 成功
+2025-05-15 11:28:52,648 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Wafer_Date/SlotId 成功
+2025-05-15 11:28:52,690 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/2/Wafer_Date/Size 成功
+2025-05-15 11:28:52,734 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Job/Get_Time 成功
+2025-05-15 11:28:52,777 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Job/Put_Time 成功
+2025-05-15 11:28:52,806 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:52,838 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Wafer_Date/LotId 成功
+2025-05-15 11:28:52,881 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:52,925 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Wafer_Date/PortId 成功
+2025-05-15 11:28:52,974 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Wafer_Date/SlotId 成功
+2025-05-15 11:28:53,015 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/3/Wafer_Date/Size 成功
+2025-05-15 11:28:53,055 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Job/Get_Time 成功
+2025-05-15 11:28:53,102 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Job/Put_Time 成功
+2025-05-15 11:28:53,138 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:53,178 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Wafer_Date/LotId 成功
+2025-05-15 11:28:53,217 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:53,258 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Wafer_Date/PortId 成功
+2025-05-15 11:28:53,305 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Wafer_Date/SlotId 成功
+2025-05-15 11:28:53,340 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/4/Wafer_Date/Size 成功
+2025-05-15 11:28:53,383 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Job/Get_Time 成功
+2025-05-15 11:28:53,425 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Job/Put_Time 成功
+2025-05-15 11:28:53,461 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:53,503 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Wafer_Date/LotId 成功
+2025-05-15 11:28:53,550 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:53,586 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Wafer_Date/PortId 成功
+2025-05-15 11:28:53,617 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Wafer_Date/SlotId 成功
+2025-05-15 11:28:53,650 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/5/Wafer_Date/Size 成功
+2025-05-15 11:28:53,683 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Job/Get_Time 成功
+2025-05-15 11:28:53,714 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Job/Put_Time 成功
+2025-05-15 11:28:53,742 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:53,772 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Wafer_Date/LotId 成功
+2025-05-15 11:28:53,806 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:53,845 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Wafer_Date/PortId 成功
+2025-05-15 11:28:53,885 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Wafer_Date/SlotId 成功
+2025-05-15 11:28:53,926 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/6/Wafer_Date/Size 成功
+2025-05-15 11:28:53,979 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Job/Get_Time 成功
+2025-05-15 11:28:54,024 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Job/Put_Time 成功
+2025-05-15 11:28:54,063 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:54,106 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Wafer_Date/LotId 成功
+2025-05-15 11:28:54,145 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:54,186 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Wafer_Date/PortId 成功
+2025-05-15 11:28:54,228 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Wafer_Date/SlotId 成功
+2025-05-15 11:28:54,271 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/7/Wafer_Date/Size 成功
+2025-05-15 11:28:54,315 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Job/Get_Time 成功
+2025-05-15 11:28:54,352 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Job/Put_Time 成功
+2025-05-15 11:28:54,393 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:54,434 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Wafer_Date/LotId 成功
+2025-05-15 11:28:54,476 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:54,517 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Wafer_Date/PortId 成功
+2025-05-15 11:28:54,557 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Wafer_Date/SlotId 成功
+2025-05-15 11:28:54,595 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/8/Wafer_Date/Size 成功
+2025-05-15 11:28:54,636 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Job/Get_Time 成功
+2025-05-15 11:28:54,678 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Job/Put_Time 成功
+2025-05-15 11:28:54,717 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:54,762 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Wafer_Date/LotId 成功
+2025-05-15 11:28:54,807 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:54,845 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Wafer_Date/PortId 成功
+2025-05-15 11:28:54,884 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Wafer_Date/SlotId 成功
+2025-05-15 11:28:54,924 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/9/Wafer_Date/Size 成功
+2025-05-15 11:28:54,955 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Job/Get_Time 成功
+2025-05-15 11:28:54,997 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Job/Put_Time 成功
+2025-05-15 11:28:55,036 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:55,066 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Wafer_Date/LotId 成功
+2025-05-15 11:28:55,094 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:55,128 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Wafer_Date/PortId 成功
+2025-05-15 11:28:55,160 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Wafer_Date/SlotId 成功
+2025-05-15 11:28:55,187 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/10/Wafer_Date/Size 成功
+2025-05-15 11:28:55,223 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Job/Get_Time 成功
+2025-05-15 11:28:55,256 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Job/Put_Time 成功
+2025-05-15 11:28:55,293 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:55,325 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Wafer_Date/LotId 成功
+2025-05-15 11:28:55,362 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:55,404 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Wafer_Date/PortId 成功
+2025-05-15 11:28:55,452 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Wafer_Date/SlotId 成功
+2025-05-15 11:28:55,497 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/11/Wafer_Date/Size 成功
+2025-05-15 11:28:55,544 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Job/Get_Time 成功
+2025-05-15 11:28:55,587 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Job/Put_Time 成功
+2025-05-15 11:28:55,628 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:55,666 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Wafer_Date/LotId 成功
+2025-05-15 11:28:55,705 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:55,746 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Wafer_Date/PortId 成功
+2025-05-15 11:28:55,787 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Wafer_Date/SlotId 成功
+2025-05-15 11:28:55,828 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/12/Wafer_Date/Size 成功
+2025-05-15 11:28:55,865 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Job/Get_Time 成功
+2025-05-15 11:28:56,050 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Job/Put_Time 成功
+2025-05-15 11:28:56,090 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:56,129 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Wafer_Date/LotId 成功
+2025-05-15 11:28:56,173 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:56,218 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Wafer_Date/PortId 成功
+2025-05-15 11:28:56,258 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Wafer_Date/SlotId 成功
+2025-05-15 11:28:56,295 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/13/Wafer_Date/Size 成功
+2025-05-15 11:28:56,338 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Job/Get_Time 成功
+2025-05-15 11:28:56,389 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Job/Put_Time 成功
+2025-05-15 11:28:56,434 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:56,470 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Wafer_Date/LotId 成功
+2025-05-15 11:28:56,510 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:56,548 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Wafer_Date/PortId 成功
+2025-05-15 11:28:56,578 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Wafer_Date/SlotId 成功
+2025-05-15 11:28:56,605 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/14/Wafer_Date/Size 成功
+2025-05-15 11:28:56,638 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Job/Get_Time 成功
+2025-05-15 11:28:56,670 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Job/Put_Time 成功
+2025-05-15 11:28:56,706 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:56,739 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Wafer_Date/LotId 成功
+2025-05-15 11:28:56,774 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:56,811 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Wafer_Date/PortId 成功
+2025-05-15 11:28:56,850 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Wafer_Date/SlotId 成功
+2025-05-15 11:28:56,888 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/15/Wafer_Date/Size 成功
+2025-05-15 11:28:56,932 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Job/Get_Time 成功
+2025-05-15 11:28:56,977 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Job/Put_Time 成功
+2025-05-15 11:28:57,018 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:57,050 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Wafer_Date/LotId 成功
+2025-05-15 11:28:57,083 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:57,112 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Wafer_Date/PortId 成功
+2025-05-15 11:28:57,140 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Wafer_Date/SlotId 成功
+2025-05-15 11:28:57,176 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/16/Wafer_Date/Size 成功
+2025-05-15 11:28:57,206 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Job/Get_Time 成功
+2025-05-15 11:28:57,244 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Job/Put_Time 成功
+2025-05-15 11:28:57,283 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:57,321 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Wafer_Date/LotId 成功
+2025-05-15 11:28:57,360 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:57,402 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Wafer_Date/PortId 成功
+2025-05-15 11:28:57,440 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Wafer_Date/SlotId 成功
+2025-05-15 11:28:57,483 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/17/Wafer_Date/Size 成功
+2025-05-15 11:28:57,534 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Job/Get_Time 成功
+2025-05-15 11:28:57,585 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Job/Put_Time 成功
+2025-05-15 11:28:57,625 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:57,669 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Wafer_Date/LotId 成功
+2025-05-15 11:28:57,715 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:57,750 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Wafer_Date/PortId 成功
+2025-05-15 11:28:57,788 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Wafer_Date/SlotId 成功
+2025-05-15 11:28:57,831 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/18/Wafer_Date/Size 成功
+2025-05-15 11:28:57,867 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Job/Get_Time 成功
+2025-05-15 11:28:57,910 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Job/Put_Time 成功
+2025-05-15 11:28:57,956 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:57,998 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Wafer_Date/LotId 成功
+2025-05-15 11:28:58,037 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:58,079 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Wafer_Date/PortId 成功
+2025-05-15 11:28:58,120 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Wafer_Date/SlotId 成功
+2025-05-15 11:28:58,156 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/19/Wafer_Date/Size 成功
+2025-05-15 11:28:58,185 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Job/Get_Time 成功
+2025-05-15 11:28:58,217 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Job/Put_Time 成功
+2025-05-15 11:28:58,251 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:58,283 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Wafer_Date/LotId 成功
+2025-05-15 11:28:58,322 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:58,354 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Wafer_Date/PortId 成功
+2025-05-15 11:28:58,384 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Wafer_Date/SlotId 成功
+2025-05-15 11:28:58,412 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/20/Wafer_Date/Size 成功
+2025-05-15 11:28:58,452 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Job/Get_Time 成功
+2025-05-15 11:28:58,483 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Job/Put_Time 成功
+2025-05-15 11:28:58,515 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:58,547 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Wafer_Date/LotId 成功
+2025-05-15 11:28:58,579 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:58,607 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Wafer_Date/PortId 成功
+2025-05-15 11:28:58,639 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Wafer_Date/SlotId 成功
+2025-05-15 11:28:58,673 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/21/Wafer_Date/Size 成功
+2025-05-15 11:28:58,711 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Job/Get_Time 成功
+2025-05-15 11:28:58,747 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Job/Put_Time 成功
+2025-05-15 11:28:58,775 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:58,805 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Wafer_Date/LotId 成功
+2025-05-15 11:28:58,840 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:58,886 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Wafer_Date/PortId 成功
+2025-05-15 11:28:58,926 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Wafer_Date/SlotId 成功
+2025-05-15 11:28:58,958 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/22/Wafer_Date/Size 成功
+2025-05-15 11:28:58,991 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Job/Get_Time 成功
+2025-05-15 11:28:59,021 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Job/Put_Time 成功
+2025-05-15 11:28:59,051 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:59,086 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Wafer_Date/LotId 成功
+2025-05-15 11:28:59,124 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:59,159 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Wafer_Date/PortId 成功
+2025-05-15 11:28:59,196 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Wafer_Date/SlotId 成功
+2025-05-15 11:28:59,232 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/23/Wafer_Date/Size 成功
+2025-05-15 11:28:59,266 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Job/Get_Time 成功
+2025-05-15 11:28:59,299 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Job/Put_Time 成功
+2025-05-15 11:28:59,335 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Wafer_Date/With_Wafer 成功
+2025-05-15 11:28:59,378 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Wafer_Date/LotId 成功
+2025-05-15 11:28:59,417 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Wafer_Date/RecipeId 成功
+2025-05-15 11:28:59,467 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Wafer_Date/PortId 成功
+2025-05-15 11:28:59,517 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Wafer_Date/SlotId 成功
+2025-05-15 11:28:59,558 - drv_io - INFO - 自动新增变量 /EFEM/1_1_LoadPort/Status/Slot/24/Wafer_Date/Size 成功
+2025-05-15 11:29:06,588 - drv_io - INFO - MQTT处理任务被取消
+2025-05-15 11:29:06,592 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 11:29:06,596 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
+2025-05-15 11:29:06,601 - drv_io - INFO - Unlink to opc.tcp://192.168.20.1:4840:False
