@@ -764,30 +764,28 @@ class distribution_server(object):
                     try:
                         node = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
                                                                     module['category'], rr['request_node_path']))
-                        if node is None:
-                            return
+                        if node:
+                            if rr['recipe_flow_index'] == 0:
+                                flow_index = None
+                            else:
+                                flow_index = rr['recipe_flow_index']
 
-                        if rr['recipe_flow_index'] == 0:
-                            flow_index = None
-                        else:
-                            flow_index = rr['recipe_flow_index']
-
-                        req = get_request_nodes(dev, node, rr['recipe_request_update'],
-                                                rr['recipe_request_id'], rr['recipe_request_result'])
-                        if req["id"] is None or req["request"] is None or req["result"] is None:
-                            return
-                        if req['request']["value"] is True and req['result']["value"] == 0:  #
-                            # trigger to request recipe
-                            # await request_recipe_handle(self, self.config['Server']['Basic']['recipe_req_url'], req, dev,
-                            #                                  module, write_recipe_id)
-                            # await request_recipe_handle_gather(self, self.config['Server']['Basic']['recipe_req_url'],
-                            #                                         req, dev, module, write_recipe_id)  # 并发下发Recipe-单模组
-                            # await request_recipe_handle_gather_plc(self, self.config['Server']['Basic']['recipe_req_url'],
-                            #                                             req, dev, module, write_recipe_id)  # 并发下发Recipe - 单plc
-                            await request_recipe_handle_gather_link(self, self.config['Server']['Basic']['recipe_req_url'],
-                                                                        req, dev, module, write_recipe_id, self.ua_device, flow_index)  # 并发下发Recipe - 单link
-                        elif req['request']["value"] is False and (req['result']["value"] != 0):
-                            await clear_request_result(dev, req)
+                            req = get_request_nodes(dev, node, rr['recipe_request_update'],
+                                                    rr['recipe_request_id'], rr['recipe_request_result'])
+                            if req["id"] is None or req["request"] is None or req["result"] is None:
+                                return
+                            if req['request']["value"] is True and req['result']["value"] == 0:  #
+                                # trigger to request recipe
+                                # await request_recipe_handle(self, self.config['Server']['Basic']['recipe_req_url'], req, dev,
+                                #                                  module, write_recipe_id)
+                                # await request_recipe_handle_gather(self, self.config['Server']['Basic']['recipe_req_url'],
+                                #                                         req, dev, module, write_recipe_id)  # 并发下发Recipe-单模组
+                                # await request_recipe_handle_gather_plc(self, self.config['Server']['Basic']['recipe_req_url'],
+                                #                                             req, dev, module, write_recipe_id)  # 并发下发Recipe - 单plc
+                                await request_recipe_handle_gather_link(self, self.config['Server']['Basic']['recipe_req_url'],
+                                                                            req, dev, module, write_recipe_id, self.ua_device, flow_index)  # 并发下发Recipe - 单link
+                            elif req['request']["value"] is False and (req['result']["value"] != 0):
+                                await clear_request_result(dev, req)
                     except Exception as e:
                         log.warning(f'Failure to request {module} recipe.{e}')
 
