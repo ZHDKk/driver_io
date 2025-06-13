@@ -262,7 +262,7 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
                 # if o2m_value != 0.0:
                 #     print(f"{child.NodePath}:{o2m_value}")
             elif list_child["DataTypeString"] == "datetime":
-                value[n] = value[n].strftime("%Y-%m-%d %H:%M:%S")[:-3]
+                value[n] = value[n].strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
                 # list_child["DataTypeString"] = "string"
             O2M_list.append({"code": list_child["code"], "value": value[n], "dataType": list_child["DataTypeString"],"arrLen": list_child["ArrayDimensions"], "time": rtime})  # child's data type is single variable
         list_child["value"] = value[n]  # update to node
@@ -429,7 +429,7 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
                     # if o2m_value != 0.0:
                     #     print(f"{child.NodePath}:{o2m_value}")
                 elif list_child["DataTypeString"] == "datetime":
-                    value[key] = value[key].strftime("%Y-%m-%d %H:%M:%S")[:-3]
+                    value[key] = value[key].strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
                     # list_child["DataTypeString"] = "string"
                 O2M_list.append(
                     {"code": list_child["code"], "value": value[key], "dataType": list_child["DataTypeString"],
@@ -467,7 +467,7 @@ async def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg):
                 # print(precision)
                 value = round_half_up(value, precision)
             elif list_node["DataTypeString"] == "datetime":
-                value = value.strftime("%Y-%m-%d %H:%M:%S")[:-3]
+                value = value.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
                 # list_node["DataTypeString"] = "string"
             O2M_list.append({"code": list_node['code'], "value": value, "dataType": list_node['DataTypeString'],
                              "arrLen": list_node['ArrayDimensions'], "time": rtime})
