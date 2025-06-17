@@ -147,7 +147,8 @@ def json_from_list(datas: dict):
         # pprint.pprint(res_json)
         return result
     except:
-        log.warning(f'Failure to pack json frame {datas}.')
+        # log.warning(f'Failure to pack json frame {datas}.')
+        print(f'Failure to pack json frame {datas}.')
         return {}
 
 
