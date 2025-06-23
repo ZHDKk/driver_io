@@ -549,7 +549,11 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
             await dev.linker.write_multi_variables([{'datatype': 6,
                                                      'node_id': write_recipe_id,
                                                      'value': recipe_id}], 1.5)
-            await return_request_state(dev, req, 3)
+            # await return_request_state(dev, req, 3)
+            # 2025/6/23修改: result的值重复写几次
+            for _ in range(5):
+                await return_request_state(dev, req, 3)
+                # await asyncio.sleep(0.1)
             end_total_time = time.time()  # 记录结束时间
             total_time = end_total_time - start_total_time  # 计算总耗时
             print(f'{get_current_time()}: 下载所有配方所用的总时间: {total_time:.2f} seconds')
