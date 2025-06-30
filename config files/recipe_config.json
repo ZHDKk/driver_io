@@ -43,6 +43,16 @@
         "write_recipe_id": "ns=3;s=\"Equipment\".\"0_2_MC\".\"Recipe\".\"Wafer_Flow2\".\"Basic\".\"Id\"",
         "recipe_flow_index": 2
       }
+    ],
+    "recipe_valid_keys": [
+      "Others_Recipe_valid",
+      "Other_Reicpe_Valid",
+      "Other_Recipe_Valid"
+    ],
+    "writable_keys": [
+      "Others_Recipe_Writable",
+      "Other_Reicpe_Writable",
+      "Other_Recipe_Writable"
     ]
   }
 }

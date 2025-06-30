@@ -10,18 +10,6 @@ from logger import log
 from utils.helpers import code2format_str
 from utils.time_util import get_current_time
 
-valid_keys = [
-    "Others_Recipe_valid",
-    "Other_Reicpe_Valid",
-    "Other_Recipe_Valid"
-]
-
-writable_keys = [
-    "Others_Recipe_Writable",
-    "Other_Reicpe_Writable",
-    "Other_Recipe_Writable"
-]
-
 async def return_request_state(dev, req, state):
     """
     return request state to server
@@ -404,7 +392,7 @@ async def request_recipe_handle(dis, url, req, dev, module, write_recipe_id):
             await return_request_state(dev, req, 1009)
 
 
-async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id, ua_device, flow_index):
+async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id, ua_device, flow_index, valid_keys, writable_keys):
     """
     request recipe handle
     :param url: server url

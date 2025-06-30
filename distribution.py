@@ -66,6 +66,8 @@ class distribution_server(object):
         self.recipe_request_data = []
         self.recipe_single_module = []
         self.recipe_request_map = {}
+        self.recipe_valid_keys = []
+        self.writable_keys = []
         self.RESTART_FLAG = False  #  当前主程序是否重启Flag
         self.browse_proc = None  # 记录遍历变量进程
 
@@ -119,6 +121,8 @@ class distribution_server(object):
                     mc_mod_info = mc_module['module']
                     key = (mc_mod_info['blockId'], mc_mod_info['index'], mc_mod_info['category'])
                     self.recipe_request_map[key] = mc_module
+                self.recipe_valid_keys = recipe_monitor_info['recipe_valid_keys']
+                self.writable_keys = recipe_monitor_info['writable_keys']
             # pprint.pprint(self.recipe_config_data)
             print('Request Config file loaded - done.')
             log.info('Request Config file loaded - done.')
@@ -399,27 +403,47 @@ class distribution_server(object):
                     if mc_match := self.recipe_request_map.get(key):  # 如果是MC则直接写配方
                         await self.mqtt_cmd_write(frame_id, data, topic)  # 开始写配方
                     else:
-                        try:
-                            recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                     module['category'], "Others_Recipe_valid"))
-                            if not recipe_valid_info:
-                                recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                         module['category'],
-                                                                                         "Other_Reicpe_Valid"))
-                        except:
-                            recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                     module['category'], "Other_Reicpe_Valid"))
+                        # try:
+                        #     recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                        #                                                              module['category'], "Others_Recipe_valid"))
+                        #     if not recipe_valid_info:
+                        #         recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                        #                                                                  module['category'],
+                        #                                                                  "Other_Reicpe_Valid"))
+                        # except:
+                        #     recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                        #                                                              module['category'], "Other_Reicpe_Valid"))
+                        #
+                        # try:
+                        #     writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                        #                                                               module['category'], "Others_Recipe_Writable"))
+                        #     if not writable_path_info:
+                        #         writable_path_info = dev.code_to_node.get(
+                        #             code2format_str(module['blockId'], module['index'],
+                        #                             module['category'], "Other_Reicpe_Writable"))
+                        # except:
+                        #     writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                        #                                                               module['category'], "Other_Reicpe_Writable"))
 
-                        try:
-                            writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                      module['category'], "Others_Recipe_Writable"))
-                            if not writable_path_info:
-                                writable_path_info = dev.code_to_node.get(
-                                    code2format_str(module['blockId'], module['index'],
-                                                    module['category'], "Other_Reicpe_Writable"))
-                        except:
-                            writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
-                                                                                      module['category'], "Other_Reicpe_Writable"))
+                        recipe_valid_info = None
+                        for key in self.recipe_valid_keys:
+                            try:
+                                recipe_valid_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                                                                                     module['category'], key))
+                                if recipe_valid_info:
+                                    break
+                            except Exception:
+                                continue
+
+                        writable_path_info = None
+                        for key in self.writable_keys:
+                            try:
+                                writable_path_info = dev.code_to_node.get(code2format_str(module['blockId'], module['index'],
+                                                                                     module['category'], key))
+                                if writable_path_info:
+                                    break
+                            except Exception:
+                                continue
 
                         if not writable_path_info["value"]:  # 检查当前模组是否支持下载配方
                             msg = f'{module["blockId"]}-{module["index"]}-{module["category"]}模组当前不支持下载配方'
@@ -439,9 +463,9 @@ class distribution_server(object):
                                                                          'value': False}],
                                                                        1.5)  # 再把模组的Recipe_Valid’为False
                 except Exception as e:
-                    log.warning(f'向模组{module}手动写配方异常：{e}')
+                    log.warning(f'向模组{module}手动写配方异常,请检查该模组的Recipe Valid和Writable状态')
                     self.mqtt.publish(topic + '/reply', json.dumps({'success': False,
-                                                                    'message': f'向模组{module}写配方异常：{e}'}))
+                                                                    'message': f'向模组{module}写配方异常,请检查该模组的Recipe Valid和Writable状态'}))
 
     def mqtt_msg_parse(self, data, topic):
         """
@@ -783,7 +807,7 @@ class distribution_server(object):
                                 # await request_recipe_handle_gather_plc(self, self.config['Server']['Basic']['recipe_req_url'],
                                 #                                             req, dev, module, write_recipe_id)  # 并发下发Recipe - 单plc
                                 await request_recipe_handle_gather_link(self, self.config['Server']['Basic']['recipe_req_url'],
-                                                                            req, dev, module, write_recipe_id, self.ua_device, flow_index)  # 并发下发Recipe - 单link
+                                                                            req, dev, module, write_recipe_id, self.ua_device, flow_index, self.recipe_valid_keys, self.writable_keys)  # 并发下发Recipe - 单link
                             elif req['request']["value"] is False and (req['result']["value"] != 0):
                                 await clear_request_result(dev, req)
                     except Exception as e:
