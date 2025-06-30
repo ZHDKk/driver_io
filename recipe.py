@@ -10,6 +10,17 @@ from logger import log
 from utils.helpers import code2format_str
 from utils.time_util import get_current_time
 
+valid_keys = [
+    "Others_Recipe_valid",
+    "Other_Reicpe_Valid",
+    "Other_Recipe_Valid"
+]
+
+writable_keys = [
+    "Others_Recipe_Writable",
+    "Other_Reicpe_Writable",
+    "Other_Recipe_Writable"
+]
 
 async def return_request_state(dev, req, state):
     """
@@ -456,31 +467,52 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
                 current_dev = find_dev_with_module(re_module, ua_device)
                 key = (re_module["blockId"], re_module["index"], re_module["category"])
                 if not dis.recipe_request_map.get(key):
-                    try:
-                        recipe_valid_info = current_dev.code_to_node.get(
-                            code2format_str(re_module['blockId'], re_module['index'],
-                                            re_module['category'], "Others_Recipe_valid"))
-                        if not recipe_valid_info:
+                    # try:
+                    #     recipe_valid_info = current_dev.code_to_node.get(
+                    #         code2format_str(re_module['blockId'], re_module['index'],
+                    #                         re_module['category'], "Others_Recipe_valid"))
+                    #     if not recipe_valid_info:
+                    #         recipe_valid_info = current_dev.code_to_node.get(
+                    #             code2format_str(re_module['blockId'], re_module['index'],
+                    #                             re_module['category'], "Other_Reicpe_Valid"))
+                    # except:
+                    #     recipe_valid_info = current_dev.code_to_node.get(
+                    #         code2format_str(re_module['blockId'], re_module['index'],
+                    #                         re_module['category'], "Other_Reicpe_Valid"))
+                    #
+                    # try:
+                    #     writable_path_info = current_dev.code_to_node.get(
+                    #         code2format_str(re_module['blockId'], re_module['index'],
+                    #                         re_module['category'], "Others_Recipe_Writable"))
+                    #     if not writable_path_info:
+                    #         writable_path_info = current_dev.code_to_node.get(
+                    #             code2format_str(re_module['blockId'], re_module['index'],
+                    #                             re_module['category'], "Other_Reicpe_Writable"))
+                    # except:
+                    #     writable_path_info = current_dev.code_to_node.get(
+                    #         code2format_str(re_module['blockId'], re_module['index'],
+                    #                         re_module['category'], "Other_Reicpe_Writable"))
+                    recipe_valid_info = None
+                    for key in valid_keys:
+                        try:
                             recipe_valid_info = current_dev.code_to_node.get(
                                 code2format_str(re_module['blockId'], re_module['index'],
-                                                re_module['category'], "Other_Reicpe_Valid"))
-                    except:
-                        recipe_valid_info = current_dev.code_to_node.get(
-                            code2format_str(re_module['blockId'], re_module['index'],
-                                            re_module['category'], "Other_Reicpe_Valid"))
+                                                re_module['category'], key))
+                            if recipe_valid_info:
+                                break
+                        except Exception:
+                            continue
 
-                    try:
-                        writable_path_info = current_dev.code_to_node.get(
-                            code2format_str(re_module['blockId'], re_module['index'],
-                                            re_module['category'], "Others_Recipe_Writable"))
-                        if not writable_path_info:
+                    writable_path_info = None
+                    for key in writable_keys:
+                        try:
                             writable_path_info = current_dev.code_to_node.get(
                                 code2format_str(re_module['blockId'], re_module['index'],
-                                                re_module['category'], "Other_Reicpe_Writable"))
-                    except:
-                        writable_path_info = current_dev.code_to_node.get(
-                            code2format_str(re_module['blockId'], re_module['index'],
-                                            re_module['category'], "Other_Reicpe_Writable"))
+                                                re_module['category'], key))
+                            if writable_path_info:
+                                break
+                        except Exception:
+                            continue
 
                     if not writable_path_info["value"]:  # 检查当前模组是否支持下载配方
                         msg = f'{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组当前不支持下载配方，终止操作'
