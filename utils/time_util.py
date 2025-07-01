@@ -53,3 +53,15 @@ def millis_2_time(milliseconds):
     # time_string = f"{int(hours):02}:{int(minutes):02}:{seconds:06.3f}"[:8]  # 格式化为HH:MM:SS.mmm
     time_string_no_millis = f"{int(hours):02}:{int(minutes):02}:{int(seconds):02}"  # 格式化为HH:MM:SS
     return time_string_no_millis
+
+def filter_timestamp(ts: str) -> str:
+    """
+    如果 ts 的年份 < 2025，则返回空字符串；否则返回原 ts。
+    ts 格式假定为 'YYYY-MM-DD hh:mm:ss.xxx'
+    """
+    try:
+        year = int(ts[:4])
+    except (ValueError, TypeError):
+        # 如果无法解析年份，也返回空
+        return ""
+    return ts if year >= 2025 else ""

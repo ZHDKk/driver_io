@@ -13,7 +13,7 @@ from logger import log
 from asyncua import ua
 
 from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id
-from utils.time_util import get_current_time
+from utils.time_util import get_current_time, filter_timestamp
 
 
 def bytes_2_ua_data(datas: bytearray, byte_index: int, bit_index: int, var_type: ua.VariantType):
@@ -264,6 +264,7 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
                 #     print(f"{child.NodePath}:{o2m_value}")
             elif list_child["DataTypeString"] == "datetime":
                 value[n] = value[n].strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+                value[n] = filter_timestamp(value[n])
                 # list_child["DataTypeString"] = "string"
             O2M_list.append({"code": list_child["code"], "value": value[n], "dataType": list_child["DataTypeString"],"arrLen": list_child["ArrayDimensions"], "time": rtime})  # child's data type is single variable
         list_child["value"] = value[n]  # update to node
@@ -431,6 +432,7 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
                     #     print(f"{child.NodePath}:{o2m_value}")
                 elif list_child["DataTypeString"] == "datetime":
                     value[key] = value[key].strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+                    value[key] = filter_timestamp(value[key])
                     # list_child["DataTypeString"] = "string"
                 O2M_list.append(
                     {"code": list_child["code"], "value": value[key], "dataType": list_child["DataTypeString"],
@@ -469,6 +471,7 @@ async def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg):
                 value = round_half_up(value, precision)
             elif list_node["DataTypeString"] == "datetime":
                 value = value.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+                value = filter_timestamp(value)
                 # list_node["DataTypeString"] = "string"
             O2M_list.append({"code": list_node['code'], "value": value, "dataType": list_node['DataTypeString'],
                              "arrLen": list_node['ArrayDimensions'], "time": rtime})
