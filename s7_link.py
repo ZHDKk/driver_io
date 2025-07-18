@@ -3,7 +3,6 @@ import struct
 import time
 
 import snap7
-from snap7.type import Areas
 
 from logger import log
 from snap7.client import Client as Snap7Client
@@ -37,12 +36,12 @@ class s7_linker(object):
     async def async_read_db(self, client: Snap7Client, db_number, start, size):
         async with self.rw_lock:
             return await asyncio.get_running_loop().run_in_executor(None, client.read_area,
-                                                                    Areas.DB, db_number, start, size)
+                                                                    snap7.type.Areas.DB, db_number, start, size)
 
     async def async_write_db(self, client: Snap7Client, db_number, start, data):
         async with self.rw_lock:
             return await asyncio.get_running_loop().run_in_executor(None, client.write_area,
-                                                                    Areas.DB, db_number, start, data)
+                                                                    snap7.type.Areas.DB, db_number, start, data)
 
     async def new_client(self):
         pass
@@ -121,7 +120,7 @@ class s7_linker(object):
 
                 if type(value) == bool:
                     if self.sync is True:
-                        tmp_w = self.client_w.read_area(Areas.DB, db, byte_index, size)
+                        tmp_w = self.client_w.read_area(snap7.type.Areas.DB, db, byte_index, size)
                     else:
                         tmp_w = await asyncio.wait_for(self.async_read_db(self.client_w, db, byte_index, size), timeout=timeout)
                     # print(f'before write bool {tmp_w}')
@@ -137,7 +136,7 @@ class s7_linker(object):
 
                 # write data to plc via snap7
                 if self.sync is True:
-                    self.client_w.write_area(Areas.DB, db, byte_index, tmp_w)
+                    self.client_w.write_area(snap7.type.Areas.DB, db, byte_index, tmp_w)
                 else:
                     await asyncio.wait_for(self.async_write_db(self.client_w, db, byte_index, tmp_w), timeout=timeout)
 
@@ -166,7 +165,7 @@ class s7_linker(object):
                 size = node['s7_size']
                 # read data from plc via snap7
                 if self.sync is True:
-                    value = self.client.read_area(Areas.DB, db, byte_index, size)
+                    value = self.client.read_area(snap7.type.Areas.DB, db, byte_index, size)
                 else:
                     value = await asyncio.wait_for(self.async_read_db(self.client, db, byte_index, size), timeout)
                 # print('read s7 value:', value)
