@@ -1,8 +1,0 @@
-2025-04-16 10:04:13,165 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
-2025-04-16 10:04:13,166 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
-2025-04-16 10:10:55,705 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
-2025-04-16 10:10:55,705 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
-2025-04-16 10:12:07,260 - drv_tool - WARNING - opcuaBrowse 初始化失败：'NoneType' object has no attribute 'get'
-2025-04-16 10:14:04,166 - drv_tool - INFO - 程序被用户中断，正在清理资源并退出...
-2025-04-16 10:14:08,630 - drv_tool - INFO - 成功连接到 MQTT 服务器: localhost:1883
-2025-04-16 10:14:08,630 - drv_tool - INFO - Subscribed to topic: /mqtt/general/cmd/+
