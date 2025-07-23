@@ -1,0 +1,20 @@
+2025-07-22 13:18:05,927 - drv_io - INFO - Driver Config file loaded - done.
+2025-07-22 13:18:05,929 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.30:4840,ns=3;s="EFEM")] to system.
+2025-07-22 13:18:05,929 - drv_io - INFO - Configuration setting is no load.
+2025-07-22 13:18:05,930 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-07-22 13:18:05,930 - drv_io - INFO - Configuration setting is no load.
+2025-07-22 13:18:05,930 - drv_io - INFO - Add opcua COTopcua [opc.tcp://192.168.20.50:4840,ns=3;s="PC_Base")] to system.
+2025-07-22 13:18:06,083 - drv_io - INFO - Load COT variable list, True.
+2025-07-22 13:18:06,083 - drv_io - INFO - --Module is 4, Variable is 5217,Reading Block is 28.
+2025-07-22 13:18:06,085 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-07-22 13:18:06,085 - drv_io - INFO - Configuration setting is no load.
+2025-07-22 13:18:06,085 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.30:4840,ns=3;s="OVEN")] to system.
+2025-07-22 13:18:06,085 - drv_io - INFO - Configuration setting is no load.
+2025-07-22 13:18:06,085 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.30:4840,ns=3;s="Utility")] to system.
+2025-07-22 13:18:06,085 - drv_io - INFO - Configuration setting is no load.
+2025-07-22 13:18:06,086 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-07-22 13:18:06,086 - drv_io - INFO - Configuration setting is no load.
+2025-07-22 13:18:06,086 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-07-22 13:18:06,086 - drv_io - INFO - Configuration setting is no load.
+2025-07-22 13:18:06,086 - drv_io - INFO - Add opcua MCopcua [opc.tcp://192.168.20.30:4840,ns=3;s="MC")] to system.
+2025-07-22 13:18:06,086 - drv_io - INFO - Configuration setting is no load.
