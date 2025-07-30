@@ -811,7 +811,7 @@ class distribution_server(object):
                             elif req['request']["value"] is False and (req['result']["value"] != 0):
                                 await clear_request_result(dev, req)
                     except Exception as e:
-                        log.warning(f'Failure to request {module} recipe.{e}')
+                        log.warning(f'向模组{module}写配方异常{e},请检查各模组的Recipe Valid和Writable状态')
 
     async def timed_clear_task(self):
         """
