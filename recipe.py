@@ -501,7 +501,10 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
                                 break
                         except Exception:
                             continue
-
+                    if recipe_valid_info is None or writable_path_info is None:
+                        log.warning(f'终止操作，请核对{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组Recipe Valid或Writable是否存在或异常')
+                        await return_request_state(dev, req, 1005)
+                        return
                     if not writable_path_info["value"]:  # 检查当前模组是否支持下载配方
                         msg = f'{re_module["blockId"]}-{re_module["index"]}-{re_module["category"]}模组当前不支持下载配方，终止操作'
                         log.warning(msg)
