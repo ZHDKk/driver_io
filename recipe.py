@@ -1,3 +1,4 @@
+import json
 import time
 
 import asyncio
@@ -392,7 +393,7 @@ async def request_recipe_handle(dis, url, req, dev, module, write_recipe_id):
             await return_request_state(dev, req, 1009)
 
 
-async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id, ua_device, flow_index, valid_keys, writable_keys):
+async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_recipe_id, ua_device, flow_index, valid_keys, writable_keys, mqtt):
     """
     request recipe handle
     :param url: server url
@@ -431,6 +432,13 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
     elif datas['code'] == 20002:
         log.warning(f'Failure to request from server, 20002: recipe class is invalid.')
         await return_request_state(dev, req, 1004)
+    elif datas['code'] == 20003:  # 增加Recipe check 逻辑
+        log.warning(f'Failure to request from server, 20003: {datas["message"]}')
+        mqtt.publish(mqtt.pub_drv_broadcast, json.dumps({
+            "type":"RecipeCheckError",
+            "data":datas["msgList"]
+        }), 2)
+        await return_request_state(dev, req, 1009)
     elif datas['code'] == 200:
         await return_request_state(dev, req, 2)
         print(f'{get_current_time()}: 配方开始向PLC下载...')
@@ -588,7 +596,11 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
             log.warning(f'自动下载配方失败-1009，请查看上面写入失败原因')
             await return_request_state(dev, req, 1009)
     else:
-        await return_request_state(dev, req, 1003)
+        mqtt.publish(mqtt.pub_drv_broadcast, json.dumps({
+            "type": "RecipeDownloadError",
+            "data": datas["message"]
+        }), 2)
+        await return_request_state(dev, req, datas['code'])
 
 
 async def write_all_rv_false(rv_m2o_list, dev, req):

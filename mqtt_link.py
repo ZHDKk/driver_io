@@ -33,6 +33,7 @@ class mqtt_linker(object):
         self.pub_drv_data_struct = topics['pub_drv_data_struct']
         self.pub_modules_status = topics['pub_modules_status']  # 发布模组的当前连接状态
         self.pub_drv_msg = topics['pub_drv_msg']
+        self.pub_drv_broadcast = topics['pub_drv_broadcast']
 
         # message queue for mqtt
         # self.mq = queue.Queue()  # message queue for mqtt

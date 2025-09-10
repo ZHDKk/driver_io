@@ -340,7 +340,8 @@
             "pub_drv_data": "/mqtt/drv/data",
             "pub_drv_data_struct": "/mqtt/drv/data_struct",
             "pub_modules_status": "/mqtt/modules/status",
-            "pub_drv_msg": "/mqtt/drv/msg"
+            "pub_drv_msg": "/mqtt/drv/msg",
+            "pub_drv_broadcast": "/mqtt/drv/broadcast"
         },
         "Other": {}
     },

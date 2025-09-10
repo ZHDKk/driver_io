@@ -807,7 +807,7 @@ class distribution_server(object):
                                 # await request_recipe_handle_gather_plc(self, self.config['Server']['Basic']['recipe_req_url'],
                                 #                                             req, dev, module, write_recipe_id)  # 并发下发Recipe - 单plc
                                 await request_recipe_handle_gather_link(self, self.config['Server']['Basic']['recipe_req_url'],
-                                                                            req, dev, module, write_recipe_id, self.ua_device, flow_index, self.recipe_valid_keys, self.writable_keys)  # 并发下发Recipe - 单link
+                                                                            req, dev, module, write_recipe_id, self.ua_device, flow_index, self.recipe_valid_keys, self.writable_keys, self.mqtt)  # 并发下发Recipe - 单link
                             elif req['request']["value"] is False and (req['result']["value"] != 0):
                                 await clear_request_result(dev, req)
                     except Exception as e:
