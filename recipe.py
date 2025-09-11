@@ -9,7 +9,8 @@ from bigtree import find_child_by_name, find_path
 from api.api_manager import request_get
 from logger import log
 from utils.helpers import code2format_str
-from utils.time_util import get_current_time
+from utils.time_util import get_current_time, get_milliseconds
+
 
 async def return_request_state(dev, req, state):
     """
@@ -435,8 +436,9 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
     elif datas['code'] == 20003:  # 增加Recipe check 逻辑
         log.warning(f'Failure to request from server, 20003: {datas["message"]}')
         mqtt.publish(mqtt.pub_drv_broadcast, json.dumps({
+            "timestamp":get_milliseconds(),
             "type":"RecipeCheckError",
-            "data":datas["msgList"]
+            "data":datas["checkResult"]
         }), 2)
         await return_request_state(dev, req, 1009)
     elif datas['code'] == 200:
@@ -597,6 +599,7 @@ async def request_recipe_handle_gather_link(dis, url, req, dev, module, write_re
             await return_request_state(dev, req, 1009)
     else:
         mqtt.publish(mqtt.pub_drv_broadcast, json.dumps({
+            "timestamp": get_milliseconds(),
             "type": "RecipeDownloadError",
             "data": datas["message"]
         }), 2)
