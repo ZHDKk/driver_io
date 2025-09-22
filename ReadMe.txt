@@ -123,7 +123,8 @@ b、将快捷方式拖入启动文件夹中即可
 1、驱动层的Basic中的blockId为100、index从101开始、category是Driver、name是MRG_RP
 
 十、时间同步问题：
-1、Windows系统搭建NTP服务器：
+1、Windows系统搭建NTP服务器：直接右键管理员运行configure_ntp_server.bat文件  或
+
     win+R:gpedit.msc，然后在本地组策略编辑器 计算机配置–管理模板–系统–windows时间服务–时间提供程序–启动windows NTP服务器
     管理员身份运行终端：
     输入：net stop w32Time，回车
