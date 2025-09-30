@@ -55,7 +55,7 @@ def path_2info(path: str):
                 "blockId": block_id,
                 "index": index,
                 "category": category,
-                "name": '_'.join(parts[parts.index(part) + 1:])  # 提取后续路径作为 name
+                "name": '_'.join(parts[parts.index(part)+1:])  # 提取后续路径作为 name
             }
     # 默认返回（当路径中无有效模块时）
     return {"blockId": 0, "index": 0, "category": "Unknown", "name": path[1:].replace('/', '_')}
@@ -219,19 +219,11 @@ class opcua_linker(object):
         self.last_linking_time = 0  # last reading variables or connecting time
         self.linking = False
 
+        self.retry_write = 0  # 记录重写次数
         self.retry_write_max = 5  # 重写次数上限
         self.read_value = None
         self.var_obj_read_flag = 0
         self.write_variable_count = 10
-
-        # 新增配置参数
-        self.base_timeout = 2  # 基础超时时间（秒）
-        self.max_timeout = 30  # 最大超时时间（秒）
-        self.read_retry_max = 3  # 读取最大重试次数
-        self.write_verification_enabled = False  # 是否启用写入验证
-        self.adaptive_batch_size = True  # 是否启用自适应批次大小
-        self.min_batch_size = 50  # 最小批次大小
-        self.max_batch_size = 400  # 最大批次大小
 
     async def new_client(self):
         self.client = Client(self.uri, timeout=self.timeout, watchdog_intervall=self.watchdog_interval)
@@ -307,7 +299,7 @@ class opcua_linker(object):
             except:
                 log.warning(f'Failure to subscribe {n}')
 
-    async def write_multi_variables(self, variables, timeout=0.1, batch_size=500):
+    async def write_multi_variables(self, variables, timeout=8, batch_size=500):
         """
         将变量分批次写入 OPC UA 服务器。
         :param variables: 要写入的变量列表，每个元素是一个字典，包含 'node_id', 'value', 和 'datatype'。
@@ -316,61 +308,44 @@ class opcua_linker(object):
         """
         print(f"{get_current_time()} 写入变量总数量：{len(variables)}")
         log.info(f"写入变量总数量：{len(variables)}")
-
-        # 自适应批次大小
-        if self.adaptive_batch_size:
-            batch_size = self._calculate_adaptive_batch_size(len(variables))
-
-        # 动态计算超时时间
-        calculated_timeout = self._calculate_timeout(len(variables))
-        timeout = max(timeout, calculated_timeout)  # 使用较大的超时值
-
-        if len(variables) <= batch_size:
+        if len(variables) < batch_size:
             try:
+                self.retry_write = 0  # 重写复位
                 state = await self.write_variables(variables, timeout, 1, 1)
-
-                # 写入验证
-                if state and self.write_verification_enabled:
-                    verification_result = await self._verify_write_result(variables)
-                    if not verification_result:
-                        log.warning(f"写入验证失败: {[v['node_id'] for v in variables]}")
-                        return False
-
                 return state
             except Exception as e:
-                log.error(f"写入单批次异常: {e}")
                 return False
         else:
             try:
                 total_batches = (len(variables) + batch_size - 1) // batch_size  # 计算总批次数
-                success_all = True
-
+                tasks = []
+                success = False
                 for i in range(total_batches):
                     batch = variables[i * batch_size:(i + 1) * batch_size]
-                    batch_success = await self.write_variables(batch, timeout, i + 1, total_batches)
-
-                    if not batch_success:
-                        success_all = False
-                        # 可以选择继续执行其他批次或立即返回
-                        # break  # 取消注释则一个批次失败就停止
-
-                return success_all
+                    # tasks.append(self.write_variables(batch, timeout, batch_num=i + 1, total_batches=total_batches))
+                    self.retry_write = 0  # 重写复位
+                    success = await self.write_variables(batch, timeout, i + 1, total_batches)
+                    if success:
+                        continue
+                    else:
+                        break
+                # success_all = await asyncio.gather(*tasks)
+                # print(success_all)
+                # return all(success_all)  # 如果 success_all 中所有元素都是 True，则返回 True；否则返回 False
+                return success
             except Exception as e:
-                log.error(f"写入多批次异常: {e}")
                 return False
 
-    async def write_variables(self, variables, timeout, batch_num, total_batches, retry_count=0):
+    async def write_variables(self, variables, timeout, batch_num, total_batches):
         """
         将多个变量写入 OPC UA 服务器。
         :param variables: 要写入的变量列表，每个元素是一个字典，包含 'node_id', 'value', 和 'datatype'。
         :param timeout: 写入操作的超时时间。
         :param batch_num: 当前批次号，用于日志记录。
         :param total_batches: 总批次数，用于日志记录。
-        :param retry_count: 当前重试次数（内部使用）
         """
         self.write_variable_count = len(variables)
         write_state_fail_docs = []  # 记录写入失败的状态描述
-
         try:
             request = ua.WriteRequest()
             for v in variables:
@@ -379,12 +354,14 @@ class opcua_linker(object):
                 attr.AttributeId = ua.AttributeIds.Value
                 attr.Value = ua.DataValue(ua.Variant(v['value'], ua.VariantType(v['datatype'])))
                 request.Parameters.NodesToWrite.append(attr)
+            # print(request)
 
             start_time = int(time.time() * 1000)
             data = await self.client.uaclient.protocol.send_request(request)
             response = struct_from_binary(ua.WriteResponse, data)
             response.ResponseHeader.ServiceResult.check()
             write_states = response.Results
+            # write_states = await self.client.uaclient.write_attributes(nodes, values, ua.AttributeIds.Value)
             write_time = int(time.time() * 1000) - start_time
             self.last_linking_time = int(time.time() * 1000)
 
@@ -405,11 +382,6 @@ class opcua_linker(object):
                 success_message = f"{message_prefix} 通过OPCUA写入成功，耗时 {write_time}ms, {self.uri}"
                 print(success_message)
                 log.info(success_message)
-
-                # 关键写入后添加短暂延迟，确保PLC处理
-                if self.write_variable_count > 0:
-                    await asyncio.sleep(0.01)  # 10ms延迟
-
                 return True
             else:
                 fail_message = f"{message_prefix} ，结果：{write_state_fail_docs}无法通过OPCUA写入, {self.uri}"
@@ -417,43 +389,124 @@ class opcua_linker(object):
                 return False
 
         except asyncio.TimeoutError:
-            error_type = "超时"
-            error_detail = f"写入{timeout}s超时"
-        except ua.UaError as e:
-            error_type = "OPC UA错误"
-            error_detail = f"UA错误: {e}"
-        except ConnectionError as e:
-            error_type = "连接错误"
-            error_detail = f"连接异常: {e}"
+            if self.write_variable_count < 5:
+                message_prefix = f"第{batch_num}/{total_batches}批次，变量：{variables}"
+            else:
+                message_prefix = f"第{batch_num}/{total_batches}批次，总数量：{self.write_variable_count}"
+            log.warning(f"{message_prefix}，写入{timeout}s超时,{self.uri}")
         except Exception as e:
-            error_type = "未知错误"
-            error_detail = f"异常: {e}"
-
-        # 错误日志
-        if self.write_variable_count < 5:
-            message_prefix = f"第{batch_num}/{total_batches}批次，变量：{variables}"
-        else:
-            message_prefix = f"第{batch_num}/{total_batches}批次，总数量：{self.write_variable_count}"
-
-        log.warning(f"{message_prefix}，{error_type}: {error_detail}, {self.uri}")
+            if self.write_variable_count < 5:
+                message_prefix = f"第{batch_num}/{total_batches}批次，变量：{variables}"
+            else:
+                message_prefix = f"第{batch_num}/{total_batches}批次，总数量：{self.write_variable_count}"
+            log.warning(f"{message_prefix}，写入失败：{variables}，错误信息：{e},{self.uri}")
 
         # 失败重试逻辑
-        if retry_count < self.retry_write_max:
-            retry_count += 1
-            retry_delay = 0.1 * (2 ** retry_count)  # 指数退避策略
-            retry_message = f"{get_current_time()} 第{batch_num}/{total_batches}批次，尝试第{retry_count}次重写，等待{retry_delay:.2f}s后重试, {self.uri}"
+        if self.retry_write < self.retry_write_max:
+            self.retry_write += 1
+            retry_message = f"{get_current_time()} 第{batch_num}/{total_batches}批次，尝试第{self.retry_write}次重写,{self.uri}"
             print(retry_message)
             log.info(retry_message)
-
-            await asyncio.sleep(retry_delay)
-            return await self.write_variables(variables, timeout, batch_num, total_batches, retry_count)
+            return await self.write_variables(variables, timeout, batch_num, total_batches)
         else:
             if self.write_variable_count < 5:
-                log.warning(f"最终失败：无法通过 OPC UA 写入 {variables}, {self.uri}, 请把批次数量减少再次尝试")
+                log.warning(f"最终失败：无法通过 OPC UA 写入 {variables},{self.uri},请把批次数量减少再次尝试")
             else:
-                log.warning(
-                    f"最终失败：无法通过 OPC UA 写入 {len(variables)} 个变量, {self.uri}, 请把批次数量减少再次尝试")
+                log.warning(f"最终失败：无法通过 OPC UA 写入 {len(variables)},{self.uri},请把批次数量减少再次尝试")
             return False
+
+    # async def write_variables(self, variables, timeout, batch_num, total_batches):
+    #     """
+    #     将多个变量写入 OPC UA 服务器。
+    #     :param variables: 要写入的变量列表，每个元素是一个字典，包含 'node_id', 'value', 和 'datatype'。
+    #     :param timeout: 写入操作的超时时间。
+    #     :param batch_num: 当前批次号，用于日志记录。
+    #     :param total_batches: 总批次数，用于日志记录。
+    #     """
+    #     nodes = []
+    #     values = []
+    #     write_state_values = []  # 通过opcua写入变量返回的状态码
+    #     write_state_fail_docs = []  # 通过opcua写入变量失败的返回的状态描述
+    #     try:
+    #         for v in variables:
+    #             nodes.append(ua.NodeId.from_string(v['node_id']))
+    #             values.append(ua.DataValue(ua.Variant(v['value'], ua.VariantType(v['datatype']))))
+    #
+    #         stat_t = int(time.time() * 1000)
+    #         # 根据批次大小动态调整 timeout，按批次大小线性增加 每增加一个变量，就额外增加一个固定的时间
+    #         # timeout = timeout + (len(values) * 0.002)
+    #         # write_states = await asyncio.wait_for(self.client.uaclient.write_attributes(nodes, values, ua.AttributeIds.Value), timeout)
+    #         # print(values)
+    #         write_states = await self.client.uaclient.write_attributes(nodes, values, ua.AttributeIds.Value)
+    #
+    #         write_time = int(time.time() * 1000) - stat_t
+    #         self.last_linking_time = int(time.time() * 1000)
+    #
+    #         for i, write_state in enumerate(write_states):
+    #             write_state_values.append(write_state.value)  # 写入变量返回的状态码
+    #             if write_state.value != 0:  # 写入失败的变量整理
+    #                 fail_msg = f"---->>通过opcua写入失败，返回的状态码：{write_state.value}，描述：{write_state.doc}，node_id：{variables[i]}<<----"
+    #                 # print(f"{get_current_time()}:{fail_msg}")
+    #                 # log.warning(fail_msg)
+    #                 write_state_fail_docs.append(fail_msg)  # 写入变量返回的状态描述
+    #
+    #         if all(value == 0 for value in write_state_values):
+    #             # 如果所有元素都是0表示所有元素都写入成功
+    #             if len(variables) < 5:
+    #                 print(
+    #                     f'{get_current_time()}第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量:{variables}通过opcua写入成功，消耗{write_time}ms')
+    #                 log.info(
+    #                     f'第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量:{variables}通过opcua写入成功，消耗{write_time}ms')
+    #             else:
+    #                 print(
+    #                     f'{get_current_time()}第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量,通过opcua写入成功，消耗{write_time}ms')
+    #                 log.info(
+    #                     f'第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量,通过opcua写入成功，消耗{write_time}ms')
+    #             return True
+    #         else:
+    #             if len(variables) < 5:
+    #                 log.warning(
+    #                     f'第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量:{variables}通过opcua写入失败：{write_state_fail_docs}')
+    #             else:
+    #                 log.warning(f'第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量,通过opcua写入失败：{write_state_fail_docs}')
+    #             return False
+    #
+    #     except Exception as e:
+    #         if len(variables) < 5:
+    #             log.warning(
+    #                 f'第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量:{variables}通过opcua写入失败')
+    #         else:
+    #             log.warning(f'第{batch_num}/{total_batches}批次，总数量：{len(variables)} 变量,通过opcua写入失败')
+    #         # 这包数据如果写入失败，则重新尝试写入
+    #         if self.retry_write < self.retry_write_max:
+    #             self.retry_write += 1
+    #             print(f'{get_current_time()}第{batch_num}/{total_batches}批次，尝试第{self.retry_write}次重写')
+    #             log.info(f'第{batch_num}/{total_batches}批次，尝试第{self.retry_write}次重写')
+    #             state = await self.write_variables(variables, timeout, batch_num, total_batches)
+    #             return state
+    #         else:
+    #             log.warning(f'Failure to write {variables} via opcua. because {e}')
+    #             return False
+
+    # async def write_multi_variables(self, variables, timeout=0.1):
+    #     """
+    #     Write multiple variables to opcua server
+    #     """
+    #     nodes = []
+    #     values = []
+    #     try:
+    #         for v in variables:
+    #             nodes.append(ua.NodeId.from_string(v['node_id']))
+    #             values.append(ua.DataValue(ua.Variant(v['value'], ua.VariantType(v['datatype']))))
+    #         await asyncio.wait_for(self.client.uaclient.write_attributes(nodes, values, ua.AttributeIds.Value), timeout)
+    #         self.last_linking_time = int(time.time() * 1000)
+    #         log.info(f'Success to Write {variables} variables via opcua.')
+    #         return True
+    #     except:
+    #         log.warning(f'Failure to write {variables} via opcua.')
+    #         # print(nodes)
+    #         # print(values)
+    #         return False
 
     async def read_multi_variables(self, node_id, timeout=0.2):
         """
@@ -483,61 +536,6 @@ class opcua_linker(object):
             result = []
             log.warning(f'Failure to read opcua: {node_id}, timeout is {timeout}.')
             return result
-
-    async def _verify_write_result(self, variables, max_verification_attempts=2):
-        """
-        验证写入结果
-        :param variables: 写入的变量列表
-        :param max_verification_attempts: 最大验证尝试次数
-        """
-        node_ids = [v['node_id'] for v in variables]
-        expected_values = [v['value'] for v in variables]
-
-        for attempt in range(max_verification_attempts):
-            await asyncio.sleep(0.05)  # 给PLC处理时间
-            read_values = await self.read_multi_variables(node_ids)
-
-            if read_values and len(read_values) == len(expected_values):
-                if read_values == expected_values:
-                    log.info(f"写入验证成功: {len(variables)}个变量")
-                    return True
-                else:
-                    # 记录不匹配的变量
-                    mismatches = []
-                    for i, (expected, actual) in enumerate(zip(expected_values, read_values)):
-                        if expected != actual:
-                            mismatches.append(f"变量{i}: 期望{expected}≠实际{actual}")
-
-                    if attempt < max_verification_attempts - 1:
-                        log.warning(f"写入验证不匹配(尝试{attempt + 1}): {mismatches}")
-                    else:
-                        log.error(f"写入验证最终失败: {mismatches}")
-            else:
-                log.warning(
-                    f"验证读取失败或数量不匹配: 期望{len(expected_values)}，实际{len(read_values) if read_values else 0}")
-
-        return False
-
-    def _calculate_adaptive_batch_size(self, total_variables):
-        """
-        计算自适应批次大小
-        """
-        if total_variables <= self.min_batch_size:
-            return total_variables  # 小批量直接全写
-        elif total_variables <= 100:
-            return self.min_batch_size
-        else:
-            # 大批次时适当减小批次大小
-            return min(self.max_batch_size, max(self.min_batch_size, total_variables // 3))
-
-    def _calculate_timeout(self, variable_count):
-        """
-        根据变量数量动态计算超时时间
-        """
-        base_timeout = self.base_timeout
-        variable_factor = variable_count * 0.01  # 每个变量增加10ms
-        calculated_timeout = base_timeout + variable_factor
-        return min(calculated_timeout, self.max_timeout)
 
     async def check_write_result(self, nodes):
         """
@@ -577,7 +575,7 @@ class opcua_linker(object):
         try:
             var_type = (await node.read_data_type_as_variant_type()).value
             var_type_str = ua_data_type_to_string(ua.VariantType(var_type))
-            type_result = {'DataType': int(var_type), 'DataTypeString': var_type_str}
+            type_result = {'DataType': int(var_type),'DataTypeString': var_type_str}
         except:
             print(f'无法确定节点变量类型:{node}')
 
@@ -666,7 +664,7 @@ class opcua_linker(object):
                 if decimal_point == 0:
                     decimal_point = 3
         return {
-            'path': path,
+            'path':path,
             'name': node_name,
             'ArrayDimensions': array_dimensions,
             'DataType': int(var_type),
@@ -693,32 +691,3 @@ class opcua_linker(object):
             "timed_clear_time": 1000,
             'value': value,
         }
-
-    # 新增配置方法
-    def configure_write_settings(self, base_timeout=None, max_timeout=None,
-                                 retry_max=None, verification_enabled=None,
-                                 adaptive_batch=None, min_batch=None, max_batch=None):
-        """
-        动态配置写入参数
-        """
-        if base_timeout is not None:
-            self.base_timeout = base_timeout
-        if max_timeout is not None:
-            self.max_timeout = max_timeout
-        if retry_max is not None:
-            self.retry_write_max = retry_max
-        if verification_enabled is not None:
-            self.write_verification_enabled = verification_enabled
-        if adaptive_batch is not None:
-            self.adaptive_batch_size = adaptive_batch
-        if min_batch is not None:
-            self.min_batch_size = min_batch
-        if max_batch is not None:
-            self.max_batch_size = max_batch
-
-    def configure_read_settings(self, retry_max=None):
-        """
-        动态配置读取参数
-        """
-        if retry_max is not None:
-            self.read_retry_max = retry_max
