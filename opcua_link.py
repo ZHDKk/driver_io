@@ -531,9 +531,12 @@ class opcua_linker(object):
 
             # 检查写入结果
             for i, write_state in enumerate(write_states):
-                if write_state.value != 0:  # 只记录无法写入的变量
+                # if write_state.value != 0:  # 只记录无法写入的变量
+                # print(f"---->>Node ID: {variables[i]['node_id']}，"
+                #                 f"写入返回的状态码: {write_state.value},状态名：{write_state.name},描述: {write_state.doc}<<----")
+                if not write_state.is_good():
                     fail_msg = (f"---->>Node ID: {variables[i]['node_id']}，"
-                                f"写入返回的状态码: {write_state.value}，描述: {write_state.doc}<<----")
+                                f"写入返回的状态码: {write_state.value},状态：{write_state.name},描述: {write_state.doc}<<----")
                     write_state_fail_docs.append(fail_msg)
 
             # 统一日志输出
