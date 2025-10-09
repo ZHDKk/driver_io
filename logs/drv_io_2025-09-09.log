@@ -1,0 +1,69 @@
+2025-09-09 13:09:56,158 - drv_io - INFO - Driver Config file loaded - done.
+2025-09-09 13:09:56,175 - drv_io - INFO - Add opcua EFEMopcua [opc.tcp://192.168.20.30:4840,ns=3;s="EFEM")] to system.
+2025-09-09 13:09:56,176 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:09:56,176 - drv_io - INFO - Add opcua Equipmentopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Equipment")] to system.
+2025-09-09 13:09:56,176 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:09:56,176 - drv_io - INFO - Add opcua COTopcua [opc.tcp://192.168.20.50:4840,ns=3;s="PC_Base")] to system.
+2025-09-09 13:09:56,376 - drv_io - INFO - Load COT variable list, True.
+2025-09-09 13:09:56,376 - drv_io - INFO - --Module is 4, Variable is 5217,Reading Block is 28.
+2025-09-09 13:09:56,424 - drv_io - INFO - Add opcua Chemicalopcua [opc.tcp://192.168.20.50:4840,ns=3;s="Chemical")] to system.
+2025-09-09 13:09:56,424 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:09:56,425 - drv_io - INFO - Add opcua OVENopcua [opc.tcp://192.168.20.30:4840,ns=3;s="OVEN")] to system.
+2025-09-09 13:09:56,425 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:09:56,425 - drv_io - INFO - Add opcua Utilityopcua [opc.tcp://192.168.20.30:4840,ns=3;s="Utility")] to system.
+2025-09-09 13:09:56,425 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:09:56,425 - drv_io - INFO - Add opcua PRAopcua [opc.tcp://192.168.20.1:4840,ns=3;s="PRA")] to system.
+2025-09-09 13:09:56,425 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:09:56,426 - drv_io - INFO - Add opcua Robotopcua [opc.tcp://192.168.20.1:4840,ns=3;s="Robot")] to system.
+2025-09-09 13:09:56,426 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:09:56,426 - drv_io - INFO - Add opcua MCopcua [opc.tcp://192.168.20.30:4840,ns=3;s="MC")] to system.
+2025-09-09 13:09:56,426 - drv_io - INFO - Configuration setting is no load.
+2025-09-09 13:10:06,417 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:10:06,418 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:10:06,418 - drv_io - INFO - --Subscription False,Subscription variable is 0.
+2025-09-09 13:10:08,477 - drv_io - INFO - MQTT id:python-mqtt-sub-973, url:localhost:1883.
+2025-09-09 13:10:08,477 - drv_io - INFO - MQTT subscription is False
+2025-09-09 13:10:08,479 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/msg/+
+2025-09-09 13:10:08,479 - drv_io - INFO - MQTT subscribe new topic:/mqtt/gui/cmd/+
+2025-09-09 13:10:08,479 - drv_io - INFO - MQTT subscribe new topic:/mqtt/server/cmd/+
+2025-09-09 13:10:08,479 - drv_io - INFO - MQTT subscribe new topic:/mqtt/general/cmd/+
+2025-09-09 13:10:08,479 - drv_io - INFO - Connected to MQTT, connecting is True.
+2025-09-09 13:10:08,491 - drv_io - INFO - Request Config file loaded - done.
+2025-09-09 13:10:18,516 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:10:18,516 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:10:28,540 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:10:28,540 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:10:38,572 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:10:38,572 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:10:48,613 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:10:48,613 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:10:58,638 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:10:58,638 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:11:08,672 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:11:08,672 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:11:18,704 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:11:18,704 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:11:28,727 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:11:28,727 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:11:38,765 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:11:38,765 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:11:48,780 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:11:48,780 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:11:58,800 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:11:58,800 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:12:08,831 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:12:08,831 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:12:18,843 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:12:18,843 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:12:28,866 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:12:28,866 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:12:38,906 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:12:38,907 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:12:48,931 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:12:48,931 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:12:58,969 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:12:58,969 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:13:08,988 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:13:08,988 - drv_io - INFO - Connect COT, False.
+2025-09-09 13:13:19,033 - drv_io - WARNING - Failure to link to opc.tcp://192.168.20.50:4840.
+2025-09-09 13:13:19,033 - drv_io - INFO - Connect COT, False.

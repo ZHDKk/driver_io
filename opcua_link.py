@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import math
 
 import pprint
 from datetime import datetime
@@ -10,6 +11,80 @@ from asyncua.ua.ua_binary import struct_from_binary
 from logger import log
 from utils.helpers import count_decimal_places, generate_paths, is_target_format
 from utils.time_util import get_current_time
+
+# 在文件开头添加容差比较相关的函数和常量
+
+# 浮点数比较容差
+FLOAT_ABSOLUTE_TOLERANCE = 1e-6
+FLOAT_RELATIVE_TOLERANCE = 1e-5
+
+
+def is_float_type(datatype):
+    """判断是否为浮点数类型"""
+    return datatype in [ua.VariantType.Float, ua.VariantType.Double]
+
+
+def are_values_equal(expected, actual, datatype, absolute_tolerance=None, relative_tolerance=None):
+    """
+    容差比较函数，支持浮点数精度处理
+    :param expected: 期望值
+    :param actual: 实际值
+    :param datatype: 数据类型
+    :param absolute_tolerance: 绝对容差
+    :param relative_tolerance: 相对容差
+    :return: 是否在容差范围内相等
+    """
+    if absolute_tolerance is None:
+        absolute_tolerance = FLOAT_ABSOLUTE_TOLERANCE
+    if relative_tolerance is None:
+        relative_tolerance = FLOAT_RELATIVE_TOLERANCE
+
+    # 处理None值
+    if expected is None and actual is None:
+        return True
+    if expected is None or actual is None:
+        return False
+
+    # 处理字符串类型
+    if isinstance(expected, str) or isinstance(actual, str):
+        return str(expected) == str(actual)
+
+    # 处理布尔类型
+    if isinstance(expected, bool) or isinstance(actual, bool):
+        return bool(expected) == bool(actual)
+
+    # 处理整数类型
+    if isinstance(expected, int) and isinstance(actual, int):
+        return expected == actual
+
+    # 处理浮点数类型的精度问题
+    if is_float_type(datatype):
+        # 如果两个值都是NaN
+        if math.isnan(expected) and math.isnan(actual):
+            return True
+
+        # 如果其中一个值是NaN
+        if math.isnan(expected) or math.isnan(actual):
+            return False
+
+        # 如果两个值都是无穷大
+        if math.isinf(expected) and math.isinf(actual):
+            return (expected > 0) == (actual > 0)
+
+        # 绝对容差比较
+        if abs(expected - actual) <= absolute_tolerance:
+            return True
+
+        # 相对容差比较（避免除以0）
+        if expected == 0 or actual == 0:
+            return abs(expected - actual) <= absolute_tolerance
+
+        # 计算相对误差
+        relative_error = abs(expected - actual) / max(abs(expected), abs(actual))
+        return relative_error <= relative_tolerance
+
+    # 默认精确比较
+    return expected == actual
 
 
 def path_to_node_id(path):
@@ -228,10 +303,15 @@ class opcua_linker(object):
         self.base_timeout = 2  # 基础超时时间（秒）
         self.max_timeout = 30  # 最大超时时间（秒）
         self.read_retry_max = 3  # 读取最大重试次数
-        self.write_verification_enabled = False  # 是否启用写入验证
+        self.write_verification_enabled = False  # 默认禁用写入验证
+        self.verification_retry_max = 3  # 验证失败后的最大重写次数
         self.adaptive_batch_size = True  # 是否启用自适应批次大小
         self.min_batch_size = 50  # 最小批次大小
         self.max_batch_size = 400  # 最大批次大小
+
+        # 容差配置
+        self.float_absolute_tolerance = FLOAT_ABSOLUTE_TOLERANCE
+        self.float_relative_tolerance = FLOAT_RELATIVE_TOLERANCE
 
     async def new_client(self):
         self.client = Client(self.uri, timeout=self.timeout, watchdog_intervall=self.watchdog_interval)
@@ -283,17 +363,6 @@ class opcua_linker(object):
                 self.rw_failure_count = 0
                 log.warning(f'unlink opcua {self.uri} {self.linking}')
 
-        # time_current = int(time.time() * 1000)
-        # if time_current - self.last_linking_time > 5000:
-        #     if self.linking is True:
-        #         await self.unlink()
-        #         self.linking = False
-        #         # print(f'unlink opcua {self.uri} {self.linking}')
-        #         log.warning(f'unlink opcua {self.uri} {self.linking}')
-        # else:
-        #     self.linking = True
-        # print(time_current - self.last_linking_time, 'ms', self.uri, self.linking)
-        # link_result = await self.client.check_connection()
         return self.linking
 
     async def subscription_variables(self, nodes):
@@ -331,9 +400,24 @@ class opcua_linker(object):
 
                 # 写入验证
                 if state and self.write_verification_enabled:
-                    verification_result = await self._verify_write_result(variables)
-                    if not verification_result:
-                        log.warning(f"写入验证失败: {[v['node_id'] for v in variables]}")
+                    verification_result, failed_variables = await self._verify_write_result_with_retry(variables)
+                    if not verification_result and failed_variables:
+                        log.warning(
+                            f"写入验证失败，{len(failed_variables)}个变量需要重写: {[v['node_id'] for v in failed_variables]}")
+
+                        # 对验证失败的变量进行重写
+                        rewrite_success = await self._rewrite_failed_variables(failed_variables, timeout)
+                        if rewrite_success:
+                            log.info(f"重写成功: {len(failed_variables)}个变量")
+                            return True
+                        else:
+                            log.error(f"重写失败: {len(failed_variables)}个变量")
+                            return False
+                    elif verification_result:
+                        log.info(f"写入验证成功: {len(variables)}个变量")
+                        return True
+                    else:
+                        log.error(f"写入验证失败且无法获取失败变量列表")
                         return False
 
                 return state
@@ -344,20 +428,77 @@ class opcua_linker(object):
             try:
                 total_batches = (len(variables) + batch_size - 1) // batch_size  # 计算总批次数
                 success_all = True
+                all_failed_variables = []  # 收集所有批次的失败变量
 
                 for i in range(total_batches):
                     batch = variables[i * batch_size:(i + 1) * batch_size]
                     batch_success = await self.write_variables(batch, timeout, i + 1, total_batches)
 
+                    # 验证写入结果
+                    if batch_success and self.write_verification_enabled:
+                        verification_result, failed_variables = await self._verify_write_result_with_retry(batch)
+                        if not verification_result and failed_variables:
+                            log.warning(f"批次{i + 1}写入验证失败，{len(failed_variables)}个变量需要重写")
+                            all_failed_variables.extend(failed_variables)
+                            batch_success = False
+
                     if not batch_success:
                         success_all = False
-                        # 可以选择继续执行其他批次或立即返回
-                        # break  # 取消注释则一个批次失败就停止
+
+                # 如果有验证失败的变量，尝试重写
+                if all_failed_variables:
+                    log.warning(f"总共{len(all_failed_variables)}个变量验证失败，尝试重写")
+                    rewrite_success = await self._rewrite_failed_variables(all_failed_variables, timeout)
+                    if rewrite_success:
+                        log.info(f"重写成功: {len(all_failed_variables)}个变量")
+                        return True
+                    else:
+                        log.error(f"重写失败: {len(all_failed_variables)}个变量")
+                        return False
 
                 return success_all
             except Exception as e:
                 log.error(f"写入多批次异常: {e}")
                 return False
+
+    async def _rewrite_failed_variables(self, failed_variables, timeout, retry_count=0):
+        """
+        重写验证失败的变量
+        :param failed_variables: 验证失败的变量列表
+        :param timeout: 超时时间
+        :param retry_count: 当前重试次数
+        """
+        if retry_count >= self.verification_retry_max:
+            log.error(f"重写达到最大次数{self.verification_retry_max}，放弃重写{len(failed_variables)}个变量")
+            return False
+
+        log.info(f"第{retry_count + 1}次重写{len(failed_variables)}个验证失败的变量")
+
+        # 重写失败的变量
+        rewrite_success = await self.write_variables(failed_variables, timeout, 1, 1, 0)
+
+        if rewrite_success:
+            # 验证重写结果
+            await asyncio.sleep(0.1)  # 给PLC更多处理时间
+            verification_result, still_failed_variables = await self._verify_write_result_with_retry(failed_variables)
+
+            if verification_result:
+                log.info(f"重写验证成功: {len(failed_variables)}个变量")
+                return True
+            elif still_failed_variables:
+                log.warning(f"重写后仍有{len(still_failed_variables)}个变量验证失败")
+
+                # 指数退避后再次重写
+                retry_delay = 0.2 * (2 ** retry_count)
+                await asyncio.sleep(retry_delay)
+
+                return await self._rewrite_failed_variables(still_failed_variables, timeout, retry_count + 1)
+            else:
+                log.error(f"重写验证无法确定结果")
+                return False
+        else:
+            log.warning(f"重写操作失败")
+            return False
 
     async def write_variables(self, variables, timeout, batch_num, total_batches, retry_count=0):
         """
@@ -455,68 +596,123 @@ class opcua_linker(object):
                     f"最终失败：无法通过 OPC UA 写入 {len(variables)} 个变量, {self.uri}, 请把批次数量减少再次尝试")
             return False
 
-    async def read_multi_variables(self, node_id, timeout=0.2):
+    async def _verify_write_result_with_retry(self, variables, max_verification_attempts=2):
         """
-        Read multiple variables from opcua server
-        """
-        result = []
-
-        try:
-            nodes = []
-            for n in node_id:
-                nodes.append(ua.NodeId.from_string(n))
-            value = await asyncio.wait_for(self.client.uaclient.read_attributes(nodes, ua.AttributeIds.Value), timeout)
-            # print(value)
-
-            for v in value:
-                result.append(v.Value.Value)
-            # pprint.pprint('',result[0])
-
-            self.last_linking_time = int(time.time() * 1000)
-            if self.rw_failure_count > 2:
-                self.rw_failure_count -= 2
-            else:
-                self.rw_failure_count = 0
-            return result
-        except:
-            self.rw_failure_count += 1
-            result = []
-            log.warning(f'Failure to read opcua: {node_id}, timeout is {timeout}.')
-            return result
-
-    async def _verify_write_result(self, variables, max_verification_attempts=2):
-        """
-        验证写入结果
+        验证写入结果，返回验证结果和失败的变量列表（使用容差比较）
         :param variables: 写入的变量列表
         :param max_verification_attempts: 最大验证尝试次数
+        :return: (是否全部成功, 失败的变量列表)
         """
         node_ids = [v['node_id'] for v in variables]
         expected_values = [v['value'] for v in variables]
+        failed_variables = []
 
         for attempt in range(max_verification_attempts):
-            await asyncio.sleep(0.05)  # 给PLC处理时间
+            await asyncio.sleep(0.05 * (attempt + 1))  # 逐渐增加等待时间
             read_values = await self.read_multi_variables(node_ids)
 
             if read_values and len(read_values) == len(expected_values):
-                if read_values == expected_values:
-                    log.info(f"写入验证成功: {len(variables)}个变量")
-                    return True
-                else:
-                    # 记录不匹配的变量
-                    mismatches = []
-                    for i, (expected, actual) in enumerate(zip(expected_values, read_values)):
-                        if expected != actual:
-                            mismatches.append(f"变量{i}: 期望{expected}≠实际{actual}")
+                # 检查每个变量的值（使用容差比较）
+                current_failed = []
+                for i, (var, expected, actual) in enumerate(zip(variables, expected_values, read_values)):
+                    datatype = ua.VariantType(var['datatype'])
 
+                    # 使用容差比较函数
+                    if not are_values_equal(expected, actual, datatype,
+                                            self.float_absolute_tolerance,
+                                            self.float_relative_tolerance):
+                        current_failed.append(var)
+                        if attempt == max_verification_attempts - 1:  # 最后一次尝试才记录详细信息
+                            # 记录详细的精度差异信息
+                            if is_float_type(datatype):
+                                diff = abs(expected - actual) if expected is not None and actual is not None else None
+                                log.warning(f"浮点数变量验证失败: {var['node_id']}, "
+                                            f"期望{expected}≠实际{actual}, 差值{diff}, "
+                                            f"类型{ua_data_type_to_string(datatype)}")
+                            else:
+                                log.warning(f"变量验证失败: {var['node_id']}, 期望{expected}≠实际{actual}，请检查该变量是否支持写入")
+
+                failed_variables = current_failed
+
+                if not failed_variables:
+                    log.info(f"写入验证成功: {len(variables)}个变量")
+                    return True, []
+                else:
                     if attempt < max_verification_attempts - 1:
-                        log.warning(f"写入验证不匹配(尝试{attempt + 1}): {mismatches}")
+                        log.warning(f"写入验证不匹配(尝试{attempt + 1}): {len(failed_variables)}个变量失败")
                     else:
-                        log.error(f"写入验证最终失败: {mismatches}")
+                        log.error(f"写入验证最终失败: {len(failed_variables)}个变量失败")
             else:
                 log.warning(
                     f"验证读取失败或数量不匹配: 期望{len(expected_values)}，实际{len(read_values) if read_values else 0}")
+                # 如果读取失败，认为所有变量都需要重写
+                failed_variables = variables.copy()
 
-        return False
+        return False, failed_variables
+
+    async def read_multi_variables(self, node_ids, timeout=0.2, max_retries=None):
+        """
+        读取多个变量，支持重试机制
+        :param node_ids: 要读取的节点ID列表
+        :param timeout: 读取超时时间
+        :param max_retries: 最大重试次数，为None时使用默认值
+        """
+        if max_retries is None:
+            max_retries = self.read_retry_max
+
+        result = []
+        last_exception = None
+
+        for attempt in range(max_retries + 1):  # +1 包含首次尝试
+            try:
+                nodes = []
+                for n in node_ids:
+                    nodes.append(ua.NodeId.from_string(n))
+
+                # 动态调整超时时间
+                adjusted_timeout = timeout + (len(node_ids) * 0.2)
+                value = await asyncio.wait_for(
+                    self.client.uaclient.read_attributes(nodes, ua.AttributeIds.Value),
+                    adjusted_timeout
+                )
+
+                result = [v.Value.Value if v.Value is not None else None for v in value]
+
+                self.last_linking_time = int(time.time() * 1000)
+                if self.rw_failure_count > 2:
+                    self.rw_failure_count -= 2
+                else:
+                    self.rw_failure_count = 0
+
+                # 记录性能信息（慢操作警告）
+                # if adjusted_timeout > 1.0:
+                #     log.warning(f"慢读取操作: {len(node_ids)}个变量，超时{adjusted_timeout:.2f}s")
+
+                return result
+
+            except asyncio.TimeoutError:
+                last_exception = f"读取超时，超时时间: {timeout}s"
+                log.warning(f"第{attempt + 1}次读取超时: {node_ids}")
+            except ua.UaError as e:
+                last_exception = f"OPC UA错误: {e}"
+                log.warning(f"第{attempt + 1}次读取UA错误: {e}")
+            except ConnectionError as e:
+                last_exception = f"连接错误: {e}"
+                log.warning(f"第{attempt + 1}次读取连接错误: {e}")
+            except Exception as e:
+                last_exception = f"未知错误: {e}"
+                log.warning(f"第{attempt + 1}次读取未知错误: {e}")
+
+            # 如果不是最后一次尝试，则等待后重试
+            if attempt < max_retries:
+                retry_delay = 0.05 * (2 ** attempt)  # 指数退避
+                await asyncio.sleep(retry_delay)
+            else:
+                self.rw_failure_count += 1
+                log.error(f"读取失败，已重试{max_retries}次: {last_exception}")
+                break
+
+        return result  # 返回空列表或部分结果
 
     def _calculate_adaptive_batch_size(self, total_variables):
         """
@@ -541,7 +737,7 @@ class opcua_linker(object):
 
     async def check_write_result(self, nodes):
         """
-        check wrote result
+        check wrote result (使用容差比较)
         """
         node_id = []
         value = []
@@ -554,17 +750,22 @@ class opcua_linker(object):
         if not datas:
             log.warning(f'Failure to read opcua {self.uri}, check wrote {node_id}.')
             return False
-        # print(nodes)
-        # print(node_id)
-        # print(value)
-        # print(data)
 
-        # check write result
-        if value == datas:
+        # check write result (使用容差比较)
+        all_success = True
+        for i, (expected, actual, node) in enumerate(zip(value, datas, nodes)):
+            datatype = ua.VariantType(node['datatype'])
+            if not are_values_equal(expected, actual, datatype,
+                                    self.float_absolute_tolerance,
+                                    self.float_relative_tolerance):
+                log.warning(f'变量验证失败: {node_id[i]}, 期望{expected}≠实际{actual}')
+                all_success = False
+
+        if all_success:
             log.info(f'success to check wrote {node_id} {value} to {self.uri}.')
             return True
         else:
-            log.warning(f'Failure to write check wrote {node_id} to {self.uri}, {datas}!={value}.')
+            log.warning(f'Failure to write check wrote {node_id} to {self.uri}.')
             return False
 
     async def read_node_type(self, node: Node):
@@ -697,7 +898,9 @@ class opcua_linker(object):
     # 新增配置方法
     def configure_write_settings(self, base_timeout=None, max_timeout=None,
                                  retry_max=None, verification_enabled=None,
-                                 adaptive_batch=None, min_batch=None, max_batch=None):
+                                 verification_retry_max=None, adaptive_batch=None,
+                                 min_batch=None, max_batch=None,
+                                 float_absolute_tolerance=None, float_relative_tolerance=None):
         """
         动态配置写入参数
         """
@@ -709,12 +912,18 @@ class opcua_linker(object):
             self.retry_write_max = retry_max
         if verification_enabled is not None:
             self.write_verification_enabled = verification_enabled
+        if verification_retry_max is not None:
+            self.verification_retry_max = verification_retry_max
         if adaptive_batch is not None:
             self.adaptive_batch_size = adaptive_batch
         if min_batch is not None:
             self.min_batch_size = min_batch
         if max_batch is not None:
             self.max_batch_size = max_batch
+        if float_absolute_tolerance is not None:
+            self.float_absolute_tolerance = float_absolute_tolerance
+        if float_relative_tolerance is not None:
+            self.float_relative_tolerance = float_relative_tolerance
 
     def configure_read_settings(self, retry_max=None):
         """
@@ -722,3 +931,30 @@ class opcua_linker(object):
         """
         if retry_max is not None:
             self.read_retry_max = retry_max
+
+    # 新增容差测试方法
+    def test_tolerance_comparison(self, test_cases=None):
+        """
+        测试容差比较功能
+        """
+        if test_cases is None:
+            test_cases = [
+                # (期望值, 实际值, 数据类型, 应该相等)
+                (47.6, 47.599998474121094, ua.VariantType.Float, True),
+                (1.0, 1.0000001, ua.VariantType.Float, True),
+                (0.0, 0.000000001, ua.VariantType.Float, True),
+                (1000.0, 1000.0001, ua.VariantType.Float, True),
+                (47.6, 47.5, ua.VariantType.Float, False),  # 这个应该失败
+                (1, 1, ua.VariantType.Int32, True),  # 整数应该精确匹配
+                ("test", "test", ua.VariantType.String, True),
+            ]
+
+        print("容差比较测试结果:")
+        for i, (expected, actual, datatype, should_equal) in enumerate(test_cases):
+            result = are_values_equal(expected, actual, datatype,
+                                      self.float_absolute_tolerance,
+                                      self.float_relative_tolerance)
+            status = "✓" if result == should_equal else "✗"
+            print(f"{status} 测试{i + 1}: 期望{expected} vs 实际{actual}, "
+                  f"类型{ua_data_type_to_string(datatype)}, "
+                  f"结果{result}(期望{should_equal})")
