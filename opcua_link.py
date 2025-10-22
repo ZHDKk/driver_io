@@ -552,7 +552,7 @@ class opcua_linker(object):
 
                 # 关键写入后添加短暂延迟，确保PLC处理
                 if self.write_variable_count > 0:
-                    await asyncio.sleep(0.01)  # 10ms延迟
+                    await asyncio.sleep(0.05)  # 50ms延迟
 
                 return True
             else:

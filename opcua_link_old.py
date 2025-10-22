@@ -382,6 +382,11 @@ class opcua_linker(object):
                 success_message = f"{message_prefix} 通过OPCUA写入成功，耗时 {write_time}ms, {self.uri}"
                 print(success_message)
                 log.info(success_message)
+
+                # 关键写入后添加短暂延迟，确保PLC处理
+                if self.write_variable_count > 0:
+                    await asyncio.sleep(0.05)  # 50ms延迟
+
                 return True
             else:
                 fail_message = f"{message_prefix} ，结果：{write_state_fail_docs}无法通过OPCUA写入, {self.uri}"
