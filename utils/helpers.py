@@ -30,13 +30,13 @@ def load_config_file(config_file_path):
             config = json.load(file)
 
     except FileNotFoundError:
-        log.warning('Failure to find ./config files/driver config.json.')
+        log.warning(f'Failure to find {config_file_path}')
         return
     except json.JSONDecodeError:
-        log.warning('Failure to parse ./config files/driver config.json.')
+        log.warning(f'Failure to parse {config_file_path}')
         return
     except Exception as e:
-        log.warning('Failure to read ./config files/driver config.json.')
+        log.warning(f'Failure to read {config_file_path}')
         return
     return config
 
@@ -167,6 +167,35 @@ def node_path2id(input_path: str) -> str:
         else:
             segments.append(f'"{name}"')
     return f'ns=3;s={".".join(segments)}'
+
+
+def convert_node_id(node_id):
+    """
+    更详细的转换函数，提供更多控制选项
+    """
+    # 匹配整个节点ID结构
+    pattern = r'(ns=\d+;s=)(.*)'
+    match = re.match(pattern, node_id)
+
+    if not match:
+        return node_id
+
+    prefix = match.group(1)
+    path_parts = match.group(2)
+
+    # 分割路径部分
+    parts = re.findall(r'"([^"]*)"', path_parts)
+
+    converted_parts = []
+    for part in parts:
+        if is_target_format(part):
+            # 提取最后的部分
+            last_part = part.split('_')[-1]
+            converted_parts.append(f'"{last_part}"')
+        else:
+            converted_parts.append(f'"{part}"')
+
+    return prefix + '.'.join(converted_parts)
 
 def is_target_format(name):
     """

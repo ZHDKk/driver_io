@@ -12,7 +12,7 @@ from bigtree import tree_to_dict
 from logger import log
 from asyncua import ua
 
-from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id
+from utils.helpers import data_type_from_string, round_half_up, code2format_str, node_path2id, convert_node_id
 from utils.time_util import get_current_time, filter_timestamp
 
 
@@ -207,7 +207,7 @@ def json_from_nested_dict(dict_datas: dict):
         print('Failure to pack json frame.')
         return None
 
-async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list):
+async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list, base_dir):
     """
     parse array structure of tree, update node[n].value with value[n], add to sending buffer M2O_list or O2M_list.
     """
@@ -228,13 +228,13 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
             list_child = dev.code_to_node.get(code2format_str(list_node['blockId'], list_node['index'], list_node['category'], list_node['code']) + '_' + str(n))
         except:
             # msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
-            await asyncio.create_task(add_node_info(list_node, str(n), dev))
+            await asyncio.create_task(add_node_info(list_node, str(n), dev, base_dir))
             continue
 
         # verification node, value and datatype
         if list_child is None:
             # msg.append(f'Failure to find {list_node["NodePath"]}/{n} in variable list.')
-            await asyncio.create_task(add_node_info(list_node, str(n), dev))
+            await asyncio.create_task(add_node_info(list_node, str(n), dev, base_dir))
             continue
 
         # 增加数据类型对比, 如果读到的数据类型与map中的数据类型不一致则修改
@@ -250,10 +250,10 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
         child_type = ua.VariantType(list_child["DataType"])
 
         if list_child["ArrayDimensions"] > 0:  # and value_type is list, child's data type is array, recursion
-            value[n] = await array_parse_o2m(dev, list_child, value[n], O2M, O2M_list, rtime, msg)
+            value[n] = await array_parse_o2m(dev, list_child, value[n], O2M, O2M_list, rtime, msg, base_dir)
         elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
             value[n] = await struct_parse_o2m(dev, list_child, value[n] if type(value[n]) is dict else value[n].__dict__, O2M,
-                                        O2M_list, rtime, msg)
+                                        O2M_list, rtime, msg, base_dir)
         elif O2M_list is not None and (O2M is True or list_child["value"] != value[n]):  # opcua2mqtt
             #  2024/11/22  增加高精度浮点运算
             if list_child["DataTypeString"] == "float" or list_child["DataTypeString"] == "double":
@@ -272,7 +272,7 @@ async def array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg: list
 
 failed_node_paths = set()
 
-async def add_node_info(list_node, name, dev):
+async def add_node_info(list_node, name, dev, base_dir):
     """
         自动追加变量到map和表中去,使用asyncio.create_task 不阻塞主线任务
     :param list_node:
@@ -285,12 +285,17 @@ async def add_node_info(list_node, name, dev):
         node_path = f'{list_node["path"]}/{name}'
         node_id = node_path2id(node_path)
         node = dev.linker.client.get_node(node_id)
-        result = await dev.linker.read_node_info(node, node_path)
+        try:
+            result = await dev.linker.read_node_info(node, node_path)
+        except:
+            node_id = convert_node_id(node_id)
+            node = dev.linker.client.get_node(node_id)
+            result = await dev.linker.read_node_info(node, node_path)
         new_key = code2format_str(result['blockId'], result['index'], result['category'], result['code'])
         dev.code_to_node[new_key] = result  #  添加到map映射中
 
         # 添加到表中
-        csv_file = f'./config files/{dev.name}.csv'
+        csv_file = base_dir / f'{dev.name}.csv'
         df = pd.DataFrame([result])
         # 检查文件是否存在
         try:
@@ -308,7 +313,7 @@ async def add_node_info(list_node, name, dev):
             log.warning(f"自动添加变量信息失败: {node_path}，请使用工具手动刷新，{e}")
 
 
-async def check_data_type(list_child, dev) -> bool:
+async def check_data_type(list_child, dev, base_dir) -> bool:
     """
     检查并更新节点数据类型，返回是否发生变更
     Returns:
@@ -342,7 +347,7 @@ async def check_data_type(list_child, dev) -> bool:
 
         # 持久化到CSV
         try:
-            file_path = f'./config files/{dev.name}.csv'
+            file_path = base_dir / f'{dev.name}.csv'
             df = pd.read_csv(file_path)
 
             if node_id not in df['NodeID'].values:
@@ -371,7 +376,7 @@ async def check_data_type(list_child, dev) -> bool:
         return False
 
 
-async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: list):
+async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, msg: list, base_dir):
     """
     parse structure of tree, update node[key].value with value[key], add to sending buffer M2O_list or O2M_list.
     """
@@ -391,17 +396,17 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
         except:
             # msg.append(f'Failure to find {list_node["NodePath"]}/{key} in variable list.')
             if key.startswith('_'):
-                await asyncio.create_task(add_node_info(list_node, key[1:], dev))
+                await asyncio.create_task(add_node_info(list_node, key[1:], dev, base_dir))
             else:
-                await asyncio.create_task(add_node_info(list_node, key, dev))
+                await asyncio.create_task(add_node_info(list_node, key, dev, base_dir))
             continue
         # verification node, value and datatype
         if list_child is None:
             # msg.append(f'Failure to find {list_node["NodePath"]}/{key} in variable list.')
             if key.startswith('_'):
-                await asyncio.create_task(add_node_info(list_node, key[1:], dev))
+                await asyncio.create_task(add_node_info(list_node, key[1:], dev, base_dir))
             else:
-                await asyncio.create_task(add_node_info(list_node, key, dev))
+                await asyncio.create_task(add_node_info(list_node, key, dev, base_dir))
             continue
 
         # 增加数据类型对比, 如果读到的数据类型与map中的数据类型不一致则修改
@@ -418,11 +423,11 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
             child_type = ua.VariantType(list_child["DataType"])
 
             if list_child["ArrayDimensions"] > 0:  # and value_type is list, child's data type is array, recursion
-                value[key] = await array_parse_o2m(dev, list_child, value[key], O2M, O2M_list, rtime, msg)
+                value[key] = await array_parse_o2m(dev, list_child, value[key], O2M, O2M_list, rtime, msg, base_dir)
             elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
                 value[key] = await struct_parse_o2m(dev, list_child,
                                               value[key] if type(value[key]) is dict else value[key].__dict__, O2M,
-                                              O2M_list, rtime, msg)
+                                              O2M_list, rtime, msg, base_dir)
             elif O2M_list is not None and (O2M is True or list_child["value"] != value[key]):  # opcua2mqtt
                 #  2024/11/22  增加高精度浮点运算
                 if list_child["DataTypeString"] == "float" or list_child["DataTypeString"] == "double":
@@ -443,7 +448,7 @@ async def struct_parse_o2m(dev, list_node, value: dict, O2M, O2M_list, rtime, ms
             msg.append(f'{list_node["NodePath"]}/{key} 可能有重复Code，请排查')
     return value
 
-async def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg):
+async def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg, base_dir):
     """
     recursive parse structure data
     """
@@ -460,10 +465,10 @@ async def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg):
         node_type = ua.VariantType(list_node['DataType'])
 
         if list_node['ArrayDimensions'] > 0:  # and value_type is list, data type is array
-            value = await array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg)
+            value = await array_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg, base_dir)
         elif node_type in [ua.VariantType.ExtensionObject]:  # data type of node is structure
             value = await struct_parse_o2m(dev, list_node, value if value_type is dict else value.__dict__,
-                                     O2M, O2M_list, rtime, msg)
+                                     O2M, O2M_list, rtime, msg, base_dir)
         elif O2M_list is not None and (O2M is True or list_node['value'] != value):  # opcua2mqtt
             if list_node['DataTypeString'] == "float" or list_node['DataTypeString'] == "double":
                 precision = list_node['DecimalPoint']
@@ -480,7 +485,7 @@ async def datas_parse_o2m(dev, list_node, value, O2M, O2M_list, rtime, msg):
         list_node['value'] = value
 
 
-async def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list):
+async def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list, base_dir):
     """
     parse array structure of tree, update node[n].value with value[n], add to sending buffer M2O_list or O2M_list.
     """
@@ -526,11 +531,11 @@ async def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list
 
         if list_child['ArrayDimensions'] > 0:  # and value_type is list, child's data type is array, recursion
             value[n] = await array_parse_m2o(dev, list_child, value[n],
-                                   M2O, M2O_list, rtime, msg)
+                                   M2O, M2O_list, rtime, msg, base_dir)
         elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
             value[n] = await struct_parse_m2o(dev, list_child,
                                     value[n] if type(value[n]) is dict else value[n].__dict__,
-                                    M2O, M2O_list, rtime, msg)
+                                    M2O, M2O_list, rtime, msg, base_dir)
         elif M2O_list is not None and (M2O is True or list_child['value'] != value[n]):  # mqtt2opcua
             if dev.link_type == 'opcua':
                 value_type = type(value[n])
@@ -540,7 +545,7 @@ async def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list
                                                                  '__name__') and original_type.__name__ == 'float'):
                     pass
                 elif original_type != value_type:
-                    changed = await check_data_type(list_child=list_child, dev=dev)
+                    changed = await check_data_type(list_child=list_child, dev=dev, base_dir=base_dir)
                     if not changed:
                         msg.append(
                             f'Write Data Type Error, Please check: ({list_child["NodeID"]}, datetype:{list_child["DataTypeString"]}, value:{value[n]}), '
@@ -554,7 +559,7 @@ async def array_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg: list
     return value
 
 
-async def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: list):
+async def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, msg: list, base_dir):
     """
     parse structure of tree, update node[key].value with value[key], add to sending buffer M2O_list or O2M_list.
     """
@@ -596,9 +601,9 @@ async def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, ms
         #     continue
 
         if list_child["ArrayDimensions"] > 0:  # and value_type is list, child's data type is array, recursion
-            value[key] = await array_parse_m2o(dev, list_child, value[key], M2O, M2O_list, rtime, msg)
+            value[key] = await array_parse_m2o(dev, list_child, value[key], M2O, M2O_list, rtime, msg,base_dir)
         elif child_type in [ua.VariantType.ExtensionObject]:  # child's data type is structure, recursion
-            value[key] = await struct_parse_m2o(dev, list_child, value[key] if type(value[key]) is dict else value[key].__dict__, M2O, M2O_list, rtime, msg)
+            value[key] = await struct_parse_m2o(dev, list_child, value[key] if type(value[key]) is dict else value[key].__dict__, M2O, M2O_list, rtime, msg, base_dir)
         elif M2O_list is not None and (M2O is True or list_child["value"] != value[key]):  # mqtt2opcua
             if dev.link_type == 'opcua':
                 value_type = type(value[key])
@@ -608,7 +613,7 @@ async def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, ms
                                                             '__name__') and original_type.__name__ == 'float'):
                     pass
                 elif original_type != value_type:
-                    changed = await check_data_type(list_child=list_child, dev=dev)
+                    changed = await check_data_type(list_child=list_child, dev=dev, base_dir=base_dir)
                     if not changed:
                         msg.append(f'Write Data Type Error, Please check: ({list_child["NodeID"]}, datetype:{list_child["DataTypeString"]}, value:{value[key]}), '
                                    f'the value should be of type {original_type.__name__}, not {value_type.__name__}')
@@ -620,7 +625,7 @@ async def struct_parse_m2o(dev, list_node, value: dict, M2O, M2O_list, rtime, ms
     return value
 
 
-async def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg):
+async def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg, base_dir):
     """
     recursive parse structure data
     """
@@ -638,10 +643,10 @@ async def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg):
 
         if list_node['ArrayDimensions'] > 0:  # and value_type is list, data type is array
             value = await array_parse_m2o(dev, list_node, value,
-                                M2O, M2O_list, rtime, msg)
+                                M2O, M2O_list, rtime, msg, base_dir)
         elif node_type in [ua.VariantType.ExtensionObject]:  # data type of node is structure
             value = await struct_parse_m2o(dev, list_node, value if value_type is dict else value.__dict__,
-                                 M2O, M2O_list, rtime, msg)
+                                 M2O, M2O_list, rtime, msg, base_dir)
         elif M2O_list is not None and (M2O is True or list_node['value'] != value):  # mqtt2opcua
             if dev.link_type == 'opcua':
                 value_type = type(value)
@@ -651,7 +656,7 @@ async def datas_parse_m2o(dev, list_node, value, M2O, M2O_list, rtime, msg):
                                                                  '__name__') and original_type.__name__ == 'float'):
                     pass
                 elif original_type != value_type:
-                    changed = await check_data_type(list_child=list_node, dev=dev)
+                    changed = await check_data_type(list_child=list_node, dev=dev, base_dir=base_dir)
                     if not changed:
                         msg.append(
                             f'Write Data Type Error, Please check: ({list_node["NodeID"]}, datetype:{list_node["DataTypeString"]}, value:{value}), '
@@ -766,7 +771,7 @@ def s7_struct_parse(dev, list_node, datas, offset, M2O, M2O_list, O2M, O2M_list,
     return value
 
 
-def s7_datas_parse(dev, list_node, datas, M2O, M2O_list, O2M, O2M_list, rtime, msg):
+def s7_datas_parse(dev, list_node, datas, M2O, M2O_list, O2M, O2M_list, rtime, msg, base_dir):
     """
     recursive parse structure data
     """

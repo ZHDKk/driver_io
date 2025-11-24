@@ -49,6 +49,7 @@ class distribution_server(object):
 
     def __init__(self):
         # scatter mode and manager
+        self.base_dir = None
         self.M2O_All = False
         self.O2M_All = False
 
@@ -83,9 +84,10 @@ class distribution_server(object):
         """
         load config file of distribution
         """
+        drv_config = self.base_dir / 'driver config.json'
         # read config file
         try:
-            with open(r'./config files/driver config.json', 'r', encoding='utf-8') as file:
+            with open(drv_config, 'r', encoding='utf-8') as file:
                 self.config = json.load(file)
                 self.is_local = self.config["Control"]["isLocal"]
             # pprint.pprint(self.config)
@@ -94,26 +96,27 @@ class distribution_server(object):
             list_data = []
             nested_dict_2list(self.config, list_data, 0)
             df = pd.DataFrame(list_data)
-            df.to_csv(f'./config files/drv_config.csv', encoding='utf_8_sig', index=False)
+            df.to_csv(self.base_dir / 'drv_config.csv', encoding='utf_8_sig', index=False)
             print('Driver Config file loaded - done.')
             log.info('Driver Config file loaded - done.')
         except FileNotFoundError:
-            log.warning('Failure to find ./config files/driver config.json.')
+            log.warning(f'Failure to find {drv_config}')
             return
         except json.JSONDecodeError:
-            log.warning('Failure to parse ./config files/driver config.json.')
+            log.warning(f'Failure to parse {drv_config}')
             return
         except Exception as e:
-            log.warning(f'Failure to read ./config files/driver config.json.{e}')
+            log.warning(f'Failure to read {drv_config}.{e}')
             return
 
     def load_request_file(self):
         """
         load request file of distribution
         """
+        recipe_config = self.base_dir / "recipe_config.json"
         # read config file
         try:
-            with open(r'./config files/recipe_config.json', 'r', encoding='utf-8') as file:
+            with open(recipe_config, 'r', encoding='utf-8') as file:
                 recipe_config_data = json.load(file)
                 recipe_monitor_info = recipe_config_data['recipe_monitor_info']
                 self.recipe_request_data = recipe_monitor_info['recipe_request']
@@ -127,13 +130,13 @@ class distribution_server(object):
             print('Request Config file loaded - done.')
             log.info('Request Config file loaded - done.')
         except FileNotFoundError:
-            log.warning('Failure to find ./config files/recipe_config.json.')
+            log.warning(f'Failure to find {recipe_config}')
             return
         except json.JSONDecodeError:
-            log.warning('Failure to parse ./config files/recipe_config.json.')
+            log.warning(f'Failure to parse {recipe_config}')
             return
         except Exception as e:
-            log.warning('Failure to read ./config files/recipe_config.json.')
+            log.warning(f'Failure to read {recipe_config}')
             return
 
     def find_dev_with_module(self, module):
@@ -215,7 +218,7 @@ class distribution_server(object):
             # datas_parse(dev, node, list_node, value, self.M2O_All, result['M2O_list'], False, None,
             #             str(datetime.now().time())[:-7], result['ErrMSG'])
             await datas_parse_m2o(dev, list_node, value, self.M2O_All, result['M2O_list'],
-                            str(datetime.now().time())[:-7], result['ErrMSG'])
+                            str(datetime.now().time())[:-7], result['ErrMSG'], self.base_dir)
             code_value[n['code']] = n['value']
 
         result['Nodes'] = len(result['M2O_list'])
@@ -566,7 +569,8 @@ class distribution_server(object):
             elif command_type == "MODIFY_CONFIG":  # 修改配置内容
                 command_content = data.get("commandContent")
                 if module == current_driver:
-                    state = save_config_file(f'./config files/driver config.json', command_content)
+                    drv_config = self.base_dir / "driver config.json"
+                    state = save_config_file(drv_config, command_content)
                     if state:
                         self.mqtt.publish(topic + '/reply',
                                           json.dumps({'success': True, 'message': '配置内容修改成功'}))
@@ -758,7 +762,7 @@ class distribution_server(object):
         try:
             # datas_parse(dev, sub['TreeNode'], sub['ListNode'], value,
             #             False, None, self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg)
-            asyncio.create_task(datas_parse_o2m(dev, sub['ListNode'], value,self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg))
+            asyncio.create_task(datas_parse_o2m(dev, sub['ListNode'], value,self.O2M_All, O2M_list[0]['list'], int(time.time() * 1000), msg, self.base_dir))
             # print parse error message
             for s in msg:
                 print(s)
@@ -997,7 +1001,7 @@ class distribution_server(object):
         async def setup_device(k, dev_cfg):
             """Setup a single OPC UA device."""
             # Create a new OPC UA device
-            dev = device(dev_cfg['Basic'], self.collection_from_opcua_subscription)
+            dev = device(dev_cfg['Basic'], self.collection_from_opcua_subscription, self.base_dir)
             dev.O2M_All = self.O2M_All
             dev.M2O_All = self.M2O_All
 
@@ -1143,10 +1147,11 @@ class distribution_server(object):
                 await dev.subscribe()
         return reconnect_state
 
-    async def initialize(self):
+    async def initialize(self, base_dir):
         """
         initialize distribution system
         """
+        self.base_dir = base_dir
         # relate opcua subscription to mqtt publish, directly
         self.O2M_All = True
         # relate mqtt subscription to write to opcua

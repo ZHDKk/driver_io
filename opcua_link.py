@@ -3,6 +3,7 @@ import logging
 import math
 
 import pprint
+import re
 from datetime import datetime
 import time
 from asyncua import Client, Node, ua
@@ -104,13 +105,45 @@ def path_2name(path):
     return str_tmp[1:]
 
 
-def name_2path(path, name):
-    """
-    add name to path
-    """
-    str_tmp = path + '/' + name
-    return str_tmp
+# def name_2path(path, name):
+#     """
+#     add name to path
+#     """
+#     str_tmp = path + '/' + name
+#     return str_tmp
 
+def name_2path(path: str, name: str) -> str:
+    """
+    将 name 加入 path：
+      - 如果 name 为 BaseName[idx] 的形式，会拆为两个段：BaseName 和 idx。
+      - 确保返回以 '/' 分隔，不会出现重复的 '/'。
+    示例：
+      name_2path('/A/B', 'C[0]') -> '/A/B/C/0'
+      name_2path('', 'Root')    -> '/Root'
+      name_2path('/', 'X')      -> '/X'
+    """
+    if path is None:
+        path = ''
+
+    # 标准化 base（去除尾部多余的 /，但保留空字符串用于根处理）
+    base = path.strip()
+    if base != '':
+        base = base.rstrip('/')
+    # 解析 name 是否包含索引形式
+    m = re.match(r'^(?P<base>.+?)\[(?P<idx>.+?)\]$', name)
+    if m:
+        base_name = m.group('base')
+        idx = m.group('idx')
+        if base == '' or base == '/':
+            return f'/{base_name}/{idx}'
+        else:
+            return f'{base}/{base_name}/{idx}'
+    else:
+        # 普通名称
+        if base == '' or base == '/':
+            return f'/{name}'
+        else:
+            return f'{base}/{name}'
 
 def path_2info(path: str):
     """

@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\config files\OVEN1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\config files\Robot.csv">
           <value>
             <Attribute>

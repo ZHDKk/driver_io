@@ -31,12 +31,13 @@ class device(object):
     opcua device
     """
 
-    def __init__(self, config: dict, collection_handler):
+    def __init__(self, config: dict, collection_handler, base_dir):
         # device name and type
         self.name = config['name']
         self.link_type = config['link']
         self.M2O_All = False
         self.O2M_All = False
+        self.base_dir = base_dir
 
         # opcua linker
         self.linker = opcua_linker(config) if config['link'] == 'opcua' else s7_linker(config)
@@ -159,14 +160,15 @@ class device(object):
         load variable list from config file. create tree, list data structure, read block and timed clear block
         """
         # create variable dataframe with config file
+        vars_csv = self.base_dir / f"{self.name}.csv"
         try:
-            self.VarDf = pd.read_csv(f'./config files/{self.name}.csv', encoding='utf-8')
+            self.VarDf = pd.read_csv(vars_csv, encoding='utf-8')
         except:
             try:
-                self.VarDf = pd.read_csv(f'./config files/{self.name}.csv', encoding='utf-8-sig')
+                self.VarDf = pd.read_csv(vars_csv, encoding='utf-8-sig')
             except:
                 try:
-                    self.VarDf = pd.read_csv(f'./config files/{self.name}.csv', encoding='gbk')
+                    self.VarDf = pd.read_csv(vars_csv, encoding='gbk')
                 except:
                     log.error(f'Failure to load {self.name}.csv file.')
                     return False
@@ -303,7 +305,7 @@ class device(object):
                     #             datas[index],
                     #             False, None, self.O2M_All, m['list'], int(time.time() * 1000), msg)
                     await datas_parse_o2m(self, self.ReadBlock[index]['ListNode'], datas[index], self.O2M_All, m['list'],
-                                    int(time.time() * 1000), msg)
+                                    int(time.time() * 1000), msg, self.base_dir)
 
                     # print parse error message
                     # 2024/12/5 临时关闭打印
@@ -344,7 +346,7 @@ class device(object):
                 try:
                     m = list(filter(lambda x: x['module'] == self.TempReadBlock[index]['module'], O2M_list))[0]
                     await datas_parse_o2m(self, self.TempReadBlock[index]['ListNode'], datas[index], self.O2M_All, m['list'],
-                                    int(time.time() * 1000), msg)
+                                    int(time.time() * 1000), msg, self.base_dir)
                     # datas_parse(self, self.TempReadBlock[index]['TreeNode'], self.TempReadBlock[index]['ListNode'],
                     #             datas[index],
                     #             False, None, self.O2M_All, m['list'], int(time.time() * 1000), msg)
@@ -431,7 +433,7 @@ class device(object):
             try:
                 m = list(filter(lambda x: x['module'] == self.ReadBlock[index]['module'], O2M_list))[0]
                 s7_datas_parse(self, self.ReadBlock[index]['ListNode'], datas[index],
-                               False, None, self.O2M_All, m['list'], int(time.time() * 1000), msg)
+                               False, None, self.O2M_All, m['list'], int(time.time() * 1000), msg, self.base_dir)
                 # print parse error message
                 for s in msg:
                     log.info(s)

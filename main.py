@@ -2,6 +2,8 @@ import asyncio
 import os
 import sys
 import time
+from pathlib import Path
+
 import pandas as pd
 from distribution import distribution_server
 from logger import log
@@ -65,9 +67,19 @@ async def main():
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_rows', None)
 
+    # 读取 config
+    if getattr(sys, 'frozen', False):
+        # 打包后exe所在目录
+        base_dir = Path(sys.executable).parent
+    else:
+        base_dir = Path(__file__).parent
+
+    config_dir = base_dir / "config files"
+    config_dir.mkdir(exist_ok=True)
+
     # create distribution server
     async with distribution_server() as distribution:
-        await distribution.initialize()
+        await distribution.initialize(config_dir)
 
         # multi coroutine
         reading_task = asyncio.create_task(opcua_reading_coroutine(distribution))
