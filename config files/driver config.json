@@ -8,7 +8,9 @@
         "category": "Driver"
     },
     "Control": {
-        "isLocal": true
+        "isLocal": true,
+        "subprocessPath": "D:\\pro\\pro\\py_pro\\company_pro\\vars_browse_remote\\dist\\drv_vbr\\drv_vbr.exe",
+        "showConsoleWindow": true
     },
     "Status": {},
     "Parameter": {},

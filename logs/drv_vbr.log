@@ -1,0 +1,10 @@
+2025-11-24 14:07:57,902 - drv_vbr - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-11-24 14:07:57,903 - drv_vbr - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-11-24 14:07:59,910 - drv_vbr - INFO - 2025-11-24 14:07:59.910: 遍历变量程序已启动
+2025-11-24 14:19:06,195 - drv_vbr - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-11-24 14:19:06,196 - drv_vbr - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-11-24 14:19:08,202 - drv_vbr - INFO - 2025-11-24 14:19:08.202: 遍历变量程序已启动
+2025-11-24 14:27:50,534 - drv_vbr - INFO - 成功连接到 MQTT 服务器: localhost:1883
+2025-11-24 14:27:50,535 - drv_vbr - INFO - Subscribed to topic: /mqtt/general/cmd/+
+2025-11-24 14:27:52,540 - drv_vbr - INFO - 2025-11-24 14:27:52.540: 遍历变量程序已启动
+2025-11-24 14:28:13,733 - drv_vbr - INFO - Published message '{"success": true, "message": "OBBCData\u914d\u7f6e\u5185\u5bb9\u4fee\u6539\u6210\u529f"}' to topic '/mqtt/general/cmd/V6oXDq5N/reply'

@@ -45,6 +45,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\dist\drv_io\config files\OVEN1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\dist\drv_io\config files\drv_config.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

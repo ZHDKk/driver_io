@@ -641,15 +641,110 @@ class distribution_server(object):
 
     def start_browse_process(self):
         try:
-            other_script_path = "./vars_browse_remote/browse_main.py"
+            print("=== 启动子进程调试信息 ===")
 
+            # 获取配置中的路径
+            other_script_path = self.config['Control']['subprocessPath']
+            # 获取是否显示控制台窗口的配置，默认为 False
+            show_console = self.config['Control'].get('showConsoleWindow', False)
+
+            # print(f"配置中的路径: {other_script_path}")
+            # print(f"显示控制台窗口: {show_console}")
+
+            if not other_script_path or not other_script_path.strip():
+                raise ValueError("启动文件路径为空")
+
+            # 清理路径
+            other_script_path = other_script_path.strip()
+            # print(f"清理后的路径: {other_script_path}")
+
+            # 转换为绝对路径
+            import os
+            if not os.path.isabs(other_script_path):
+                # print("路径是相对路径，正在转换为绝对路径...")
+                # 获取当前脚本所在目录
+                if getattr(sys, 'frozen', False):
+                    base_dir = os.path.dirname(sys.executable)
+                    # print(f"打包模式，基础目录: {base_dir}")
+                else:
+                    base_dir = os.path.dirname(os.path.abspath(__file__))
+                    # print(f"脚本模式，基础目录: {base_dir}")
+
+                other_script_path = os.path.join(base_dir, other_script_path)
+                # print(f"转换后的绝对路径: {other_script_path}")
+
+            # 规范化路径
+            other_script_path = os.path.normpath(other_script_path)
+            # print(f"规范化后的路径: {other_script_path}")
+
+            # 检查文件是否存在
             if not os.path.isfile(other_script_path):
-                raise FileNotFoundError(f"无法找到browse_main.py，路径：{other_script_path}")
-            # 使用subprocess.Popen启动脚本，注意这里不阻塞父进程
-            process = subprocess.Popen(["python", other_script_path])
+                # 尝试查找文件
+                # print("文件不存在，尝试在附近查找...")
+                dir_path = os.path.dirname(other_script_path)
+                if os.path.exists(dir_path):
+                    files = os.listdir(dir_path)
+                    # print(f"目录 {dir_path} 中的文件: {files}")
+                raise FileNotFoundError(f"文件不存在：{other_script_path}")
+
+            # print(f"文件存在，准备启动...")
+
+            # 获取文件所在目录作为工作目录
+            working_dir = os.path.dirname(other_script_path)
+            # print(f"工作目录: {working_dir}")
+
+            # 根据文件类型决定如何启动
+            if other_script_path.endswith('.exe'):
+                # print("检测到 .exe 文件")
+                cmd = [other_script_path]
+            elif other_script_path.endswith('.py'):
+                # print("检测到 .py 文件")
+                cmd = ["python", other_script_path]
+            else:
+                # print(f"未知文件类型: {other_script_path}")
+                cmd = [other_script_path]
+
+            # print(f"执行命令: {cmd}")
+            # print(f"工作目录: {working_dir}")
+
+            # 根据配置决定是否显示控制台窗口
+            if show_console:
+                # print("将显示控制台窗口")
+                # 显示控制台窗口
+                if sys.platform == "win32":
+                    # Windows 系统
+                    process = subprocess.Popen(
+                        cmd,
+                        cwd=working_dir,
+                        creationflags=subprocess.CREATE_NEW_CONSOLE
+                    )
+                else:
+                    # 非 Windows 系统
+                    process = subprocess.Popen(
+                        cmd,
+                        cwd=working_dir
+                    )
+            else:
+                # print("将隐藏控制台窗口")
+                # 隐藏控制台窗口，重定向输出
+                process = subprocess.Popen(
+                    cmd,
+                    cwd=working_dir,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    shell=False
+                )
+
+            print(f"进程启动成功，PID: {process.pid}")
             return process
+
+        except FileNotFoundError as e:
+            print(f"启动文件不存在: {e}")
+            return None
         except Exception as e:
-            print("启动子进程失败:", e)
+            print(f"启动子进程失败: {e}")
+            import traceback
+            traceback.print_exc()
             return None
 
     def stop_process(self, process, timeout=10):
